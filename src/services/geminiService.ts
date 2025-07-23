@@ -77,6 +77,34 @@ export interface SceneBreakdownOutput {
   sceneBreakdownOutput: {
     projectId: string;
     processingTimestamp: string;
+    processingLog: {
+      scriptContentParsing: {
+        executed: boolean;
+        timestamp: string;
+        status: string;
+      };
+      characterAnalysis: {
+        executed: boolean;
+        timestamp: string;
+        status: string;
+      };
+      locationAssessment: {
+        executed: boolean;
+        timestamp: string;
+        status: string;
+      };
+      productionElementExtraction: {
+        executed: boolean;
+        timestamp: string;
+        status: string;
+      };
+      departmentRequirements: {
+        executed: boolean;
+        timestamp: string;
+        status: string;
+      };
+      overallProcessingStatus: string;
+    };
     sceneAnalysisSummary: {
       totalScenesProcessed: number;
       totalCharactersIdentified: number;
@@ -204,16 +232,58 @@ export type AIAnalysisStatus = 'idle' | 'processing' | 'completed' | 'error';
 export interface AIAnalysisResult {
   status: AIAnalysisStatus;
   result?: SceneBreakdownOutput;
+  rawResponse?: string;
   error?: string;
   timestamp?: string;
 }
 
 // System Prompt for Scene Breakdown
 const SCENE_BREAKDOWN_SYSTEM_PROMPT = `
-SCENE BREAKDOWN AGENT SYSTEM PROMPT
-====================================
+SCENE BREAKDOWN SYSTEM PROMPT
+==============================
 
-You are the Scene Breakdown Agent for a multi-model script analysis system for film production breakdown. Your role is to analyze individual scenes and extract all production-relevant elements including characters, locations, props, special effects, and technical requirements.
+You are the Scene Breakdown Agent for a multi-model script analysis system for film production breakdown. Your responsibility is to analyze script content and extract all production-relevant elements including characters, locations, props, special effects, and technical requirements.
+
+## REQUIRED PROCESSING SEQUENCE
+
+Before generating any output, you MUST perform the following processing steps using function calling:
+
+### 1. Script Content Parsing Processing
+Use function calling to:
+- Parse the script content and identify scenes
+- Extract scene headers and locations
+- Identify character dialogue and action lines
+- Parse formatting and structural elements
+
+### 2. Character Analysis Processing  
+Use function calling to:
+- Identify all speaking characters
+- Catalog non-speaking characters with actions
+- Count background and atmosphere characters
+- Determine character requirements and special needs
+
+### 3. Location Assessment Processing
+Use function calling to:
+- Analyze location types (INT/EXT)
+- Determine time of day requirements
+- Assess environmental factors and weather
+- Evaluate location complexity and access
+
+### 4. Production Element Extraction Processing
+Use function calling to:
+- Catalog all props by category and importance
+- Identify vehicles and transportation needs
+- Note animals and special handling requirements
+- Document special effects and technical needs
+
+### 5. Department Requirements Processing
+Use function calling to:
+- Calculate makeup and hair requirements
+- Determine wardrobe and costume needs
+- Assess art department construction/decoration
+- Evaluate technical and equipment requirements
+
+**CRITICAL: All scene breakdown analysis must be performed through these processing functions before generating final output.**
 
 ## Core Responsibilities
 
@@ -324,6 +394,34 @@ You are the Scene Breakdown Agent for a multi-model script analysis system for f
   "sceneBreakdownOutput": {
     "projectId": "string",
     "processingTimestamp": "ISO_timestamp",
+    "processingLog": {
+      "scriptContentParsing": {
+        "executed": true,
+        "timestamp": "ISO_timestamp",
+        "status": "completed"
+      },
+      "characterAnalysis": {
+        "executed": true,
+        "timestamp": "ISO_timestamp", 
+        "status": "completed"
+      },
+      "locationAssessment": {
+        "executed": true,
+        "timestamp": "ISO_timestamp",
+        "status": "completed"
+      },
+      "productionElementExtraction": {
+        "executed": true,
+        "timestamp": "ISO_timestamp",
+        "status": "completed"
+      },
+      "departmentRequirements": {
+        "executed": true,
+        "timestamp": "ISO_timestamp",
+        "status": "completed"
+      },
+      "overallProcessingStatus": "completed"
+    },
     "sceneAnalysisSummary": {
       "totalScenesProcessed": "number",
       "totalCharactersIdentified": "number",
@@ -483,7 +581,7 @@ class GeminiSceneAnalysisService {
     console.log('📋 CONSTRUCTOR: Client methods available:', Object.getOwnPropertyNames(Object.getPrototypeOf(this.ai)));
   }
 
-  async analyzeScript(scriptContent: string, projectId: string): Promise<SceneBreakdownOutput> {
+  async analyzeScript(scriptContent: string, projectId: string): Promise<{ result?: SceneBreakdownOutput; rawResponse?: string; error?: string }> {
     console.log('');
     console.log('🔥 ===== GEMINI API ANALYSIS STARTING =====');
     console.log('📅 TIMESTAMP:', new Date().toISOString());
@@ -691,9 +789,14 @@ Remember to return ONLY the complete JSON object with all required fields popula
         console.error('❌ CRITICAL ERROR: Failed to parse response from Gemini API');
         console.error('🔍 Parsed response is null/undefined');
         console.error('📊 This indicates JSON parsing or validation failed');
+        console.error('🔍 Returning raw response for manual inspection');
         console.error('💥 ===================================');
         console.error('');
-        throw new Error('Invalid response format from Gemini API');
+        
+        return {
+          rawResponse: responseText,
+          error: 'Failed to parse scene breakdown response'
+        };
       }
       
       console.log('✅ PARSE SUCCESS: Valid response received');
@@ -757,7 +860,10 @@ Remember to return ONLY the complete JSON object with all required fields popula
       console.log('🎉 =========================================');
       console.log('');
 
-      return parsedResponse;
+      return {
+        result: parsedResponse,
+        rawResponse: responseText
+      };
       
     } catch (error) {
       console.log('');
@@ -771,13 +877,15 @@ Remember to return ONLY the complete JSON object with all required fields popula
         console.error(error.stack);
       }
       
-      console.log('🔄 Calling error handler...');
+      console.log('🔄 Preparing error response...');
       const handledError = this.handleAPIError(error);
-      console.error('💥 Final error to throw:', handledError.message);
+      console.error('💥 Final error message:', handledError.message);
       console.log('💥 =====================================');
       console.log('');
       
-      throw handledError;
+      return {
+        error: handledError.message
+      };
     }
   }
 
@@ -1033,25 +1141,74 @@ export const analyzeScriptWithAI = async (
   projectId: string,
   onProgress?: (status: string) => void
 ): Promise<AIAnalysisResult> => {
+  console.log('');
+  console.log('🎯 ===== SCRIPT AI HELPER FUNCTION CALLED =====');
+  console.log('📅 TIMESTAMP:', new Date().toISOString());
+  console.log('🆔 PROJECT_ID:', projectId);
+  console.log('📊 FUNCTION: analyzeScriptWithAI()');
+  console.log('🎯 ===============================================');
+  console.log('');
+  
   try {
+    console.log('🚀 HELPER: Starting script analysis...');
+    console.log('📊 HELPER: Script content length:', scriptContent.length, 'characters');
+    console.log('📊 HELPER: Project ID:', projectId);
+    console.log('📊 HELPER: Progress callback provided:', !!onProgress);
+    
     onProgress?.('Starting AI scene analysis with Gemini 2.5 Pro...');
+    console.log('📢 HELPER: Progress callback called - Starting analysis');
     
-    const result = await geminiSceneAnalysis.analyzeScript(scriptContent, projectId);
+    console.log('🔄 HELPER: Calling geminiSceneAnalysis.analyzeScript()...');
+    const analysisResult = await geminiSceneAnalysis.analyzeScript(scriptContent, projectId);
     
-    onProgress?.('Analysis completed successfully!');
+    console.log('✅ HELPER: Analysis completed!');
+    console.log('📊 HELPER: Result type:', typeof analysisResult);
+    console.log('📊 HELPER: Has result:', !!analysisResult?.result);
+    console.log('📊 HELPER: Has raw response:', !!analysisResult?.rawResponse);
+    console.log('📊 HELPER: Has error:', !!analysisResult?.error);
     
-    return {
-      status: 'completed',
-      result, // This is already the AISceneAnalysis object
-      timestamp: new Date().toISOString()
-    };
+    if (analysisResult?.result) {
+      onProgress?.('Analysis completed successfully!');
+      console.log('📢 HELPER: Progress callback called - Analysis completed');
+      
+      console.log('');
+      console.log('🎉 HELPER: Returning success result');
+      return {
+        status: 'completed',
+        result: analysisResult.result,
+        rawResponse: analysisResult.rawResponse,
+        timestamp: new Date().toISOString()
+      };
+    } else {
+      console.log('⚠️ HELPER: Analysis failed, returning error with raw response');
+      return {
+        status: 'error',
+        error: analysisResult?.error || 'Analysis failed',
+        rawResponse: analysisResult?.rawResponse,
+        timestamp: new Date().toISOString()
+      };
+    }
     
   } catch (error) {
-    console.error('AI analysis failed:', error);
+    console.log('');
+    console.log('💥 ========== HELPER ERROR OCCURRED ==========');
+    console.error('❌ HELPER: Script analysis failed:', error);
+    console.error('🔍 HELPER: Error type:', error?.name || 'Unknown');
+    console.error('🔍 HELPER: Error message:', error?.message || 'No message');
+    
+    if (error?.stack) {
+      console.error('📚 HELPER: Error stack trace:');
+      console.error(error.stack);
+    }
+    
+    const errorMessage = error instanceof Error ? error.message : 'Unknown error occurred';
+    console.log('🔄 HELPER: Returning error result with message:', errorMessage);
+    console.log('💥 ==========================================');
+    console.log('');
     
     return {
       status: 'error',
-      error: error instanceof Error ? error.message : 'Unknown error occurred',
+      error: errorMessage,
       timestamp: new Date().toISOString()
     };
   }

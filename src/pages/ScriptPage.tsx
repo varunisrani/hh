@@ -5,7 +5,7 @@ import { Button } from '@/components/ui/button';
 import { mockScenes } from '@/data/mockData';
 import { useSelectedProject } from '@/hooks/useSelectedProject';
 import { Search, FileText, Share2, Download, Brain, AlertCircle, CheckCircle, RefreshCw, Upload } from 'lucide-react';
-import { SceneBreakdownOutput, analyzeScriptWithAI } from '@/services/geminiService';
+import { ScriptAnalysisOutput, analyzeScriptAnalysisWithAI } from '@/services/scriptAnalysisService';
 import { ProjectData } from '@/types';
 import { useToast } from '@/hooks/use-toast';
 
@@ -20,11 +20,12 @@ export const ScriptPage = () => {
   const [notes, setNotes] = useState('');
   const [sceneContent, setSceneContent] = useState(mockScenes[0].content);
   const [showBreakdown, setShowBreakdown] = useState(false);
-  const [aiAnalysis, setAiAnalysis] = useState<SceneBreakdownOutput | null>(null);
+  const [aiAnalysis, setAiAnalysis] = useState<ScriptAnalysisOutput | null>(null);
   const [analysisStatus, setAnalysisStatus] = useState<string>('');
   const [isReanalyzing, setIsReanalyzing] = useState(false);
   const [isReUploading, setIsReUploading] = useState(false);
   const [showJsonView, setShowJsonView] = useState(false);
+  const [aiAnalysisRawResponse, setAiAnalysisRawResponse] = useState<string>('');
 
   // Safe accessor for AI analysis data
   const getAnalysisData = (path: string, defaultValue: any = 'N/A') => {
@@ -223,6 +224,12 @@ export const ScriptPage = () => {
           console.log('✅ Setting AI analysis result:', updatedProject.aiAnalysis.result);
           setAiAnalysis(updatedProject.aiAnalysis.result);
         }
+        
+        // Set raw response if available
+        if (updatedProject.aiAnalysis?.rawResponse) {
+          console.log('✅ Setting AI analysis raw response');
+          setAiAnalysisRawResponse(updatedProject.aiAnalysis.rawResponse);
+        }
       }
     };
 
@@ -230,6 +237,13 @@ export const ScriptPage = () => {
       if (event.detail.projectId === selectedProject?.id) {
         console.log('AI Analysis failed for current project');
         setAnalysisStatus('');
+        
+        // Set raw response if available even on error
+        const updatedProject = JSON.parse(localStorage.getItem('selected_project') || '{}');
+        if (updatedProject.aiAnalysis?.rawResponse) {
+          console.log('✅ Setting AI analysis raw response (error case)');
+          setAiAnalysisRawResponse(updatedProject.aiAnalysis.rawResponse);
+        }
       }
     };
 
@@ -255,6 +269,15 @@ export const ScriptPage = () => {
       console.log('🔍 AI Analysis Status:', selectedProject?.aiAnalysis?.status);
       console.log('🔍 AI Analysis Error:', selectedProject?.aiAnalysis?.error);
       setAiAnalysis(null);
+    }
+    
+    // Load raw response if available (for both success and error cases)
+    if (selectedProject?.aiAnalysis?.rawResponse) {
+      console.log('✅ AI analysis raw response found');
+      setAiAnalysisRawResponse(selectedProject.aiAnalysis.rawResponse);
+    } else {
+      console.log('❌ No AI analysis raw response found');
+      setAiAnalysisRawResponse('');
     }
     
     if (selectedProject?.aiAnalysis?.status === 'processing') {
@@ -287,7 +310,7 @@ export const ScriptPage = () => {
       console.log('📝 Script content preview:', selectedProject.scriptContent.substring(0, 200) + '...');
       console.log('📝 Script length:', selectedProject.scriptContent.length, 'characters');
       
-      const analysisResult = await analyzeScriptWithAI(
+      const analysisResult = await analyzeScriptAnalysisWithAI(
         selectedProject.scriptContent,
         selectedProject.id,
         (status) => {
@@ -321,6 +344,11 @@ export const ScriptPage = () => {
           title: "Re-analysis completed!",
           description: "Script has been re-analyzed with updated AI insights."
         });
+      }
+
+      // Set raw response regardless of success/failure
+      if (analysisResult.rawResponse) {
+        setAiAnalysisRawResponse(analysisResult.rawResponse);
       }
 
       setAnalysisStatus('');
@@ -687,10 +715,10 @@ export const ScriptPage = () => {
                 variant="outline" 
                 size="sm" 
                 onClick={() => setShowJsonView(!showJsonView)}
-                disabled={!hasAIData}
-                className={`border-purple-500 text-purple-400 bg-gray-900 hover:bg-gray-800 ${!hasAIData ? 'opacity-50 cursor-not-allowed' : ''}`}
+                disabled={!hasAIData && !aiAnalysisRawResponse}
+                className={`border-purple-500 text-purple-400 bg-gray-900 hover:bg-gray-800 ${(!hasAIData && !aiAnalysisRawResponse) ? 'opacity-50 cursor-not-allowed' : ''}`}
               >
-                {showJsonView ? 'Visual View' : 'JSON View'}
+                {showJsonView ? 'Visual View' : (aiAnalysisRawResponse && !hasAIData ? 'Raw Response' : 'JSON View')}
               </Button>
               {!hasAIData && selectedProject?.aiAnalysis?.status === 'error' && (
                 <Button 
@@ -736,33 +764,58 @@ export const ScriptPage = () => {
               </div>
             </div>
           )}
-          
-          {hasAIData ? (
-            showJsonView ? (
-              // JSON View - Raw Gemini Response
-              <div className="bg-gray-900 rounded-lg p-6">
-                <div className="flex items-center justify-between mb-4">
-                  <h2 className="text-xl font-bold text-white">Raw JSON Response from Gemini</h2>
-                  <div className="flex items-center space-x-2 text-purple-300">
-                    <Brain className="h-5 w-5" />
-                    <span className="text-sm">Legacy Format</span>
+
+          {/* Failed AI Analysis - Raw Response Display */}
+          {!hasAIData && aiAnalysisRawResponse && selectedProject?.aiAnalysis?.status === 'error' && showJsonView && (
+            <div className="mb-6 bg-red-900/20 border border-red-500/30 rounded-lg p-6">
+              <div className="flex items-center justify-between mb-4">
+                <div>
+                  <h2 className="text-xl font-bold text-white">Failed AI Analysis - Raw Gemini Response</h2>
+                  <div className="text-red-400 text-sm mt-1">
+                    Analysis failed, but here's the raw response from Gemini for debugging
                   </div>
                 </div>
-                <div className="bg-black rounded p-4 overflow-auto max-h-96">
-                  <pre className="text-green-400 text-xs whitespace-pre-wrap">
-                    {JSON.stringify(aiAnalysis, null, 2)}
-                  </pre>
-                </div>
-                <div className="mt-2 text-xs text-purple-400">
-                  Project ID: {aiAnalysis?.sceneBreakdownOutput?.projectId || 'N/A'} | 
-                  Scenes: {aiAnalysis?.sceneBreakdownOutput?.sceneAnalysisSummary?.totalScenesProcessed || 0} | 
-                  Confidence: {aiAnalysis?.sceneBreakdownOutput?.qualityControlChecks?.confidenceScore || 'N/A'}
-                </div>
-                <div className="mt-4 text-xs text-gray-400">
-                  This is the exact JSON structure returned by Gemini AI using your legacy system prompt.
+                <div className="flex items-center space-x-2 text-red-300">
+                  <AlertCircle className="h-5 w-5" />
+                  <span className="text-sm">Error Response</span>
                 </div>
               </div>
-            ) : (
+              <div className="bg-black rounded p-4 overflow-auto max-h-96">
+                <pre className="text-red-400 text-xs whitespace-pre-wrap">
+                  {aiAnalysisRawResponse}
+                </pre>
+              </div>
+              <div className="mt-4 text-xs text-gray-400">
+                This is the raw response from Gemini AI. The response may contain parsing errors or unexpected format issues.
+              </div>
+              <div className="mt-2 text-xs text-red-400">
+                Error: {selectedProject?.aiAnalysis?.error || 'Unknown analysis error'}
+              </div>
+            </div>
+          )}
+
+          {/* Successful AI Analysis - Raw Response Display (when in JSON view) */}
+          {hasAIData && showJsonView && aiAnalysisRawResponse && (
+            <div className="mb-6 bg-gray-900 rounded-lg p-6">
+              <div className="flex items-center justify-between mb-4">
+                <h2 className="text-xl font-bold text-white">Raw Gemini API Response</h2>
+                <div className="flex items-center space-x-2 text-green-300">
+                  <CheckCircle className="h-5 w-5" />
+                  <span className="text-sm">Success Response</span>
+                </div>
+              </div>
+              <div className="bg-black rounded p-4 overflow-auto max-h-96">
+                <pre className="text-green-400 text-xs whitespace-pre-wrap">
+                  {aiAnalysisRawResponse}
+                </pre>
+              </div>
+              <div className="mt-4 text-xs text-gray-400">
+                This is the raw JSON response from the Gemini API before parsing into the structured format shown below.
+              </div>
+            </div>
+          )}
+          
+          {hasAIData && !showJsonView && (
             // AI Analysis Display - Legacy Format
             <div className="space-y-6">
               {/* Project Summary Header */}
@@ -799,16 +852,16 @@ export const ScriptPage = () => {
                         <h3 className="text-xl font-bold text-white">Scene {scene.sceneNumber}</h3>
                         <div className="text-sm text-gray-400">{scene.sceneHeader}</div>
                         <div className="flex items-center space-x-4 mt-1 text-xs text-gray-500">
-                          <span>{scene.location.type} {scene.location.primaryLocation}</span>
+                          <span>{scene.location?.type || 'N/A'} {scene.location?.primaryLocation || 'N/A'}</span>
                           <span>•</span>
-                          <span>{scene.location.timeOfDay}</span>
+                          <span>{scene.location?.timeOfDay || 'N/A'}</span>
                           <span>•</span>
                           <span>{scene.estimatedScreenTime}</span>
                         </div>
                       </div>
                       <div className="text-right">
                         <div className="text-sm text-purple-400 font-medium">Overall Complexity</div>
-                        <div className="text-2xl font-bold text-white">{scene.complexityScores.overallComplexity}/10</div>
+                        <div className="text-2xl font-bold text-white">{scene.complexityScores?.overallComplexity || 0}/10</div>
                       </div>
                     </div>
 
@@ -818,7 +871,7 @@ export const ScriptPage = () => {
                       <div className="bg-gray-700 rounded p-4">
                         <h4 className="text-sm font-medium text-blue-300 mb-2">Characters</h4>
                         <div className="space-y-2">
-                          {scene.characters.speaking.map((char, index) => (
+                          {(scene.characters?.speaking || []).map((char, index) => (
                             <div key={index} className="bg-gray-600 rounded p-2">
                               <div className="text-xs">
                                 <span className="text-white font-medium">{char.name}</span>
@@ -834,7 +887,7 @@ export const ScriptPage = () => {
                               )}
                             </div>
                           ))}
-                          {scene.characters.nonSpeaking.map((char, index) => (
+                          {(scene.characters?.nonSpeaking || []).map((char, index) => (
                             <div key={index} className="bg-gray-600 rounded p-2">
                               <div className="text-xs text-gray-300">
                                 {char.description} ({char.count})
@@ -846,7 +899,7 @@ export const ScriptPage = () => {
                               )}
                             </div>
                           ))}
-                          {scene.characters.background.map((char, index) => (
+                          {(scene.characters?.background || []).map((char, index) => (
                             <div key={index} className="text-xs text-gray-400">
                               {char.description} (~{char.estimatedCount})
                             </div>
@@ -858,7 +911,7 @@ export const ScriptPage = () => {
                       <div className="bg-gray-700 rounded p-4">
                         <h4 className="text-sm font-medium text-orange-300 mb-2">Props & Elements</h4>
                         <div className="space-y-2">
-                          {scene.productionElements.props.map((prop, index) => (
+                          {(scene.productionElements?.props || []).map((prop, index) => (
                             <div key={index} className="bg-gray-600 rounded p-2">
                               <div className="text-xs">
                                 <span className="text-white">{prop.item}</span>
@@ -879,7 +932,7 @@ export const ScriptPage = () => {
                               )}
                             </div>
                           ))}
-                          {scene.productionElements.vehicles.map((vehicle, index) => (
+                          {(scene.productionElements?.vehicles || []).map((vehicle, index) => (
                             <div key={index} className="bg-gray-600 rounded p-2">
                               <div className="text-xs text-cyan-300">
                                 {vehicle.type} ({vehicle.usage})
@@ -891,7 +944,7 @@ export const ScriptPage = () => {
                               )}
                             </div>
                           ))}
-                          {scene.productionElements.specialEffects.map((fx, index) => (
+                          {(scene.productionElements?.specialEffects || []).map((fx, index) => (
                             <div key={index} className="bg-red-500/10 border border-red-500/30 rounded p-2">
                               <div className="text-xs text-red-300">
                                 <span className="font-medium">{fx.type.toUpperCase()}</span>: {fx.description}
@@ -915,20 +968,20 @@ export const ScriptPage = () => {
                         <div className="space-y-2">
                           <div className="flex justify-between text-xs">
                             <span className="text-gray-400">Setup:</span>
-                            <span className="text-white">{scene.timeEstimates.setupHours}h</span>
+                            <span className="text-white">{scene.timeEstimates?.setupHours || 0}h</span>
                           </div>
                           <div className="flex justify-between text-xs">
                             <span className="text-gray-400">Shooting:</span>
-                            <span className="text-white">{scene.timeEstimates.shootingHours}h</span>
+                            <span className="text-white">{scene.timeEstimates?.shootingHours || 0}h</span>
                           </div>
                           <div className="flex justify-between text-xs">
                             <span className="text-gray-400">Wrap:</span>
-                            <span className="text-white">{scene.timeEstimates.wrapHours}h</span>
+                            <span className="text-white">{scene.timeEstimates?.wrapHours || 0}h</span>
                           </div>
                           <div className="border-t border-gray-600 pt-2 mt-2">
                             <div className="flex justify-between text-xs font-medium">
                               <span className="text-purple-300">Total:</span>
-                              <span className="text-purple-400">{scene.timeEstimates.totalHours}h</span>
+                              <span className="text-purple-400">{scene.timeEstimates?.totalHours || 0}h</span>
                             </div>
                           </div>
                         </div>
@@ -945,19 +998,19 @@ export const ScriptPage = () => {
                           <div className="space-y-1">
                             <div className="text-xs">
                               <span className="text-gray-400">Standard:</span>
-                              <span className="text-white ml-1">{scene.departmentRequirements.makeup.standardMakeup} people</span>
+                              <span className="text-white ml-1">{scene.departmentRequirements?.makeup?.standardMakeup || 0} people</span>
                             </div>
                             <div className="text-xs">
                               <span className="text-gray-400">Time:</span>
-                              <span className="text-white ml-1">{scene.departmentRequirements.makeup.estimatedApplicationTime} min</span>
+                              <span className="text-white ml-1">{scene.departmentRequirements?.makeup?.estimatedApplicationTime || 0} min</span>
                             </div>
-                            {scene.departmentRequirements.makeup.specialEffectsMakeup.length > 0 && (
+                            {scene.departmentRequirements?.makeup?.specialEffectsMakeup?.length > 0 && (
                               <div className="text-xs">
                                 <span className="text-gray-400">Special FX:</span>
                                 <div className="text-gray-300 mt-1">{scene.departmentRequirements.makeup.specialEffectsMakeup.join(', ')}</div>
                               </div>
                             )}
-                            {scene.departmentRequirements.makeup.prosthetics.length > 0 && (
+                            {scene.departmentRequirements?.makeup?.prosthetics?.length > 0 && (
                               <div className="text-xs">
                                 <span className="text-gray-400">Prosthetics:</span>
                                 <div className="text-gray-300 mt-1">{scene.departmentRequirements.makeup.prosthetics.join(', ')}</div>
@@ -972,19 +1025,19 @@ export const ScriptPage = () => {
                           <div className="space-y-1">
                             <div className="text-xs">
                               <span className="text-gray-400">Standard:</span>
-                              <span className="text-white ml-1">{scene.departmentRequirements.wardrobe.standardCostumes}</span>
+                              <span className="text-white ml-1">{scene.departmentRequirements?.wardrobe?.standardCostumes || 0}</span>
                             </div>
                             <div className="text-xs">
                               <span className="text-gray-400">Quick Changes:</span>
-                              <span className="text-white ml-1">{scene.departmentRequirements.wardrobe.quickChanges}</span>
+                              <span className="text-white ml-1">{scene.departmentRequirements?.wardrobe?.quickChanges || 0}</span>
                             </div>
-                            {scene.departmentRequirements.wardrobe.periodCostumes.length > 0 && (
+                            {scene.departmentRequirements?.wardrobe?.periodCostumes?.length > 0 && (
                               <div className="text-xs">
                                 <span className="text-gray-400">Period:</span>
                                 <div className="text-gray-300 mt-1">{scene.departmentRequirements.wardrobe.periodCostumes.join(', ')}</div>
                               </div>
                             )}
-                            {scene.departmentRequirements.wardrobe.specialtyItems.length > 0 && (
+                            {scene.departmentRequirements?.wardrobe?.specialtyItems?.length > 0 && (
                               <div className="text-xs">
                                 <span className="text-gray-400">Specialty:</span>
                                 <div className="text-gray-300 mt-1">{scene.departmentRequirements.wardrobe.specialtyItems.join(', ')}</div>
@@ -997,23 +1050,28 @@ export const ScriptPage = () => {
                         <div className="bg-gray-600 rounded p-3">
                           <div className="text-xs font-medium text-orange-300 mb-2">Art Department</div>
                           <div className="space-y-1">
-                            {scene.departmentRequirements.artDepartment.setConstruction.length > 0 && (
+                            {scene.departmentRequirements?.artDepartment?.setConstruction?.length > 0 && (
                               <div className="text-xs">
                                 <span className="text-gray-400">Construction:</span>
                                 <div className="text-gray-300 mt-1">{scene.departmentRequirements.artDepartment.setConstruction.join(', ')}</div>
                               </div>
                             )}
-                            {scene.departmentRequirements.artDepartment.setDecoration.length > 0 && (
+                            {scene.departmentRequirements?.artDepartment?.setDecoration?.length > 0 && (
                               <div className="text-xs">
                                 <span className="text-gray-400">Decoration:</span>
                                 <div className="text-gray-300 mt-1">{scene.departmentRequirements.artDepartment.setDecoration.join(', ')}</div>
                               </div>
                             )}
-                            {scene.departmentRequirements.artDepartment.locationModifications.length > 0 && (
+                            {scene.departmentRequirements?.artDepartment?.locationModifications?.length > 0 && (
                               <div className="text-xs">
                                 <span className="text-gray-400">Modifications:</span>
                                 <div className="text-gray-300 mt-1">{scene.departmentRequirements.artDepartment.locationModifications.join(', ')}</div>
                               </div>
+                            )}
+                            {(!scene.departmentRequirements?.artDepartment?.setConstruction?.length && 
+                              !scene.departmentRequirements?.artDepartment?.setDecoration?.length && 
+                              !scene.departmentRequirements?.artDepartment?.locationModifications?.length) && (
+                              <div className="text-xs text-gray-400">No special requirements</div>
                             )}
                           </div>
                         </div>
@@ -1021,14 +1079,14 @@ export const ScriptPage = () => {
                     </div>
 
                     {/* Special Considerations & Continuity */}
-                    {(scene.specialConsiderations.length > 0 || scene.continuityNotes.length > 0) && (
+                    {((scene.specialConsiderations?.length || 0) > 0 || (scene.continuityNotes?.length || 0) > 0) && (
                       <div className="mt-4 pt-4 border-t border-gray-600">
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                          {scene.specialConsiderations.length > 0 && (
+                          {(scene.specialConsiderations?.length || 0) > 0 && (
                             <div>
                               <h4 className="text-sm font-medium text-yellow-300 mb-2">Special Considerations</h4>
                               <div className="space-y-1">
-                                {scene.specialConsiderations.map((consideration, index) => (
+                                {(scene.specialConsiderations || []).map((consideration, index) => (
                                   <div key={index} className="text-xs text-gray-300 bg-yellow-500/10 rounded p-2">
                                     • {consideration}
                                   </div>
@@ -1036,11 +1094,11 @@ export const ScriptPage = () => {
                               </div>
                             </div>
                           )}
-                          {scene.continuityNotes.length > 0 && (
+                          {(scene.continuityNotes?.length || 0) > 0 && (
                             <div>
                               <h4 className="text-sm font-medium text-blue-300 mb-2">Continuity Notes</h4>
                               <div className="space-y-1">
-                                {scene.continuityNotes.map((note, index) => (
+                                {(scene.continuityNotes || []).map((note, index) => (
                                   <div key={index} className="text-xs text-gray-300 bg-blue-500/10 rounded p-2">
                                     • {note}
                                   </div>
@@ -1090,8 +1148,9 @@ export const ScriptPage = () => {
                 )}
               </div>
             </div>
-            )
-          ) : (
+          )}
+          
+          {!hasAIData && (
             // Fallback Mock Display
             <div className="bg-yellow-50 rounded-lg p-8 shadow-sm">
               <div className="flex items-center justify-between mb-6">
