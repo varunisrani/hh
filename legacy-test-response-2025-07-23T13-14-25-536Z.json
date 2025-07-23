@@ -1,0 +1,208 @@
+{
+  "sceneBreakdownOutput": {
+    "projectId": "test-legacy-format-1753276429916",
+    "processingTimestamp": "2024-05-16T14:30:00Z",
+    "sceneAnalysisSummary": {
+      "totalScenesProcessed": 1,
+      "totalCharactersIdentified": 3,
+      "totalLocationsIdentified": 1,
+      "totalPropsIdentified": 7,
+      "averageSceneComplexity": 3
+    },
+    "detailedSceneBreakdowns": [
+      {
+        "sceneNumber": 1,
+        "sceneHeader": "INT. LIVING ROOM - DAY",
+        "pageCount": 1,
+        "estimatedScreenTime": "01:15",
+        "characters": {
+          "speaking": [
+            {
+              "name": "SARAH",
+              "dialogueLines": 4,
+              "firstAppearance": true,
+              "specialRequirements": [
+                "Determined demeanor",
+                "Emotional performance (eyes fill with tears)"
+              ]
+            },
+            {
+              "name": "JOHN",
+              "dialogueLines": 4,
+              "firstAppearance": true,
+              "specialRequirements": [
+                "Weathered appearance",
+                "Avoids eye contact",
+                "Hands shake (acting note)"
+              ]
+            },
+            {
+              "name": "MARY",
+              "dialogueLines": 2,
+              "firstAppearance": true,
+              "specialRequirements": [
+                "Appears confused and uncertain",
+                "Disheveled appearance"
+              ]
+            }
+          ],
+          "nonSpeaking": [],
+          "background": []
+        },
+        "location": {
+          "type": "INT",
+          "primaryLocation": "LIVING ROOM",
+          "secondaryLocation": "Hallway/Stairway (implied)",
+          "timeOfDay": "DAY",
+          "weatherConditions": "N/A (Interior)",
+          "complexityLevel": "simple"
+        },
+        "productionElements": {
+          "props": [
+            {
+              "item": "Manila folder",
+              "category": "hero",
+              "department": "Props/Art",
+              "specialRequirements": [
+                "Must be thick with documents"
+              ]
+            },
+            {
+              "item": "Medical reports",
+              "category": "interactive",
+              "department": "Props/Art",
+              "specialRequirements": [
+                "Placed inside the manila folder"
+              ]
+            },
+            {
+              "item": "Coffee mug",
+              "category": "interactive",
+              "department": "Props/Art",
+              "specialRequirements": []
+            },
+            {
+              "item": "Kitchen table",
+              "category": "set",
+              "department": "Art Department",
+              "specialRequirements": [
+                "Note: Script places a kitchen table in a living room. Design needs to accommodate this."
+              ]
+            },
+            {
+              "item": "Sofa",
+              "category": "set",
+              "department": "Art Department",
+              "specialRequirements": []
+            },
+            {
+              "item": "Coffee table",
+              "category": "set",
+              "department": "Art Department",
+              "specialRequirements": []
+            },
+            {
+              "item": "Family photos",
+              "category": "set",
+              "department": "Art Department",
+              "specialRequirements": [
+                "To be placed on mantle"
+              ]
+            }
+          ],
+          "vehicles": [],
+          "animals": [],
+          "specialEffects": [
+            {
+              "type": "practical",
+              "description": "Tears for Sarah. Can be actor-generated or makeup-assisted.",
+              "complexity": "simple",
+              "safetyRequirements": []
+            }
+          ]
+        },
+        "departmentRequirements": {
+          "makeup": {
+            "standardMakeup": 3,
+            "specialEffectsMakeup": [
+              "Weathered look for JOHN",
+              "Confused/tired look for MARY",
+              "Tear effect for SARAH"
+            ],
+            "prosthetics": [],
+            "estimatedApplicationTime": 60
+          },
+          "wardrobe": {
+            "standardCostumes": 2,
+            "periodCostumes": [],
+            "specialtyItems": [
+              "Bathrobe for MARY"
+            ],
+            "quickChanges": 0
+          },
+          "artDepartment": {
+            "setConstruction": [],
+            "setDecoration": [
+              "Cozy living room dressing",
+              "Sofa, coffee table, kitchen table, chairs",
+              "Mantlepiece with family photos"
+            ],
+            "locationModifications": []
+          }
+        },
+        "complexityScores": {
+          "technicalDifficulty": 2,
+          "castComplexity": 4,
+          "locationChallenges": 2,
+          "overallComplexity": 3
+        },
+        "timeEstimates": {
+          "setupHours": 1.5,
+          "shootingHours": 2.5,
+          "wrapHours": 0.5,
+          "totalHours": 4.5
+        },
+        "specialConsiderations": [
+          "Scene is emotionally charged and relies heavily on actor performances.",
+          "Script discrepancy: Action specifies a 'kitchen table' in a 'living room' scene. Art Department needs to clarify layout.",
+          "Sound of footsteps on stairs needs to be recorded or added in post."
+        ],
+        "continuityNotes": [
+          "Position of manila folder and papers on the table.",
+          "John's coffee mug placement.",
+          "Mary's disheveled hair and bathrobe must be consistent if she appears in subsequent scenes."
+        ]
+      }
+    ],
+    "productionSummary": {
+      "totalUniqueCharacters": 3,
+      "totalUniqueLocations": 1,
+      "totalProps": 7,
+      "specialEffectsScenes": 1,
+      "highComplexityScenes": [],
+      "departmentAlerts": {
+        "makeup": [
+          "Tear effect for Sarah",
+          "Specialty looks for John (weathered) and Mary (confused/disheveled)"
+        ],
+        "wardrobe": [
+          "Bathrobe for Mary"
+        ],
+        "artDepartment": [
+          "Script continuity issue: kitchen table in living room needs design solution",
+          "Requires specific set dressing (family photos)"
+        ],
+        "specialEffects": [
+          "Simple practical tear effect required for Scene 1"
+        ]
+      }
+    },
+    "qualityControlChecks": {
+      "sceneCompleteness": "PASS",
+      "elementValidation": "PASS",
+      "continuityConsistency": "PASS",
+      "industryStandardCompliance": "PASS",
+      "confidenceScore": "98%"
+    }
+  }
+}

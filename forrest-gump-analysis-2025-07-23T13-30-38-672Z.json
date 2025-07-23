@@ -1,0 +1,227 @@
+{
+  "sceneBreakdownOutput": {
+    "projectId": "forrest-gump-test-1753277391724",
+    "processingTimestamp": "2023-10-27T10:00:00Z",
+    "sceneAnalysisSummary": {
+      "totalScenesProcessed": 1,
+      "totalCharactersIdentified": 4,
+      "totalLocationsIdentified": 1,
+      "totalPropsIdentified": 5,
+      "averageSceneComplexity": 7
+    },
+    "detailedSceneBreakdowns": [
+      {
+        "sceneNumber": 1,
+        "sceneHeader": "EXT. A SAVANNAH STREET - DAY (1981)",
+        "pageCount": 1,
+        "estimatedScreenTime": "01:30",
+        "characters": {
+          "speaking": [
+            {
+              "name": "FORREST GUMP",
+              "dialogueLines": 7,
+              "firstAppearance": true,
+              "specialRequirements": [
+                "Pleasant man in his thirties"
+              ]
+            },
+            {
+              "name": "BLACK WOMAN",
+              "dialogueLines": 2,
+              "firstAppearance": true,
+              "specialRequirements": []
+            },
+            {
+              "name": "NURSE",
+              "dialogueLines": 3,
+              "firstAppearance": true,
+              "specialRequirements": [
+                "Identified as a 'WHITE NURSE'"
+              ]
+            }
+          ],
+          "nonSpeaking": [
+            {
+              "description": "Man whose shoulder the feather nearly lands on",
+              "count": 1,
+              "specialRequirements": []
+            }
+          ],
+          "background": [
+            {
+              "description": "Pedestrians and drivers on a city street",
+              "estimatedCount": 20
+            }
+          ]
+        },
+        "location": {
+          "type": "EXT",
+          "primaryLocation": "A SAVANNAH STREET",
+          "secondaryLocation": "Bus Bench / Bus Stop",
+          "timeOfDay": "DAY",
+          "weatherConditions": "Clear, gentle breeze",
+          "complexityLevel": "complex"
+        },
+        "productionElements": {
+          "props": [
+            {
+              "item": "Feather",
+              "category": "hero",
+              "department": "Props/Special Effects",
+              "specialRequirements": [
+                "Requires VFX/SFX for controlled floating and movement"
+              ]
+            },
+            {
+              "item": "Book ('Curious George')",
+              "category": "interactive",
+              "department": "Props",
+              "specialRequirements": []
+            },
+            {
+              "item": "Box of Chocolates",
+              "category": "consumable",
+              "department": "Props",
+              "specialRequirements": [
+                "Must be openable",
+                "One chocolate is eaten"
+              ]
+            },
+            {
+              "item": "Suitcase",
+              "category": "set",
+              "department": "Props",
+              "specialRequirements": []
+            },
+            {
+              "item": "Bus Bench",
+              "category": "set",
+              "department": "Art Department",
+              "specialRequirements": [
+                "Period appropriate for 1981"
+              ]
+            }
+          ],
+          "vehicles": [
+            {
+              "type": "City Bus",
+              "usage": "picture",
+              "specialRequirements": [
+                "Period correct for 1981",
+                "Must be drivable and allow actors to embark/disembark"
+              ]
+            },
+            {
+              "type": "Various Cars",
+              "usage": "background",
+              "specialRequirements": [
+                "Period correct for 1981"
+              ]
+            }
+          ],
+          "animals": [],
+          "specialEffects": [
+            {
+              "type": "visual",
+              "description": "The feather's controlled flight through the city, over cars, and near people.",
+              "complexity": "complex",
+              "safetyRequirements": []
+            },
+            {
+              "type": "practical",
+              "description": "Wind effect to make feather be whisked away or blow at the end.",
+              "complexity": "simple",
+              "safetyRequirements": [
+                "Safe operation of wind machine/fan"
+              ]
+            }
+          ]
+        },
+        "departmentRequirements": {
+          "makeup": {
+            "standardMakeup": 4,
+            "specialEffectsMakeup": [],
+            "prosthetics": [],
+            "estimatedApplicationTime": 60
+          },
+          "wardrobe": {
+            "standardCostumes": 4,
+            "periodCostumes": [
+              "All costumes must be period-correct for 1981"
+            ],
+            "specialtyItems": [
+              "Forrest: Plaid shirt, blue jeans, period-specific Nike running shoes",
+              "Nurse: Period-correct nurse's uniform"
+            ],
+            "quickChanges": 0
+          },
+          "artDepartment": {
+            "setConstruction": [],
+            "setDecoration": [
+              "Dress a city street to appear as Savannah in 1981",
+              "Provide period-correct bus bench"
+            ],
+            "locationModifications": [
+              "Possible modification/hiding of modern street furniture/signage"
+            ]
+          }
+        },
+        "complexityScores": {
+          "technicalDifficulty": 8,
+          "castComplexity": 4,
+          "locationChallenges": 7,
+          "overallComplexity": 7
+        },
+        "timeEstimates": {
+          "setupHours": 4,
+          "shootingHours": 4,
+          "wrapHours": 1.5,
+          "totalHours": 9.5
+        },
+        "specialConsiderations": [
+          "The year 1981 is a critical constraint for all visual departments (Wardrobe, Art, Vehicles).",
+          "The floating feather shot is a major VFX sequence requiring significant planning and budget.",
+          "Requires permits, traffic control, and public management for shooting on a live city street."
+        ],
+        "continuityNotes": [
+          "Forrest's costume: plaid shirt, blue jeans, Nike shoes.",
+          "Feather is placed inside the 'Curious George' book.",
+          "Box of chocolates and suitcase are left on the bench.",
+          "One chocolate is missing from the box."
+        ]
+      }
+    ],
+    "productionSummary": {
+      "totalUniqueCharacters": 4,
+      "totalUniqueLocations": 1,
+      "totalProps": 5,
+      "specialEffectsScenes": 1,
+      "highComplexityScenes": [
+        1
+      ],
+      "departmentAlerts": {
+        "makeup": [],
+        "wardrobe": [
+          "All costumes must be period-correct for 1981.",
+          "Requires specific period Nike shoes for lead character.",
+          "Requires period-correct Nurse uniform."
+        ],
+        "artDepartment": [
+          "Requires period dressing for a city street (1981).",
+          "Requires period-correct picture vehicles (bus, cars)."
+        ],
+        "specialEffects": [
+          "Major VFX sequence required for floating feather.",
+          "Wind effects needed for feather practical shots."
+        ]
+      }
+    },
+    "qualityControlChecks": {
+      "sceneCompleteness": "PASS",
+      "elementValidation": "PASS",
+      "continuityConsistency": "PASS",
+      "industryStandardCompliance": "PASS",
+      "confidenceScore": "98%"
+    }
+  }
+}

@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gemini API Test</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #0a0a0a;
+            color: #ffffff;
+        }
+        .container {
+            background: #1a1a1a;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        .status {
+            padding: 10px;
+            border-radius: 4px;
+            margin: 10px 0;
+        }
+        .success { background: #065f46; border: 1px solid #10b981; }
+        .error { background: #7f1d1d; border: 1px solid #ef4444; }
+        .info { background: #1e3a8a; border: 1px solid #3b82f6; }
+        .warning { background: #78350f; border: 1px solid #f59e0b; }
+        button {
+            background: #3b82f6;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover { background: #2563eb; }
+        button:disabled { background: #4b5563; cursor: not-allowed; }
+        pre {
+            background: #000;
+            padding: 15px;
+            border-radius: 4px;
+            overflow-x: auto;
+            white-space: pre-wrap;
+            font-size: 12px;
+        }
+        .test-results {
+            max-height: 400px;
+            overflow-y: auto;
+            border: 1px solid #374151;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🧪 Gemini API Integration Test</h1>
+        <p>This test verifies that the Gemini API integration is working correctly with sample script content.</p>
+        
+        <button id="testBtn" onclick="runTest()">🚀 Run API Test</button>
+        
+        <div id="status"></div>
+        <div id="progress"></div>
+        
+        <h3>📋 Test Results:</h3>
+        <div id="results" class="test-results"></div>
+        
+        <h3>📁 JSON Output:</h3>
+        <div id="jsonOutput"></div>
+    </div>
+
+    <script type="module">
+        import { analyzeScriptWithAI } from './services/geminiService.ts';
+
+        // Sample script content for testing
+        const testScriptContent = `SCENE 1:
+----------------------------------------
+Scene Name: 2 EXT. THE STREAM – THE OTHERS 2
+Scene Action: As the dawn sky brightens, Moonwatcher and his tribe reach the shallow stream. The Others are already there. They were there on the other side every day – that did not make it any less annoying. There are eighteen of them, and it is impossible to distinguish them from the members of Moonwatcher's own tribe.
+Characters: Moonwatcher, The Others
+Location: EXT. THE STREAM
+Time: Dawn
+
+SCENE 2:
+----------------------------------------
+Scene Name: 3 EXT. AFRICAN PLAIN – HERBIVORES 3
+Scene Action: Moonwatcher and his companions search for berries, fruit and leaves, and fight off pangs of hunger, while all around them, competing with them for the same fodder, is a potential source of more food than they could ever hope to eat.
+Characters: Moonwatcher, companions
+Location: EXT. AFRICAN PLAIN
+Time: Day`;
+
+        function updateStatus(message, type = 'info') {
+            const statusDiv = document.getElementById('status');
+            statusDiv.innerHTML = `<div class="status ${type}">${message}</div>`;
+        }
+
+        function updateProgress(message) {
+            const progressDiv = document.getElementById('progress');
+            progressDiv.innerHTML = `<div class="status info">📊 ${message}</div>`;
+        }
+
+        function updateResults(data) {
+            const resultsDiv = document.getElementById('results');
+            resultsDiv.innerHTML = `<pre>${JSON.stringify(data, null, 2)}</pre>`;
+        }
+
+        function downloadJSON(data, filename) {
+            const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = filename;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        }
+
+        window.runTest = async function() {
+            const testBtn = document.getElementById('testBtn');
+            const testProjectId = 'browser-test-' + Date.now();
+            
+            testBtn.disabled = true;
+            testBtn.textContent = '🔄 Testing...';
+            
+            updateStatus('🚀 Starting Gemini API test...', 'info');
+            updateProgress('Initializing test...');
+            
+            try {
+                console.log('📝 Project ID:', testProjectId);
+                console.log('📄 Script content length:', testScriptContent.length, 'characters');
+                
+                updateProgress('Calling Gemini API...');
+                
+                const result = await analyzeScriptWithAI(
+                    testScriptContent,
+                    testProjectId,
+                    (status) => {
+                        console.log('📊 Progress:', status);
+                        updateProgress(status);
+                    }
+                );
+                
+                console.log('✅ API call completed!');
+                console.log('📊 Result status:', result.status);
+                
+                if (result.status === 'completed') {
+                    updateStatus('🎉 Analysis successful!', 'success');
+                    
+                    const outputData = {
+                        testInfo: {
+                            projectId: testProjectId,
+                            timestamp: new Date().toISOString(),
+                            scriptContentLength: testScriptContent.length,
+                            testType: 'browser-script-analysis',
+                            userAgent: navigator.userAgent
+                        },
+                        apiResult: result
+                    };
+                    
+                    updateResults(outputData);
+                    
+                    // Auto-download JSON file
+                    const timestamp = new Date().toISOString().replace(/[:.]/g, '-');
+                    const filename = `gemini-test-result-${timestamp}.json`;
+                    downloadJSON(outputData, filename);
+                    
+                    updateStatus(`✅ Test completed successfully! Results downloaded as ${filename}`, 'success');
+                    
+                    if (result.result && result.result.sceneBreakdownOutput) {
+                        const analysis = result.result.sceneBreakdownOutput;
+                        updateProgress(`📈 Analysis Summary: ${analysis.sceneAnalysisSummary?.totalScenesProcessed || 'N/A'} scenes, ${analysis.sceneAnalysisSummary?.totalCharactersIdentified || 'N/A'} characters, ${analysis.sceneAnalysisSummary?.totalLocationsIdentified || 'N/A'} locations`);
+                    }
+                    
+                } else if (result.status === 'error') {
+                    updateStatus(`❌ Analysis failed: ${result.error}`, 'error');
+                    updateResults(result);
+                    
+                    // Download error result as well
+                    const timestamp = new Date().toISOString().replace(/[:.]/g, '-');
+                    const filename = `gemini-test-error-${timestamp}.json`;
+                    downloadJSON({
+                        testInfo: {
+                            projectId: testProjectId,
+                            timestamp: new Date().toISOString(),
+                            testType: 'browser-script-analysis-error'
+                        },
+                        error: result
+                    }, filename);
+                }
+                
+            } catch (error) {
+                console.error('💥 Test failed with exception:', error);
+                updateStatus(`💥 Test failed: ${error.message}`, 'error');
+                updateResults({ error: error.message, stack: error.stack });
+                
+                // Download exception details
+                const timestamp = new Date().toISOString().replace(/[:.]/g, '-');
+                const filename = `gemini-test-exception-${timestamp}.json`;
+                downloadJSON({
+                    testInfo: {
+                        projectId: testProjectId,
+                        timestamp: new Date().toISOString(),
+                        testType: 'browser-script-analysis-exception'
+                    },
+                    exception: {
+                        message: error.message,
+                        stack: error.stack,
+                        name: error.name
+                    }
+                }, filename);
+            } finally {
+                testBtn.disabled = false;
+                testBtn.textContent = '🚀 Run API Test';
+            }
+        };
+    </script>
+</body>
+</html>
