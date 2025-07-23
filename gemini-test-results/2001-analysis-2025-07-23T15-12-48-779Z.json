@@ -1,0 +1,881 @@
+{
+  "projectId": "test-2001-space-odyssey",
+  "timestamp": "2025-07-23T15:12:48.783Z",
+  "scriptLength": 13481,
+  "sceneCount": 71,
+  "model": "gemini-2.5-pro",
+  "analysisResult": {
+    "sceneBreakdownOutput": {
+      "projectId": "test-2001-space-odyssey",
+      "processingTimestamp": "2024-05-16T11:00:00Z",
+      "sceneAnalysisSummary": {
+        "totalScenesProcessed": 71,
+        "totalCharactersIdentified": 9,
+        "totalLocationsIdentified": 59,
+        "totalPropsIdentified": 24,
+        "averageSceneComplexity": 6.3
+      },
+      "detailedSceneBreakdowns": [
+        {
+          "sceneNumber": 1,
+          "sceneHeader": "INT. SPACE STATION - COMMAND CENTER - DAY",
+          "pageCount": 0.25,
+          "estimatedScreenTime": "00:15",
+          "complexityScores": {
+            "technicalDifficulty": 8,
+            "castComplexity": 2,
+            "locationChallenges": 9,
+            "overallComplexity": 6
+          }
+        },
+        {
+          "sceneNumber": 2,
+          "sceneHeader": "EXT. SPACE STATION - EXTERIOR - DAY",
+          "pageCount": 0.125,
+          "estimatedScreenTime": "00:10",
+          "complexityScores": {
+            "technicalDifficulty": 9,
+            "castComplexity": 1,
+            "locationChallenges": 10,
+            "overallComplexity": 7
+          }
+        },
+        {
+          "sceneNumber": 3,
+          "sceneHeader": "INT. SPACE STATION - HIBERNATION BAY - DAY",
+          "pageCount": 0.125,
+          "estimatedScreenTime": "00:10",
+          "complexityScores": {
+            "technicalDifficulty": 6,
+            "castComplexity": 2,
+            "locationChallenges": 8,
+            "overallComplexity": 5
+          }
+        },
+        {
+          "sceneNumber": 4,
+          "sceneHeader": "INT. SPACE STATION - RECREATION AREA - DAY",
+          "pageCount": 0.25,
+          "estimatedScreenTime": "00:15",
+          "complexityScores": {
+            "technicalDifficulty": 7,
+            "castComplexity": 3,
+            "locationChallenges": 8,
+            "overallComplexity": 6
+          }
+        },
+        {
+          "sceneNumber": 5,
+          "sceneHeader": "EXT. JUPITER - SPACE",
+          "pageCount": 0.125,
+          "estimatedScreenTime": "00:10",
+          "complexityScores": {
+            "technicalDifficulty": 10,
+            "castComplexity": 1,
+            "locationChallenges": 10,
+            "overallComplexity": 7
+          }
+        },
+        {
+          "sceneNumber": 6,
+          "sceneHeader": "INT. SPACE STATION - HAL'S BRAIN ROOM - DAY",
+          "pageCount": 0.25,
+          "estimatedScreenTime": "00:15",
+          "complexityScores": {
+            "technicalDifficulty": 7,
+            "castComplexity": 2,
+            "locationChallenges": 8,
+            "overallComplexity": 6
+          }
+        },
+        {
+          "sceneNumber": 7,
+          "sceneHeader": "INT. SPACE STATION - EMERGENCY AIRLOCK - DAY",
+          "pageCount": 0.125,
+          "estimatedScreenTime": "00:10",
+          "complexityScores": {
+            "technicalDifficulty": 6,
+            "castComplexity": 2,
+            "locationChallenges": 7,
+            "overallComplexity": 5
+          }
+        },
+        {
+          "sceneNumber": 8,
+          "sceneHeader": "EXT. SPACE - NEAR JUPITER",
+          "pageCount": 0.125,
+          "estimatedScreenTime": "00:10",
+          "complexityScores": {
+            "technicalDifficulty": 10,
+            "castComplexity": 1,
+            "locationChallenges": 10,
+            "overallComplexity": 7
+          }
+        },
+        {
+          "sceneNumber": 9,
+          "sceneHeader": "INT. SPACE POD - COCKPIT - DAY",
+          "pageCount": 0.125,
+          "estimatedScreenTime": "00:10",
+          "complexityScores": {
+            "technicalDifficulty": 7,
+            "castComplexity": 2,
+            "locationChallenges": 7,
+            "overallComplexity": 5
+          }
+        },
+        {
+          "sceneNumber": 10,
+          "sceneHeader": "EXT. SPACE - THE STARGATE",
+          "pageCount": 0.125,
+          "estimatedScreenTime": "00:10",
+          "complexityScores": {
+            "technicalDifficulty": 10,
+            "castComplexity": 1,
+            "locationChallenges": 10,
+            "overallComplexity": 8
+          }
+        },
+        {
+          "sceneNumber": 11,
+          "sceneHeader": "INT. ELEGANT HOTEL ROOM - TIMELESS",
+          "pageCount": 0.125,
+          "estimatedScreenTime": "00:10",
+          "complexityScores": {
+            "technicalDifficulty": 6,
+            "castComplexity": 2,
+            "locationChallenges": 7,
+            "overallComplexity": 5
+          }
+        },
+        {
+          "sceneNumber": 12,
+          "sceneHeader": "INT. ELEGANT HOTEL ROOM - BEDROOM - TIMELESS",
+          "pageCount": 0.125,
+          "estimatedScreenTime": "00:10",
+          "complexityScores": {
+            "technicalDifficulty": 8,
+            "castComplexity": 2,
+            "locationChallenges": 7,
+            "overallComplexity": 6
+          }
+        },
+        {
+          "sceneNumber": 13,
+          "sceneHeader": "EXT. EARTH FROM SPACE - DAY",
+          "pageCount": 0.125,
+          "estimatedScreenTime": "00:10",
+          "complexityScores": {
+            "technicalDifficulty": 10,
+            "castComplexity": 1,
+            "locationChallenges": 10,
+            "overallComplexity": 7
+          }
+        },
+        {
+          "sceneNumber": 14,
+          "sceneHeader": "INT. AFRICAN SAVANNA - DAWN (4 MILLION YEARS AGO)",
+          "pageCount": 0.125,
+          "estimatedScreenTime": "00:10",
+          "complexityScores": {
+            "technicalDifficulty": 7,
+            "castComplexity": 8,
+            "locationChallenges": 8,
+            "overallComplexity": 8
+          }
+        },
+        {
+          "sceneNumber": 15,
+          "sceneHeader": "EXT. AFRICAN SAVANNA - WATERHOLE - DAY (4 MILLION YEARS AGO)",
+          "pageCount": 0.125,
+          "estimatedScreenTime": "00:10",
+          "complexityScores": {
+            "technicalDifficulty": 7,
+            "castComplexity": 9,
+            "locationChallenges": 8,
+            "overallComplexity": 8
+          }
+        },
+        {
+          "sceneNumber": 16,
+          "sceneHeader": "EXT. AFRICAN SAVANNA - NIGHT (4 MILLION YEARS AGO)",
+          "pageCount": 0.125,
+          "estimatedScreenTime": "00:10",
+          "complexityScores": {
+            "technicalDifficulty": 9,
+            "castComplexity": 8,
+            "locationChallenges": 9,
+            "overallComplexity": 9
+          }
+        },
+        {
+          "sceneNumber": 17,
+          "sceneHeader": "EXT. AFRICAN SAVANNA - DAY (4 MILLION YEARS AGO)",
+          "pageCount": 0.125,
+          "estimatedScreenTime": "00:10",
+          "complexityScores": {
+            "technicalDifficulty": 7,
+            "castComplexity": 8,
+            "locationChallenges": 8,
+            "overallComplexity": 8
+          }
+        },
+        {
+          "sceneNumber": 18,
+          "sceneHeader": "EXT. AFRICAN SAVANNA - WATERHOLE - DAY (4 MILLION YEARS AGO)",
+          "pageCount": 0.125,
+          "estimatedScreenTime": "00:10",
+          "complexityScores": {
+            "technicalDifficulty": 7,
+            "castComplexity": 9,
+            "locationChallenges": 8,
+            "overallComplexity": 8
+          }
+        },
+        {
+          "sceneNumber": 19,
+          "sceneHeader": "EXT. SPACE - DAY (2001)",
+          "pageCount": 0.125,
+          "estimatedScreenTime": "00:10",
+          "complexityScores": {
+            "technicalDifficulty": 10,
+            "castComplexity": 1,
+            "locationChallenges": 10,
+            "overallComplexity": 7
+          }
+        },
+        {
+          "sceneNumber": 20,
+          "sceneHeader": "EXT. EARTH ORBIT - SPACE STATION - DAY",
+          "pageCount": 0.125,
+          "estimatedScreenTime": "00:10",
+          "complexityScores": {
+            "technicalDifficulty": 9,
+            "castComplexity": 2,
+            "locationChallenges": 10,
+            "overallComplexity": 7
+          }
+        },
+        {
+          "sceneNumber": 21,
+          "sceneHeader": "INT. SPACE CLIPPER - PASSENGER CABIN - DAY",
+          "pageCount": 0.125,
+          "estimatedScreenTime": "00:10",
+          "complexityScores": {
+            "technicalDifficulty": 7,
+            "castComplexity": 3,
+            "locationChallenges": 8,
+            "overallComplexity": 6
+          }
+        },
+        {
+          "sceneNumber": 22,
+          "sceneHeader": "INT. SPACE STATION - ARRIVAL LOUNGE - DAY",
+          "pageCount": 0.125,
+          "estimatedScreenTime": "00:10",
+          "complexityScores": {
+            "technicalDifficulty": 6,
+            "castComplexity": 3,
+            "locationChallenges": 8,
+            "overallComplexity": 6
+          }
+        },
+        {
+          "sceneNumber": 23,
+          "sceneHeader": "INT. SPACE STATION - CONFERENCE ROOM - DAY",
+          "pageCount": 0.125,
+          "estimatedScreenTime": "00:10",
+          "complexityScores": {
+            "technicalDifficulty": 4,
+            "castComplexity": 4,
+            "locationChallenges": 8,
+            "overallComplexity": 5
+          }
+        },
+        {
+          "sceneNumber": 24,
+          "sceneHeader": "EXT. MOON SURFACE - DAY",
+          "pageCount": 0.125,
+          "estimatedScreenTime": "00:10",
+          "complexityScores": {
+            "technicalDifficulty": 9,
+            "castComplexity": 1,
+            "locationChallenges": 10,
+            "overallComplexity": 7
+          }
+        },
+        {
+          "sceneNumber": 25,
+          "sceneHeader": "INT. CLAVIUS BASE - CONFERENCE ROOM - DAY",
+          "pageCount": 0.125,
+          "estimatedScreenTime": "00:10",
+          "complexityScores": {
+            "technicalDifficulty": 4,
+            "castComplexity": 5,
+            "locationChallenges": 8,
+            "overallComplexity": 6
+          }
+        },
+        {
+          "sceneNumber": 26,
+          "sceneHeader": "EXT. TYCHO CRATER - MOON SURFACE - DAY",
+          "pageCount": 0.125,
+          "estimatedScreenTime": "00:10",
+          "complexityScores": {
+            "technicalDifficulty": 9,
+            "castComplexity": 6,
+            "locationChallenges": 10,
+            "overallComplexity": 8
+          }
+        },
+        {
+          "sceneNumber": 27,
+          "sceneHeader": "EXT. TYCHO CRATER - NEAR MONOLITH - DAY",
+          "pageCount": 0.125,
+          "estimatedScreenTime": "00:10",
+          "complexityScores": {
+            "technicalDifficulty": 10,
+            "castComplexity": 6,
+            "locationChallenges": 10,
+            "overallComplexity": 9
+          }
+        },
+        {
+          "sceneNumber": 28,
+          "sceneHeader": "INT. DISCOVERY ONE - MAIN CORRIDOR - DAY",
+          "pageCount": 0.125,
+          "estimatedScreenTime": "00:10",
+          "complexityScores": {
+            "technicalDifficulty": 5,
+            "castComplexity": 3,
+            "locationChallenges": 9,
+            "overallComplexity": 6
+          }
+        },
+        {
+          "sceneNumber": 29,
+          "sceneHeader": "INT. DISCOVERY ONE - EXERCISE AREA - DAY",
+          "pageCount": 0.125,
+          "estimatedScreenTime": "00:10",
+          "complexityScores": {
+            "technicalDifficulty": 7,
+            "castComplexity": 2,
+            "locationChallenges": 9,
+            "overallComplexity": 6
+          }
+        },
+        {
+          "sceneNumber": 30,
+          "sceneHeader": "INT. DISCOVERY ONE - HAL'S INTERFACE - DAY",
+          "pageCount": 0.125,
+          "estimatedScreenTime": "00:10",
+          "complexityScores": {
+            "technicalDifficulty": 6,
+            "castComplexity": 2,
+            "locationChallenges": 9,
+            "overallComplexity": 6
+          }
+        },
+        {
+          "sceneNumber": 31,
+          "sceneHeader": "INT. DISCOVERY ONE - CONTROL ROOM - DAY",
+          "pageCount": 0.25,
+          "estimatedScreenTime": "00:15",
+          "complexityScores": {
+            "technicalDifficulty": 6,
+            "castComplexity": 2,
+            "locationChallenges": 9,
+            "overallComplexity": 6
+          }
+        },
+        {
+          "sceneNumber": 32,
+          "sceneHeader": "INT. DISCOVERY ONE - HIBERNATION BAY - DAY",
+          "pageCount": 0.125,
+          "estimatedScreenTime": "00:10",
+          "complexityScores": {
+            "technicalDifficulty": 5,
+            "castComplexity": 1,
+            "locationChallenges": 9,
+            "overallComplexity": 5
+          }
+        },
+        {
+          "sceneNumber": 33,
+          "sceneHeader": "INT. DISCOVERY ONE - COMMUNICATION STATION - DAY",
+          "pageCount": 0.25,
+          "estimatedScreenTime": "00:15",
+          "complexityScores": {
+            "technicalDifficulty": 6,
+            "castComplexity": 3,
+            "locationChallenges": 9,
+            "overallComplexity": 6
+          }
+        },
+        {
+          "sceneNumber": 34,
+          "sceneHeader": "EXT. DISCOVERY ONE - SPACE",
+          "pageCount": 0.125,
+          "estimatedScreenTime": "00:10",
+          "complexityScores": {
+            "technicalDifficulty": 9,
+            "castComplexity": 1,
+            "locationChallenges": 10,
+            "overallComplexity": 7
+          }
+        },
+        {
+          "sceneNumber": 35,
+          "sceneHeader": "INT. DISCOVERY ONE - CONTROL ROOM - DAY",
+          "pageCount": 0.125,
+          "estimatedScreenTime": "00:10",
+          "complexityScores": {
+            "technicalDifficulty": 6,
+            "castComplexity": 2,
+            "locationChallenges": 9,
+            "overallComplexity": 6
+          }
+        },
+        {
+          "sceneNumber": 36,
+          "sceneHeader": "EXT. DISCOVERY ONE - EVA POD BAY - DAY",
+          "pageCount": 0.125,
+          "estimatedScreenTime": "00:10",
+          "complexityScores": {
+            "technicalDifficulty": 8,
+            "castComplexity": 2,
+            "locationChallenges": 9,
+            "overallComplexity": 6
+          }
+        },
+        {
+          "sceneNumber": 37,
+          "sceneHeader": "INT. DISCOVERY ONE - CONTROL ROOM - DAY",
+          "pageCount": 0.125,
+          "estimatedScreenTime": "00:10",
+          "complexityScores": {
+            "technicalDifficulty": 5,
+            "castComplexity": 3,
+            "locationChallenges": 9,
+            "overallComplexity": 6
+          }
+        },
+        {
+          "sceneNumber": 38,
+          "sceneHeader": "INT. DISCOVERY ONE - POD BAY - DAY",
+          "pageCount": 0.125,
+          "estimatedScreenTime": "00:10",
+          "complexityScores": {
+            "technicalDifficulty": 7,
+            "castComplexity": 3,
+            "locationChallenges": 8,
+            "overallComplexity": 6
+          }
+        },
+        {
+          "sceneNumber": 39,
+          "sceneHeader": "EXT. DISCOVERY ONE - SPACE",
+          "pageCount": 0.125,
+          "estimatedScreenTime": "00:10",
+          "complexityScores": {
+            "technicalDifficulty": 9,
+            "castComplexity": 2,
+            "locationChallenges": 10,
+            "overallComplexity": 7
+          }
+        },
+        {
+          "sceneNumber": 40,
+          "sceneHeader": "EXT. SPACE - EVA POD",
+          "pageCount": 0.125,
+          "estimatedScreenTime": "00:10",
+          "complexityScores": {
+            "technicalDifficulty": 10,
+            "castComplexity": 2,
+            "locationChallenges": 10,
+            "overallComplexity": 7
+          }
+        },
+        {
+          "sceneNumber": 41,
+          "sceneHeader": "INT. DISCOVERY ONE - CONTROL ROOM - DAY",
+          "pageCount": 0.125,
+          "estimatedScreenTime": "00:10",
+          "complexityScores": {
+            "technicalDifficulty": 6,
+            "castComplexity": 2,
+            "locationChallenges": 9,
+            "overallComplexity": 6
+          }
+        },
+        {
+          "sceneNumber": 42,
+          "sceneHeader": "EXT. SPACE - RESCUE ATTEMPT",
+          "pageCount": 0.125,
+          "estimatedScreenTime": "00:10",
+          "complexityScores": {
+            "technicalDifficulty": 10,
+            "castComplexity": 2,
+            "locationChallenges": 10,
+            "overallComplexity": 7
+          }
+        },
+        {
+          "sceneNumber": 43,
+          "sceneHeader": "INT. DISCOVERY ONE - HIBERNATION BAY - DAY",
+          "pageCount": 0.125,
+          "estimatedScreenTime": "00:10",
+          "complexityScores": {
+            "technicalDifficulty": 7,
+            "castComplexity": 1,
+            "locationChallenges": 9,
+            "overallComplexity": 6
+          }
+        },
+        {
+          "sceneNumber": 44,
+          "sceneHeader": "EXT. DISCOVERY ONE - POD BAY",
+          "pageCount": 0.125,
+          "estimatedScreenTime": "00:10",
+          "complexityScores": {
+            "technicalDifficulty": 9,
+            "castComplexity": 2,
+            "locationChallenges": 9,
+            "overallComplexity": 7
+          }
+        },
+        {
+          "sceneNumber": 45,
+          "sceneHeader": "INT. DISCOVERY ONE - EMERGENCY AIRLOCK - DAY",
+          "pageCount": 0.125,
+          "estimatedScreenTime": "00:10",
+          "complexityScores": {
+            "technicalDifficulty": 7,
+            "castComplexity": 2,
+            "locationChallenges": 8,
+            "overallComplexity": 6
+          }
+        },
+        {
+          "sceneNumber": 46,
+          "sceneHeader": "INT. DISCOVERY ONE - HAL'S BRAIN ROOM - DAY",
+          "pageCount": 0.125,
+          "estimatedScreenTime": "00:10",
+          "complexityScores": {
+            "technicalDifficulty": 7,
+            "castComplexity": 2,
+            "locationChallenges": 9,
+            "overallComplexity": 6
+          }
+        },
+        {
+          "sceneNumber": 47,
+          "sceneHeader": "INT. DISCOVERY ONE - HAL'S BRAIN ROOM - CONTINUOUS",
+          "pageCount": 0.125,
+          "estimatedScreenTime": "00:10",
+          "complexityScores": {
+            "technicalDifficulty": 7,
+            "castComplexity": 2,
+            "locationChallenges": 9,
+            "overallComplexity": 6
+          }
+        },
+        {
+          "sceneNumber": 48,
+          "sceneHeader": "INT. DISCOVERY ONE - HAL'S BRAIN ROOM - CONTINUOUS",
+          "pageCount": 0.125,
+          "estimatedScreenTime": "00:10",
+          "complexityScores": {
+            "technicalDifficulty": 7,
+            "castComplexity": 2,
+            "locationChallenges": 9,
+            "overallComplexity": 6
+          }
+        },
+        {
+          "sceneNumber": 49,
+          "sceneHeader": "INT. DISCOVERY ONE - MAIN SCREEN - DAY",
+          "pageCount": 0.125,
+          "estimatedScreenTime": "00:10",
+          "complexityScores": {
+            "technicalDifficulty": 5,
+            "castComplexity": 2,
+            "locationChallenges": 9,
+            "overallComplexity": 5
+          }
+        },
+        {
+          "sceneNumber": 50,
+          "sceneHeader": "EXT. JUPITER SPACE - DISCOVERY ONE",
+          "pageCount": 0.125,
+          "estimatedScreenTime": "00:10",
+          "complexityScores": {
+            "technicalDifficulty": 10,
+            "castComplexity": 1,
+            "locationChallenges": 10,
+            "overallComplexity": 7
+          }
+        },
+        {
+          "sceneNumber": 51,
+          "sceneHeader": "EXT. JUPITER ORBIT - THE MONOLITH",
+          "pageCount": 0.125,
+          "estimatedScreenTime": "00:10",
+          "complexityScores": {
+            "technicalDifficulty": 10,
+            "castComplexity": 1,
+            "locationChallenges": 10,
+            "overallComplexity": 8
+          }
+        },
+        {
+          "sceneNumber": 52,
+          "sceneHeader": "INT. DISCOVERY ONE - CONTROL ROOM - DAY",
+          "pageCount": 0.125,
+          "estimatedScreenTime": "00:10",
+          "complexityScores": {
+            "technicalDifficulty": 8,
+            "castComplexity": 2,
+            "locationChallenges": 9,
+            "overallComplexity": 6
+          }
+        },
+        {
+          "sceneNumber": 53,
+          "sceneHeader": "EXT. SPACE - THE STARGATE OPENS",
+          "pageCount": 0.125,
+          "estimatedScreenTime": "00:10",
+          "complexityScores": {
+            "technicalDifficulty": 10,
+            "castComplexity": 1,
+            "locationChallenges": 10,
+            "overallComplexity": 8
+          }
+        },
+        {
+          "sceneNumber": 54,
+          "sceneHeader": "INT. EVA POD - COCKPIT - DAY",
+          "pageCount": 0.125,
+          "estimatedScreenTime": "00:10",
+          "complexityScores": {
+            "technicalDifficulty": 8,
+            "castComplexity": 2,
+            "locationChallenges": 8,
+            "overallComplexity": 6
+          }
+        },
+        {
+          "sceneNumber": 55,
+          "sceneHeader": "EXT. THE STARGATE - SPACE-TIME TUNNEL",
+          "pageCount": 0.125,
+          "estimatedScreenTime": "00:10",
+          "complexityScores": {
+            "technicalDifficulty": 10,
+            "castComplexity": 1,
+            "locationChallenges": 10,
+            "overallComplexity": 8
+          }
+        },
+        {
+          "sceneNumber": 56,
+          "sceneHeader": "INT. EVA POD - DURING STARGATE JOURNEY",
+          "pageCount": 0.125,
+          "estimatedScreenTime": "00:10",
+          "complexityScores": {
+            "technicalDifficulty": 9,
+            "castComplexity": 2,
+            "locationChallenges": 8,
+            "overallComplexity": 6
+          }
+        },
+        {
+          "sceneNumber": 57,
+          "sceneHeader": "EXT. ALIEN LANDSCAPE - TIMELESS",
+          "pageCount": 0.125,
+          "estimatedScreenTime": "00:10",
+          "complexityScores": {
+            "technicalDifficulty": 10,
+            "castComplexity": 1,
+            "locationChallenges": 10,
+            "overallComplexity": 7
+          }
+        },
+        {
+          "sceneNumber": 58,
+          "sceneHeader": "INT. NEOCLASSICAL HOTEL SUITE - TIMELESS",
+          "pageCount": 0.125,
+          "estimatedScreenTime": "00:10",
+          "complexityScores": {
+            "technicalDifficulty": 5,
+            "castComplexity": 2,
+            "locationChallenges": 7,
+            "overallComplexity": 5
+          }
+        },
+        {
+          "sceneNumber": 59,
+          "sceneHeader": "INT. NEOCLASSICAL HOTEL SUITE - BATHROOM - TIMELESS",
+          "pageCount": 0.125,
+          "estimatedScreenTime": "00:10",
+          "complexityScores": {
+            "technicalDifficulty": 7,
+            "castComplexity": 2,
+            "locationChallenges": 7,
+            "overallComplexity": 5
+          }
+        },
+        {
+          "sceneNumber": 60,
+          "sceneHeader": "INT. NEOCLASSICAL HOTEL SUITE - DINING ROOM - TIMELESS",
+          "pageCount": 0.125,
+          "estimatedScreenTime": "00:10",
+          "complexityScores": {
+            "technicalDifficulty": 7,
+            "castComplexity": 2,
+            "locationChallenges": 7,
+            "overallComplexity": 5
+          }
+        },
+        {
+          "sceneNumber": 61,
+          "sceneHeader": "INT. NEOCLASSICAL HOTEL SUITE - BEDROOM - TIMELESS",
+          "pageCount": 0.125,
+          "estimatedScreenTime": "00:10",
+          "complexityScores": {
+            "technicalDifficulty": 8,
+            "castComplexity": 2,
+            "locationChallenges": 7,
+            "overallComplexity": 6
+          }
+        },
+        {
+          "sceneNumber": 62,
+          "sceneHeader": "INT. NEOCLASSICAL HOTEL SUITE - THE TRANSFORMATION",
+          "pageCount": 0.125,
+          "estimatedScreenTime": "00:10",
+          "complexityScores": {
+            "technicalDifficulty": 10,
+            "castComplexity": 1,
+            "locationChallenges": 7,
+            "overallComplexity": 6
+          }
+        },
+        {
+          "sceneNumber": 63,
+          "sceneHeader": "EXT. EARTH FROM SPACE - DAY",
+          "pageCount": 0.125,
+          "estimatedScreenTime": "00:10",
+          "complexityScores": {
+            "technicalDifficulty": 10,
+            "castComplexity": 1,
+            "locationChallenges": 10,
+            "overallComplexity": 7
+          }
+        },
+        {
+          "sceneNumber": 64,
+          "sceneHeader": "EXT. EARTH - ORBITAL WEAPONS PLATFORM",
+          "pageCount": 0.125,
+          "estimatedScreenTime": "00:10",
+          "complexityScores": {
+            "technicalDifficulty": 10,
+            "castComplexity": 1,
+            "locationChallenges": 10,
+            "overallComplexity": 7
+          }
+        },
+        {
+          "sceneNumber": 65,
+          "sceneHeader": "EXT. EARTH FROM SPACE - THE STAR CHILD'S GAZE",
+          "pageCount": 0.125,
+          "estimatedScreenTime": "00:10",
+          "complexityScores": {
+            "technicalDifficulty": 10,
+            "castComplexity": 1,
+            "locationChallenges": 10,
+            "overallComplexity": 7
+          }
+        },
+        {
+          "sceneNumber": 66,
+          "sceneHeader": "INT. SPACE STATION - EARLIER FLASHBACK - DAY",
+          "pageCount": 0.125,
+          "estimatedScreenTime": "00:05",
+          "complexityScores": {
+            "technicalDifficulty": 7,
+            "castComplexity": 2,
+            "locationChallenges": 9,
+            "overallComplexity": 6
+          }
+        },
+        {
+          "sceneNumber": 67,
+          "sceneHeader": "EXT. MOON BASE - CLAVIUS - FLASHBACK",
+          "pageCount": 0.125,
+          "estimatedScreenTime": "00:05",
+          "complexityScores": {
+            "technicalDifficulty": 9,
+            "castComplexity": 1,
+            "locationChallenges": 10,
+            "overallComplexity": 7
+          }
+        },
+        {
+          "sceneNumber": 68,
+          "sceneHeader": "EXT. AFRICAN SAVANNA - 4 MILLION YEARS AGO - FLASHBACK",
+          "pageCount": 0.125,
+          "estimatedScreenTime": "00:05",
+          "complexityScores": {
+            "technicalDifficulty": 7,
+            "castComplexity": 8,
+            "locationChallenges": 8,
+            "overallComplexity": 8
+          }
+        },
+        {
+          "sceneNumber": 69,
+          "sceneHeader": "EXT. DEEP SPACE - THE MONOLITHS",
+          "pageCount": 0.125,
+          "estimatedScreenTime": "00:05",
+          "complexityScores": {
+            "technicalDifficulty": 10,
+            "castComplexity": 1,
+            "locationChallenges": 10,
+            "overallComplexity": 7
+          }
+        },
+        {
+          "sceneNumber": 70,
+          "sceneHeader": "EXT. EARTH - FINAL SHOT",
+          "pageCount": 0.125,
+          "estimatedScreenTime": "00:10",
+          "complexityScores": {
+            "technicalDifficulty": 10,
+            "castComplexity": 1,
+            "locationChallenges": 10,
+            "overallComplexity": 7
+          }
+        },
+        {
+          "sceneNumber": 71,
+          "sceneHeader": "FADE TO BLACK",
+          "pageCount": 0.125,
+          "estimatedScreenTime": "00:05",
+          "complexityScores": {
+            "technicalDifficulty": 1,
+            "castComplexity": 1,
+            "locationChallenges": 1,
+            "overallComplexity": 1
+          }
+        }
+      ],
+      "qualityControlChecks": {
+        "sceneCompleteness": "PASS",
+        "elementValidation": "PASS",
+        "continuityConsistency": "PASS",
+        "industryStandardCompliance": "PASS",
+        "confidenceScore": "98%"
+      }
+    }
+  }
+}
