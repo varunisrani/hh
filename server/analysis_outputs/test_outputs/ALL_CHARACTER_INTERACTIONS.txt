@@ -1,0 +1,112 @@
+TEST - ALL CHARACTER INTERACTIONS
+Complete character interaction analysis
+Total character pairs found: 105
+================================================================================
+
+CHARACTER PAIRS (Sorted by co-occurrence):
+--------------------------------------------------
+  1. DISSOLVE TO ↔ JUDGE: 1 scenes together
+  2. CLOSE UP THE FACE OF THE COURT CLERK ↔ DISSOLVE TO: 1 scenes together
+  3. CLERK ↔ DISSOLVE TO: 1 scenes together
+  4. DISSOLVE TO ↔ GUARD: 1 scenes together
+  5. DISSOLVE TO ↔ FOREMAN: 1 scenes together
+  6. BEHIND ↔ DISSOLVE TO: 1 scenes together
+  7. DISSOLVE TO ↔ WINDOW: 1 scenes together
+  8. DISSOLVE TO ↔ MEDIUM SHOT: 1 scenes together
+  9. DISSOLVE TO ↔ THEM: 1 scenes together
+ 10. CHAIR ↔ DISSOLVE TO: 1 scenes together
+ 11. BEHIND FOREMAN ↔ DISSOLVE TO: 1 scenes together
+ 12. BACKGROUND ↔ DISSOLVE TO: 1 scenes together
+ 13. DISSOLVE TO ↔ FOREMAN'S PLACE: 1 scenes together
+ 14. DISSOLVE TO ↔ FADE OUT: 1 scenes together
+ 15. CLOSE UP THE FACE OF THE COURT CLERK ↔ JUDGE: 1 scenes together
+ 16. CLERK ↔ JUDGE: 1 scenes together
+ 17. GUARD ↔ JUDGE: 1 scenes together
+ 18. FOREMAN ↔ JUDGE: 1 scenes together
+ 19. BEHIND ↔ JUDGE: 1 scenes together
+ 20. JUDGE ↔ WINDOW: 1 scenes together
+ 21. JUDGE ↔ MEDIUM SHOT: 1 scenes together
+ 22. JUDGE ↔ THEM: 1 scenes together
+ 23. CHAIR ↔ JUDGE: 1 scenes together
+ 24. BEHIND FOREMAN ↔ JUDGE: 1 scenes together
+ 25. BACKGROUND ↔ JUDGE: 1 scenes together
+ 26. FOREMAN'S PLACE ↔ JUDGE: 1 scenes together
+ 27. FADE OUT ↔ JUDGE: 1 scenes together
+ 28. CLERK ↔ CLOSE UP THE FACE OF THE COURT CLERK: 1 scenes together
+ 29. CLOSE UP THE FACE OF THE COURT CLERK ↔ GUARD: 1 scenes together
+ 30. CLOSE UP THE FACE OF THE COURT CLERK ↔ FOREMAN: 1 scenes together
+ 31. BEHIND ↔ CLOSE UP THE FACE OF THE COURT CLERK: 1 scenes together
+ 32. CLOSE UP THE FACE OF THE COURT CLERK ↔ WINDOW: 1 scenes together
+ 33. CLOSE UP THE FACE OF THE COURT CLERK ↔ MEDIUM SHOT: 1 scenes together
+ 34. CLOSE UP THE FACE OF THE COURT CLERK ↔ THEM: 1 scenes together
+ 35. CHAIR ↔ CLOSE UP THE FACE OF THE COURT CLERK: 1 scenes together
+ 36. BEHIND FOREMAN ↔ CLOSE UP THE FACE OF THE COURT CLERK: 1 scenes together
+ 37. BACKGROUND ↔ CLOSE UP THE FACE OF THE COURT CLERK: 1 scenes together
+ 38. CLOSE UP THE FACE OF THE COURT CLERK ↔ FOREMAN'S PLACE: 1 scenes together
+ 39. CLOSE UP THE FACE OF THE COURT CLERK ↔ FADE OUT: 1 scenes together
+ 40. CLERK ↔ GUARD: 1 scenes together
+ 41. CLERK ↔ FOREMAN: 1 scenes together
+ 42. BEHIND ↔ CLERK: 1 scenes together
+ 43. CLERK ↔ WINDOW: 1 scenes together
+ 44. CLERK ↔ MEDIUM SHOT: 1 scenes together
+ 45. CLERK ↔ THEM: 1 scenes together
+ 46. CHAIR ↔ CLERK: 1 scenes together
+ 47. BEHIND FOREMAN ↔ CLERK: 1 scenes together
+ 48. BACKGROUND ↔ CLERK: 1 scenes together
+ 49. CLERK ↔ FOREMAN'S PLACE: 1 scenes together
+ 50. CLERK ↔ FADE OUT: 1 scenes together
+ 51. FOREMAN ↔ GUARD: 1 scenes together
+ 52. BEHIND ↔ GUARD: 1 scenes together
+ 53. GUARD ↔ WINDOW: 1 scenes together
+ 54. GUARD ↔ MEDIUM SHOT: 1 scenes together
+ 55. GUARD ↔ THEM: 1 scenes together
+ 56. CHAIR ↔ GUARD: 1 scenes together
+ 57. BEHIND FOREMAN ↔ GUARD: 1 scenes together
+ 58. BACKGROUND ↔ GUARD: 1 scenes together
+ 59. FOREMAN'S PLACE ↔ GUARD: 1 scenes together
+ 60. FADE OUT ↔ GUARD: 1 scenes together
+ 61. BEHIND ↔ FOREMAN: 1 scenes together
+ 62. FOREMAN ↔ WINDOW: 1 scenes together
+ 63. FOREMAN ↔ MEDIUM SHOT: 1 scenes together
+ 64. FOREMAN ↔ THEM: 1 scenes together
+ 65. CHAIR ↔ FOREMAN: 1 scenes together
+ 66. BEHIND FOREMAN ↔ FOREMAN: 1 scenes together
+ 67. BACKGROUND ↔ FOREMAN: 1 scenes together
+ 68. FOREMAN ↔ FOREMAN'S PLACE: 1 scenes together
+ 69. FADE OUT ↔ FOREMAN: 1 scenes together
+ 70. BEHIND ↔ WINDOW: 1 scenes together
+ 71. BEHIND ↔ MEDIUM SHOT: 1 scenes together
+ 72. BEHIND ↔ THEM: 1 scenes together
+ 73. BEHIND ↔ CHAIR: 1 scenes together
+ 74. BEHIND ↔ BEHIND FOREMAN: 1 scenes together
+ 75. BACKGROUND ↔ BEHIND: 1 scenes together
+ 76. BEHIND ↔ FOREMAN'S PLACE: 1 scenes together
+ 77. BEHIND ↔ FADE OUT: 1 scenes together
+ 78. MEDIUM SHOT ↔ WINDOW: 1 scenes together
+ 79. THEM ↔ WINDOW: 1 scenes together
+ 80. CHAIR ↔ WINDOW: 1 scenes together
+ 81. BEHIND FOREMAN ↔ WINDOW: 1 scenes together
+ 82. BACKGROUND ↔ WINDOW: 1 scenes together
+ 83. FOREMAN'S PLACE ↔ WINDOW: 1 scenes together
+ 84. FADE OUT ↔ WINDOW: 1 scenes together
+ 85. MEDIUM SHOT ↔ THEM: 1 scenes together
+ 86. CHAIR ↔ MEDIUM SHOT: 1 scenes together
+ 87. BEHIND FOREMAN ↔ MEDIUM SHOT: 1 scenes together
+ 88. BACKGROUND ↔ MEDIUM SHOT: 1 scenes together
+ 89. FOREMAN'S PLACE ↔ MEDIUM SHOT: 1 scenes together
+ 90. FADE OUT ↔ MEDIUM SHOT: 1 scenes together
+ 91. CHAIR ↔ THEM: 1 scenes together
+ 92. BEHIND FOREMAN ↔ THEM: 1 scenes together
+ 93. BACKGROUND ↔ THEM: 1 scenes together
+ 94. FOREMAN'S PLACE ↔ THEM: 1 scenes together
+ 95. FADE OUT ↔ THEM: 1 scenes together
+ 96. BEHIND FOREMAN ↔ CHAIR: 1 scenes together
+ 97. BACKGROUND ↔ CHAIR: 1 scenes together
+ 98. CHAIR ↔ FOREMAN'S PLACE: 1 scenes together
+ 99. CHAIR ↔ FADE OUT: 1 scenes together
+100. BACKGROUND ↔ BEHIND FOREMAN: 1 scenes together
+101. BEHIND FOREMAN ↔ FOREMAN'S PLACE: 1 scenes together
+102. BEHIND FOREMAN ↔ FADE OUT: 1 scenes together
+103. BACKGROUND ↔ FOREMAN'S PLACE: 1 scenes together
+104. BACKGROUND ↔ FADE OUT: 1 scenes together
+105. FADE OUT ↔ FOREMAN'S PLACE: 1 scenes together

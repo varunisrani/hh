@@ -1,0 +1,17 @@
+12_YEARS_A_SLAVE - COMPLETE ANALYSIS SUMMARY
+Full extraction and analysis of 12_Years_a_Slave screenplay
+================================================================================
+
+EXTRACTION RESULTS:
+--------------------
+Total Scenes: 206
+Total Dialogues: 0
+Total Characters: 102
+
+FILES GENERATED:
+----------------
+1. ALL_SCENES_COMPLETE.txt - All 206 scenes
+2. ALL_DIALOGUES_COMPLETE.txt - All dialogue entries
+3. ALL_CHARACTERS_COMPLETE.txt - All character details
+4. ALL_CHARACTER_INTERACTIONS.txt - Character relationships
+5. COMPLETE_ANALYSIS_SUMMARY.txt - This summary

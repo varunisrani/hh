@@ -1,0 +1,156 @@
+AVATAR - ALL CHARACTER INTERACTIONS
+Complete character interaction analysis
+Total character pairs found: 149
+================================================================================
+
+CHARACTER PAIRS (Sorted by co-occurrence):
+--------------------------------------------------
+  1. CUT TO ↔ JAKE: 49 scenes together
+  2. GRACE ↔ JAKE: 30 scenes together
+  3. CUT TO ↔ GRACE: 27 scenes together
+  4. JAKE ↔ NORM: 18 scenes together
+  5. CUT TO ↔ NORM: 17 scenes together
+  6. JAKE ↔ NEYTIRI: 17 scenes together
+  7. GRACE ↔ NORM: 16 scenes together
+  8. CUT TO ↔ NEYTIRI: 14 scenes together
+  9. JAKE ↔ QUARITCH: 12 scenes together
+ 10. JAKE ↔ TRUDY: 12 scenes together
+ 11. CUT TO ↔ SELFRIDGE: 10 scenes together
+ 12. CUT TO ↔ TRUDY: 10 scenes together
+ 13. CUT TO ↔ QUARITCH: 9 scenes together
+ 14. GRACE ↔ TRUDY: 8 scenes together
+ 15. JAKE ↔ MAX: 7 scenes together
+ 16. NORM ↔ TRUDY: 7 scenes together
+ 17. MAX ↔ NORM: 6 scenes together
+ 18. EYTUKAN ↔ NEYTIRI: 6 scenes together
+ 19. MO'AT ↔ NEYTIRI: 6 scenes together
+ 20. QUARITCH ↔ SELFRIDGE: 6 scenes together
+ 21. CUT TO ↔ MAX: 5 scenes together
+ 22. GRACE ↔ MAX: 5 scenes together
+ 23. QUARITCH ↔ TRUDY: 5 scenes together
+ 24. EYTUKAN ↔ JAKE: 5 scenes together
+ 25. EYTUKAN ↔ MO'AT: 5 scenes together
+ 26. JAKE ↔ MO'AT: 5 scenes together
+ 27. CUT TO ↔ MO'AT: 5 scenes together
+ 28. GRACE ↔ NEYTIRI: 5 scenes together
+ 29. GRACE ↔ SELFRIDGE: 4 scenes together
+ 30. CUT TO ↔ EYTUKAN: 4 scenes together
+ 31. JAKE ↔ SELFRIDGE: 4 scenes together
+ 32. PILOT ↔ QUARITCH: 3 scenes together
+ 33. DISSOLVE TO ↔ JAKE: 2 scenes together
+ 34. JAKE ↔ MED TECH: 2 scenes together
+ 35. CUT TO ↔ WAINFLEET: 2 scenes together
+ 36. QUARITCH ↔ TROOPERS: 2 scenes together
+ 37. GRACE ↔ WAINFLEET: 2 scenes together
+ 38. NORM ↔ WAINFLEET: 2 scenes together
+ 39. NEYTIRI ↔ NORM: 2 scenes together
+ 40. EYTUKAN ↔ TRUDY: 2 scenes together
+ 41. EYTUKAN ↔ QUARITCH: 2 scenes together
+ 42. GRACE ↔ MO'AT: 2 scenes together
+ 43. GRACE ↔ QUARITCH: 2 scenes together
+ 44. NEYTIRI ↔ TRUDY: 2 scenes together
+ 45. NEYTIRI ↔ QUARITCH: 2 scenes together
+ 46. QUARITCH ↔ WAINFLEET: 2 scenes together
+ 47. MAX ↔ TRUDY: 2 scenes together
+ 48. JAKE ↔ TROOPER: 2 scenes together
+ 49. NORM ↔ QUARITCH: 2 scenes together
+ 50. TROOPER ↔ WAINFLEET: 2 scenes together
+ 51. JAKE ↔ PERKY NEWSCASTER: 1 scenes together
+ 52. CUT TO ↔ PERKY NEWSCASTER: 1 scenes together
+ 53. CUT TO ↔ MED TECH: 1 scenes together
+ 54. CREW CHIEF ↔ WAINFLEET: 1 scenes together
+ 55. CREW CHIEF ↔ FIKE: 1 scenes together
+ 56. CREW CHIEF ↔ JAKE: 1 scenes together
+ 57. CREW CHIEF ↔ MAN: 1 scenes together
+ 58. CREW CHIEF ↔ CUT TO: 1 scenes together
+ 59. FIKE ↔ WAINFLEET: 1 scenes together
+ 60. JAKE ↔ WAINFLEET: 1 scenes together
+ 61. MAN ↔ WAINFLEET: 1 scenes together
+ 62. FIKE ↔ JAKE: 1 scenes together
+ 63. FIKE ↔ MAN: 1 scenes together
+ 64. CUT TO ↔ FIKE: 1 scenes together
+ 65. JAKE ↔ MAN: 1 scenes together
+ 66. CUT TO ↔ MAN: 1 scenes together
+ 67. GRACE ↔ TECH: 1 scenes together
+ 68. GRACE ↔ MED TECH: 1 scenes together
+ 69. NORM ↔ TECH: 1 scenes together
+ 70. MED TECH ↔ NORM: 1 scenes together
+ 71. JAKE ↔ TECH: 1 scenes together
+ 72. MAX ↔ TECH: 1 scenes together
+ 73. MAX ↔ MED TECH: 1 scenes together
+ 74. MED TECH ↔ TECH: 1 scenes together
+ 75. JAKE ↔ MECHANIC: 1 scenes together
+ 76. MECHANIC ↔ TRUDY: 1 scenes together
+ 77. MECHANIC ↔ QUARITCH: 1 scenes together
+ 78. TRUDY ↔ WAINFLEET: 1 scenes together
+ 79. CUT TO ↔ THROAT.: 1 scenes together
+ 80. THROAT. ↔ TRUDY: 1 scenes together
+ 81. GRACE ↔ THROAT.: 1 scenes together
+ 82. JAKE ↔ THIS THROWS US INTO A TEACHING MONTAGE: 1 scenes together
+ 83. GRACE ↔ THIS THROWS US INTO A TEACHING MONTAGE: 1 scenes together
+ 84. NORM ↔ THIS THROWS US INTO A TEACHING MONTAGE: 1 scenes together
+ 85. NEYTIRI ↔ THIS THROWS US INTO A TEACHING MONTAGE: 1 scenes together
+ 86. CUT TO ↔ THIS THROWS US INTO A TEACHING MONTAGE: 1 scenes together
+ 87. FLIGHT MONTAGE ↔ NEYTIRI: 1 scenes together
+ 88. FLIGHT MONTAGE ↔ JAKE: 1 scenes together
+ 89. CUT TO ↔ FLIGHT MONTAGE: 1 scenes together
+ 90. DISSOLVE TO ↔ NEYTIRI: 1 scenes together
+ 91. DISSOLVE TO ↔ MO'AT: 1 scenes together
+ 92. DISSOLVE TO ↔ EYTUKAN: 1 scenes together
+ 93. OPERATOR ↔ SUPERVISOR: 1 scenes together
+ 94. OPERATOR ↔ SELFRIDGE: 1 scenes together
+ 95. SELFRIDGE ↔ SUPERVISOR: 1 scenes together
+ 96. EYTUKAN ↔ GRACE: 1 scenes together
+ 97. MO'AT ↔ TRUDY: 1 scenes together
+ 98. MO'AT ↔ QUARITCH: 1 scenes together
+ 99. QUARITCH ↔ SLOW DISSOLVE TO: 1 scenes together
+100. GRACE ↔ SLOW DISSOLVE TO: 1 scenes together
+101. SELFRIDGE ↔ SLOW DISSOLVE TO: 1 scenes together
+102. JAKE ↔ SLOW DISSOLVE TO: 1 scenes together
+103. SELFRIDGE ↔ WAINFLEET: 1 scenes together
+104. JAKE ↔ TSUTEY: 1 scenes together
+105. EYTUKAN ↔ TSUTEY: 1 scenes together
+106. MO'AT ↔ TSUTEY: 1 scenes together
+107. NEYTIRI ↔ TSUTEY: 1 scenes together
+108. CUT TO ↔ TSUTEY: 1 scenes together
+109. GUNNER ↔ QUARITCH: 1 scenes together
+110. PILOTS ↔ QUARITCH: 1 scenes together
+111. GUNNER ↔ JAKE: 1 scenes together
+112. JAKE ↔ PILOTS: 1 scenes together
+113. EYTUKAN ↔ GUNNER: 1 scenes together
+114. EYTUKAN ↔ PILOTS: 1 scenes together
+115. GUNNER ↔ PILOTS: 1 scenes together
+116. GUNNER ↔ TRUDY: 1 scenes together
+117. GUNNER ↔ NEYTIRI: 1 scenes together
+118. PILOTS ↔ TRUDY: 1 scenes together
+119. NEYTIRI ↔ PILOTS: 1 scenes together
+120. GRACE ↔ GUARD: 1 scenes together
+121. GUARD ↔ TRUDY: 1 scenes together
+122. GUARD ↔ MAX: 1 scenes together
+123. GUARD ↔ NORM: 1 scenes together
+124. GUARD ↔ JAKE: 1 scenes together
+125. CUT TO ↔ GUARD: 1 scenes together
+126. GRACE ↔ TROOPER: 1 scenes together
+127. CROWD ↔ NEYTIRI: 1 scenes together
+128. CROWD. ↔ NEYTIRI: 1 scenes together
+129. CROWD ↔ JAKE: 1 scenes together
+130. CROWD ↔ MO'AT: 1 scenes together
+131. CROWD ↔ GRACE: 1 scenes together
+132. CROWD ↔ CROWD.: 1 scenes together
+133. CROWD ↔ CUT TO: 1 scenes together
+134. CROWD. ↔ JAKE: 1 scenes together
+135. CROWD. ↔ MO'AT: 1 scenes together
+136. CROWD. ↔ GRACE: 1 scenes together
+137. CROWD. ↔ CUT TO: 1 scenes together
+138. A SERIES OF RHYTHMIC CUTS ↔ JAKE: 1 scenes together
+139. A SERIES OF RHYTHMIC CUTS ↔ NEYTIRI: 1 scenes together
+140. A SERIES OF RHYTHMIC CUTS ↔ CUT TO: 1 scenes together
+141. TROOPERS ↔ WAINFLEET: 1 scenes together
+142. NORM ↔ TROOPERS: 1 scenes together
+143. QUARITCH ↔ TROOPER: 1 scenes together
+144. TROOPER ↔ TRUDY: 1 scenes together
+145. GUNSHIP PILOT ↔ PILOT: 1 scenes together
+146. GUNSHIP PILOT ↔ QUARITCH: 1 scenes together
+147. SELFRIDGE ↔ TROOPER: 1 scenes together
+148. CUT TO ↔ TROOPER: 1 scenes together
+149. CUT TO BLACK ↔ JAKE: 1 scenes together

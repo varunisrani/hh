@@ -1,0 +1,17 @@
+AVATAR - COMPLETE ANALYSIS SUMMARY
+Full extraction and analysis of AVATAR screenplay
+================================================================================
+
+EXTRACTION RESULTS:
+--------------------
+Total Scenes: 159
+Total Dialogues: 0
+Total Characters: 42
+
+FILES GENERATED:
+----------------
+1. ALL_SCENES_COMPLETE.txt - All 159 scenes
+2. ALL_DIALOGUES_COMPLETE.txt - All dialogue entries
+3. ALL_CHARACTERS_COMPLETE.txt - All character details
+4. ALL_CHARACTER_INTERACTIONS.txt - Character relationships
+5. COMPLETE_ANALYSIS_SUMMARY.txt - This summary

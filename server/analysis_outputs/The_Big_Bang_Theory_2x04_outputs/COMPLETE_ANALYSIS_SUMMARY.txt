@@ -1,0 +1,25 @@
+THE_BIG_BANG_THEORY_2X04 - COMPLETE ANALYSIS SUMMARY
+Full extraction and analysis of The_Big_Bang_Theory_2x04 screenplay
+================================================================================
+
+EXTRACTION RESULTS:
+--------------------
+Total Scenes: 9
+Total Dialogues: 7
+Total Characters: 89
+
+TOP 10 CHARACTERS BY DIALOGUE COUNT:
+----------------------------------------
+ 1. SFX: 3 dialogues
+ 2. LIGHT CUE: 1 dialogues
+ 3. ON KOOTHRAPPALI'S LAPTOP: 1 dialogues
+ 4. ANGLE ON: 1 dialogues
+ 5. LEONARD'S P.O.V.: 1 dialogues
+
+FILES GENERATED:
+----------------
+1. ALL_SCENES_COMPLETE.txt - All 9 scenes
+2. ALL_DIALOGUES_COMPLETE.txt - All dialogue entries
+3. ALL_CHARACTERS_COMPLETE.txt - All character details
+4. ALL_CHARACTER_INTERACTIONS.txt - Character relationships
+5. COMPLETE_ANALYSIS_SUMMARY.txt - This summary

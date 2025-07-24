@@ -1,0 +1,21 @@
+BEAUTY_AND_THE_BEAST - COMPLETE ANALYSIS SUMMARY
+Full extraction and analysis of BEAUTY_AND_THE_BEAST screenplay
+================================================================================
+
+EXTRACTION RESULTS:
+--------------------
+Total Scenes: 132
+Total Dialogues: 1
+Total Characters: 65
+
+TOP 10 CHARACTERS BY DIALOGUE COUNT:
+----------------------------------------
+ 1. A MUSKET AND THE SPOILS OF HIS HUNT: 1 dialogues
+
+FILES GENERATED:
+----------------
+1. ALL_SCENES_COMPLETE.txt - All 132 scenes
+2. ALL_DIALOGUES_COMPLETE.txt - All dialogue entries
+3. ALL_CHARACTERS_COMPLETE.txt - All character details
+4. ALL_CHARACTER_INTERACTIONS.txt - Character relationships
+5. COMPLETE_ANALYSIS_SUMMARY.txt - This summary

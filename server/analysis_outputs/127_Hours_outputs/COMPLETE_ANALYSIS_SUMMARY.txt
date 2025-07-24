@@ -1,0 +1,17 @@
+127_HOURS - COMPLETE ANALYSIS SUMMARY
+Full extraction and analysis of 127_Hours screenplay
+================================================================================
+
+EXTRACTION RESULTS:
+--------------------
+Total Scenes: 217
+Total Dialogues: 0
+Total Characters: 31
+
+FILES GENERATED:
+----------------
+1. ALL_SCENES_COMPLETE.txt - All 217 scenes
+2. ALL_DIALOGUES_COMPLETE.txt - All dialogue entries
+3. ALL_CHARACTERS_COMPLETE.txt - All character details
+4. ALL_CHARACTER_INTERACTIONS.txt - Character relationships
+5. COMPLETE_ANALYSIS_SUMMARY.txt - This summary

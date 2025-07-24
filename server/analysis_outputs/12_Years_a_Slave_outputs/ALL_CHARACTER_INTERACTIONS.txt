@@ -1,0 +1,209 @@
+12_YEARS_A_SLAVE - ALL CHARACTER INTERACTIONS
+Complete character interaction analysis
+Total character pairs found: 202
+================================================================================
+
+CHARACTER PAIRS (Sorted by co-occurrence):
+--------------------------------------------------
+  1. BROWN ↔ HAMILTON: 8 scenes together
+  2. HAMILTON ↔ SOLOMON: 7 scenes together
+  3. BROWN ↔ SOLOMON: 7 scenes together
+  4. FORD ↔ SOLOMON: 6 scenes together
+  5. MISTRESS EPPS ↔ SOLOMON: 6 scenes together
+  6. PATSEY ↔ SOLOMON: 5 scenes together
+  7. EPPS ↔ SOLOMON: 5 scenes together
+  8. FREEMAN ↔ SOLOMON: 4 scenes together
+  9. SOLOMON ↔ TIBEATS: 4 scenes together
+ 10. EPPS ↔ TREACH: 4 scenes together
+ 11. EPPS ↔ MISTRESS EPPS: 4 scenes together
+ 12. BASS ↔ SOLOMON: 4 scenes together
+ 13. ANNE ↔ SOLOMON: 3 scenes together
+ 14. RADBURN ↔ SOLOMON: 3 scenes together
+ 15. ROBERT ↔ SOLOMON: 3 scenes together
+ 16. ELIZA ↔ SOLOMON: 3 scenes together
+ 17. CHAPIN ↔ SOLOMON: 3 scenes together
+ 18. EPPS ↔ PATSEY: 3 scenes together
+ 19. CELESTE ↔ SOLOMON: 3 scenes together
+ 20. ELIZABETH ↔ SOLOMON: 2 scenes together
+ 21. BURCH ↔ RADBURN: 2 scenes together
+ 22. RADBURN ↔ RANDALL: 2 scenes together
+ 23. CLEMENS ↔ SOLOMON: 2 scenes together
+ 24. ELIZA ↔ RANDALL: 2 scenes together
+ 25. BURCH ↔ ELIZA: 2 scenes together
+ 26. BIDDEE ↔ CAPTAIN: 2 scenes together
+ 27. CAPTAIN ↔ SOLOMON: 2 scenes together
+ 28. ARTHUR ↔ SOLOMON: 2 scenes together
+ 29. BOB ↔ FREEMAN: 2 scenes together
+ 30. BOB ↔ SOLOMON: 2 scenes together
+ 31. ELIZA ↔ FREEMAN: 2 scenes together
+ 32. MARGARET ↔ SOLOMON: 2 scenes together
+ 33. ANNE ↔ MARGARET: 2 scenes together
+ 34. FORD ↔ TAYDEM: 2 scenes together
+ 35. CHAPIN ↔ TIBEATS: 2 scenes together
+ 36. EDWARD ↔ TREACH: 2 scenes together
+ 37. MISTRESS EPPS ↔ PATSEY: 2 scenes together
+ 38. JUDGE TURNER ↔ SOLOMON: 2 scenes together
+ 39. ARMSBY ↔ SOLOMON: 2 scenes together
+ 40. BLACK ↔ SOLOMON: 2 scenes together
+ 41. BASS ↔ BLACK: 2 scenes together
+ 42. PARKER ↔ SOLOMON: 1 scenes together
+ 43. JASPER ↔ SOLOMON: 1 scenes together
+ 44. FITZGERALD ↔ SOLOMON: 1 scenes together
+ 45. JASPER ↔ PARKER: 1 scenes together
+ 46. FITZGERALD ↔ PARKER: 1 scenes together
+ 47. FITZGERALD ↔ JASPER: 1 scenes together
+ 48. BROWN ↔ MR. MOON: 1 scenes together
+ 49. HAMILTON ↔ MR. MOON: 1 scenes together
+ 50. GADSBY SERVANT ↔ SOLOMON: 1 scenes together
+ 51. BURCH ↔ SOLOMON: 1 scenes together
+ 52. BURCH ↔ WITH LACERATIONS AND OOZING WITH BLOOD.: 1 scenes together
+ 53. SOLOMON ↔ WITH LACERATIONS AND OOZING WITH BLOOD.: 1 scenes together
+ 54. RADBURN ↔ WITH LACERATIONS AND OOZING WITH BLOOD.: 1 scenes together
+ 55. RANDALL ↔ SOLOMON: 1 scenes together
+ 56. CLEMENS ↔ JOHN: 1 scenes together
+ 57. CLEMENS ↔ RANDALL: 1 scenes together
+ 58. CLEMENS ↔ ELIZA: 1 scenes together
+ 59. JOHN ↔ RANDALL: 1 scenes together
+ 60. ELIZA ↔ JOHN: 1 scenes together
+ 61. ELIZA ↔ RADBURN: 1 scenes together
+ 62. BURCH ↔ JOHN: 1 scenes together
+ 63. BURCH ↔ MULATTO WOMAN: 1 scenes together
+ 64. ELIZA ↔ MULATTO WOMAN: 1 scenes together
+ 65. CAPTAIN ↔ REED: 1 scenes together
+ 66. CAPTAIN ↔ GEORGE: 1 scenes together
+ 67. CAPTAIN ↔ ROBERT: 1 scenes together
+ 68. BIDDEE ↔ REED: 1 scenes together
+ 69. GEORGE ↔ REED: 1 scenes together
+ 70. REED ↔ ROBERT: 1 scenes together
+ 71. REED ↔ SOLOMON: 1 scenes together
+ 72. BIDDEE ↔ GEORGE: 1 scenes together
+ 73. BIDDEE ↔ ROBERT: 1 scenes together
+ 74. BIDDEE ↔ SOLOMON: 1 scenes together
+ 75. GEORGE ↔ ROBERT: 1 scenes together
+ 76. GEORGE ↔ SOLOMON: 1 scenes together
+ 77. ARTHUR ↔ ROBERT: 1 scenes together
+ 78. ARTHUR ↔ ROBERT'S STILL BODY IS BEING SEWN INTO A BLANKET.: 1 scenes together
+ 79. ARTHUR ↔ WILLIAMS: 1 scenes together
+ 80. DAVIS ↔ WILLIAMS: 1 scenes together
+ 81. CAPTAIN ↔ WILLIAMS: 1 scenes together
+ 82. ARTHUR ↔ DAVIS: 1 scenes together
+ 83. ARTHUR ↔ CAPTAIN: 1 scenes together
+ 84. CAPTAIN ↔ DAVIS: 1 scenes together
+ 85. CAPTAIN ↔ FREEMAN: 1 scenes together
+ 86. FREEMAN ↔ TALL SLAVE: 1 scenes together
+ 87. BUYER ↔ FREEMAN: 1 scenes together
+ 88. FREEMAN ↔ RANDALL: 1 scenes together
+ 89. BUYER ↔ ELIZA: 1 scenes together
+ 90. BUYER ↔ RANDALL: 1 scenes together
+ 91. CLEMENS ↔ DOCTOR CARR: 1 scenes together
+ 92. DOCTOR CARR ↔ SOLOMON: 1 scenes together
+ 93. ALONZO ↔ SOLOMON: 1 scenes together
+ 94. ANNE ↔ ELIZABETH: 1 scenes together
+ 95. ALONZO ↔ ELIZABETH: 1 scenes together
+ 96. ELIZABETH ↔ MARGARET: 1 scenes together
+ 97. ALONZO ↔ ANNE: 1 scenes together
+ 98. ALONZO ↔ MARGARET: 1 scenes together
+ 99. FORD ↔ FREEMAN: 1 scenes together
+100. ELIZA ↔ FORD: 1 scenes together
+101. FORD ↔ UNSETTLING TO THE OTHER BUYERS.: 1 scenes together
+102. EMILY ↔ FORD: 1 scenes together
+103. FREEMAN ↔ UNSETTLING TO THE OTHER BUYERS.: 1 scenes together
+104. EMILY ↔ FREEMAN: 1 scenes together
+105. ELIZA ↔ UNSETTLING TO THE OTHER BUYERS.: 1 scenes together
+106. ELIZA ↔ EMILY: 1 scenes together
+107. SOLOMON ↔ UNSETTLING TO THE OTHER BUYERS.: 1 scenes together
+108. EMILY ↔ SOLOMON: 1 scenes together
+109. EMILY ↔ UNSETTLING TO THE OTHER BUYERS.: 1 scenes together
+110. FORD. ↔ ROSE: 1 scenes together
+111. FORD. ↔ MRS. FORD: 1 scenes together
+112. FORD ↔ FORD.: 1 scenes together
+113. FORD. ↔ WALTON: 1 scenes together
+114. FORD. ↔ SALLY: 1 scenes together
+115. MRS. FORD ↔ ROSE: 1 scenes together
+116. FORD ↔ ROSE: 1 scenes together
+117. ROSE ↔ WALTON: 1 scenes together
+118. ROSE ↔ SALLY: 1 scenes together
+119. FORD ↔ MRS. FORD: 1 scenes together
+120. MRS. FORD ↔ WALTON: 1 scenes together
+121. MRS. FORD ↔ SALLY: 1 scenes together
+122. FORD ↔ WALTON: 1 scenes together
+123. FORD ↔ SALLY: 1 scenes together
+124. SALLY ↔ WALTON: 1 scenes together
+125. ELIZA ↔ SALLY: 1 scenes together
+126. SOLOMON ↔ WHITE CUSTOMER: 1 scenes together
+127. SAM ↔ SOLOMON: 1 scenes together
+128. SAM ↔ WHITE CUSTOMER: 1 scenes together
+129. FORD ↔ WHITE CUSTOMER: 1 scenes together
+130. FORD ↔ SAM: 1 scenes together
+131. SOLOMON ↔ TAYDEM: 1 scenes together
+132. FORD ↔ TIBEATS: 1 scenes together
+133. ELIZA ↔ TIBEATS: 1 scenes together
+134. CHAPIN ↔ ELIZA: 1 scenes together
+135. BRISTOL ↔ LAWSON: 1 scenes together
+136. BRISTOL ↔ SOLOMON: 1 scenes together
+137. LAWSON ↔ SOLOMON: 1 scenes together
+138. DECORATED. ↔ FORD: 1 scenes together
+139. DECORATED. ↔ SOLOMON: 1 scenes together
+140. SPIRITUAL SUNG BY THE SLAVES. ↔ TREACH: 1 scenes together
+141. EDWARD ↔ SPIRITUAL SUNG BY THE SLAVES.: 1 scenes together
+142. GROOMING A HORSE. ↔ MASTER SHAW: 1 scenes together
+143. GROOMING A HORSE. ↔ SOLOMON: 1 scenes together
+144. GROOMING A HORSE. ↔ MISTRESS SHAW: 1 scenes together
+145. GROOMING A HORSE. ↔ PATSEY: 1 scenes together
+146. GROOMING A HORSE. ↔ MISTRESS EPPS: 1 scenes together
+147. MASTER SHAW ↔ SOLOMON: 1 scenes together
+148. MASTER SHAW ↔ MISTRESS SHAW: 1 scenes together
+149. MASTER SHAW ↔ PATSEY: 1 scenes together
+150. MASTER SHAW ↔ MISTRESS EPPS: 1 scenes together
+151. MISTRESS SHAW ↔ SOLOMON: 1 scenes together
+152. MISTRESS SHAW ↔ PATSEY: 1 scenes together
+153. MISTRESS EPPS ↔ MISTRESS SHAW: 1 scenes together
+154. BLEAKNESS OF SLAVE LIFE. ↔ PATSEY: 1 scenes together
+155. BLEAKNESS OF SLAVE LIFE. ↔ SOLOMON: 1 scenes together
+156. BLEAKNESS OF SLAVE LIFE. ↔ EPPS: 1 scenes together
+157. TO DRINK. ↔ TREACH: 1 scenes together
+158. EDWARD ↔ TO DRINK.: 1 scenes together
+159. FINGER RING. ↔ PATSEY: 1 scenes together
+160. FINGER RING. ↔ SOLOMON: 1 scenes together
+161. HOUSE NIGGER ↔ SOLOMON: 1 scenes together
+162. HOUSE NIGGER ↔ JUDGE TURNER: 1 scenes together
+163. SLAVES AND CHILDREN ALIKE. ↔ SOLOMON: 1 scenes together
+164. DRIVER ↔ SLAVES AND CHILDREN ALIKE.: 1 scenes together
+165. DRIVER ↔ SOLOMON: 1 scenes together
+166. SOLOMON ↔ YARNEY: 1 scenes together
+167. ARMSBY ↔ EPPS: 1 scenes together
+168. ARMSBY ↔ TREACH: 1 scenes together
+169. EPPS ↔ PHEBE: 1 scenes together
+170. EPPS ↔ TORN MEAT AND BLOOD.: 1 scenes together
+171. PATSEY ↔ TORN MEAT AND BLOOD.: 1 scenes together
+172. SOLOMON ↔ TORN MEAT AND BLOOD.: 1 scenes together
+173. MISTRESS EPPS ↔ TORN MEAT AND BLOOD.: 1 scenes together
+174. BASS ↔ EPPS: 1 scenes together
+175. BAS ↔ BASS: 1 scenes together
+176. BAS ↔ EPPS: 1 scenes together
+177. EVENING ↔ SOLOMON: 1 scenes together
+178. BASS ↔ EVENING: 1 scenes together
+179. BLACK ↔ EVENING: 1 scenes together
+180. BASS ↔ NIGHT: 1 scenes together
+181. NIGHT ↔ SOLOMON: 1 scenes together
+182. NORTHUP ↔ WADDILL: 1 scenes together
+183. BASS ↔ NORTHUP: 1 scenes together
+184. SHERIFF ↔ SOLOMON: 1 scenes together
+185. EPPS ↔ SHERIFF: 1 scenes together
+186. NORTHUP ↔ SHERIFF: 1 scenes together
+187. PATSEY ↔ SHERIFF: 1 scenes together
+188. NORTHUP ↔ SOLOMON: 1 scenes together
+189. EPPS ↔ NORTHUP: 1 scenes together
+190. NORTHUP ↔ PATSEY: 1 scenes together
+191. MARGARET'S HUSBAND ↔ SOLOMON: 1 scenes together
+192. FADE TO ↔ SOLOMON: 1 scenes together
+193. END ↔ SOLOMON: 1 scenes together
+194. MARGARET ↔ MARGARET'S HUSBAND: 1 scenes together
+195. FADE TO ↔ MARGARET: 1 scenes together
+196. END ↔ MARGARET: 1 scenes together
+197. ANNE ↔ MARGARET'S HUSBAND: 1 scenes together
+198. FADE TO ↔ MARGARET'S HUSBAND: 1 scenes together
+199. END ↔ MARGARET'S HUSBAND: 1 scenes together
+200. ANNE ↔ FADE TO: 1 scenes together
+201. ANNE ↔ END: 1 scenes together
+202. END ↔ FADE TO: 1 scenes together

@@ -1,0 +1,54 @@
+CHERNOBYL_EPISODE-11_23_45 - ALL DIALOGUES COMPLETE
+Complete extraction of all 10 dialogue entries
+================================================================================
+
+DIALOGUE 1:
+----------------------------------------
+Character: TITLE
+Dialogue: MOSCOW - APRIL 26, 1988
+----------------------------------------
+DIALOGUE 2:
+----------------------------------------
+Character: HIS POV
+Dialogue: the car light is still on. But no one's gotten out.
+----------------------------------------
+DIALOGUE 3:
+----------------------------------------
+Character: SOUND
+Dialogue: footsteps
+----------------------------------------
+DIALOGUE 4:
+----------------------------------------
+Character: SOUND
+Dialogue: a chair is moved
+----------------------------------------
+DIALOGUE 5:
+----------------------------------------
+Character: SOUND
+Dialogue: a chair toppling and a sharp SNAP.
+----------------------------------------
+DIALOGUE 6:
+----------------------------------------
+Character: TITLE
+Dialogue: PRIPYAT, UKRAINE - USSR TWO YEARS AND ONE MINUTE
+----------------------------------------
+DIALOGUE 7:
+----------------------------------------
+Character: ACROSS THE ROOM
+Dialogue: BORIS STOLYARCHUK and IGOR KIRSCHENBAUM,
+----------------------------------------
+DIALOGUE 8:
+----------------------------------------
+Character: CLOSE ON
+Dialogue: Dyatlov. Standing with his back against the wall.
+----------------------------------------
+DIALOGUE 9:
+----------------------------------------
+Character: SUBTITLE
+Dialogue: HEALTH OF THE PEOPLE - RICHES OF THE COUNTRY
+----------------------------------------
+DIALOGUE 10:
+----------------------------------------
+Character: REVERSE TO REVEAL
+Dialogue: Stolyarchuk. Looking at them. Also silent.
+----------------------------------------

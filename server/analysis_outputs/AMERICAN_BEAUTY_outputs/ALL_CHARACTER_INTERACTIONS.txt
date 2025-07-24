@@ -1,0 +1,83 @@
+AMERICAN_BEAUTY - ALL CHARACTER INTERACTIONS
+Complete character interaction analysis
+Total character pairs found: 76
+================================================================================
+
+CHARACTER PAIRS (Sorted by co-occurrence):
+--------------------------------------------------
+  1. CAROLYN ↔ LESTER: 16 scenes together
+  2. ANGELA ↔ JANE: 16 scenes together
+  3. JANE ↔ RICKY: 11 scenes together
+  4. JANE ↔ LESTER: 9 scenes together
+  5. BUDDY ↔ CAROLYN: 8 scenes together
+  6. CAROLYN ↔ JANE: 7 scenes together
+  7. COLONEL ↔ RICKY: 7 scenes together
+  8. LESTER ↔ RICKY: 7 scenes together
+  9. ANGELA ↔ LESTER: 6 scenes together
+ 10. BARBARA ↔ RICKY: 4 scenes together
+ 11. FADE TO BLACK ↔ RICKY: 3 scenes together
+ 12. FADE IN ↔ RICKY: 3 scenes together
+ 13. FADE IN ↔ FADE TO BLACK: 3 scenes together
+ 14. BRAD ↔ LESTER: 3 scenes together
+ 15. ANGELA ↔ RICKY: 3 scenes together
+ 16. BUDDY ↔ LESTER: 3 scenes together
+ 17. COUNTER GIRL ↔ LESTER: 3 scenes together
+ 18. FADE TO BLACK ↔ JANE: 2 scenes together
+ 19. FADE IN ↔ JANE: 2 scenes together
+ 20. ANGELA ↔ CAROLYN: 2 scenes together
+ 21. COLONEL ↔ LESTER: 2 scenes together
+ 22. CAROLYN ↔ COUNTER GIRL: 2 scenes together
+ 23. BUDDY ↔ COUNTER GIRL: 2 scenes together
+ 24. BACKPACK. ↔ LESTER: 1 scenes together
+ 25. ANOTHER ONE SOLD ↔ OPEN HOUSE TODAY: 1 scenes together
+ 26. CAROLYN ↔ MONTAGE: 1 scenes together
+ 27. ANNOUNCER ↔ LESTER: 1 scenes together
+ 28. ANNOUNCER ↔ SLOW DOWN...: 1 scenes together
+ 29. ANNOUNCER ↔ SPILL FORTH... AND WE SMASH CUT TO: 1 scenes together
+ 30. LESTER ↔ SLOW DOWN...: 1 scenes together
+ 31. LESTER ↔ SPILL FORTH... AND WE SMASH CUT TO: 1 scenes together
+ 32. SLOW DOWN... ↔ SPILL FORTH... AND WE SMASH CUT TO: 1 scenes together
+ 33. ANGELA ↔ INTERCUT WITH JANE IN HER BEDROOM: 1 scenes together
+ 34. INTERCUT WITH JANE IN HER BEDROOM ↔ JANE: 1 scenes together
+ 35. BARBARA ↔ COLONEL: 1 scenes together
+ 36. COLONEL ↔ J.B.: 1 scenes together
+ 37. CAROLYN ↔ GREATER ROCKWELL REALTOR RESOURCES GROUP: 1 scenes together
+ 38. GREATER ROCKWELL REALTOR RESOURCES GROUP ↔ LESTER: 1 scenes together
+ 39. BUDDY ↔ GREATER ROCKWELL REALTOR RESOURCES GROUP: 1 scenes together
+ 40. CHRISTY ↔ GREATER ROCKWELL REALTOR RESOURCES GROUP: 1 scenes together
+ 41. CAROLYN ↔ CHRISTY: 1 scenes together
+ 42. CHRISTY ↔ LESTER: 1 scenes together
+ 43. BUDDY ↔ CHRISTY: 1 scenes together
+ 44. CATERING BOSS ↔ LESTER: 1 scenes together
+ 45. CATERING BOSS ↔ RICKY: 1 scenes together
+ 46. CAROLYN ↔ RICKY: 1 scenes together
+ 47. CAROLYN ↔ CATERING BOSS: 1 scenes together
+ 48. ANGELA ↔ BACK IN REAL TIME: 1 scenes together
+ 49. ANGELA ↔ CUT TO: 1 scenes together
+ 50. BACK IN REAL TIME ↔ CUT TO: 1 scenes together
+ 51. ANGELA ↔ HEAD BACK... AND WE SMASH CUT TO: 1 scenes together
+ 52. DART BOARD. ↔ LESTER: 1 scenes together
+ 53. CAROLYN ↔ DART BOARD.: 1 scenes together
+ 54. BE... DON'T COME A HANGIN' AROUND ↔ LESTER: 1 scenes together
+ 55. LESTER ↔ MY DOOR... I DON'T WANT TO SEE YOUR: 1 scenes together
+ 56. FACE NO MORE... ↔ LESTER: 1 scenes together
+ 57. BE... DON'T COME A HANGIN' AROUND ↔ MY DOOR... I DON'T WANT TO SEE YOUR: 1 scenes together
+ 58. BE... DON'T COME A HANGIN' AROUND ↔ FACE NO MORE...: 1 scenes together
+ 59. FACE NO MORE... ↔ MY DOOR... I DON'T WANT TO SEE YOUR: 1 scenes together
+ 60. LESTER ↔ NOW TAKING APPLICATIONS: 1 scenes together
+ 61. COUNTER GIRL ↔ NOW TAKING APPLICATIONS: 1 scenes together
+ 62. LESTER ↔ MANAGER: 1 scenes together
+ 63. BARBARA ↔ JANE: 1 scenes together
+ 64. COLONEL ↔ FADE TO BLACK: 1 scenes together
+ 65. COLONEL ↔ FADE IN: 1 scenes together
+ 66. ATTENDANT ↔ CAROLYN: 1 scenes together
+ 67. I... ↔ LESTER: 1 scenes together
+ 68. COLONEL ↔ I...: 1 scenes together
+ 69. CAROLYN ↔ TAPE VOICE: 1 scenes together
+ 70. FLASHES BRILLIANTLY. ↔ LESTER: 1 scenes together
+ 71. LESTER ↔ SLOWLY.: 1 scenes together
+ 72. FADE TO BLACK ↔ SLOWLY.: 1 scenes together
+ 73. SLOWLY. ↔ THE END: 1 scenes together
+ 74. FADE TO BLACK ↔ LESTER: 1 scenes together
+ 75. LESTER ↔ THE END: 1 scenes together
+ 76. FADE TO BLACK ↔ THE END: 1 scenes together

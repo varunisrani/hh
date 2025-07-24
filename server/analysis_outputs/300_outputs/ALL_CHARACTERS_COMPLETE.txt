@@ -1,0 +1,60 @@
+300 - ALL CHARACTERS COMPLETE
+Complete list of all 45 characters
+================================================================================
+
+CHARACTER RANKING BY DIALOGUE COUNT:
+----------------------------------------
+ 1. WE SEE: 28 dialogues
+ 2. WE HEAR: 19 dialogues
+ 3. WE MOVE: 3 dialogues
+ 4. SEE: 1 dialogues
+ 5. WE FOLLOW: 1 dialogues
+ 6. WE RISE: 1 dialogues
+
+ALL CHARACTERS IDENTIFIED:
+----------------------------------------
+ 1. ARCADIANS (0 dialogues)
+ 2. ASTINOS (0 dialogues)
+ 3. BEASTS. (0 dialogues)
+ 4. BLACKNESS. (0 dialogues)
+ 5. CAPTAIN (0 dialogues)
+ 6. CHILD (0 dialogues)
+ 7. COUNCILMAN (0 dialogues)
+ 8. CUT TO (0 dialogues)
+ 9. DAX.OS (0 dialogues)
+10. DAXOS (0 dialogues)
+11. DILIOS (0 dialogues)
+12. DRUM STROKE. (0 dialogues)
+13. ELDER COUNCILMAN (0 dialogues)
+14. EPHIALTES (0 dialogues)
+15. FADE IN (0 dialogues)
+16. FADE TO BLACK. (0 dialogues)
+17. FLAME (0 dialogues)
+18. GENERAL (0 dialogues)
+19. GORGO (0 dialogues)
+20. IMMORTALCOMMANDER (0 dialogues)
+21. LEONIDAS (0 dialogues)
+22. LOYALIST (0 dialogues)
+23. MESSENGER (0 dialogues)
+24. PARTISAN (0 dialogues)
+25. PERSIAN (0 dialogues)
+26. PERSIAN GENERAL (0 dialogues)
+27. PERSIAN HORSEMAN (0 dialogues)
+28. PLEISTARCHOS (0 dialogues)
+29. SEE (1 dialogues)
+30. SPARTAN (0 dialogues)
+31. SPARTANS (0 dialogues)
+32. STATESMAN (0 dialogues)
+33. STELIOS (0 dialogues)
+34. STILL UNDER THE DRUMS. (0 dialogues)
+35. THE END (0 dialogues)
+36. THERON (0 dialogues)
+37. TIME SLOWS (0 dialogues)
+38. TIME SLOWS. (0 dialogues)
+39. TIME UNWRAPS (0 dialogues)
+40. WE FOLLOW (1 dialogues)
+41. WE HEAR (19 dialogues)
+42. WE MOVE (3 dialogues)
+43. WE RISE (1 dialogues)
+44. WE SEE (28 dialogues)
+45. XERXES (0 dialogues)

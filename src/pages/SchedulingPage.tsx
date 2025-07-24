@@ -1,1586 +1,1487 @@
-
 import { useState, useEffect } from 'react';
 import { MainLayout } from '@/components/layout/MainLayout';
 import { Button } from '@/components/ui/button';
-import { mockProject } from '@/data/mockData';
-import { Plus, Share2, Download, Calendar, Clock, BookOpen, Settings, ArrowUpDown, Wand2, FileText, Loader2 } from 'lucide-react';
-import { analyzeSchedulingWithAI, SchedulingCoordinatorOutput } from '@/services/schedulingService';
-import { analyzeComplianceWithAI, ComplianceConstraintsOutput } from '@/services/complianceService';
-import { analyzeResourceWithAI, ResourceLogisticsOutput } from '@/services/resourceService';
-import { analyzeOptimizationWithAI, OptimizationScenarioOutput } from '@/services/optimizationService';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Badge } from '@/components/ui/badge';
+import { Input } from '@/components/ui/input';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
+import { generateProductionScheduleWithAI, ProductionScheduleOutput, ScriptAnalysisInput } from '@/services/schedulingGeneratorService';
+import { Plus, Share2, Download, Calendar, Clock, Users, DollarSign, AlertTriangle, MapPin, Wand2, Brain, CheckCircle, Loader2, Wrench, BarChart3, Zap, Edit3, Save, X, RotateCcw } from 'lucide-react';
 import { useSelectedProject } from '@/hooks/useSelectedProject';
+import { useToast } from '@/hooks/use-toast';
+import {
+  DndContext, 
+  closestCenter,
+  KeyboardSensor,
+  PointerSensor,
+  useSensor,
+  useSensors,
+} from '@dnd-kit/core';
+import {
+  arrayMove,
+  SortableContext,
+  sortableKeyboardCoordinates,
+  verticalListSortingStrategy,
+} from '@dnd-kit/sortable';
+import {
+  useSortable,
+} from '@dnd-kit/sortable';
+import { CSS } from '@dnd-kit/utilities';
+
+// Global scheduling service lock to prevent multiple simultaneous AI calls
+const SCHEDULING_LOCK_KEY = 'scheduling_ai_service_running';
+const SCHEDULING_LOCK_TIMEOUT = 5 * 60 * 1000; // 5 minutes timeout
+const AUTO_GENERATION_ATTEMPTED_KEY = 'scheduling_auto_generation_attempted'; // Track auto-generation attempts
+
+// Check if scheduling service is currently running globally
+const isSchedulingServiceRunning = () => {
+  const lockData = localStorage.getItem(SCHEDULING_LOCK_KEY);
+  if (!lockData) return false;
+  
+  try {
+    const { timestamp } = JSON.parse(lockData);
+    const now = Date.now();
+    
+    // Check if lock has expired (timeout protection)
+    if (now - timestamp > SCHEDULING_LOCK_TIMEOUT) {
+      localStorage.removeItem(SCHEDULING_LOCK_KEY);
+      return false;
+    }
+    
+    return true;
+  } catch {
+    localStorage.removeItem(SCHEDULING_LOCK_KEY);
+    return false;
+  }
+};
+
+// Set global scheduling service lock
+const setSchedulingServiceLock = (projectId: string) => {
+  const lockData = {
+    projectId,
+    timestamp: Date.now()
+  };
+  localStorage.setItem(SCHEDULING_LOCK_KEY, JSON.stringify(lockData));
+  console.log('🔒 Scheduling AI service lock set for project:', projectId);
+};
+
+// Remove global scheduling service lock
+const removeSchedulingServiceLock = () => {
+  localStorage.removeItem(SCHEDULING_LOCK_KEY);
+  console.log('🔓 Scheduling AI service lock removed');
+};
+
+// Check if auto-generation has been attempted for this project
+const hasAutoGenerationBeenAttempted = (projectId: string) => {
+  const attemptedProjects = JSON.parse(localStorage.getItem(AUTO_GENERATION_ATTEMPTED_KEY) || '[]');
+  return attemptedProjects.includes(projectId);
+};
+
+// Mark auto-generation as attempted for this project
+const markAutoGenerationAttempted = (projectId: string) => {
+  const attemptedProjects = JSON.parse(localStorage.getItem(AUTO_GENERATION_ATTEMPTED_KEY) || '[]');
+  if (!attemptedProjects.includes(projectId)) {
+    attemptedProjects.push(projectId);
+    localStorage.setItem(AUTO_GENERATION_ATTEMPTED_KEY, JSON.stringify(attemptedProjects));
+    console.log('🚀 Auto-generation marked as attempted for project:', projectId);
+  }
+};
 
 export const SchedulingPage = () => {
-  console.log('🖥️ SCHEDULING PAGE: Component rendering/re-rendering at', new Date().toISOString());
-  
-  const [activeTab, setActiveTab] = useState('scriptyard');
-  const [jsonInput, setJsonInput] = useState('');
-  const [isAnalyzing, setIsAnalyzing] = useState(false);
-  const [analysisResult, setAnalysisResult] = useState<SchedulingCoordinatorOutput | null>(null);
-  const [analysisError, setAnalysisError] = useState('');
-  // AI Yard 1 - Compliance & Constraints state
-  const [jsonInputCompliance, setJsonInputCompliance] = useState('');
-  const [isAnalyzingCompliance, setIsAnalyzingCompliance] = useState(false);
-  const [complianceResult, setComplianceResult] = useState<ComplianceConstraintsOutput | null>(null);
-  const [complianceError, setComplianceError] = useState('');
-  
-  // AI Yard 2 - Resource Logistics state
-  const [jsonInputResource, setJsonInputResource] = useState('');
-  const [isAnalyzingResource, setIsAnalyzingResource] = useState(false);
-  const [resourceResult, setResourceResult] = useState<ResourceLogisticsOutput | null>(null);
-  const [resourceError, setResourceError] = useState('');
-  
-  // AI Yard 3 - Optimization & Scenario state
-  const [jsonInputOptimization, setJsonInputOptimization] = useState('');
-  const [isAnalyzingOptimization, setIsAnalyzingOptimization] = useState(false);
-  const [optimizationResult, setOptimizationResult] = useState<OptimizationScenarioOutput | null>(null);
-  const [optimizationError, setOptimizationError] = useState('');
   const { selectedProject } = useSelectedProject();
+  const { toast } = useToast();
   
-  console.log('📊 PAGE STATE:');
-  console.log('  - Active tab:', activeTab);
-  console.log('  - JSON input length:', jsonInput.length, 'characters');
-  console.log('  - Is analyzing:', isAnalyzing);
-  console.log('  - Has analysis result:', !!analysisResult);
-  console.log('  - Has analysis error:', !!analysisError);
-  console.log('  - Compliance JSON input length:', jsonInputCompliance.length, 'characters');
-  console.log('  - Is analyzing compliance:', isAnalyzingCompliance);
-  console.log('  - Has compliance result:', !!complianceResult);
-  console.log('  - Has compliance error:', !!complianceError);
-  console.log('  - Resource JSON input length:', jsonInputResource.length, 'characters');
-  console.log('  - Is analyzing resource:', isAnalyzingResource);
-  console.log('  - Has resource result:', !!resourceResult);
-  console.log('  - Has resource error:', !!resourceError);
-  console.log('  - Optimization JSON input length:', jsonInputOptimization.length, 'characters');
-  console.log('  - Is analyzing optimization:', isAnalyzingOptimization);
-  console.log('  - Has optimization result:', !!optimizationResult);
-  console.log('  - Has optimization error:', !!optimizationError);
-  console.log('  - Selected project:', selectedProject?.id || 'None');
-  
-  // Component lifecycle logging
+  const [activeView, setActiveView] = useState<'overview' | 'schedule' | 'cast' | 'locations' | 'equipment' | 'conflicts' | 'optimization'>('overview');
+  const [productionSchedule, setProductionSchedule] = useState<ProductionScheduleOutput | null>(null);
+  const [originalSchedule, setOriginalSchedule] = useState<ProductionScheduleOutput | null>(null);
+  const [isGeneratingSchedule, setIsGeneratingSchedule] = useState(false);
+  const [scheduleError, setScheduleError] = useState('');
+  const [analysisStatus, setAnalysisStatus] = useState('');
+  const [isEditMode, setIsEditMode] = useState(false);
+  const [hasUnsavedChanges, setHasUnsavedChanges] = useState(false);
+  const [editingScene, setEditingScene] = useState<{dayIndex: number, sceneIndex: number} | null>(null);
+  const [showVersionHistory, setShowVersionHistory] = useState(false);
+  const [scheduleVersions, setScheduleVersions] = useState<{timestamp: string, schedule: ProductionScheduleOutput}[]>([]);
+  const [hasAttemptedAutoGeneration, setHasAttemptedAutoGeneration] = useState(false);
+
+  // Load existing schedule from localStorage and reset auto-generation flag on project change
   useEffect(() => {
-    console.log('🎬 SCHEDULING PAGE: Component mounted');
-    console.log('📋 SCHEDULING PAGE: Initial state set');
+    // Reset auto-generation attempt flag when project changes
+    setHasAttemptedAutoGeneration(false);
     
-    return () => {
-      console.log('🎬 SCHEDULING PAGE: Component unmounting');
+    if (selectedProject?.id) {
+      const savedSchedule = localStorage.getItem(`schedule_${selectedProject.id}`);
+      if (savedSchedule) {
+        try {
+          const parsedSchedule = JSON.parse(savedSchedule);
+          console.log('✅ Loading existing schedule for project:', selectedProject.name);
+          setProductionSchedule(parsedSchedule);
+          setOriginalSchedule(JSON.parse(JSON.stringify(parsedSchedule)));
+          
+          toast({
+            title: "Schedule Loaded",
+            description: "Using existing production schedule for this project."
+          });
+        } catch (error) {
+          console.error('❌ Error loading saved schedule:', error);
+        }
+      } else {
+        // Clear schedule state if no saved schedule for this project
+        setProductionSchedule(null);
+        setOriginalSchedule(null);
+      }
+      
+      // Update local state based on global tracking
+      const autoGenerationAttempted = hasAutoGenerationBeenAttempted(selectedProject.id);
+      setHasAttemptedAutoGeneration(autoGenerationAttempted);
+    }
+  }, [selectedProject?.id]);
+
+  // Check if we have PDF analysis data available
+  const hasScriptAnalysis = selectedProject?.pdfAnalysisResults?.data?.scenes;
+  
+  // Debug logging
+  console.log('📅 SchedulingPage Debug:', {
+    selectedProject: selectedProject?.name,
+    projectId: selectedProject?.id,
+    hasPdfResults: !!selectedProject?.pdfAnalysisResults,
+    hasScenes: !!selectedProject?.pdfAnalysisResults?.data?.scenes,
+    sceneCount: selectedProject?.pdfAnalysisResults?.data?.totalScenes,
+    hasProductionSchedule: !!productionSchedule,
+    hasAttemptedAutoGeneration,
+    autoGenerationAttemptedGlobally: selectedProject?.id ? hasAutoGenerationBeenAttempted(selectedProject.id) : false,
+    isSchedulingServiceRunning: isSchedulingServiceRunning()
+  });
+  
+  // Convert PDF analysis data to format expected by scheduling service
+  const scriptAnalysis = selectedProject?.pdfAnalysisResults?.data ? {
+    sceneBreakdownOutput: {
+      detailedSceneBreakdowns: selectedProject.pdfAnalysisResults.data.scenes.map((scene: any, index: number) => ({
+        sceneNumber: index + 1,
+        sceneHeader: scene.Scene_Names || `Scene ${index + 1}`,
+        sceneContent: scene.Contents || scene.Scene_action || '',
+        characters: scene.Scene_Characters || [],
+        location: {
+          type: scene.Scene_Names?.includes('INT') ? 'INT' : 'EXT',
+          primaryLocation: scene.Scene_Names || 'Unknown Location',
+          timeOfDay: scene.Scene_Names?.includes('DAY') ? 'DAY' : scene.Scene_Names?.includes('NIGHT') ? 'NIGHT' : 'UNKNOWN'
+        }
+      })),
+      sceneAnalysisSummary: {
+        totalScenesProcessed: selectedProject.pdfAnalysisResults.data.totalScenes,
+        totalCharactersIdentified: selectedProject.pdfAnalysisResults.data.totalCharacters,
+        averageSceneComplexity: 3
+      }
+    }
+  } : null;
+
+  // Drag and drop sensors
+  const sensors = useSensors(
+    useSensor(PointerSensor),
+    useSensor(KeyboardSensor, {
+      coordinateGetter: sortableKeyboardCoordinates,
+    })
+  );
+
+  // Save original schedule when first generated
+  useEffect(() => {
+    if (productionSchedule && !originalSchedule) {
+      setOriginalSchedule(JSON.parse(JSON.stringify(productionSchedule)));
+    }
+  }, [productionSchedule, originalSchedule]);
+
+  // Editing functions
+  const toggleEditMode = () => {
+    if (isEditMode && hasUnsavedChanges) {
+      if (confirm('You have unsaved changes. Are you sure you want to exit edit mode?')) {
+        setIsEditMode(false);
+        setHasUnsavedChanges(false);
+        setEditingScene(null);
+      }
+    } else {
+      setIsEditMode(!isEditMode);
+      setEditingScene(null);
+    }
+  };
+
+  const saveChanges = () => {
+    // Save to localStorage
+    const scheduleKey = `filmustage_schedule_${selectedProject?.id}`;
+    localStorage.setItem(scheduleKey, JSON.stringify(productionSchedule));
+    
+    // Save version to history
+    const newVersion = {
+      timestamp: new Date().toISOString(),
+      schedule: JSON.parse(JSON.stringify(productionSchedule))
     };
-  }, []);
-  
-  // Track analysis result changes
+    const updatedVersions = [...scheduleVersions, newVersion];
+    setScheduleVersions(updatedVersions);
+    
+    // Save versions to localStorage
+    const versionsKey = `filmustage_schedule_versions_${selectedProject?.id}`;
+    localStorage.setItem(versionsKey, JSON.stringify(updatedVersions));
+    
+    setOriginalSchedule(JSON.parse(JSON.stringify(productionSchedule)));
+    setHasUnsavedChanges(false);
+    setIsEditMode(false);
+    setEditingScene(null);
+    toast({
+      title: "Changes saved",
+      description: "Your schedule modifications have been saved successfully."
+    });
+  };
+
+  // Load saved schedule from localStorage on component mount
   useEffect(() => {
-    if (analysisResult) {
-      console.log('📊 SCHEDULING PAGE: Analysis result updated in state');
-      console.log('📋 SCHEDULING PAGE: Result project ID:', analysisResult.coordinatorOutput?.projectId);
-    } else {
-      console.log('📊 SCHEDULING PAGE: Analysis result cleared from state');
+    if (selectedProject?.id && productionSchedule) {
+      const scheduleKey = `filmustage_schedule_${selectedProject.id}`;
+      const savedSchedule = localStorage.getItem(scheduleKey);
+      if (savedSchedule) {
+        try {
+          const parsedSchedule = JSON.parse(savedSchedule);
+          setProductionSchedule(parsedSchedule);
+          setOriginalSchedule(JSON.parse(JSON.stringify(parsedSchedule)));
+        } catch (error) {
+          console.error('Error loading saved schedule:', error);
+        }
+      }
     }
-  }, [analysisResult]);
-  
-  // Track error changes
+  }, [selectedProject?.id]);
+
+  const exportSchedule = () => {
+    if (!productionSchedule) return;
+    
+    const dataStr = JSON.stringify(productionSchedule, null, 2);
+    const dataUri = 'data:application/json;charset=utf-8,'+ encodeURIComponent(dataStr);
+    const exportFileDefaultName = `${selectedProject?.name || 'production'}-schedule.json`;
+    
+    const linkElement = document.createElement('a');
+    linkElement.setAttribute('href', dataUri);
+    linkElement.setAttribute('download', exportFileDefaultName);
+    linkElement.click();
+    
+    toast({
+      title: "Schedule exported",
+      description: "Your production schedule has been downloaded as JSON."
+    });
+  };
+
+  const discardChanges = () => {
+    if (originalSchedule) {
+      setProductionSchedule(JSON.parse(JSON.stringify(originalSchedule)));
+      setHasUnsavedChanges(false);
+      setIsEditMode(false);
+      setEditingScene(null);
+      toast({
+        title: "Changes discarded",
+        description: "Your schedule has been reset to the original version."
+      });
+    }
+  };
+
+  // Save schedule changes to localStorage
+  const saveScheduleToStorage = (schedule: ProductionScheduleOutput) => {
+    if (selectedProject?.id) {
+      localStorage.setItem(`schedule_${selectedProject.id}`, JSON.stringify(schedule));
+      console.log('💾 Schedule changes saved to localStorage');
+    }
+  };
+
+  const updateScheduleField = (path: string[], value: any) => {
+    if (!productionSchedule) return;
+    
+    const newSchedule = JSON.parse(JSON.stringify(productionSchedule));
+    let current = newSchedule;
+    
+    // Navigate to the field
+    for (let i = 0; i < path.length - 1; i++) {
+      current = current[path[i]];
+    }
+    
+    // Update the field
+    current[path[path.length - 1]] = value;
+    
+    setProductionSchedule(newSchedule);
+    saveScheduleToStorage(newSchedule);
+    setHasUnsavedChanges(true);
+  };
+
+  const handleDragEnd = (event: any) => {
+    const { active, over } = event;
+    
+    if (active.id !== over.id && productionSchedule) {
+      const [dayIndex, sceneIndex] = active.id.split('-').map(Number);
+      const [overDayIndex, overSceneIndex] = over.id.split('-').map(Number);
+      
+      const newSchedule = JSON.parse(JSON.stringify(productionSchedule));
+      
+      if (dayIndex === overDayIndex) {
+        // Reordering within same day
+        const scenes = newSchedule.dailySchedule[dayIndex].scenes;
+        const reorderedScenes = arrayMove(scenes, sceneIndex, overSceneIndex);
+        newSchedule.dailySchedule[dayIndex].scenes = reorderedScenes;
+      } else {
+        // Moving between days
+        const sourceScenes = newSchedule.dailySchedule[dayIndex].scenes;
+        const targetScenes = newSchedule.dailySchedule[overDayIndex].scenes;
+        
+        const movedScene = sourceScenes[sceneIndex];
+        sourceScenes.splice(sceneIndex, 1);
+        targetScenes.splice(overSceneIndex, 0, movedScene);
+      }
+      
+      setProductionSchedule(newSchedule);
+      saveScheduleToStorage(newSchedule);
+      setHasUnsavedChanges(true);
+    }
+  };
+
+  // Auto-generate schedule when script analysis is available (only once per project)
   useEffect(() => {
-    if (analysisError) {
-      console.error('❌ SCHEDULING PAGE: Analysis error updated in state:', analysisError);
-    } else {
-      console.log('✅ SCHEDULING PAGE: Analysis error cleared from state');
+    if (hasScriptAnalysis && !productionSchedule && !isGeneratingSchedule && selectedProject?.id) {
+      // Check if schedule already exists
+      const existingSchedule = localStorage.getItem(`schedule_${selectedProject.id}`);
+      
+      // Check if auto-generation has already been attempted for this project
+      const autoGenerationAttempted = hasAutoGenerationBeenAttempted(selectedProject.id);
+      
+      if (!existingSchedule && !autoGenerationAttempted) {
+        console.log('🎬 Auto-generating schedule for new project (first time only)');
+        markAutoGenerationAttempted(selectedProject.id);
+        handleGenerateSchedule();
+      } else if (autoGenerationAttempted && !existingSchedule) {
+        console.log('ℹ️ Auto-generation already attempted for this project, skipping');
+      }
     }
-  }, [analysisError]);
-  
-  // Track analyzing state changes
+  }, [hasScriptAnalysis, selectedProject?.id]);
+
+  // Cleanup: Remove scheduling lock when component unmounts or project changes
   useEffect(() => {
-    console.log('🔄 SCHEDULING PAGE: Analyzing state changed to:', isAnalyzing);
-  }, [isAnalyzing]);
-  
-  // Tab change handler with logging
-  const handleTabChange = (newTab: string) => {
-    console.log('🔄 PAGE: Tab change requested from', activeTab, 'to', newTab);
-    if (newTab === activeTab) {
-      console.log('⚠️ PAGE: Tab change ignored - same tab');
+    return () => {
+      // Only remove lock if this component set it
+      const lockData = localStorage.getItem(SCHEDULING_LOCK_KEY);
+      if (lockData && selectedProject?.id) {
+        try {
+          const { projectId } = JSON.parse(lockData);
+          if (projectId === selectedProject.id) {
+            removeSchedulingServiceLock();
+          }
+        } catch {
+          // If parsing fails, remove the lock anyway
+          removeSchedulingServiceLock();
+        }
+      }
+    };
+  }, [selectedProject?.id]);
+
+  const handleGenerateSchedule = async (forceRegenerate = false) => {
+    if (!hasScriptAnalysis) {
+      toast({
+        title: "No PDF analysis available",
+        description: "Please upload and analyze a PDF script first before generating a schedule.",
+        variant: "destructive"
+      });
       return;
     }
-    setActiveTab(newTab);
-    console.log('✅ PAGE: Tab changed successfully to', newTab);
-    
-    // Log specific tab behaviors
-    if (newTab === 'aiyard') {
-      console.log('🤖 PAGE: AI Yard activated - Scheduling coordination features available');
-    } else if (newTab === 'aiyard1') {
-      console.log('⚖️ PAGE: AI Yard 1 activated - Compliance & constraints features available');
-    } else if (newTab === 'aiyard2') {
-      console.log('🏗️ PAGE: AI Yard 2 activated - Resource logistics features available');
-    } else if (newTab === 'aiyard3') {
-      console.log('⚡ PAGE: AI Yard 3 activated - Optimization & scenario features available');
-    } else if (newTab === 'scriptyard') {
-      console.log('📝 PAGE: Script Yard activated - scene table view');
-    } else if (newTab === 'boneyard') {
-      console.log('🦴 PAGE: Bone Yard activated - problem scenes view');
-    }
-  };
 
-  const handleComplianceAnalysis = async () => {
-    console.log('');
-    console.log('⚖️ ===== SCHEDULING PAGE: COMPLIANCE ANALYSIS INITIATED =====');
-    console.log('📅 TIMESTAMP:', new Date().toISOString());
-    console.log('🖥️ COMPONENT: SchedulingPage - AI Yard 1');
-    console.log('⚖️ ==========================================================');
-    console.log('');
-    
-    console.log('🔍 PAGE: Validating compliance input...');
-    console.log('📊 PAGE: Compliance JSON input length:', jsonInputCompliance.length, 'characters');
-    console.log('📊 PAGE: Compliance JSON input trimmed length:', jsonInputCompliance.trim().length, 'characters');
-    console.log('📊 PAGE: Selected project:', selectedProject?.id || 'No project selected');
-    
-    if (!jsonInputCompliance.trim()) {
-      console.error('❌ PAGE: Compliance validation failed - empty JSON input');
-      setComplianceError('Please enter JSON data for compliance analysis');
+    // Check if another scheduling AI service is already running globally
+    if (isSchedulingServiceRunning()) {
+      toast({
+        title: "Scheduling service busy",
+        description: "Another scheduling AI service is currently running. Please wait and try again.",
+        variant: "destructive"
+      });
       return;
     }
-    console.log('✅ PAGE: Compliance input validation passed');
 
-    console.log('');
-    console.log('🚀 PAGE: Starting compliance analysis process...');
-    console.log('🔄 PAGE: Setting compliance analysis state...');
-    
-    setIsAnalyzingCompliance(true);
-    setComplianceError('');
-    setComplianceResult(null);
-    
-    console.log('📊 PAGE: Compliance state updated - isAnalyzing: true, error cleared, result cleared');
+    // Check if schedule already exists and we're not forcing regeneration
+    if (!forceRegenerate && selectedProject?.id) {
+      const existingSchedule = localStorage.getItem(`schedule_${selectedProject.id}`);
+      if (existingSchedule) {
+        console.log('✅ Schedule already exists for this project, skipping AI service call');
+        return;
+      }
+    }
+
+    // Set global lock before starting AI service
+    if (selectedProject?.id) {
+      setSchedulingServiceLock(selectedProject.id);
+    }
+
+    setIsGeneratingSchedule(true);
+    setScheduleError('');
+    setAnalysisStatus('Analyzing script data for scheduling...');
 
     try {
-      const projectId = selectedProject?.id || 'unknown_project';
-      console.log('📋 PAGE: Using project ID for compliance:', projectId);
-      console.log('📋 PAGE: Project name:', selectedProject?.name || 'Unknown project');
+      console.log('🎬 Generating production schedule from script analysis');
       
-      console.log('');
-      console.log('🔄 PAGE: Calling analyzeComplianceWithAI()...');
-      console.log('📤 PAGE: Sending compliance JSON input of', jsonInputCompliance.length, 'characters');
-      
-      const result = await analyzeComplianceWithAI(
-        jsonInputCompliance,
-        projectId,
+      const result = await generateProductionScheduleWithAI(
+        scriptAnalysis,
+        selectedProject.id,
         (status) => {
-          console.log('📢 PAGE: Compliance progress callback received:', status);
+          console.log('Schedule generation progress:', status);
+          setAnalysisStatus(status);
         }
       );
 
-      console.log('');
-      console.log('📥 PAGE: Compliance analysis result received');
-      console.log('📊 PAGE: Compliance result status:', result.status);
-      console.log('📊 PAGE: Compliance result has data:', !!result.result);
-      console.log('📊 PAGE: Compliance result has error:', !!result.error);
-
       if (result.status === 'completed' && result.result) {
-        console.log('✅ PAGE: Compliance analysis completed successfully');
-        console.log('📊 PAGE: Setting compliance analysis result to state...');
+        setProductionSchedule(result.result);
+        setOriginalSchedule(JSON.parse(JSON.stringify(result.result)));
         
-        // Log some key metrics from the result
-        try {
-          const output = result.result.complianceConstraintsOutput;
-          console.log('📋 PAGE: Compliance result summary:');
-          console.log('  - Request ID:', output.requestId);
-          console.log('  - Compliance status:', output.complianceStatus);
-          console.log('  - Hard constraints:', output.hardConstraints?.length);
-          console.log('  - Soft constraints:', output.softConstraints?.length);
-          console.log('  - Risk assessments:', output.riskAssessment?.length);
-          console.log('  - Recommendations:', output.complianceRecommendations?.length);
-        } catch (logError) {
-          console.log('⚠️ PAGE: Could not log compliance result summary:', logError.message);
+        // Save schedule to localStorage to avoid regenerating
+        if (selectedProject?.id) {
+          localStorage.setItem(`schedule_${selectedProject.id}`, JSON.stringify(result.result));
+          console.log('💾 Schedule saved to localStorage for project:', selectedProject.name);
         }
+
+        // Note: Background budget generation is now handled by ScriptPage
         
-        setComplianceResult(result.result);
-        console.log('✅ PAGE: Compliance analysis result set to state successfully');
+        toast({
+          title: "Production schedule generated!",
+          description: `${result.result.scheduleOverview.totalShootDays} day shooting schedule created with budget estimate.`
+        });
+        
+        // Mark auto-generation as attempted if this was an auto-generation
+        if (selectedProject?.id && !hasAttemptedAutoGeneration) {
+          markAutoGenerationAttempted(selectedProject.id);
+          setHasAttemptedAutoGeneration(true);
+        }
       } else {
-        console.error('❌ PAGE: Compliance analysis failed');
-        console.error('🔍 PAGE: Compliance error message:', result.error || 'Analysis failed');
-        setComplianceError(result.error || 'Compliance analysis failed');
-        console.log('🔄 PAGE: Compliance error set to state');
+        throw new Error(result.error || 'Schedule generation failed');
       }
+
     } catch (error) {
-      console.log('');
-      console.log('💥 ========== PAGE COMPLIANCE ERROR OCCURRED ==========');
-      console.error('❌ PAGE: Unexpected error in handleComplianceAnalysis:', error);
-      console.error('🔍 PAGE: Error type:', error?.name || 'Unknown');
-      console.error('🔍 PAGE: Error message:', error?.message || 'No message');
-      
-      if (error?.stack) {
-        console.error('📚 PAGE: Error stack trace:');
-        console.error(error.stack);
-      }
-      
-      console.log('🔄 PAGE: Setting generic compliance error message...');
-      setComplianceError('Failed to analyze compliance data');
-      console.log('💥 ===================================================');
+      console.error('❌ Schedule generation failed:', error);
+      const errorMessage = error instanceof Error ? error.message : 'Unknown error occurred';
+      setScheduleError(errorMessage);
+      toast({
+        title: "Schedule generation failed",
+        description: errorMessage,
+        variant: "destructive"
+      });
     } finally {
-      console.log('');
-      console.log('🏁 PAGE: Compliance analysis process completed, cleaning up...');
-      console.log('🔄 PAGE: Setting isAnalyzingCompliance to false...');
-      setIsAnalyzingCompliance(false);
-      console.log('✅ PAGE: Compliance analysis state cleanup completed');
-      console.log('');
-      console.log('⚖️ ===== SCHEDULING PAGE: COMPLIANCE ANALYSIS FINISHED =====');
-      console.log('📅 TIMESTAMP:', new Date().toISOString());
-      console.log('⚖️ ========================================================');
-      console.log('');
+      // Always remove the global lock when AI service completes
+      removeSchedulingServiceLock();
+      setIsGeneratingSchedule(false);
+      setAnalysisStatus('');
     }
   };
 
-  const handleResourceAnalysis = async () => {
-    console.log('');
-    console.log('🏗️ ===== SCHEDULING PAGE: RESOURCE ANALYSIS INITIATED =====');
-    console.log('📅 TIMESTAMP:', new Date().toISOString());
-    console.log('🖥️ COMPONENT: SchedulingPage - AI Yard 2');
-    console.log('🏗️ ========================================================');
-    console.log('');
-    
-    console.log('🔍 PAGE: Validating resource input...');
-    console.log('📊 PAGE: Resource JSON input length:', jsonInputResource.length, 'characters');
-    console.log('📊 PAGE: Resource JSON input trimmed length:', jsonInputResource.trim().length, 'characters');
-    console.log('📊 PAGE: Selected project:', selectedProject?.id || 'No project selected');
-    
-    if (!jsonInputResource.trim()) {
-      console.error('❌ PAGE: Resource validation failed - empty JSON input');
-      setResourceError('Please enter JSON data for resource analysis');
-      return;
-    }
-    console.log('✅ PAGE: Resource input validation passed');
+  // Sortable Scene Component
+  const SortableScene = ({ scene, dayIndex, sceneIndex, isEditMode }: { 
+    scene: any, 
+    dayIndex: number, 
+    sceneIndex: number, 
+    isEditMode: boolean 
+  }) => {
+    const {
+      attributes,
+      listeners,
+      setNodeRef,
+      transform,
+      transition,
+      isDragging,
+    } = useSortable({ id: `${dayIndex}-${sceneIndex}` });
 
-    console.log('');
-    console.log('🚀 PAGE: Starting resource analysis process...');
-    console.log('🔄 PAGE: Setting resource analysis state...');
-    
-    setIsAnalyzingResource(true);
-    setResourceError('');
-    setResourceResult(null);
-    
-    console.log('📊 PAGE: Resource state updated - isAnalyzing: true, error cleared, result cleared');
+    const style = {
+      transform: CSS.Transform.toString(transform),
+      transition,
+      opacity: isDragging ? 0.5 : 1,
+    };
 
-    try {
-      const projectId = selectedProject?.id || 'unknown_project';
-      console.log('📋 PAGE: Using project ID for resource:', projectId);
-      console.log('📋 PAGE: Project name:', selectedProject?.name || 'Unknown project');
-      
-      console.log('');
-      console.log('🔄 PAGE: Calling analyzeResourceWithAI()...');
-      console.log('📤 PAGE: Sending resource JSON input of', jsonInputResource.length, 'characters');
-      
-      const result = await analyzeResourceWithAI(
-        jsonInputResource,
-        projectId,
-        (status) => {
-          console.log('📢 PAGE: Resource progress callback received:', status);
-        }
-      );
-
-      console.log('');
-      console.log('📥 PAGE: Resource analysis result received');
-      console.log('📊 PAGE: Resource result status:', result.status);
-      console.log('📊 PAGE: Resource result has data:', !!result.result);
-      console.log('📊 PAGE: Resource result has error:', !!result.error);
-
-      if (result.status === 'completed' && result.result) {
-        console.log('✅ PAGE: Resource analysis completed successfully');
-        console.log('📊 PAGE: Setting resource analysis result to state...');
-        
-        // Log some key metrics from the result
-        try {
-          const output = result.result.resourceLogisticsOutput;
-          console.log('📋 PAGE: Resource result summary:');
-          console.log('  - Project ID:', output.projectId);
-          console.log('  - Total cast members:', output.castResourceAnalysis?.totalCastMembers);
-          console.log('  - Total crew size:', output.crewResourceAnalysis?.totalCrewSize);
-          console.log('  - Department count:', output.crewResourceAnalysis?.departments?.length);
-          console.log('  - Location count:', output.locationLogistics?.locationBreakdown?.length);
-        } catch (logError) {
-          console.log('⚠️ PAGE: Could not log resource result summary:', logError.message);
-        }
-        
-        setResourceResult(result.result);
-        console.log('✅ PAGE: Resource analysis result set to state successfully');
-      } else {
-        console.error('❌ PAGE: Resource analysis failed');
-        console.error('🔍 PAGE: Resource error message:', result.error || 'Analysis failed');
-        setResourceError(result.error || 'Resource analysis failed');
-        console.log('🔄 PAGE: Resource error set to state');
-      }
-    } catch (error) {
-      console.log('');
-      console.log('💥 ========== PAGE RESOURCE ERROR OCCURRED ==========');
-      console.error('❌ PAGE: Unexpected error in handleResourceAnalysis:', error);
-      console.error('🔍 PAGE: Error type:', error?.name || 'Unknown');
-      console.error('🔍 PAGE: Error message:', error?.message || 'No message');
-      
-      if (error?.stack) {
-        console.error('📚 PAGE: Error stack trace:');
-        console.error(error.stack);
-      }
-      
-      console.log('🔄 PAGE: Setting generic resource error message...');
-      setResourceError('Failed to analyze resource data');
-      console.log('💥 ==================================================');
-    } finally {
-      console.log('');
-      console.log('🏁 PAGE: Resource analysis process completed, cleaning up...');
-      console.log('🔄 PAGE: Setting isAnalyzingResource to false...');
-      setIsAnalyzingResource(false);
-      console.log('✅ PAGE: Resource analysis state cleanup completed');
-      console.log('');
-      console.log('🏗️ ===== SCHEDULING PAGE: RESOURCE ANALYSIS FINISHED =====');
-      console.log('📅 TIMESTAMP:', new Date().toISOString());
-      console.log('🏗️ ======================================================');
-      console.log('');
-    }
+    return (
+      <div
+        ref={setNodeRef}
+        style={style}
+        {...attributes}
+        {...(isEditMode ? listeners : {})}
+        className={`flex items-center justify-between bg-gray-700 rounded p-2 ${
+          isEditMode ? 'cursor-move hover:bg-gray-600' : ''
+        } ${isDragging ? 'shadow-lg' : ''}`}
+      >
+        <div className="flex items-center space-x-3">
+          {isEditMode && (
+            <div className="text-gray-400 cursor-grab">⋮⋮</div>
+          )}
+          <div>
+            {isEditMode ? (
+              <Input
+                value={`Scene ${scene.sceneNumber}`}
+                onChange={(e) => {
+                  const newSceneNumber = parseInt(e.target.value.replace('Scene ', ''));
+                  if (!isNaN(newSceneNumber)) {
+                    updateScheduleField(['dailySchedule', dayIndex, 'scenes', sceneIndex, 'sceneNumber'], newSceneNumber);
+                  }
+                }}
+                className="w-24 h-6 text-sm bg-gray-800 border-gray-600 text-white"
+              />
+            ) : (
+              <span className="text-white">Scene {scene.sceneNumber}</span>
+            )}
+            <span className="text-gray-400 ml-2">
+              {isEditMode ? (
+                <Input
+                  value={scene.duration}
+                  onChange={(e) => updateScheduleField(['dailySchedule', dayIndex, 'scenes', sceneIndex, 'duration'], parseFloat(e.target.value))}
+                  className="w-16 h-6 text-sm bg-gray-800 border-gray-600 text-gray-400"
+                />
+              ) : (
+                `(${scene.duration}h)`
+              )}
+            </span>
+          </div>
+        </div>
+        <div className="text-gray-300 text-sm">
+          {isEditMode ? (
+            <div className="flex space-x-2">
+              <Input
+                value={scene.startTime}
+                onChange={(e) => updateScheduleField(['dailySchedule', dayIndex, 'scenes', sceneIndex, 'startTime'], e.target.value)}
+                className="w-16 h-6 text-sm bg-gray-800 border-gray-600 text-gray-300"
+              />
+              <span>-</span>
+              <Input
+                value={scene.endTime}
+                onChange={(e) => updateScheduleField(['dailySchedule', dayIndex, 'scenes', sceneIndex, 'endTime'], e.target.value)}
+                className="w-16 h-6 text-sm bg-gray-800 border-gray-600 text-gray-300"
+              />
+            </div>
+          ) : (
+            <span>{scene.startTime} - {scene.endTime}</span>
+          )}
+        </div>
+      </div>
+    );
   };
 
-  const handleOptimizationAnalysis = async () => {
-    console.log('');
-    console.log('⚡ ===== SCHEDULING PAGE: OPTIMIZATION ANALYSIS INITIATED =====');
-    console.log('📅 TIMESTAMP:', new Date().toISOString());
-    console.log('🖥️ COMPONENT: SchedulingPage - AI Yard 3');
-    console.log('⚡ =============================================================');
-    console.log('');
-    
-    console.log('🔍 PAGE: Validating optimization input...');
-    console.log('📊 PAGE: Optimization JSON input length:', jsonInputOptimization.length, 'characters');
-    console.log('📊 PAGE: Optimization JSON input trimmed length:', jsonInputOptimization.trim().length, 'characters');
-    console.log('📊 PAGE: Selected project:', selectedProject?.id || 'No project selected');
-    
-    if (!jsonInputOptimization.trim()) {
-      console.error('❌ PAGE: Optimization validation failed - empty JSON input');
-      setOptimizationError('Please enter JSON data for optimization analysis');
-      return;
-    }
-    console.log('✅ PAGE: Optimization input validation passed');
-
-    console.log('');
-    console.log('🚀 PAGE: Starting optimization analysis process...');
-    console.log('🔄 PAGE: Setting optimization analysis state...');
-    
-    setIsAnalyzingOptimization(true);
-    setOptimizationError('');
-    setOptimizationResult(null);
-    
-    console.log('📊 PAGE: Optimization state updated - isAnalyzing: true, error cleared, result cleared');
-
-    try {
-      const projectId = selectedProject?.id || 'unknown_project';
-      console.log('📋 PAGE: Using project ID for optimization:', projectId);
-      console.log('📋 PAGE: Project name:', selectedProject?.name || 'Unknown project');
-      
-      console.log('');
-      console.log('🔄 PAGE: Calling analyzeOptimizationWithAI()...');
-      console.log('📤 PAGE: Sending optimization JSON input of', jsonInputOptimization.length, 'characters');
-      
-      const result = await analyzeOptimizationWithAI(
-        jsonInputOptimization,
-        projectId,
-        (status) => {
-          console.log('📢 PAGE: Optimization progress callback received:', status);
-        }
-      );
-
-      console.log('');
-      console.log('📥 PAGE: Optimization analysis result received');
-      console.log('📊 PAGE: Optimization result status:', result.status);
-      console.log('📊 PAGE: Optimization result has data:', !!result.result);
-      console.log('📊 PAGE: Optimization result has error:', !!result.error);
-
-      if (result.status === 'completed' && result.result) {
-        console.log('✅ PAGE: Optimization analysis completed successfully');
-        console.log('📊 PAGE: Setting optimization analysis result to state...');
-        
-        // Log some key metrics from the result
-        try {
-          const output = result.result.optimizationScenarioOutput;
-          console.log('📋 PAGE: Optimization result summary:');
-          console.log('  - Project ID:', output.projectId);
-          console.log('  - Scenario count:', output.optimizedScheduleScenarios?.length);
-          console.log('  - Recommended scenario:', output.scenarioComparison?.recommendedScenario);
-          console.log('  - Primary objective:', output.optimizationParameters?.primaryObjective);
-        } catch (logError) {
-          console.log('⚠️ PAGE: Could not log optimization result summary:', logError.message);
-        }
-        
-        setOptimizationResult(result.result);
-        console.log('✅ PAGE: Optimization analysis result set to state successfully');
-      } else {
-        console.error('❌ PAGE: Optimization analysis failed');
-        console.error('🔍 PAGE: Optimization error message:', result.error || 'Analysis failed');
-        setOptimizationError(result.error || 'Optimization analysis failed');
-        console.log('🔄 PAGE: Optimization error set to state');
-      }
-    } catch (error) {
-      console.log('');
-      console.log('💥 ========== PAGE OPTIMIZATION ERROR OCCURRED ==========');
-      console.error('❌ PAGE: Unexpected error in handleOptimizationAnalysis:', error);
-      console.error('🔍 PAGE: Error type:', error?.name || 'Unknown');
-      console.error('🔍 PAGE: Error message:', error?.message || 'No message');
-      
-      if (error?.stack) {
-        console.error('📚 PAGE: Error stack trace:');
-        console.error(error.stack);
-      }
-      
-      console.log('🔄 PAGE: Setting generic optimization error message...');
-      setOptimizationError('Failed to analyze optimization data');
-      console.log('💥 ======================================================');
-    } finally {
-      console.log('');
-      console.log('🏁 PAGE: Optimization analysis process completed, cleaning up...');
-      console.log('🔄 PAGE: Setting isAnalyzingOptimization to false...');
-      setIsAnalyzingOptimization(false);
-      console.log('✅ PAGE: Optimization analysis state cleanup completed');
-      console.log('');
-      console.log('⚡ ===== SCHEDULING PAGE: OPTIMIZATION ANALYSIS FINISHED =====');
-      console.log('📅 TIMESTAMP:', new Date().toISOString());
-      console.log('⚡ ===========================================================');
-      console.log('');
-    }
+  // Format currency
+  const formatCurrency = (amount: number) => {
+    return new Intl.NumberFormat('en-US', {
+      style: 'currency',
+      currency: 'USD',
+      minimumFractionDigits: 0,
+      maximumFractionDigits: 0,
+    }).format(amount);
   };
-  
-  const scriptScenes = [
-    { 
-      id: 1, 
-      scene: 'EXT. A SAVANNAH STREET - DAY (1981)', 
-      description: 'A feather floats through the air. The falling feather.',
-      castId: '',
-      pages: '1 4/8',
-      unit: 'Assign Unit',
-      estimation: '1.5',
-      location: 'Assign Location'
-    },
-    { 
-      id: 13, 
-      scene: 'EXT. GUMP BOARDING HOUSE - DAY', 
-      description: 'A cab driver closes the trunk of the car as two woman walk t...',
-      castId: '',
-      pages: '2/8',
-      unit: 'Assign Unit',
-      estimation: '0',
-      location: 'Assign Location'
-    },
-    { 
-      id: 2, 
-      scene: 'INT. COUNTRY DOCTOR\'S OFFICE - GREENBOW, ALABAMA - DAY', 
-      description: '(1951) A little boy closes his eyes tightly. It is young For...',
-      castId: '',
-      pages: '5/8',
-      unit: 'Assign Unit',
-      estimation: '0.5',
-      location: 'Assign Location'
-    },
-    { 
-      id: 3, 
-      scene: 'EXT. GREENBOW, ALABAMA', 
-      description: 'Mrs. Gump and young Forrest walk across the street. Forrest ...',
-      castId: '',
-      pages: '1/8',
-      unit: 'Assign Unit',
-      estimation: '0.5',
-      location: 'Assign Location'
-    },
-    { 
-      id: 4, 
-      scene: 'EXT. RURAL ALABAMA', 
-      description: 'A black and white photo of General Nathan Bedford Forrest ...',
-      castId: '',
-      pages: '3/8',
-      unit: 'Assign Unit',
-      estimation: '0.5',
-      location: 'Assign Location'
-    },
-    { 
-      id: 5, 
-      scene: 'EXT. GREENBOW', 
-      description: 'Mrs. Gump and Forrest walk across the street.',
-      castId: '',
-      pages: '7/8',
-      unit: 'Assign Unit',
-      estimation: '0.5',
-      location: 'Assign Location'
-    },
-    { 
-      id: 6, 
-      scene: 'EXT. OAK ALLEY/THE GUMP BOARDING HOUSE', 
-      description: 'Mrs. Gump and Forrest walk along a dirt road. A row of mailb...',
-      castId: '',
-      pages: '6/8',
-      unit: 'Assign Unit',
-      estimation: '0.5',
-      location: 'Assign Location'
-    },
-    { 
-      id: 7, 
-      scene: 'INT. ELEMENTARY SCHOOL / PRINCIPAL\'S OFFICE - DAY', 
-      description: 'PRINCIPAL',
-      castId: '',
-      pages: '2/8',
-      unit: 'Assign Unit',
-      estimation: '0.5',
-      location: 'Assign Location'
-    },
-    { 
-      id: 8, 
-      scene: 'INT. HALLWAY', 
-      description: 'Forrest sits outside the principal\'s office and waits.',
-      castId: '',
-      pages: '6/8',
-      unit: 'Assign Unit',
-      estimation: '0',
-      location: 'Assign Location'
-    }
-  ];
-  
-  const boneyardItems = [
-    { id: 1, scene: '9', description: 'Interior coffee shop scene', reason: 'Location not available', priority: 'High' },
-    { id: 2, scene: '12', description: 'Car chase sequence', reason: 'Stunt coordinator unavailable', priority: 'Medium' },
-    { id: 3, scene: '15', description: 'Rooftop dialogue', reason: 'Weather dependent', priority: 'Low' },
-    { id: 4, scene: '18', description: 'Restaurant dinner scene', reason: 'Cast scheduling conflict', priority: 'High' }
-  ];
 
-  const handleSchedulingAnalysis = async () => {
-    console.log('');
-    console.log('🎬 ===== SCHEDULING PAGE: ANALYSIS INITIATED =====');
-    console.log('📅 TIMESTAMP:', new Date().toISOString());
-    console.log('🖥️ COMPONENT: SchedulingPage');
-    console.log('🎬 ==============================================');
-    console.log('');
-    
-    console.log('🔍 PAGE: Validating input...');
-    console.log('📊 PAGE: JSON input length:', jsonInput.length, 'characters');
-    console.log('📊 PAGE: JSON input trimmed length:', jsonInput.trim().length, 'characters');
-    console.log('📊 PAGE: Selected project:', selectedProject?.id || 'No project selected');
-    
-    if (!jsonInput.trim()) {
-      console.error('❌ PAGE: Validation failed - empty JSON input');
-      setAnalysisError('Please enter JSON data for analysis');
-      return;
-    }
-    console.log('✅ PAGE: Input validation passed');
-
-    console.log('');
-    console.log('🚀 PAGE: Starting analysis process...');
-    console.log('🔄 PAGE: Setting analysis state...');
-    
-    setIsAnalyzing(true);
-    setAnalysisError('');
-    setAnalysisResult(null);
-    
-    console.log('📊 PAGE: State updated - isAnalyzing: true, error cleared, result cleared');
-
-    try {
-      const projectId = selectedProject?.id || 'unknown_project';
-      console.log('📋 PAGE: Using project ID:', projectId);
-      console.log('📋 PAGE: Project name:', selectedProject?.name || 'Unknown project');
-      
-      console.log('');
-      console.log('🔄 PAGE: Calling analyzeSchedulingWithAI()...');
-      console.log('📤 PAGE: Sending JSON input of', jsonInput.length, 'characters');
-      
-      const result = await analyzeSchedulingWithAI(
-        jsonInput,
-        projectId,
-        (status) => {
-          console.log('📢 PAGE: Progress callback received:', status);
-        }
-      );
-
-      console.log('');
-      console.log('📥 PAGE: Analysis result received');
-      console.log('📊 PAGE: Result status:', result.status);
-      console.log('📊 PAGE: Result has data:', !!result.result);
-      console.log('📊 PAGE: Result has error:', !!result.error);
-
-      if (result.status === 'completed' && result.result) {
-        console.log('✅ PAGE: Analysis completed successfully');
-        console.log('📊 PAGE: Setting analysis result to state...');
-        
-        // Log some key metrics from the result
-        try {
-          const output = result.result.coordinatorOutput;
-          console.log('📋 PAGE: Result summary:');
-          console.log('  - Project ID:', output.projectId);
-          console.log('  - Total scenes:', output.comprehensiveProjectModel?.totalScenes);
-          console.log('  - Complexity score:', output.comprehensiveProjectModel?.complexityScore);
-          console.log('  - Risk factors:', output.comprehensiveProjectModel?.riskFactors?.length || 0);
-          console.log('  - Agent packets:', Object.keys(output.agentDataPackets || {}).length);
-        } catch (logError) {
-          console.log('⚠️ PAGE: Could not log result summary:', logError.message);
-        }
-        
-        setAnalysisResult(result.result);
-        console.log('✅ PAGE: Analysis result set to state successfully');
-      } else {
-        console.error('❌ PAGE: Analysis failed');
-        console.error('🔍 PAGE: Error message:', result.error || 'Analysis failed');
-        setAnalysisError(result.error || 'Analysis failed');
-        console.log('🔄 PAGE: Error set to state');
-      }
-    } catch (error) {
-      console.log('');
-      console.log('💥 ========== PAGE ERROR OCCURRED ==========');
-      console.error('❌ PAGE: Unexpected error in handleSchedulingAnalysis:', error);
-      console.error('🔍 PAGE: Error type:', error?.name || 'Unknown');
-      console.error('🔍 PAGE: Error message:', error?.message || 'No message');
-      
-      if (error?.stack) {
-        console.error('📚 PAGE: Error stack trace:');
-        console.error(error.stack);
-      }
-      
-      console.log('🔄 PAGE: Setting generic error message...');
-      setAnalysisError('Failed to analyze scheduling data');
-      console.log('💥 ========================================');
-    } finally {
-      console.log('');
-      console.log('🏁 PAGE: Analysis process completed, cleaning up...');
-      console.log('🔄 PAGE: Setting isAnalyzing to false...');
-      setIsAnalyzing(false);
-      console.log('✅ PAGE: Analysis state cleanup completed');
-      console.log('');
-      console.log('🎬 ===== SCHEDULING PAGE: ANALYSIS FINISHED =====');
-      console.log('📅 TIMESTAMP:', new Date().toISOString());
-      console.log('🎬 =============================================');
-      console.log('');
-    }
-  };
-  
   const sidebar = (
     <div className="p-4 bg-gray-950 border-r border-gray-800 h-full overflow-y-auto">
       <div className="mb-6">
         <div className="flex items-center space-x-2 mb-4">
-          <button
-            onClick={() => handleTabChange('scriptyard')}
-            className={`px-4 py-2 rounded text-sm font-medium transition-colors ${
-              activeTab === 'scriptyard' 
-                ? 'bg-purple-600 text-white' 
-                : 'text-gray-400 hover:text-white'
-            }`}
-          >
-            Scriptyard
-          </button>
-          <button
-            onClick={() => handleTabChange('boneyard')}
-            className={`px-4 py-2 rounded text-sm font-medium transition-colors ${
-              activeTab === 'boneyard' 
-                ? 'bg-purple-600 text-white' 
-                : 'text-gray-400 hover:text-white'
-            }`}
-          >
-            Boneyard
-          </button>
-          <button
-            onClick={() => handleTabChange('aiyard')}
-            className={`px-4 py-2 rounded text-sm font-medium transition-colors ${
-              activeTab === 'aiyard' 
-                ? 'bg-purple-600 text-white' 
-                : 'text-gray-400 hover:text-white'
-            }`}
-          >
-            AI Yard
-          </button>
-          <button
-            onClick={() => handleTabChange('aiyard1')}
-            className={`px-4 py-2 rounded text-sm font-medium transition-colors ${
-              activeTab === 'aiyard1' 
-                ? 'bg-purple-600 text-white' 
-                : 'text-gray-400 hover:text-white'
-            }`}
-          >
-            AI Yard 1
-          </button>
-          <button
-            onClick={() => handleTabChange('aiyard2')}
-            className={`px-4 py-2 rounded text-sm font-medium transition-colors ${
-              activeTab === 'aiyard2' 
-                ? 'bg-purple-600 text-white' 
-                : 'text-gray-400 hover:text-white'
-            }`}
-          >
-            AI Yard 2
-          </button>
-          <button
-            onClick={() => handleTabChange('aiyard3')}
-            className={`px-4 py-2 rounded text-sm font-medium transition-colors ${
-              activeTab === 'aiyard3' 
-                ? 'bg-purple-600 text-white' 
-                : 'text-gray-400 hover:text-white'
-            }`}
-          >
-            AI Yard 3
-          </button>
+          <Brain className="h-4 w-4 text-purple-400" />
+          <span className="text-purple-300 font-medium text-sm">Production Scheduling</span>
+        </div>
+        
+        {/* View Navigation */}
+        <div className="space-y-2">
+          {[
+            { id: 'overview', label: 'Overview', icon: Calendar },
+            { id: 'schedule', label: 'Daily Schedule', icon: Clock },
+            { id: 'cast', label: 'Cast Schedule', icon: Users },
+            { id: 'locations', label: 'Locations', icon: MapPin },
+            { id: 'equipment', label: 'Equipment', icon: Wrench },
+            { id: 'conflicts', label: 'Conflicts', icon: AlertTriangle },
+            { id: 'optimization', label: 'Optimization', icon: BarChart3 },
+          ].map(({ id, label, icon: Icon }) => (
+            <button
+              key={id}
+              onClick={() => setActiveView(id as any)}
+              className={`w-full flex items-center space-x-2 px-3 py-2 rounded text-sm transition-colors ${
+                activeView === id 
+                  ? 'bg-purple-600 text-white' 
+                  : 'text-gray-400 hover:text-white hover:bg-gray-800'
+              }`}
+            >
+              <Icon className="h-4 w-4" />
+              <span>{label}</span>
+            </button>
+          ))}
         </div>
       </div>
-      
-      {activeTab === 'boneyard' && (
-        <div className="space-y-2">
-          {boneyardItems.map((item) => (
-            <div key={item.id} className="bg-gray-800 p-3 rounded-lg border border-gray-700">
-              <div className="flex items-center justify-between mb-1">
-                <span className="text-white text-sm font-medium">Scene {item.scene}</span>
-                <span className={`text-xs px-2 py-1 rounded ${
-                  item.priority === 'High' ? 'bg-red-600 text-white' :
-                  item.priority === 'Medium' ? 'bg-yellow-600 text-white' :
-                  'bg-green-600 text-white'
-                }`}>
-                  {item.priority}
-                </span>
-              </div>
-              <div className="text-xs text-gray-400 mb-1">{item.description}</div>
-              <div className="text-xs text-gray-500">{item.reason}</div>
+
+      {/* Quick Stats */}
+      {productionSchedule && (
+        <div className="space-y-3">
+          <div className="text-gray-400 text-xs uppercase font-medium">Quick Stats</div>
+          <div className="space-y-2">
+            <div className="bg-gray-900 rounded-lg p-3">
+              <div className="text-xs text-gray-400">Total Shoot Days</div>
+              <div className="text-lg font-bold text-white">{productionSchedule.scheduleOverview.totalShootDays}</div>
             </div>
-          ))}
+            <div className="bg-gray-900 rounded-lg p-3">
+              <div className="text-xs text-gray-400">Budget Range</div>
+              <div className="text-sm font-medium text-green-400">
+                {formatCurrency(productionSchedule.scheduleOverview.estimatedBudgetRange.low)} - {formatCurrency(productionSchedule.scheduleOverview.estimatedBudgetRange.high)}
+              </div>
+            </div>
+            <div className="bg-gray-900 rounded-lg p-3">
+              <div className="text-xs text-gray-400">Crew Size</div>
+              <div className="text-lg font-bold text-white">{productionSchedule.scheduleOverview.recommendedCrewSize}</div>
+            </div>
+          </div>
         </div>
       )}
     </div>
   );
-  
+
   return (
     <MainLayout sidebar={sidebar}>
       <div className="min-h-screen bg-gray-950 text-white">
         <div className="p-6">
+          {/* Header */}
           <div className="flex items-center justify-between mb-6">
-            <h1 className="text-2xl font-bold text-white">Demo: Forrest Gump</h1>
-          </div>
-
-          {/* JSON Input Section - Only show when AI Yard tab is active */}
-          {activeTab === 'aiyard' && (
-            <div className="mb-8 bg-gray-900 rounded-lg p-6 border border-gray-800">
-            <h2 className="text-lg font-semibold text-white mb-4 flex items-center">
-              <FileText className="mr-2 h-5 w-5" />
-              Scheduling Coordination Input
-            </h2>
-            <div className="space-y-4">
-              <div>
-                <label className="block text-sm font-medium text-gray-300 mb-2">
-                  Enter JSON data for scheduling analysis:
-                </label>
-                <textarea
-                  value={jsonInput}
-                  onChange={(e) => setJsonInput(e.target.value)}
-                  placeholder='{"scenes": [], "cast": [], "locations": [], "requirements": {}}'
-                  className="w-full h-40 px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500 font-mono text-sm"
-                />
-              </div>
-              
-              {analysisError && (
-                <div className="text-red-400 text-sm bg-red-900/20 p-3 rounded border border-red-800">
-                  {analysisError}
-                </div>
-              )}
-              
-              <Button 
-                onClick={handleSchedulingAnalysis}
-                disabled={isAnalyzing || !jsonInput.trim()}
-                className="bg-purple-600 hover:bg-purple-700 text-white"
-              >
-                {isAnalyzing ? (
-                  <>
-                    <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                    Analyzing...
-                  </>
-                ) : (
-                  <>
-                    <Wand2 className="mr-2 h-4 w-4" />
-                    Analyze Scheduling
-                  </>
-                )}
-              </Button>
-            </div>
-            </div>
-          )}
-
-          {/* AI Yard 1 JSON Input Section - Only show when AI Yard 1 tab is active */}
-          {activeTab === 'aiyard1' && (
-            <div className="mb-8 bg-gray-900 rounded-lg p-6 border border-gray-800">
-            <h2 className="text-lg font-semibold text-white mb-4 flex items-center">
-              <FileText className="mr-2 h-5 w-5" />
-              Compliance & Constraints Input
-            </h2>
-            <div className="space-y-4">
-              <div>
-                <label className="block text-sm font-medium text-gray-300 mb-2">
-                  Enter JSON data for compliance & constraints analysis:
-                </label>
-                <textarea
-                  value={jsonInputCompliance}
-                  onChange={(e) => setJsonInputCompliance(e.target.value)}
-                  placeholder='{"cast": [], "crew": [], "scenes": [], "locations": [], "requirements": {}}'
-                  className="w-full h-40 px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500 font-mono text-sm"
-                />
-              </div>
-              
-              {complianceError && (
-                <div className="text-red-400 text-sm bg-red-900/20 p-3 rounded border border-red-800">
-                  {complianceError}
-                </div>
-              )}
-              
-              <Button 
-                onClick={handleComplianceAnalysis}
-                disabled={isAnalyzingCompliance || !jsonInputCompliance.trim()}
-                className="bg-purple-600 hover:bg-purple-700 text-white"
-              >
-                {isAnalyzingCompliance ? (
-                  <>
-                    <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                    Analyzing...
-                  </>
-                ) : (
-                  <>
-                    <Wand2 className="mr-2 h-4 w-4" />
-                    Analyze Compliance
-                  </>
-                )}
-              </Button>
-            </div>
-            </div>
-          )}
-
-          {/* JSON Input Section - AI Yard 2 - Resource Logistics */}
-          {activeTab === 'aiyard2' && (
-            <div className="mb-8 bg-gray-900 rounded-lg p-6 border border-gray-800">
-            <h2 className="text-lg font-semibold text-white mb-4 flex items-center">
-              <FileText className="mr-2 h-5 w-5" />
-              Resource Logistics Input
-            </h2>
-            <div className="space-y-4">
-              <div>
-                <label className="block text-sm font-medium text-gray-300 mb-2">
-                  Enter JSON data for resource logistics analysis:
-                </label>
-                <textarea
-                  value={jsonInputResource}
-                  onChange={(e) => setJsonInputResource(e.target.value)}
-                  className="w-full h-64 bg-gray-800 border border-gray-700 rounded-lg p-3 text-white text-sm font-mono focus:ring-2 focus:ring-purple-500 focus:border-transparent"
-                  placeholder='Enter your JSON data here...'
-                />
-              </div>
-              {resourceError && (
-                <div className="text-red-400 text-sm">{resourceError}</div>
-              )}
-              <Button 
-                onClick={handleResourceAnalysis}
-                disabled={isAnalyzingResource}
-                className="bg-purple-600 hover:bg-purple-700 text-white"
-              >
-                {isAnalyzingResource ? (
-                  <>
-                    <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                    Analyzing Resource Logistics...
-                  </>
-                ) : (
-                  <>
-                    <Wand2 className="mr-2 h-4 w-4" />
-                    Analyze Resource Logistics
-                  </>
-                )}
-              </Button>
-            </div>
-            </div>
-          )}
-
-          {/* JSON Input Section - AI Yard 3 - Optimization & Scenario */}
-          {activeTab === 'aiyard3' && (
-            <div className="mb-8 bg-gray-900 rounded-lg p-6 border border-gray-800">
-            <h2 className="text-lg font-semibold text-white mb-4 flex items-center">
-              <FileText className="mr-2 h-5 w-5" />
-              Optimization & Scenario Input
-            </h2>
-            <div className="space-y-4">
-              <div>
-                <label className="block text-sm font-medium text-gray-300 mb-2">
-                  Enter JSON data for optimization & scenario analysis:
-                </label>
-                <textarea
-                  value={jsonInputOptimization}
-                  onChange={(e) => setJsonInputOptimization(e.target.value)}
-                  className="w-full h-64 bg-gray-800 border border-gray-700 rounded-lg p-3 text-white text-sm font-mono focus:ring-2 focus:ring-purple-500 focus:border-transparent"
-                  placeholder='Enter your JSON data here...'
-                />
-              </div>
-              {optimizationError && (
-                <div className="text-red-400 text-sm">{optimizationError}</div>
-              )}
-              <Button 
-                onClick={handleOptimizationAnalysis}
-                disabled={isAnalyzingOptimization}
-                className="bg-purple-600 hover:bg-purple-700 text-white"
-              >
-                {isAnalyzingOptimization ? (
-                  <>
-                    <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                    Analyzing Optimization...
-                  </>
-                ) : (
-                  <>
-                    <Wand2 className="mr-2 h-4 w-4" />
-                    Analyze Optimization
-                  </>
-                )}
-              </Button>
-            </div>
-            </div>
-          )}
-
-          {/* Analysis Result Section - Only show when AI Yard tab is active */}
-          {activeTab === 'aiyard' && analysisResult && (
-            <div className="mb-8 bg-gray-900 rounded-lg p-6 border border-gray-800">
-              <h2 className="text-lg font-semibold text-white mb-4">
-                Scheduling Coordination Output
-              </h2>
-              <div className="space-y-6">
-                {/* Project Model Summary */}
-                <div className="bg-gray-800 p-4 rounded-lg">
-                  <h3 className="text-md font-medium text-white mb-3">Project Model</h3>
-                  <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm">
-                    <div>
-                      <span className="text-gray-400">Total Scenes:</span>
-                      <span className="text-white ml-2">{analysisResult.coordinatorOutput.comprehensiveProjectModel.totalScenes}</span>
-                    </div>
-                    <div>
-                      <span className="text-gray-400">Total Pages:</span>
-                      <span className="text-white ml-2">{analysisResult.coordinatorOutput.comprehensiveProjectModel.totalPages}</span>
-                    </div>
-                    <div>
-                      <span className="text-gray-400">Estimated Days:</span>
-                      <span className="text-white ml-2">{analysisResult.coordinatorOutput.comprehensiveProjectModel.totalEstimatedDays}</span>
-                    </div>
-                    <div>
-                      <span className="text-gray-400">Complexity:</span>
-                      <span className="text-white ml-2">{analysisResult.coordinatorOutput.comprehensiveProjectModel.complexityScore}/10</span>
-                    </div>
+            <div>
+              <h1 className="text-2xl font-bold text-white">Production Scheduling</h1>
+              <div className="flex items-center mt-1">
+                {isSchedulingServiceRunning() && !isGeneratingSchedule ? (
+                  <div className="flex items-center text-yellow-400 text-sm">
+                    <Loader2 className="h-4 w-4 mr-1 animate-spin" />
+                    <span>Scheduling AI service busy (another project)</span>
                   </div>
-                  {analysisResult.coordinatorOutput.comprehensiveProjectModel.riskFactors.length > 0 && (
-                    <div className="mt-4">
-                      <h4 className="text-sm font-medium text-gray-300 mb-2">Risk Factors:</h4>
-                      <div className="space-y-1">
-                        {analysisResult.coordinatorOutput.comprehensiveProjectModel.riskFactors.map((risk, index) => (
-                          <div key={index} className="text-xs text-red-400 bg-red-900/20 p-2 rounded border border-red-800">
-                            {risk}
-                          </div>
-                        ))}
-                      </div>
+                ) : productionSchedule ? (
+                  <div className="flex items-center text-green-400 text-sm">
+                    <CheckCircle className="h-4 w-4 mr-1" />
+                    <span>Schedule Generated</span>
+                    <span className="ml-2 text-gray-500">•</span>
+                    <span className="ml-2 text-gray-400">{productionSchedule.scheduleOverview.totalShootDays} days</span>
+                  </div>
+                ) : hasScriptAnalysis ? (
+                  <div className="flex items-center text-purple-400 text-sm">
+                    <Brain className="h-4 w-4 mr-1" />
+                    <span>Ready for Schedule Generation</span>
+                  </div>
+                ) : (
+                  <div className="flex items-center text-orange-400 text-sm">
+                    <AlertTriangle className="h-4 w-4 mr-1" />
+                    <span>Script analysis required first</span>
+                  </div>
+                )}
+              </div>
+            </div>
+            <div className="flex items-center space-x-3">
+              {hasScriptAnalysis && (
+                <Button 
+                  onClick={() => handleGenerateSchedule(!!productionSchedule)}
+                  disabled={isGeneratingSchedule || isSchedulingServiceRunning()}
+                  className="bg-purple-600 hover:bg-purple-700 text-white disabled:opacity-50"
+                >
+                  {isGeneratingSchedule ? (
+                    <>
+                      <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                      Generating...
+                    </>
+                  ) : isSchedulingServiceRunning() ? (
+                    <>
+                      <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                      Service Busy
+                    </>
+                  ) : (
+                    <>
+                      <Wand2 className="mr-2 h-4 w-4" />
+                      {productionSchedule ? 'Regenerate Schedule' : 'Generate Schedule'}
+                    </>
+                  )}
+                </Button>
+              )}
+              
+              {productionSchedule && (
+                <>
+                  {!isEditMode ? (
+                    <Button 
+                      onClick={toggleEditMode}
+                      variant="outline" 
+                      size="sm" 
+                      className="border-blue-500 text-blue-500 hover:bg-blue-50"
+                    >
+                      <Edit3 className="mr-2 h-4 w-4" />
+                      Edit Schedule
+                    </Button>
+                  ) : (
+                    <div className="flex items-center space-x-2">
+                      <Button 
+                        onClick={saveChanges}
+                        size="sm" 
+                        className="bg-green-600 hover:bg-green-700 text-white"
+                        disabled={!hasUnsavedChanges}
+                      >
+                        <Save className="mr-2 h-4 w-4" />
+                        Save Changes
+                      </Button>
+                      <Button 
+                        onClick={discardChanges}
+                        variant="outline" 
+                        size="sm" 
+                        className="border-red-500 text-red-500 hover:bg-red-50"
+                        disabled={!hasUnsavedChanges}
+                      >
+                        <RotateCcw className="mr-2 h-4 w-4" />
+                        Discard
+                      </Button>
+                      <Button 
+                        onClick={toggleEditMode}
+                        variant="outline" 
+                        size="sm" 
+                        className="border-gray-500 text-gray-500 hover:bg-gray-50"
+                      >
+                        <X className="mr-2 h-4 w-4" />
+                        Cancel
+                      </Button>
                     </div>
                   )}
-                </div>
-
-                {/* Agent Data Packets */}
-                <div className="bg-gray-800 p-4 rounded-lg">
-                  <h3 className="text-md font-medium text-white mb-3">Agent Coordination</h3>
-                  <div className="space-y-4">
-                    {Object.entries(analysisResult.coordinatorOutput.agentDataPackets).map(([key, agent]) => (
-                      <div key={key} className="bg-gray-700 p-3 rounded">
-                        <div className="flex items-center justify-between mb-2">
-                          <h4 className="text-sm font-medium text-white">{agent.agentName}</h4>
-                          <span className="text-xs px-2 py-1 bg-purple-600 text-white rounded">{agent.priority}</span>
-                        </div>
-                        <p className="text-xs text-gray-300">{agent.description}</p>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Execution Sequence */}
-                <div className="bg-gray-800 p-4 rounded-lg">
-                  <h3 className="text-md font-medium text-white mb-3">Execution Protocol</h3>
-                  <div className="space-y-3">
-                    {analysisResult.coordinatorOutput.coordinationProtocol.executionSequence.map((phase, index) => (
-                      <div key={index} className="bg-gray-700 p-3 rounded">
-                        <h4 className="text-sm font-medium text-white mb-1">{phase.phase}</h4>
-                        <p className="text-xs text-gray-300 mb-2">{phase.description}</p>
-                        <div className="flex flex-wrap gap-1">
-                          {phase.agents.map((agent, agentIndex) => (
-                            <span key={agentIndex} className="text-xs px-2 py-1 bg-blue-600 text-white rounded">
-                              {agent}
-                            </span>
-                          ))}
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Next Actions */}
-                <div className="bg-gray-800 p-4 rounded-lg">
-                  <h3 className="text-md font-medium text-white mb-3">Next Actions</h3>
-                  <div className="space-y-2">
-                    {analysisResult.coordinatorOutput.nextActions.map((action, index) => (
-                      <div key={index} className="text-sm text-gray-300 flex items-start">
-                        <span className="text-purple-400 mr-2">{index + 1}.</span>
-                        <span>{action}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Raw JSON Output */}
-                <details className="bg-gray-800 p-4 rounded-lg">
-                  <summary className="text-sm font-medium text-white cursor-pointer hover:text-purple-400">
-                    View Raw JSON Output
-                  </summary>
-                  <pre className="mt-3 text-xs text-gray-300 overflow-auto max-h-96 bg-gray-900 p-3 rounded border">
-                    {JSON.stringify(analysisResult, null, 2)}
-                  </pre>
-                </details>
-              </div>
-            </div>
-          )}
-
-          {/* AI Yard 1 Compliance Results Section - Only show when AI Yard 1 tab is active */}
-          {activeTab === 'aiyard1' && complianceResult && (
-            <div className="mb-8 bg-gray-900 rounded-lg p-6 border border-gray-800">
-              <h2 className="text-lg font-semibold text-white mb-4">
-                Compliance & Constraints Output
-              </h2>
-              <div className="space-y-6">
-                {/* Compliance Status Summary */}
-                <div className="bg-gray-800 p-4 rounded-lg">
-                  <h3 className="text-md font-medium text-white mb-3">Compliance Status</h3>
-                  <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm">
-                    <div>
-                      <span className="text-gray-400">Request ID:</span>
-                      <span className="text-white ml-2">{complianceResult.complianceConstraintsOutput.requestId}</span>
-                    </div>
-                    <div>
-                      <span className="text-gray-400">Status:</span>
-                      <span className={`ml-2 px-2 py-1 rounded text-xs ${
-                        complianceResult.complianceConstraintsOutput.complianceStatus === 'FULLY_COMPLIANT' 
-                          ? 'bg-green-600 text-white' 
-                          : complianceResult.complianceConstraintsOutput.complianceStatus === 'CONDITIONALLY_COMPLIANT'
-                          ? 'bg-yellow-600 text-white'
-                          : 'bg-red-600 text-white'
-                      }`}>
-                        {complianceResult.complianceConstraintsOutput.complianceStatus}
-                      </span>
-                    </div>
-                    <div>
-                      <span className="text-gray-400">Confidence:</span>
-                      <span className="text-white ml-2">{Math.round(complianceResult.complianceConstraintsOutput.confidence * 100)}%</span>
-                    </div>
-                    <div>
-                      <span className="text-gray-400">Processing Time:</span>
-                      <span className="text-white ml-2">{complianceResult.complianceConstraintsOutput.processingTime}s</span>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Hard Constraints */}
-                <div className="bg-gray-800 p-4 rounded-lg">
-                  <h3 className="text-md font-medium text-white mb-3">Hard Constraints ({complianceResult.complianceConstraintsOutput.hardConstraints.length})</h3>
-                  <div className="space-y-3">
-                    {complianceResult.complianceConstraintsOutput.hardConstraints.slice(0, 5).map((constraint, index) => (
-                      <div key={index} className="bg-red-900/20 p-3 rounded border border-red-800">
-                        <div className="flex items-center justify-between mb-2">
-                          <h4 className="text-sm font-medium text-white">{constraint.constraintId}</h4>
-                          <span className="text-xs px-2 py-1 bg-red-600 text-white rounded">{constraint.type}</span>
-                        </div>
-                        <p className="text-xs text-gray-300 mb-1">{constraint.description}</p>
-                        <p className="text-xs text-red-400">Violation: {constraint.violation}</p>
-                      </div>
-                    ))}
-                    {complianceResult.complianceConstraintsOutput.hardConstraints.length > 5 && (
-                      <div className="text-gray-500 text-xs">+{complianceResult.complianceConstraintsOutput.hardConstraints.length - 5} more constraints</div>
-                    )}
-                  </div>
-                </div>
-
-                {/* Soft Constraints */}
-                <div className="bg-gray-800 p-4 rounded-lg">
-                  <h3 className="text-md font-medium text-white mb-3">Soft Constraints ({complianceResult.complianceConstraintsOutput.softConstraints.length})</h3>
-                  <div className="space-y-3">
-                    {complianceResult.complianceConstraintsOutput.softConstraints.slice(0, 4).map((constraint, index) => (
-                      <div key={index} className="bg-yellow-900/20 p-3 rounded border border-yellow-800">
-                        <div className="flex items-center justify-between mb-2">
-                          <h4 className="text-sm font-medium text-white">{constraint.constraintId}</h4>
-                          <span className="text-xs px-2 py-1 bg-yellow-600 text-white rounded">{constraint.flexibility}</span>
-                        </div>
-                        <p className="text-xs text-gray-300 mb-1">{constraint.description}</p>
-                        <p className="text-xs text-yellow-400">Penalty: {constraint.penalty}</p>
-                      </div>
-                    ))}
-                    {complianceResult.complianceConstraintsOutput.softConstraints.length > 4 && (
-                      <div className="text-gray-500 text-xs">+{complianceResult.complianceConstraintsOutput.softConstraints.length - 4} more constraints</div>
-                    )}
-                  </div>
-                </div>
-
-                {/* Risk Assessment */}
-                <div className="bg-gray-800 p-4 rounded-lg">
-                  <h3 className="text-md font-medium text-white mb-3">Risk Assessment ({complianceResult.complianceConstraintsOutput.riskAssessment.length})</h3>
-                  <div className="space-y-3">
-                    {complianceResult.complianceConstraintsOutput.riskAssessment.slice(0, 4).map((risk, index) => (
-                      <div key={index} className="bg-gray-700 p-3 rounded">
-                        <div className="flex items-center justify-between mb-2">
-                          <h4 className="text-sm font-medium text-white">{risk.riskId}</h4>
-                          <div className="flex items-center space-x-2">
-                            <span className={`text-xs px-2 py-1 rounded ${
-                              risk.severity === 'HIGH' ? 'bg-red-600 text-white' :
-                              risk.severity === 'MEDIUM' ? 'bg-yellow-600 text-white' :
-                              'bg-green-600 text-white'
-                            }`}>
-                              {risk.severity}
-                            </span>
-                            <span className="text-xs text-gray-400">{Math.round(risk.probability * 100)}%</span>
-                          </div>
-                        </div>
-                        <p className="text-xs text-gray-300 mb-1">{risk.description}</p>
-                        <p className="text-xs text-blue-400">Mitigation: {risk.mitigation}</p>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Compliance Recommendations */}
-                <div className="bg-gray-800 p-4 rounded-lg">
-                  <h3 className="text-md font-medium text-white mb-3">Recommendations ({complianceResult.complianceConstraintsOutput.complianceRecommendations.length})</h3>
-                  <div className="space-y-2">
-                    {complianceResult.complianceConstraintsOutput.complianceRecommendations.map((rec, index) => (
-                      <div key={index} className="text-sm text-gray-300 flex items-start">
-                        <span className={`text-xs px-2 py-1 rounded mr-3 mt-0.5 ${
-                          rec.priority === 'HIGH' ? 'bg-red-600 text-white' :
-                          rec.priority === 'MEDIUM' ? 'bg-yellow-600 text-white' :
-                          'bg-green-600 text-white'
-                        }`}>
-                          {rec.priority}
-                        </span>
-                        <div>
-                          <div className="font-medium">{rec.recommendation}</div>
-                          <div className="text-xs text-gray-500">Impact: {rec.impactIfIgnored}</div>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Raw JSON Output */}
-                <details className="bg-gray-800 p-4 rounded-lg">
-                  <summary className="text-sm font-medium text-white cursor-pointer hover:text-purple-400">
-                    View Raw JSON Output
-                  </summary>
-                  <pre className="mt-3 text-xs text-gray-300 overflow-auto max-h-96 bg-gray-900 p-3 rounded border">
-                    {JSON.stringify(complianceResult, null, 2)}
-                  </pre>
-                </details>
-              </div>
-            </div>
-          )}
-          
-          <div className="mb-6">
-            <div className="flex items-center space-x-4 mb-4">
-              <input
-                type="text"
-                placeholder="Enter your scheduling request. Example: Scenes with cars and animals first, then stunt scenes. Sort nights first, then outdoor days."
-                className="flex-1 px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500"
-              />
-              <Button className="bg-purple-600 hover:bg-purple-700 text-white px-6 py-3">
-                <Wand2 className="mr-2 h-4 w-4" />
-                AI Sort (1 of 1)
-              </Button>
-            </div>
-          </div>
-          
-          <div className="flex items-center justify-between mb-6">
-            <div className="flex items-center space-x-4">
-              <div className="flex items-center space-x-2">
-                <button
-                  onClick={() => handleTabChange('scriptyard')}
-                  className={`px-4 py-2 rounded text-sm font-medium transition-colors ${
-                    activeTab === 'scriptyard' 
-                      ? 'bg-purple-600 text-white' 
-                      : 'text-gray-400 hover:text-white'
-                  }`}
-                >
-                  Scriptyard
-                </button>
-                <button
-                  onClick={() => handleTabChange('boneyard')}
-                  className={`px-4 py-2 rounded text-sm font-medium transition-colors ${
-                    activeTab === 'boneyard' 
-                      ? 'bg-purple-600 text-white' 
-                      : 'text-gray-400 hover:text-white'
-                  }`}
-                >
-                  Boneyard
-                </button>
-                <button
-                  onClick={() => handleTabChange('aiyard')}
-                  className={`px-4 py-2 rounded text-sm font-medium transition-colors ${
-                    activeTab === 'aiyard' 
-                      ? 'bg-purple-600 text-white' 
-                      : 'text-gray-400 hover:text-white'
-                  }`}
-                >
-                  AI Yard
-                </button>
-                <button
-                  onClick={() => handleTabChange('aiyard1')}
-                  className={`px-4 py-2 rounded text-sm font-medium transition-colors ${
-                    activeTab === 'aiyard1' 
-                      ? 'bg-purple-600 text-white' 
-                      : 'text-gray-400 hover:text-white'
-                  }`}
-                >
-                  AI Yard 1
-                </button>
-              </div>
-            </div>
-            
-            <div className="flex items-center space-x-3">
-              <Button variant="outline" size="sm" className="border-gray-600 text-gray-400 bg-gray-800 hover:bg-gray-700">
-                <Settings className="mr-2 h-4 w-4" />
-              </Button>
-              <Button variant="outline" size="sm" className="border-gray-600 text-gray-400 bg-gray-800 hover:bg-gray-700">
-                <ArrowUpDown className="mr-2 h-4 w-4" />
-                Sort Items
-              </Button>
-              <Button variant="outline" size="sm" className="border-gray-600 text-gray-400 bg-gray-800 hover:bg-gray-700">
-                <Calendar className="mr-2 h-4 w-4" />
-                Auto Day Breaks
-              </Button>
-              <Button variant="outline" size="sm" className="border-gray-600 text-black bg-white hover:bg-gray-100">
+                </>
+              )}
+              
+              <Button variant="outline" size="sm" className="border-gray-300 text-gray-900 bg-white hover:bg-gray-100">
                 Share Project
                 <Share2 className="ml-2 h-4 w-4" />
               </Button>
-              <Button className="bg-purple-600 hover:bg-purple-700 text-white">
+              <Button 
+                onClick={exportSchedule}
+                disabled={!productionSchedule}
+                variant="default" 
+                size="sm" 
+                className="bg-purple-600 hover:bg-purple-700 text-white"
+              >
                 <Download className="mr-2 h-4 w-4" />
                 Export
               </Button>
             </div>
           </div>
-          
-          {activeTab === 'scriptyard' && (
-            <div className="bg-gray-900 rounded-lg border border-gray-800 overflow-hidden">
-              <div className="overflow-x-auto">
-                <table className="w-full">
-                  <thead className="bg-gray-800 border-b border-gray-700">
-                    <tr>
-                      <th className="text-left p-4 text-gray-300 font-medium w-16">#</th>
-                      <th className="text-left p-4 text-gray-300 font-medium">Set</th>
-                      <th className="text-left p-4 text-gray-300 font-medium w-32">Cast ID</th>
-                      <th className="text-left p-4 text-gray-300 font-medium w-24">Pages</th>
-                      <th className="text-left p-4 text-gray-300 font-medium w-32">Unit</th>
-                      <th className="text-left p-4 text-gray-300 font-medium w-32">Estimation, h</th>
-                      <th className="text-left p-4 text-gray-300 font-medium">Shooting Location</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {scriptScenes.map((scene, index) => (
-                      <tr key={scene.id} className={`border-b border-gray-700 hover:bg-gray-800 transition-colors ${
-                        index % 2 === 0 ? 'bg-gray-850' : 'bg-gray-900'
-                      }`}>
-                        <td className="p-4 text-white font-medium">{scene.id}</td>
-                        <td className="p-4">
-                          <div className="text-white font-medium text-sm mb-1">{scene.scene}</div>
-                          <div className="text-gray-400 text-xs">{scene.description}</div>
-                        </td>
-                        <td className="p-4 text-gray-400">{scene.castId}</td>
-                        <td className="p-4">
-                          <select className="bg-gray-800 border border-gray-700 rounded px-2 py-1 text-white text-sm">
-                            <option>{scene.pages}</option>
-                          </select>
-                        </td>
-                        <td className="p-4">
-                          <button className="text-gray-400 hover:text-white text-sm">
-                            {scene.unit}
-                          </button>
-                        </td>
-                        <td className="p-4">
-                          <select className="bg-gray-800 border border-gray-700 rounded px-2 py-1 text-white text-sm w-16">
-                            <option>{scene.estimation}</option>
-                          </select>
-                        </td>
-                        <td className="p-4">
-                          <button className="text-gray-400 hover:text-white text-sm">
-                            {scene.location}
-                          </button>
-                        </td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
+
+          {/* Edit Mode Indicator */}
+          {isEditMode && (
+            <div className="mb-6 p-4 bg-blue-900/20 border border-blue-500/30 rounded-lg">
+              <div className="flex items-center justify-between">
+                <div className="flex items-center space-x-3">
+                  <Edit3 className="h-5 w-5 text-blue-400" />
+                  <div>
+                    <div className="text-blue-300 font-medium">Edit Mode Active</div>
+                    <div className="text-blue-400 text-sm">
+                      {hasUnsavedChanges ? 'You have unsaved changes' : 'Make changes to the schedule below'}
+                    </div>
+                  </div>
+                </div>
+                {hasUnsavedChanges && (
+                  <Badge variant="destructive" className="bg-orange-600">
+                    Unsaved Changes
+                  </Badge>
+                )}
               </div>
             </div>
           )}
 
-          {/* Resource Logistics Results Section - AI Yard 2 */}
-          {activeTab === 'aiyard2' && resourceResult && (
-            <div className="mb-8 bg-gray-900 rounded-lg p-6 border border-gray-800">
-              <h2 className="text-lg font-semibold text-white mb-4">
-                Resource Logistics Output
-              </h2>
-              <div className="space-y-6">
-                {/* Cast Resource Analysis */}
-                <div className="bg-gray-800 p-4 rounded-lg">
-                  <h3 className="text-md font-medium text-white mb-3">Cast Resource Analysis</h3>
-                  <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm">
-                    <div>
-                      <span className="text-gray-400">Total Cast:</span>
-                      <span className="text-white ml-2">{resourceResult.resourceLogisticsOutput.castResourceAnalysis.totalCastMembers}</span>
-                    </div>
-                    <div>
-                      <span className="text-gray-400">Principal Actors:</span>
-                      <span className="text-white ml-2">{resourceResult.resourceLogisticsOutput.castResourceAnalysis.principalActors}</span>
-                    </div>
-                    <div>
-                      <span className="text-gray-400">Day Players:</span>
-                      <span className="text-white ml-2">{resourceResult.resourceLogisticsOutput.castResourceAnalysis.dayPlayers}</span>
-                    </div>
-                    <div>
-                      <span className="text-gray-400">Total Work Days:</span>
-                      <span className="text-white ml-2">{resourceResult.resourceLogisticsOutput.castResourceAnalysis.totalWorkDays}</span>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Crew Resource Analysis */}
-                <div className="bg-gray-800 p-4 rounded-lg">
-                  <h3 className="text-md font-medium text-white mb-3">Crew Resource Analysis</h3>
-                  <div className="grid grid-cols-2 md:grid-cols-3 gap-4 text-sm mb-4">
-                    <div>
-                      <span className="text-gray-400">Total Crew Size:</span>
-                      <span className="text-white ml-2">{resourceResult.resourceLogisticsOutput.crewResourceAnalysis.totalCrewSize}</span>
-                    </div>
-                    <div>
-                      <span className="text-gray-400">Departments:</span>
-                      <span className="text-white ml-2">{resourceResult.resourceLogisticsOutput.crewResourceAnalysis.departments.length}</span>
-                    </div>
-                  </div>
-                  <div className="space-y-2">
-                    {resourceResult.resourceLogisticsOutput.crewResourceAnalysis.departments.map((dept, index) => (
-                      <div key={index} className="bg-gray-700 p-3 rounded">
-                        <div className="flex justify-between items-center">
-                          <span className="text-white font-medium">{dept.departmentName}</span>
-                          <span className="text-gray-300 text-sm">Crew: {dept.crewSize}</span>
-                        </div>
-                        <div className="text-gray-400 text-sm">HOD: {dept.headOfDepartment}</div>
-                        <div className="text-gray-400 text-sm">Budget: ${dept.budgetAllocation.toLocaleString()}</div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Budget Summary */}
-                <div className="bg-gray-800 p-4 rounded-lg">
-                  <h3 className="text-md font-medium text-white mb-3">Budget Resource Summary</h3>
-                  <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm">
-                    <div>
-                      <span className="text-gray-400">Cast Costs:</span>
-                      <span className="text-white ml-2">${resourceResult.resourceLogisticsOutput.budgetResourceSummary.castCosts.toLocaleString()}</span>
-                    </div>
-                    <div>
-                      <span className="text-gray-400">Crew Costs:</span>
-                      <span className="text-white ml-2">${resourceResult.resourceLogisticsOutput.budgetResourceSummary.crewCosts.toLocaleString()}</span>
-                    </div>
-                    <div>
-                      <span className="text-gray-400">Equipment Costs:</span>
-                      <span className="text-white ml-2">${resourceResult.resourceLogisticsOutput.budgetResourceSummary.equipmentCosts.toLocaleString()}</span>
-                    </div>
-                    <div>
-                      <span className="text-gray-400">Location Costs:</span>
-                      <span className="text-white ml-2">${resourceResult.resourceLogisticsOutput.budgetResourceSummary.locationCosts.toLocaleString()}</span>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Recommended Actions */}
-                <div className="bg-gray-800 p-4 rounded-lg">
-                  <h3 className="text-md font-medium text-white mb-3">Recommended Actions</h3>
-                  <div className="space-y-2">
-                    {resourceResult.resourceLogisticsOutput.recommendedActions.map((action, index) => (
-                      <div key={index} className="text-gray-300 text-sm">
-                        • {action}
-                      </div>
-                    ))}
-                  </div>
+          {/* Analysis Status */}
+          {analysisStatus && (
+            <div className="mb-6 p-4 bg-purple-900/20 border border-purple-500/30 rounded-lg">
+              <div className="flex items-center space-x-3">
+                <Brain className="h-5 w-5 text-purple-400 animate-pulse" />
+                <div>
+                  <div className="text-purple-300 font-medium">AI Schedule Generation in Progress</div>
+                  <div className="text-purple-400 text-sm">{analysisStatus}</div>
                 </div>
               </div>
             </div>
           )}
 
-          {/* Optimization & Scenario Results Section - AI Yard 3 */}
-          {activeTab === 'aiyard3' && optimizationResult && (
-            <div className="mb-8 bg-gray-900 rounded-lg p-6 border border-gray-800">
-              <h2 className="text-lg font-semibold text-white mb-4">
-                Optimization & Scenario Output
-              </h2>
-              <div className="space-y-6">
-                {/* Optimization Parameters */}
-                <div className="bg-gray-800 p-4 rounded-lg">
-                  <h3 className="text-md font-medium text-white mb-3">Optimization Parameters</h3>
-                  <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm">
-                    <div>
-                      <span className="text-gray-400">Primary Objective:</span>
-                      <span className="text-white ml-2">{optimizationResult.optimizationScenarioOutput.optimizationParameters.primaryObjective}</span>
-                    </div>
-                    <div>
-                      <span className="text-gray-400">Cost Weight:</span>
-                      <span className="text-white ml-2">{optimizationResult.optimizationScenarioOutput.optimizationParameters.weightingFactors.costWeight}</span>
-                    </div>
-                    <div>
-                      <span className="text-gray-400">Time Weight:</span>
-                      <span className="text-white ml-2">{optimizationResult.optimizationScenarioOutput.optimizationParameters.weightingFactors.timeWeight}</span>
-                    </div>
-                    <div>
-                      <span className="text-gray-400">Quality Weight:</span>
-                      <span className="text-white ml-2">{optimizationResult.optimizationScenarioOutput.optimizationParameters.weightingFactors.qualityWeight}</span>
-                    </div>
-                  </div>
+          {/* Error State */}
+          {scheduleError && (
+            <div className="mb-6 p-4 bg-red-900/20 border border-red-500/30 rounded-lg">
+              <div className="flex items-center space-x-3">
+                <AlertTriangle className="h-5 w-5 text-red-400" />
+                <div>
+                  <div className="text-red-300 font-medium">Schedule Generation Failed</div>
+                  <div className="text-red-400 text-sm">{scheduleError}</div>
                 </div>
+              </div>
+            </div>
+          )}
 
-                {/* Recommended Scenario */}
-                <div className="bg-gray-800 p-4 rounded-lg">
-                  <h3 className="text-md font-medium text-white mb-3">Recommended Scenario</h3>
-                  <div className="text-purple-400 font-medium text-lg mb-2">
-                    {optimizationResult.optimizationScenarioOutput.scenarioComparison.recommendedScenario}
-                  </div>
-                </div>
+          {/* No Script Analysis State */}
+          {!hasScriptAnalysis && (
+            <div className="bg-gray-900 rounded-lg p-8 text-center">
+              <Brain className="h-16 w-16 text-gray-600 mx-auto mb-4" />
+              <h3 className="text-xl font-semibold text-white mb-2">PDF Analysis Required</h3>
+              <p className="text-gray-400 mb-6">
+                To generate a production schedule, please upload and analyze a PDF script first. The analysis results from your project creation will be used automatically.
+              </p>
+              <Button 
+                onClick={() => window.location.href = '/script'}
+                className="bg-orange-600 hover:bg-orange-700 text-white"
+              >
+                Go to Script Page
+              </Button>
+            </div>
+          )}
 
-                {/* Optimization Scenarios */}
-                <div className="bg-gray-800 p-4 rounded-lg">
-                  <h3 className="text-md font-medium text-white mb-3">Schedule Scenarios</h3>
-                  <div className="space-y-4">
-                    {optimizationResult.optimizationScenarioOutput.optimizedScheduleScenarios.map((scenario, index) => (
-                      <div key={index} className="bg-gray-700 p-4 rounded">
-                        <div className="flex justify-between items-center mb-2">
-                          <span className="text-white font-medium">{scenario.scenarioName}</span>
-                          <span className="text-green-400">Score: {scenario.optimizationScore.toFixed(1)}</span>
+          {/* Main Content */}
+          {productionSchedule && (
+            <div className="space-y-6">
+              {activeView === 'overview' && (
+                <div className="space-y-6">
+                  {/* Production Overview Cards */}
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                    <Card className="bg-gray-800 border-gray-700">
+                      <CardContent className="p-4">
+                        <div className="flex items-center justify-between">
+                          <div>
+                            <p className="text-gray-400 text-sm">Total Shoot Days</p>
+                            <p className="text-2xl font-bold text-white">{productionSchedule.scheduleOverview.totalShootDays}</p>
+                          </div>
+                          <Calendar className="h-8 w-8 text-purple-400" />
                         </div>
-                        <div className="text-gray-300 text-sm mb-2">{scenario.description}</div>
-                        <div className="grid grid-cols-2 md:grid-cols-4 gap-2 text-sm">
+                      </CardContent>
+                    </Card>
+
+                    <Card className="bg-gray-800 border-gray-700">
+                      <CardContent className="p-4">
+                        <div className="flex items-center justify-between">
                           <div>
-                            <span className="text-gray-400">Shoot Days:</span>
-                            <span className="text-white ml-1">{scenario.scheduleBreakdown.totalShootDays}</span>
+                            <p className="text-gray-400 text-sm">Budget Range</p>
+                            <p className="text-lg font-bold text-green-400">
+                              {formatCurrency(productionSchedule.scheduleOverview.estimatedBudgetRange.low)}-{formatCurrency(productionSchedule.scheduleOverview.estimatedBudgetRange.high)}
+                            </p>
                           </div>
+                          <DollarSign className="h-8 w-8 text-green-400" />
+                        </div>
+                      </CardContent>
+                    </Card>
+
+                    <Card className="bg-gray-800 border-gray-700">
+                      <CardContent className="p-4">
+                        <div className="flex items-center justify-between">
                           <div>
-                            <span className="text-gray-400">Prep Days:</span>
-                            <span className="text-white ml-1">{scenario.scheduleBreakdown.prepDays}</span>
+                            <p className="text-gray-400 text-sm">Crew Size</p>
+                            <p className="text-2xl font-bold text-white">{productionSchedule.scheduleOverview.recommendedCrewSize}</p>
                           </div>
+                          <Users className="h-8 w-8 text-blue-400" />
+                        </div>
+                      </CardContent>
+                    </Card>
+
+                    <Card className="bg-gray-800 border-gray-700">
+                      <CardContent className="p-4">
+                        <div className="flex items-center justify-between">
                           <div>
-                            <span className="text-gray-400">Risk:</span>
-                            <span className="text-white ml-1">{scenario.riskAssessment}</span>
+                            <p className="text-gray-400 text-sm">Complex Scenes</p>
+                            <p className="text-2xl font-bold text-white">{productionSchedule.complexScenes.length}</p>
                           </div>
-                          <div>
-                            <span className="text-gray-400">Budget:</span>
-                            <span className="text-white ml-1">${scenario.costProjections.totalBudgetProjection.toLocaleString()}</span>
-                          </div>
+                          <AlertTriangle className="h-8 w-8 text-orange-400" />
+                        </div>
+                      </CardContent>
+                    </Card>
+                  </div>
+
+                  {/* Production Timeline */}
+                  <Card className="bg-gray-800 border-gray-700">
+                    <CardHeader>
+                      <CardTitle className="text-white">Production Timeline</CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <div className="text-center p-4 bg-gray-700 rounded-lg">
+                          <div className="text-2xl font-bold text-blue-400">{productionSchedule.scheduleOverview.productionTimeline.prepDays}</div>
+                          <div className="text-gray-400 text-sm">Prep Days</div>
+                        </div>
+                        <div className="text-center p-4 bg-gray-700 rounded-lg">
+                          <div className="text-2xl font-bold text-green-400">{productionSchedule.scheduleOverview.productionTimeline.shootDays}</div>
+                          <div className="text-gray-400 text-sm">Shoot Days</div>
+                        </div>
+                        <div className="text-center p-4 bg-gray-700 rounded-lg">
+                          <div className="text-2xl font-bold text-purple-400">{productionSchedule.scheduleOverview.productionTimeline.wrapDays}</div>
+                          <div className="text-gray-400 text-sm">Wrap Days</div>
                         </div>
                       </div>
-                    ))}
-                  </div>
-                </div>
+                    </CardContent>
+                  </Card>
 
-                {/* Implementation Guidance */}
-                <div className="bg-gray-800 p-4 rounded-lg">
-                  <h3 className="text-md font-medium text-white mb-3">Implementation Guidance</h3>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div>
-                      <h4 className="text-sm font-medium text-gray-300 mb-2">Phase One Actions</h4>
-                      <div className="space-y-1">
-                        {optimizationResult.optimizationScenarioOutput.implementationGuidance.phaseOneActions.map((action, index) => (
-                          <div key={index} className="text-gray-400 text-sm">• {action}</div>
+                  {/* Complex Scenes Alert */}
+                  {productionSchedule.complexScenes.length > 0 && (
+                    <Card className="bg-gray-800 border-gray-700">
+                      <CardHeader>
+                        <CardTitle className="text-white flex items-center">
+                          <AlertTriangle className="h-5 w-5 text-orange-400 mr-2" />
+                          High Priority Scenes
+                        </CardTitle>
+                      </CardHeader>
+                      <CardContent>
+                        <div className="space-y-3">
+                          {productionSchedule.complexScenes.slice(0, 5).map((scene, index) => (
+                            <div key={index} className="flex items-center justify-between p-3 bg-gray-700 rounded-lg">
+                              <div>
+                                <div className="text-white font-medium">Scene {scene.sceneNumber}</div>
+                                <div className="text-gray-400 text-sm">{scene.reason}</div>
+                                <div className="text-gray-300 text-sm mt-1">{scene.recommendation}</div>
+                              </div>
+                              <Badge variant={scene.priority === 'high' ? 'destructive' : scene.priority === 'medium' ? 'default' : 'secondary'}>
+                                {scene.priority}
+                              </Badge>
+                            </div>
+                          ))}
+                        </div>
+                      </CardContent>
+                    </Card>
+                  )}
+
+                  {/* Budget Breakdown */}
+                  <Card className="bg-gray-800 border-gray-700">
+                    <CardHeader>
+                      <CardTitle className="text-white flex items-center justify-between">
+                        Budget Breakdown
+                        {isEditMode && (
+                          <Badge variant="outline" className="text-blue-400 border-blue-400">
+                            Editable
+                          </Badge>
+                        )}
+                      </CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <div className="space-y-3">
+                        {Object.entries(productionSchedule.budgetBreakdown).map(([category, amount]) => (
+                          <div key={category} className="flex items-center justify-between">
+                            <span className="text-gray-400 capitalize">{category.replace(/([A-Z])/g, ' $1').trim()}</span>
+                            {isEditMode && category !== 'total' ? (
+                              <Input
+                                value={amount}
+                                onChange={(e) => {
+                                  const newAmount = parseFloat(e.target.value) || 0;
+                                  updateScheduleField(['budgetBreakdown', category], newAmount);
+                                  // Recalculate total
+                                  const budget = productionSchedule.budgetBreakdown;
+                                  const total = Object.entries(budget)
+                                    .filter(([key]) => key !== 'total')
+                                    .reduce((sum, [key, val]) => {
+                                      return sum + (key === category ? newAmount : val);
+                                    }, 0);
+                                  updateScheduleField(['budgetBreakdown', 'total'], total);
+                                }}
+                                className="w-28 h-8 text-sm bg-gray-800 border-gray-600 text-white text-right"
+                              />
+                            ) : (
+                              <span className={`font-medium ${category === 'total' ? 'text-green-400 text-lg' : 'text-white'}`}>
+                                {formatCurrency(amount)}
+                              </span>
+                            )}
+                          </div>
                         ))}
                       </div>
-                    </div>
-                    <div>
-                      <h4 className="text-sm font-medium text-gray-300 mb-2">Phase Two Actions</h4>
-                      <div className="space-y-1">
-                        {optimizationResult.optimizationScenarioOutput.implementationGuidance.phaseTwoActions.map((action, index) => (
-                          <div key={index} className="text-gray-400 text-sm">• {action}</div>
+                    </CardContent>
+                  </Card>
+                </div>
+              )}
+
+              {activeView === 'schedule' && (
+                <Card className="bg-gray-800 border-gray-700">
+                  <CardHeader>
+                    <CardTitle className="text-white flex items-center justify-between">
+                      Daily Shooting Schedule
+                      {isEditMode && (
+                        <Badge variant="outline" className="text-blue-400 border-blue-400">
+                          Drag scenes to reorder
+                        </Badge>
+                      )}
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <DndContext 
+                      sensors={sensors}
+                      collisionDetection={closestCenter}
+                      onDragEnd={handleDragEnd}
+                    >
+                      <div className="space-y-4">
+                        {productionSchedule.dailySchedule.map((day, dayIndex) => (
+                          <div key={dayIndex} className="border border-gray-700 rounded-lg p-4">
+                            <div className="flex items-center justify-between mb-3">
+                              <div>
+                                <h3 className="text-lg font-semibold text-white">Day {day.day}</h3>
+                                <div className="flex items-center space-x-2">
+                                  {isEditMode ? (
+                                    <Select
+                                      value={day.location}
+                                      onValueChange={(value) => updateScheduleField(['dailySchedule', dayIndex, 'location'], value)}
+                                    >
+                                      <SelectTrigger className="w-40 h-6 text-sm bg-gray-800 border-gray-600 text-gray-400">
+                                        <SelectValue />
+                                      </SelectTrigger>
+                                      <SelectContent>
+                                        {productionSchedule.locationSchedule.map((loc, i) => (
+                                          <SelectItem key={i} value={loc.location}>{loc.location}</SelectItem>
+                                        ))}
+                                      </SelectContent>
+                                    </Select>
+                                  ) : (
+                                    <p className="text-gray-400 text-sm">{day.location}</p>
+                                  )}
+                                  <span className="text-gray-400 text-sm">• {day.scenes.length} scenes</span>
+                                </div>
+                              </div>
+                              <div className="text-right">
+                                {isEditMode ? (
+                                  <div className="space-y-1">
+                                    <Input
+                                      value={day.estimatedCost}
+                                      onChange={(e) => updateScheduleField(['dailySchedule', dayIndex, 'estimatedCost'], parseFloat(e.target.value))}
+                                      className="w-24 h-6 text-sm bg-gray-800 border-gray-600 text-white text-right"
+                                    />
+                                    <Input
+                                      value={day.crewSize}
+                                      onChange={(e) => updateScheduleField(['dailySchedule', dayIndex, 'crewSize'], parseInt(e.target.value))}
+                                      className="w-24 h-6 text-sm bg-gray-800 border-gray-600 text-gray-400 text-right"
+                                    />
+                                  </div>
+                                ) : (
+                                  <div>
+                                    <div className="text-white font-medium">{formatCurrency(day.estimatedCost)}</div>
+                                    <div className="text-gray-400 text-sm">{day.crewSize} crew</div>
+                                  </div>
+                                )}
+                              </div>
+                            </div>
+                            
+                            <SortableContext 
+                              items={day.scenes.map((_, i) => `${dayIndex}-${i}`)}
+                              strategy={verticalListSortingStrategy}
+                            >
+                              <div className="space-y-2">
+                                {day.scenes.map((scene, sceneIndex) => (
+                                  <SortableScene
+                                    key={`${dayIndex}-${sceneIndex}`}
+                                    scene={scene}
+                                    dayIndex={dayIndex}
+                                    sceneIndex={sceneIndex}
+                                    isEditMode={isEditMode}
+                                  />
+                                ))}
+                              </div>
+                            </SortableContext>
+                            
+                            <div className="mt-3 pt-3 border-t border-gray-700">
+                              <div className="text-gray-400 text-sm">
+                                <span className="font-medium">Cast needed:</span>{' '}
+                                {isEditMode ? (
+                                  <Input
+                                    value={day.castNeeded.join(', ')}
+                                    onChange={(e) => updateScheduleField(['dailySchedule', dayIndex, 'castNeeded'], e.target.value.split(', '))}
+                                    className="inline-block w-64 h-6 text-sm bg-gray-800 border-gray-600 text-gray-400 ml-1"
+                                  />
+                                ) : (
+                                  day.castNeeded.join(', ')
+                                )}
+                              </div>
+                            </div>
+                          </div>
                         ))}
                       </div>
-                    </div>
-                  </div>
-                </div>
+                    </DndContext>
+                  </CardContent>
+                </Card>
+              )}
 
-                {/* Next Steps */}
-                <div className="bg-gray-800 p-4 rounded-lg">
-                  <h3 className="text-md font-medium text-white mb-3">Next Steps</h3>
-                  <div className="space-y-2">
-                    {optimizationResult.optimizationScenarioOutput.nextSteps.map((step, index) => (
-                      <div key={index} className="text-gray-300 text-sm">
-                        • {step}
+              {activeView === 'cast' && (
+                <Card className="bg-gray-800 border-gray-700">
+                  <CardHeader>
+                    <CardTitle className="text-white">Cast Schedule (Day Out of Days)</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="space-y-4">
+                      {productionSchedule.castSchedule.map((cast, index) => (
+                        <div key={index} className="border border-gray-700 rounded-lg p-4">
+                          <div className="flex items-center justify-between mb-3">
+                            <div>
+                              {isEditMode ? (
+                                <Input
+                                  value={cast.characterName}
+                                  onChange={(e) => updateScheduleField(['castSchedule', index, 'characterName'], e.target.value)}
+                                  className="text-lg font-semibold bg-gray-800 border-gray-600 text-white"
+                                />
+                              ) : (
+                                <h3 className="text-lg font-semibold text-white">{cast.characterName}</h3>
+                              )}
+                            </div>
+                            <div className="text-right">
+                              <div className="text-white font-medium">{cast.totalDays} days</div>
+                              {isEditMode ? (
+                                <Input
+                                  value={cast.estimatedCost}
+                                  onChange={(e) => updateScheduleField(['castSchedule', index, 'estimatedCost'], parseFloat(e.target.value))}
+                                  className="w-24 h-6 text-sm bg-gray-800 border-gray-600 text-gray-400 text-right"
+                                />
+                              ) : (
+                                <div className="text-gray-400 text-sm">{formatCurrency(cast.estimatedCost)}</div>
+                              )}
+                            </div>
+                          </div>
+                          <div className="flex flex-wrap gap-1">
+                            {Array.from({ length: productionSchedule.scheduleOverview.totalShootDays }, (_, dayIndex) => {
+                              const dayNum = dayIndex + 1;
+                              const isWorkDay = cast.workDays.includes(dayNum);
+                              return (
+                                <div
+                                  key={dayNum}
+                                  onClick={() => {
+                                    if (isEditMode) {
+                                      const newWorkDays = isWorkDay 
+                                        ? cast.workDays.filter(d => d !== dayNum)
+                                        : [...cast.workDays, dayNum].sort((a, b) => a - b);
+                                      updateScheduleField(['castSchedule', index, 'workDays'], newWorkDays);
+                                      updateScheduleField(['castSchedule', index, 'totalDays'], newWorkDays.length);
+                                    }
+                                  }}
+                                  className={`w-8 h-8 rounded flex items-center justify-center text-xs font-medium transition-colors ${
+                                    isWorkDay 
+                                      ? 'bg-green-600 text-white' 
+                                      : 'bg-gray-700 text-gray-400'
+                                  } ${isEditMode ? 'cursor-pointer hover:opacity-80' : ''}`}
+                                >
+                                  {dayNum}
+                                </div>
+                              );
+                            })}
+                          </div>
+                          {isEditMode && (
+                            <div className="mt-2 text-xs text-blue-400">
+                              Click days to toggle work schedule
+                            </div>
+                          )}
+                        </div>
+                      ))}
+                    </div>
+                  </CardContent>
+                </Card>
+              )}
+
+              {activeView === 'locations' && (
+                <Card className="bg-gray-800 border-gray-700">
+                  <CardHeader>
+                    <CardTitle className="text-white">Location Schedule</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="space-y-4">
+                      {productionSchedule.locationSchedule.map((location, index) => (
+                        <div key={index} className="border border-gray-700 rounded-lg p-4">
+                          <div className="flex items-center justify-between mb-3">
+                            <h3 className="text-lg font-semibold text-white">{location.location}</h3>
+                            <div className="text-right">
+                              <div className="text-white font-medium">{formatCurrency(location.estimatedCost)}</div>
+                              <div className="text-gray-400 text-sm">{location.scenes.length} scenes</div>
+                            </div>
+                          </div>
+                          
+                          <div className="grid grid-cols-2 gap-4 mb-3">
+                            <div>
+                              <div className="text-gray-400 text-sm font-medium mb-1">Scenes</div>
+                              <div className="text-white">{location.scenes.join(', ')}</div>
+                            </div>
+                            <div>
+                              <div className="text-gray-400 text-sm font-medium mb-1">Shoot Days</div>
+                              <div className="text-white">{location.days.join(', ')}</div>
+                            </div>
+                          </div>
+                          
+                          {location.setupRequirements.length > 0 && (
+                            <div>
+                              <div className="text-gray-400 text-sm font-medium mb-1">Setup Requirements</div>
+                              <div className="text-gray-300 text-sm">{location.setupRequirements.join(', ')}</div>
+                            </div>
+                          )}
+                        </div>
+                      ))}
+                    </div>
+                  </CardContent>
+                </Card>
+              )}
+
+              {activeView === 'equipment' && (
+                <Card className="bg-gray-800 border-gray-700">
+                  <CardHeader>
+                    <CardTitle className="text-white flex items-center">
+                      <Wrench className="h-5 w-5 text-blue-400 mr-2" />
+                      Equipment Schedule
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="space-y-4">
+                      {productionSchedule.equipmentSchedule?.map((equipment, index) => (
+                        <div key={index} className="border border-gray-700 rounded-lg p-4">
+                          <div className="flex items-center justify-between mb-3">
+                            <h3 className="text-lg font-semibold text-white">{equipment.equipmentType}</h3>
+                            <div className="text-right">
+                              <div className="text-white font-medium">{formatCurrency(equipment.rentalCost)}</div>
+                              <div className="text-gray-400 text-sm">{equipment.setupTime}min setup</div>
+                            </div>
+                          </div>
+                          
+                          <div className="grid grid-cols-2 gap-4 mb-3">
+                            <div>
+                              <div className="text-gray-400 text-sm font-medium mb-1">Scenes</div>
+                              <div className="text-white">{equipment.scenes.join(', ')}</div>
+                            </div>
+                            <div>
+                              <div className="text-gray-400 text-sm font-medium mb-1">Days</div>
+                              <div className="text-white">{equipment.days.join(', ')}</div>
+                            </div>
+                          </div>
+                          
+                          {equipment.conflicts.length > 0 && (
+                            <div className="bg-red-900/20 border border-red-500/30 rounded-lg p-3">
+                              <div className="text-red-300 font-medium text-sm mb-1">Conflicts</div>
+                              <div className="text-red-400 text-sm">{equipment.conflicts.join(', ')}</div>
+                            </div>
+                          )}
+                        </div>
+                      )) || (
+                        <div className="text-center py-8 text-gray-400">
+                          <Wrench className="h-12 w-12 mx-auto mb-3 text-gray-600" />
+                          <p>Equipment schedule data not available</p>
+                        </div>
+                      )}
+                    </div>
+                  </CardContent>
+                </Card>
+              )}
+
+              {activeView === 'conflicts' && (
+                <div className="space-y-6">
+                  {/* Cast Conflicts */}
+                  <Card className="bg-gray-800 border-gray-700">
+                    <CardHeader>
+                      <CardTitle className="text-white flex items-center">
+                        <Users className="h-5 w-5 text-orange-400 mr-2" />
+                        Cast Conflicts
+                      </CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <div className="space-y-3">
+                        {productionSchedule.conflictAnalysis?.castConflicts?.map((conflict, index) => (
+                          <div key={index} className="border border-gray-700 rounded-lg p-4">
+                            <div className="flex items-center justify-between mb-2">
+                              <h3 className="text-white font-medium">{conflict.characterName}</h3>
+                              <Badge variant={conflict.severity === 'high' ? 'destructive' : conflict.severity === 'medium' ? 'default' : 'secondary'}>
+                                {conflict.severity}
+                              </Badge>
+                            </div>
+                            <div className="text-gray-400 text-sm mb-2">
+                              Conflict days: {conflict.conflictDays.join(', ')}
+                            </div>
+                            <div className="text-gray-300 text-sm">{conflict.resolution}</div>
+                          </div>
+                        )) || (
+                          <div className="text-center py-4 text-green-400">
+                            <CheckCircle className="h-8 w-8 mx-auto mb-2" />
+                            <p>No cast conflicts detected</p>
+                          </div>
+                        )}
                       </div>
-                    ))}
-                  </div>
+                    </CardContent>
+                  </Card>
+
+                  {/* Equipment Conflicts */}
+                  <Card className="bg-gray-800 border-gray-700">
+                    <CardHeader>
+                      <CardTitle className="text-white flex items-center">
+                        <Wrench className="h-5 w-5 text-red-400 mr-2" />
+                        Equipment Conflicts
+                      </CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <div className="space-y-3">
+                        {productionSchedule.conflictAnalysis?.equipmentConflicts?.map((conflict, index) => (
+                          <div key={index} className="border border-gray-700 rounded-lg p-4">
+                            <h3 className="text-white font-medium mb-2">{conflict.equipmentType}</h3>
+                            <div className="text-gray-400 text-sm mb-1">
+                              Conflict days: {conflict.conflictDays.join(', ')}
+                            </div>
+                            <div className="text-gray-400 text-sm mb-2">
+                              Affected scenes: {conflict.affectedScenes.join(', ')}
+                            </div>
+                            <div className="text-gray-300 text-sm">{conflict.resolution}</div>
+                          </div>
+                        )) || (
+                          <div className="text-center py-4 text-green-400">
+                            <CheckCircle className="h-8 w-8 mx-auto mb-2" />
+                            <p>No equipment conflicts detected</p>
+                          </div>
+                        )}
+                      </div>
+                    </CardContent>
+                  </Card>
+
+                  {/* Location Conflicts */}
+                  <Card className="bg-gray-800 border-gray-700">
+                    <CardHeader>
+                      <CardTitle className="text-white flex items-center">
+                        <MapPin className="h-5 w-5 text-yellow-400 mr-2" />
+                        Location Conflicts
+                      </CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <div className="space-y-3">
+                        {productionSchedule.conflictAnalysis?.locationConflicts?.map((conflict, index) => (
+                          <div key={index} className="border border-gray-700 rounded-lg p-4">
+                            <h3 className="text-white font-medium mb-2">{conflict.location}</h3>
+                            <div className="text-gray-400 text-sm mb-1">
+                              Conflict days: {conflict.conflictDays.join(', ')}
+                            </div>
+                            <div className="text-gray-400 text-sm mb-2">{conflict.issue}</div>
+                            <div className="text-gray-300 text-sm">{conflict.resolution}</div>
+                          </div>
+                        )) || (
+                          <div className="text-center py-4 text-green-400">
+                            <CheckCircle className="h-8 w-8 mx-auto mb-2" />
+                            <p>No location conflicts detected</p>
+                          </div>
+                        )}
+                      </div>
+                    </CardContent>
+                  </Card>
                 </div>
-              </div>
-            </div>
-          )}
-          
-          {activeTab === 'boneyard' && (
-            <div className="bg-gray-900 rounded-lg p-6 border border-gray-800">
-              <h3 className="text-lg font-medium text-white mb-4">Boneyard Items</h3>
-              <div className="space-y-3">
-                {boneyardItems.map((item) => (
-                  <div key={item.id} className="bg-gray-800 p-4 rounded-lg border border-gray-700">
-                    <div className="flex items-center justify-between mb-2">
-                      <span className="text-white font-medium">Scene {item.scene}</span>
-                      <span className={`text-xs px-2 py-1 rounded ${
-                        item.priority === 'High' ? 'bg-red-600 text-white' :
-                        item.priority === 'Medium' ? 'bg-yellow-600 text-white' :
-                        'bg-green-600 text-white'
-                      }`}>
-                        {item.priority}
-                      </span>
-                    </div>
-                    <div className="text-sm text-gray-400 mb-1">{item.description}</div>
-                    <div className="text-sm text-gray-500">{item.reason}</div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          )}
+              )}
 
-          {activeTab === 'aiyard' && !analysisResult && (
-            <div className="bg-gray-900 rounded-lg p-6 border border-gray-800">
-              <h3 className="text-lg font-medium text-white mb-4">AI Yard</h3>
-              <div className="text-center py-8">
-                <Wand2 className="mx-auto h-12 w-12 text-gray-500 mb-4" />
-                <h4 className="text-lg font-medium text-gray-300 mb-2">No AI Analysis Data</h4>
-                <p className="text-gray-500 mb-4">
-                  Use the input section above to generate scheduling coordination data.
-                </p>
-              </div>
-            </div>
-          )}
+              {activeView === 'optimization' && (
+                <div className="space-y-6">
+                  {/* Optimization Metrics */}
+                  <Card className="bg-gray-800 border-gray-700">
+                    <CardHeader>
+                      <CardTitle className="text-white flex items-center">
+                        <BarChart3 className="h-5 w-5 text-green-400 mr-2" />
+                        Schedule Optimization Metrics
+                      </CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                        <div className="bg-gray-700 rounded-lg p-4 text-center">
+                          <div className="text-2xl font-bold text-green-400">
+                            {productionSchedule.optimizationMetrics?.locationEfficiency || 0}%
+                          </div>
+                          <div className="text-gray-400 text-sm">Location Efficiency</div>
+                        </div>
+                        <div className="bg-gray-700 rounded-lg p-4 text-center">
+                          <div className="text-2xl font-bold text-blue-400">
+                            {productionSchedule.optimizationMetrics?.castUtilization || 0}%
+                          </div>
+                          <div className="text-gray-400 text-sm">Cast Utilization</div>
+                        </div>
+                        <div className="bg-gray-700 rounded-lg p-4 text-center">
+                          <div className="text-2xl font-bold text-purple-400">
+                            {productionSchedule.optimizationMetrics?.equipmentUtilization || 0}%
+                          </div>
+                          <div className="text-gray-400 text-sm">Equipment Utilization</div>
+                        </div>
+                        <div className="bg-gray-700 rounded-lg p-4 text-center">
+                          <div className="text-2xl font-bold text-yellow-400">
+                            {productionSchedule.optimizationMetrics?.overallEfficiency || 0}%
+                          </div>
+                          <div className="text-gray-400 text-sm">Overall Efficiency</div>
+                        </div>
+                      </div>
+                      
+                      {productionSchedule.optimizationMetrics?.estimatedSavings && (
+                        <div className="mt-6 bg-green-900/20 border border-green-500/30 rounded-lg p-4">
+                          <div className="flex items-center space-x-3">
+                            <Zap className="h-6 w-6 text-green-400" />
+                            <div>
+                              <div className="text-green-300 font-medium">Estimated Cost Savings</div>
+                              <div className="text-green-400 text-sm">
+                                {formatCurrency(productionSchedule.optimizationMetrics.estimatedSavings)} saved vs basic schedule
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      )}
+                    </CardContent>
+                  </Card>
 
-          {activeTab === 'aiyard1' && !complianceResult && (
-            <div className="bg-gray-900 rounded-lg p-6 border border-gray-800">
-              <h3 className="text-lg font-medium text-white mb-4">AI Yard 1 - Compliance & Constraints</h3>
-              <div className="text-center py-8">
-                <Wand2 className="mx-auto h-12 w-12 text-gray-500 mb-4" />
-                <h4 className="text-lg font-medium text-gray-300 mb-2">No Compliance Analysis Data</h4>
-                <p className="text-gray-500 mb-4">
-                  Use the input section above to generate compliance & constraints analysis.
-                </p>
-              </div>
-            </div>
-          )}
+                  {/* Department Workload Analysis */}
+                  <Card className="bg-gray-800 border-gray-700">
+                    <CardHeader>
+                      <CardTitle className="text-white">Department Workload Analysis</CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <div className="space-y-6">
+                        {/* Makeup Department */}
+                        <div>
+                          <h3 className="text-white font-medium mb-3 flex items-center">
+                            <div className="w-3 h-3 bg-pink-400 rounded-full mr-2"></div>
+                            Makeup Department
+                          </h3>
+                          <div className="space-y-2">
+                            {productionSchedule.departmentWorkload?.makeup?.map((day, index) => (
+                              <div key={index} className="flex items-center justify-between bg-gray-700 rounded p-3">
+                                <div className="flex items-center space-x-4">
+                                  <span className="text-white font-medium">Day {day.day}</span>
+                                  <Badge variant={day.complexity === 'extreme' ? 'destructive' : day.complexity === 'complex' ? 'default' : 'secondary'}>
+                                    {day.complexity}
+                                  </Badge>
+                                </div>
+                                <div className="text-right text-sm">
+                                  <div className="text-white">{day.artistsNeeded} artists • {day.setupHours}h setup</div>
+                                  {day.specialRequirements.length > 0 && (
+                                    <div className="text-gray-400">{day.specialRequirements.join(', ')}</div>
+                                  )}
+                                </div>
+                              </div>
+                            )) || (
+                              <div className="text-gray-400 text-sm">No makeup workload data available</div>
+                            )}
+                          </div>
+                        </div>
 
-          {activeTab === 'aiyard2' && !resourceResult && (
-            <div className="bg-gray-900 rounded-lg p-6 border border-gray-800">
-              <h3 className="text-lg font-medium text-white mb-4">AI Yard 2 - Resource Logistics</h3>
-              <div className="text-center py-8">
-                <Wand2 className="mx-auto h-12 w-12 text-gray-500 mb-4" />
-                <h4 className="text-lg font-medium text-gray-300 mb-2">No Resource Analysis Data</h4>
-                <p className="text-gray-500 mb-4">
-                  Use the input section above to generate resource logistics analysis.
-                </p>
-              </div>
-            </div>
-          )}
+                        {/* Wardrobe Department */}
+                        <div>
+                          <h3 className="text-white font-medium mb-3 flex items-center">
+                            <div className="w-3 h-3 bg-blue-400 rounded-full mr-2"></div>
+                            Wardrobe Department
+                          </h3>
+                          <div className="space-y-2">
+                            {productionSchedule.departmentWorkload?.wardrobe?.map((day, index) => (
+                              <div key={index} className="flex items-center justify-between bg-gray-700 rounded p-3">
+                                <div>
+                                  <span className="text-white font-medium">Day {day.day}</span>
+                                </div>
+                                <div className="text-right text-sm">
+                                  <div className="text-white">{day.costumesNeeded} costumes • {day.quickChanges} quick changes</div>
+                                  <div className="text-gray-400">{day.fittingTime}min fitting time</div>
+                                  {day.specialRequirements.length > 0 && (
+                                    <div className="text-gray-400">{day.specialRequirements.join(', ')}</div>
+                                  )}
+                                </div>
+                              </div>
+                            )) || (
+                              <div className="text-gray-400 text-sm">No wardrobe workload data available</div>
+                            )}
+                          </div>
+                        </div>
 
-          {activeTab === 'aiyard3' && !optimizationResult && (
-            <div className="bg-gray-900 rounded-lg p-6 border border-gray-800">
-              <h3 className="text-lg font-medium text-white mb-4">AI Yard 3 - Optimization & Scenario</h3>
-              <div className="text-center py-8">
-                <Wand2 className="mx-auto h-12 w-12 text-gray-500 mb-4" />
-                <h4 className="text-lg font-medium text-gray-300 mb-2">No Optimization Analysis Data</h4>
-                <p className="text-gray-500 mb-4">
-                  Use the input section above to generate optimization & scenario analysis.
-                </p>
-              </div>
+                        {/* Props Department */}
+                        <div>
+                          <h3 className="text-white font-medium mb-3 flex items-center">
+                            <div className="w-3 h-3 bg-yellow-400 rounded-full mr-2"></div>
+                            Props Department
+                          </h3>
+                          <div className="space-y-2">
+                            {productionSchedule.departmentWorkload?.props?.map((day, index) => (
+                              <div key={index} className="flex items-center justify-between bg-gray-700 rounded p-3">
+                                <div>
+                                  <span className="text-white font-medium">Day {day.day}</span>
+                                </div>
+                                <div className="text-right text-sm">
+                                  <div className="text-white">{day.propsNeeded.length} props • {day.setupTime}min setup</div>
+                                  <div className="text-gray-400">{day.propsNeeded.slice(0, 3).join(', ')}{day.propsNeeded.length > 3 ? '...' : ''}</div>
+                                  {day.specialHandling.length > 0 && (
+                                    <div className="text-orange-400">Special: {day.specialHandling.join(', ')}</div>
+                                  )}
+                                </div>
+                              </div>
+                            )) || (
+                              <div className="text-gray-400 text-sm">No props workload data available</div>
+                            )}
+                          </div>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+                </div>
+              )}
             </div>
           )}
         </div>

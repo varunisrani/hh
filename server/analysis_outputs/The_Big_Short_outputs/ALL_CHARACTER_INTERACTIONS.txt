@@ -1,0 +1,554 @@
+THE_BIG_SHORT - ALL CHARACTER INTERACTIONS
+Complete character interaction analysis
+Total character pairs found: 547
+================================================================================
+
+CHARACTER PAIRS (Sorted by co-occurrence):
+--------------------------------------------------
+  1. CHARLIE ↔ JAMIE: 24 scenes together
+  2. MARK ↔ VINNY: 20 scenes together
+  3. DANNY ↔ PORTER: 15 scenes together
+  4. BEN ↔ JAMIE: 13 scenes together
+  5. DANNY ↔ MARK: 12 scenes together
+  6. BEN ↔ CHARLIE: 12 scenes together
+  7. MARK ↔ PORTER: 11 scenes together
+  8. PORTER ↔ VINNY: 10 scenes together
+  9. DANNY ↔ VINNY: 9 scenes together
+ 10. JARED ↔ VINNY: 8 scenes together
+ 11. JARED ↔ MARK: 7 scenes together
+ 12. JARED VENNETT ↔ MARK: 6 scenes together
+ 13. LAWRENCE FIELDS ↔ MICHAEL BURRY: 5 scenes together
+ 14. MARK ↔ MARK BAUM: 5 scenes together
+ 15. MARK ↔ MUSIC: 5 scenes together
+ 16. DANNY ↔ JARED VENNETT: 5 scenes together
+ 17. JARED VENNETT ↔ VINNY: 5 scenes together
+ 18. JARED VENNETT ↔ MARK BAUM: 4 scenes together
+ 19. CYNTHIA ↔ MARK: 4 scenes together
+ 20. JARED VENNETT ↔ PORTER: 4 scenes together
+ 21. FREEZE ↔ JARED VENNETT: 4 scenes together
+ 22. CHARLIE ↔ JARED VENNETT: 4 scenes together
+ 23. JAMIE ↔ JARED VENNETT: 4 scenes together
+ 24. CUT TO ↔ MICHAEL BURRY: 3 scenes together
+ 25. MARK BAUM ↔ VINNY: 3 scenes together
+ 26. JARED ↔ MARK BAUM: 3 scenes together
+ 27. DANNY ↔ JARED: 3 scenes together
+ 28. CHARLIE ↔ MUSIC: 3 scenes together
+ 29. JAMIE ↔ MUSIC: 3 scenes together
+ 30. CUT TO ↔ PORTER: 3 scenes together
+ 31. MUSIC ↔ VINNY: 3 scenes together
+ 32. MICHAEL BURRY ↔ YOUNG ANALYST: 2 scenes together
+ 33. MICHAEL BURRY ↔ MUSIC: 2 scenes together
+ 34. CUT TO ↔ LAWRENCE FIELDS: 2 scenes together
+ 35. MARK BAUM ↔ MUSIC: 2 scenes together
+ 36. JARED VENNETT ↔ MUSIC: 2 scenes together
+ 37. CYNTHIA ↔ MARK BAUM: 2 scenes together
+ 38. KATHY TAO ↔ MARK: 2 scenes together
+ 39. DANNY MOSES ↔ MARK: 2 scenes together
+ 40. DANNY ↔ DANNY MOSES: 2 scenes together
+ 41. DANNY MOSES ↔ PORTER: 2 scenes together
+ 42. DANNY MOSES ↔ VINNY: 2 scenes together
+ 43. DANNY ↔ MARK BAUM: 2 scenes together
+ 44. MARK BAUM ↔ PORTER: 2 scenes together
+ 45. JARED ↔ JARED VENNETT: 2 scenes together
+ 46. JARED VENNETT ↔ YOUNG BANKER: 2 scenes together
+ 47. FREEZE ↔ JAMIE: 2 scenes together
+ 48. BEN ↔ FREEZE: 2 scenes together
+ 49. BEN ↔ JARED VENNETT: 2 scenes together
+ 50. CHARLIE ↔ FREEZE: 2 scenes together
+ 51. CUT TO ↔ JAMIE: 2 scenes together
+ 52. CHARLIE ↔ CUT TO: 2 scenes together
+ 53. BLACK ↔ MAROON: 2 scenes together
+ 54. BLACK ↔ MARK: 2 scenes together
+ 55. MARK ↔ MAROON: 2 scenes together
+ 56. BEN ↔ MUSIC: 2 scenes together
+ 57. CAB DRIVER ↔ MARK: 2 scenes together
+ 58. CUT TO ↔ VINNY: 2 scenes together
+ 59. MICHAEL BURRY ↔ WIFE: 2 scenes together
+ 60. JARED ↔ PORTER: 2 scenes together
+ 61. CUT TO ↔ JARED VENNETT: 2 scenes together
+ 62. CUT TO ↔ DANNY: 2 scenes together
+ 63. LATER ↔ VINNY: 2 scenes together
+ 64. LATER ↔ MARK: 2 scenes together
+ 65. JARED VENNETT ↔ LATER: 2 scenes together
+ 66. MIKE ↔ MUSIC: 2 scenes together
+ 67. JARED ↔ MUSIC: 2 scenes together
+ 68. MARK ↔ MR. CHAU: 2 scenes together
+ 69. JARED ↔ MR. CHAU: 2 scenes together
+ 70. CUT TO ↔ MIKE: 2 scenes together
+ 71. LEWIS RANIERI ↔ PROJECTOR.: 1 scenes together
+ 72. FUND MANAGER ↔ PROJECTOR.: 1 scenes together
+ 73. BOND TRADER ↔ PROJECTOR.: 1 scenes together
+ 74. MUSIC ↔ PROJECTOR.: 1 scenes together
+ 75. FUND MANAGER ↔ LEWIS RANIERI: 1 scenes together
+ 76. BOND TRADER ↔ LEWIS RANIERI: 1 scenes together
+ 77. LEWIS RANIERI ↔ MUSIC: 1 scenes together
+ 78. BOND TRADER ↔ FUND MANAGER: 1 scenes together
+ 79. FUND MANAGER ↔ MUSIC: 1 scenes together
+ 80. BOND TRADER ↔ MUSIC: 1 scenes together
+ 81. MODERN TRADER ↔ TIME LAPSE: 1 scenes together
+ 82. SMASH CUT TO BLACK ↔ TIME LAPSE: 1 scenes together
+ 83. FAIR. ↔ TIME LAPSE: 1 scenes together
+ 84. TIME LAPSE ↔ WE FADE TO BLACK.: 1 scenes together
+ 85. TIME LAPSE ↔ TITLE: 1 scenes together
+ 86. MODERN TRADER ↔ SMASH CUT TO BLACK: 1 scenes together
+ 87. FAIR. ↔ MODERN TRADER: 1 scenes together
+ 88. MODERN TRADER ↔ WE FADE TO BLACK.: 1 scenes together
+ 89. MODERN TRADER ↔ TITLE: 1 scenes together
+ 90. FAIR. ↔ SMASH CUT TO BLACK: 1 scenes together
+ 91. SMASH CUT TO BLACK ↔ WE FADE TO BLACK.: 1 scenes together
+ 92. SMASH CUT TO BLACK ↔ TITLE: 1 scenes together
+ 93. FAIR. ↔ WE FADE TO BLACK.: 1 scenes together
+ 94. FAIR. ↔ TITLE: 1 scenes together
+ 95. TITLE ↔ WE FADE TO BLACK.: 1 scenes together
+ 96. GRAPHIC ↔ OPPOSING PLAYER: 1 scenes together
+ 97. GRAPHIC ↔ OPPOSING PLAYERS: 1 scenes together
+ 98. GRAPHIC ↔ PA ANCR: 1 scenes together
+ 99. GRAPHIC ↔ MOM: 1 scenes together
+100. DAD ↔ GRAPHIC: 1 scenes together
+101. OPPOSING PLAYER ↔ OPPOSING PLAYERS: 1 scenes together
+102. OPPOSING PLAYER ↔ PA ANCR: 1 scenes together
+103. MOM ↔ OPPOSING PLAYER: 1 scenes together
+104. DAD ↔ OPPOSING PLAYER: 1 scenes together
+105. OPPOSING PLAYERS ↔ PA ANCR: 1 scenes together
+106. MOM ↔ OPPOSING PLAYERS: 1 scenes together
+107. DAD ↔ OPPOSING PLAYERS: 1 scenes together
+108. MOM ↔ PA ANCR: 1 scenes together
+109. DAD ↔ PA ANCR: 1 scenes together
+110. DAD ↔ MOM: 1 scenes together
+111. GRAPHIC ↔ MICHAEL BURRY: 1 scenes together
+112. MASTADON ↔ MICHAEL BURRY: 1 scenes together
+113. ASIAN AMERICAN ASSISTANT ↔ MICHAEL BURRY: 1 scenes together
+114. MUSIC ↔ YOUNG ANALYST: 1 scenes together
+115. MASTADON ↔ YOUNG ANALYST: 1 scenes together
+116. ASIAN AMERICAN ASSISTANT ↔ YOUNG ANALYST: 1 scenes together
+117. MASTADON ↔ MUSIC: 1 scenes together
+118. ASIAN AMERICAN ASSISTANT ↔ MUSIC: 1 scenes together
+119. ASIAN AMERICAN ASSISTANT ↔ MASTADON: 1 scenes together
+120. LAWRENCE FIELDS ↔ MODERN TRADER: 1 scenes together
+121. MICHAEL BURRY ↔ MODERN TRADER: 1 scenes together
+122. JIM CRAMER ↔ THE FEMALE SALES REP: 1 scenes together
+123. MICHAEL BURRY ↔ SALES REP: 1 scenes together
+124. DEEB WINSTON ↔ MICHAEL BURRY: 1 scenes together
+125. DEEB WINSTON ↔ SALES REP: 1 scenes together
+126. DEUTSCHE SALES REP ↔ MICHAEL BURRY: 1 scenes together
+127. DEUTSCHE SALES REP ↔ QUICK CUTS: 1 scenes together
+128. MICHAEL BURRY ↔ QUICK CUTS: 1 scenes together
+129. DEUTSCHE SALES REP ↔ TRADER: 1 scenes together
+130. JARED VENNETT ↔ TRADER: 1 scenes together
+131. GRAPHIC ↔ TRADER: 1 scenes together
+132. DEUTSCHE SALES REP ↔ JARED VENNETT: 1 scenes together
+133. DEUTSCHE SALES REP ↔ GRAPHIC: 1 scenes together
+134. GRAPHIC ↔ JARED VENNETT: 1 scenes together
+135. BUSINESSMAN ↔ MARK BAUM: 1 scenes together
+136. BUSINESSMAN ↔ THERAPIST: 1 scenes together
+137. BUSINESSMAN ↔ GRAPHIC: 1 scenes together
+138. MARK BAUM ↔ THERAPIST: 1 scenes together
+139. GRAPHIC ↔ MARK BAUM: 1 scenes together
+140. GRAPHIC ↔ THERAPIST: 1 scenes together
+141. MOM ↔ RABBI: 1 scenes together
+142. BACK TO MANHATTAN STREET ↔ RABBI: 1 scenes together
+143. JARED VENNETT ↔ RABBI: 1 scenes together
+144. MARK BAUM ↔ RABBI: 1 scenes together
+145. INTERCUT ↔ RABBI: 1 scenes together
+146. BACK TO MANHATTAN STREET ↔ MOM: 1 scenes together
+147. JARED VENNETT ↔ MOM: 1 scenes together
+148. MARK BAUM ↔ MOM: 1 scenes together
+149. INTERCUT ↔ MOM: 1 scenes together
+150. BACK TO MANHATTAN STREET ↔ JARED VENNETT: 1 scenes together
+151. BACK TO MANHATTAN STREET ↔ MARK BAUM: 1 scenes together
+152. BACK TO MANHATTAN STREET ↔ INTERCUT: 1 scenes together
+153. INTERCUT ↔ JARED VENNETT: 1 scenes together
+154. INTERCUT ↔ MARK BAUM: 1 scenes together
+155. CYNTHIA ↔ MUSIC: 1 scenes together
+156. MUSIC ↔ QUICK FLASH TO THE CELL PHONE ON THE GROUND.: 1 scenes together
+157. MUSIC ↔ THE BUILDING... AND STEP OFF.: 1 scenes together
+158. MARK BAUM ↔ QUICK FLASH TO THE CELL PHONE ON THE GROUND.: 1 scenes together
+159. MARK BAUM ↔ THE BUILDING... AND STEP OFF.: 1 scenes together
+160. CYNTHIA ↔ QUICK FLASH TO THE CELL PHONE ON THE GROUND.: 1 scenes together
+161. CYNTHIA ↔ THE BUILDING... AND STEP OFF.: 1 scenes together
+162. MARK ↔ QUICK FLASH TO THE CELL PHONE ON THE GROUND.: 1 scenes together
+163. MARK ↔ THE BUILDING... AND STEP OFF.: 1 scenes together
+164. QUICK FLASH TO THE CELL PHONE ON THE GROUND. ↔ THE BUILDING... AND STEP OFF.: 1 scenes together
+165. MARK ↔ VINNY DANIEL: 1 scenes together
+166. MARK ↔ PORTER COLLINS: 1 scenes together
+167. CAMERA. ↔ MARK: 1 scenes together
+168. ASSISTANT ↔ MARK: 1 scenes together
+169. JARED VENNETT ↔ VINNY DANIEL: 1 scenes together
+170. PORTER COLLINS ↔ VINNY DANIEL: 1 scenes together
+171. DANNY MOSES ↔ VINNY DANIEL: 1 scenes together
+172. DANNY ↔ VINNY DANIEL: 1 scenes together
+173. PORTER ↔ VINNY DANIEL: 1 scenes together
+174. VINNY ↔ VINNY DANIEL: 1 scenes together
+175. CAMERA. ↔ VINNY DANIEL: 1 scenes together
+176. ASSISTANT ↔ VINNY DANIEL: 1 scenes together
+177. MARK BAUM ↔ VINNY DANIEL: 1 scenes together
+178. JARED VENNETT ↔ PORTER COLLINS: 1 scenes together
+179. DANNY MOSES ↔ JARED VENNETT: 1 scenes together
+180. CAMERA. ↔ JARED VENNETT: 1 scenes together
+181. ASSISTANT ↔ JARED VENNETT: 1 scenes together
+182. DANNY MOSES ↔ PORTER COLLINS: 1 scenes together
+183. DANNY ↔ PORTER COLLINS: 1 scenes together
+184. PORTER ↔ PORTER COLLINS: 1 scenes together
+185. PORTER COLLINS ↔ VINNY: 1 scenes together
+186. CAMERA. ↔ PORTER COLLINS: 1 scenes together
+187. ASSISTANT ↔ PORTER COLLINS: 1 scenes together
+188. MARK BAUM ↔ PORTER COLLINS: 1 scenes together
+189. CAMERA. ↔ DANNY MOSES: 1 scenes together
+190. ASSISTANT ↔ DANNY MOSES: 1 scenes together
+191. DANNY MOSES ↔ MARK BAUM: 1 scenes together
+192. CAMERA. ↔ DANNY: 1 scenes together
+193. ASSISTANT ↔ DANNY: 1 scenes together
+194. CAMERA. ↔ PORTER: 1 scenes together
+195. ASSISTANT ↔ PORTER: 1 scenes together
+196. CAMERA. ↔ VINNY: 1 scenes together
+197. ASSISTANT ↔ VINNY: 1 scenes together
+198. ASSISTANT ↔ CAMERA.: 1 scenes together
+199. CAMERA. ↔ MARK BAUM: 1 scenes together
+200. ASSISTANT ↔ MARK BAUM: 1 scenes together
+201. FAST CUTS ↔ MARK BAUM: 1 scenes together
+202. FAST CUTS ↔ JARED: 1 scenes together
+203. MARK BAUM ↔ TED JIANG: 1 scenes together
+204. CDO. ↔ MARK BAUM: 1 scenes together
+205. FREEZE ↔ MARK BAUM: 1 scenes together
+206. JARED VENNETT ↔ TED JIANG: 1 scenes together
+207. CDO. ↔ JARED VENNETT: 1 scenes together
+208. TED JIANG ↔ VINNY: 1 scenes together
+209. CDO. ↔ VINNY: 1 scenes together
+210. FREEZE ↔ VINNY: 1 scenes together
+211. JARED ↔ TED JIANG: 1 scenes together
+212. CDO. ↔ JARED: 1 scenes together
+213. FREEZE ↔ JARED: 1 scenes together
+214. DANNY ↔ TED JIANG: 1 scenes together
+215. CDO. ↔ DANNY: 1 scenes together
+216. DANNY ↔ FREEZE: 1 scenes together
+217. CDO. ↔ TED JIANG: 1 scenes together
+218. MARK ↔ TED JIANG: 1 scenes together
+219. FREEZE ↔ TED JIANG: 1 scenes together
+220. CDO. ↔ MARK: 1 scenes together
+221. CDO. ↔ FREEZE: 1 scenes together
+222. FREEZE ↔ MARK: 1 scenes together
+223. BACK TO THE SCENE ↔ MARK: 1 scenes together
+224. BACK TO THE SCENE ↔ JARED: 1 scenes together
+225. BACK TO THE SCENE ↔ DANNY: 1 scenes together
+226. MOMENTS LATE ↔ MUSIC: 1 scenes together
+227. ATTRACTIVE MANHATTAN PROFESSIONAL WOMEN. ↔ MUSIC: 1 scenes together
+228. ATTRACTIVE MANHATTAN PROFESSIONAL ↔ MUSIC: 1 scenes together
+229. GRAPHIC ↔ MUSIC: 1 scenes together
+230. CHARLIE ↔ MOMENTS LATE: 1 scenes together
+231. ATTRACTIVE MANHATTAN PROFESSIONAL WOMEN. ↔ CHARLIE: 1 scenes together
+232. ATTRACTIVE MANHATTAN PROFESSIONAL ↔ CHARLIE: 1 scenes together
+233. CHARLIE ↔ GRAPHIC: 1 scenes together
+234. ATTRACTIVE MANHATTAN PROFESSIONAL WOMEN. ↔ MOMENTS LATE: 1 scenes together
+235. JAMIE ↔ MOMENTS LATE: 1 scenes together
+236. ATTRACTIVE MANHATTAN PROFESSIONAL ↔ MOMENTS LATE: 1 scenes together
+237. GRAPHIC ↔ MOMENTS LATE: 1 scenes together
+238. ATTRACTIVE MANHATTAN PROFESSIONAL WOMEN. ↔ JAMIE: 1 scenes together
+239. ATTRACTIVE MANHATTAN PROFESSIONAL ↔ ATTRACTIVE MANHATTAN PROFESSIONAL WOMEN.: 1 scenes together
+240. ATTRACTIVE MANHATTAN PROFESSIONAL WOMEN. ↔ GRAPHIC: 1 scenes together
+241. ATTRACTIVE MANHATTAN PROFESSIONAL ↔ JAMIE: 1 scenes together
+242. GRAPHIC ↔ JAMIE: 1 scenes together
+243. ATTRACTIVE MANHATTAN PROFESSIONAL ↔ GRAPHIC: 1 scenes together
+244. CHARLIE ↔ YOUNG MAN'S VOICE: 1 scenes together
+245. CHARLIE ↔ YOUNG BANKER: 1 scenes together
+246. JAMIE ↔ YOUNG MAN'S VOICE: 1 scenes together
+247. JAMIE ↔ YOUNG BANKER: 1 scenes together
+248. YOUNG BANKER ↔ YOUNG MAN'S VOICE: 1 scenes together
+249. JARED VENNETT ↔ YOUNG MAN'S VOICE: 1 scenes together
+250. JAMIE ↔ LOBBY SECURITY GUARD: 1 scenes together
+251. CU ↔ JAMIE: 1 scenes together
+252. CHARLIE ↔ LOBBY SECURITY GUARD: 1 scenes together
+253. CHARLIE ↔ CU: 1 scenes together
+254. CUT TO ↔ LOBBY SECURITY GUARD: 1 scenes together
+255. CU ↔ LOBBY SECURITY GUARD: 1 scenes together
+256. CU ↔ CUT TO: 1 scenes together
+257. GREETER ↔ SEMINAR LEADER: 1 scenes together
+258. PORTER ↔ SEMINAR LEADER: 1 scenes together
+259. GREETER ↔ PORTER: 1 scenes together
+260. DANNY ↔ TATTOOED NECK: 1 scenes together
+261. MIKE'S ASSISTANT ↔ YOUNG ANALYST: 1 scenes together
+262. LAWRENCE FIELDS ↔ MIKE: 1 scenes together
+263. LAWRENCE FIELDS ↔ MARTIN BLAINE: 1 scenes together
+264. CLOSE ON ↔ LAWRENCE FIELDS: 1 scenes together
+265. BUMPERSTICKER ↔ LAWRENCE FIELDS: 1 scenes together
+266. MARTIN BLAINE ↔ MIKE: 1 scenes together
+267. CLOSE ON ↔ MIKE: 1 scenes together
+268. BUMPERSTICKER ↔ MIKE: 1 scenes together
+269. CLOSE ON ↔ MARTIN BLAINE: 1 scenes together
+270. BUMPERSTICKER ↔ MARTIN BLAINE: 1 scenes together
+271. BUMPERSTICKER ↔ CLOSE ON: 1 scenes together
+272. MUSIC ↔ REAL ESTATE AGENT: 1 scenes together
+273. MARK ↔ REAL ESTATE AGENT: 1 scenes together
+274. REAL ESTATE AGENT ↔ YOUNGER AGENT: 1 scenes together
+275. MARK ↔ YOUNGER AGENT: 1 scenes together
+276. BLACK ↔ PORTER: 1 scenes together
+277. BLACK ↔ DANNY: 1 scenes together
+278. MAROON ↔ PORTER: 1 scenes together
+279. DANNY ↔ MAROON: 1 scenes together
+280. DANCER ↔ MUSIC: 1 scenes together
+281. DANCER ↔ MARK: 1 scenes together
+282. BEN ↔ NOAH: 1 scenes together
+283. JAMIE ↔ NOAH: 1 scenes together
+284. CHARLIE ↔ NOAH: 1 scenes together
+285. CUT TO ↔ NOAH: 1 scenes together
+286. NOAH ↔ QUOTE COMES UP OVER BLACK: 1 scenes together
+287. BEN ↔ CUT TO: 1 scenes together
+288. BEN ↔ QUOTE COMES UP OVER BLACK: 1 scenes together
+289. JAMIE ↔ QUOTE COMES UP OVER BLACK: 1 scenes together
+290. CHARLIE ↔ QUOTE COMES UP OVER BLACK: 1 scenes together
+291. CUT TO ↔ QUOTE COMES UP OVER BLACK: 1 scenes together
+292. MARK ↔ SNIPPETS OF BUSINESS NEWS: 1 scenes together
+293. SNIPPETS OF BUSINESS NEWS ↔ VINNY: 1 scenes together
+294. CAB DRIVER ↔ VINNY: 1 scenes together
+295. GOVERNMENT OFFICIAL ↔ WIFE: 1 scenes together
+296. GOVERNMENT OFFICIAL ↔ MICHAEL BURRY: 1 scenes together
+297. ALEX ↔ GOVERNMENT OFFICIAL: 1 scenes together
+298. GOVERNMENT OFFICIAL ↔ NICHOLAS: 1 scenes together
+299. ALEX ↔ WIFE: 1 scenes together
+300. NICHOLAS ↔ WIFE: 1 scenes together
+301. ALEX ↔ MICHAEL BURRY: 1 scenes together
+302. MICHAEL BURRY ↔ NICHOLAS: 1 scenes together
+303. ALEX ↔ NICHOLAS: 1 scenes together
+304. GEORGIA ↔ VINNY: 1 scenes together
+305. GEORGIA ↔ MARK: 1 scenes together
+306. ALL ↔ JARED: 1 scenes together
+307. ALL ↔ DANNY: 1 scenes together
+308. ALL ↔ PORTER: 1 scenes together
+309. ALL ↔ VINNY: 1 scenes together
+310. ALL ↔ MARK: 1 scenes together
+311. CAMERA. ↔ MUSIC: 1 scenes together
+312. BEN ↔ MARK BAUM: 1 scenes together
+313. BEN ↔ PORTER: 1 scenes together
+314. BEN ↔ VINNY: 1 scenes together
+315. BEN ↔ JARED: 1 scenes together
+316. BEN ↔ MARK: 1 scenes together
+317. CHARLIE ↔ MARK BAUM: 1 scenes together
+318. CHARLIE ↔ PORTER: 1 scenes together
+319. CHARLIE ↔ VINNY: 1 scenes together
+320. CHARLIE ↔ JARED: 1 scenes together
+321. CHARLIE ↔ MARK: 1 scenes together
+322. JAMIE ↔ MARK BAUM: 1 scenes together
+323. JAMIE ↔ PORTER: 1 scenes together
+324. JAMIE ↔ VINNY: 1 scenes together
+325. JAMIE ↔ JARED: 1 scenes together
+326. JAMIE ↔ MARK: 1 scenes together
+327. CHARLIE ↔ RICH BEAR REP: 1 scenes together
+328. JAMIE ↔ RICH BEAR REP: 1 scenes together
+329. DANNY ↔ LATER: 1 scenes together
+330. DANNY ↔ OPTION ONE CEO: 1 scenes together
+331. DANNY ↔ ZERO.: 1 scenes together
+332. LATER ↔ PORTER: 1 scenes together
+333. OPTION ONE CEO ↔ PORTER: 1 scenes together
+334. PORTER ↔ ZERO.: 1 scenes together
+335. OPTION ONE CEO ↔ VINNY: 1 scenes together
+336. VINNY ↔ ZERO.: 1 scenes together
+337. MARK ↔ OPTION ONE CEO: 1 scenes together
+338. MARK ↔ ZERO.: 1 scenes together
+339. CUT TO ↔ MARK: 1 scenes together
+340. LATER ↔ OPTION ONE CEO: 1 scenes together
+341. LATER ↔ ZERO.: 1 scenes together
+342. CUT TO ↔ LATER: 1 scenes together
+343. OPTION ONE CEO ↔ ZERO.: 1 scenes together
+344. JARED VENNETT ↔ OPTION ONE CEO: 1 scenes together
+345. CUT TO ↔ OPTION ONE CEO: 1 scenes together
+346. JARED VENNETT ↔ ZERO.: 1 scenes together
+347. CUT TO ↔ ZERO.: 1 scenes together
+348. CU OF EMAILS ↔ MIKE: 1 scenes together
+349. ASSISTANT ↔ CU OF EMAILS: 1 scenes together
+350. ASSISTANT ↔ MIKE: 1 scenes together
+351. MUSIC ↔ WIFE: 1 scenes together
+352. MIKE ↔ WIFE: 1 scenes together
+353. CHARLIE ↔ MERRILL REP: 1 scenes together
+354. BEN ↔ MERRILL REP: 1 scenes together
+355. EVIE ↔ JAMIE: 1 scenes together
+356. DOUG ↔ EVIE: 1 scenes together
+357. DOUG ↔ JAMIE: 1 scenes together
+358. CHARLIE ↔ GOLDMAN REP: 1 scenes together
+359. CHARLIE ↔ MERRIL REP: 1 scenes together
+360. CHARLIE ↔ LEHMAN BROTHERS REP: 1 scenes together
+361. CHARLIE ↔ MORGAN STANLEY REP: 1 scenes together
+362. BEN ↔ GOLDMAN REP: 1 scenes together
+363. BEN ↔ MERRIL REP: 1 scenes together
+364. BEN ↔ LEHMAN BROTHERS REP: 1 scenes together
+365. BEN ↔ MORGAN STANLEY REP: 1 scenes together
+366. GOLDMAN REP ↔ JAMIE: 1 scenes together
+367. JAMIE ↔ MERRIL REP: 1 scenes together
+368. JAMIE ↔ LEHMAN BROTHERS REP: 1 scenes together
+369. JAMIE ↔ MORGAN STANLEY REP: 1 scenes together
+370. GOLDMAN REP ↔ MUSIC: 1 scenes together
+371. MERRIL REP ↔ MUSIC: 1 scenes together
+372. LEHMAN BROTHERS REP ↔ MUSIC: 1 scenes together
+373. MORGAN STANLEY REP ↔ MUSIC: 1 scenes together
+374. GOLDMAN REP ↔ MERRIL REP: 1 scenes together
+375. GOLDMAN REP ↔ LEHMAN BROTHERS REP: 1 scenes together
+376. GOLDMAN REP ↔ MORGAN STANLEY REP: 1 scenes together
+377. LEHMAN BROTHERS REP ↔ MERRIL REP: 1 scenes together
+378. MERRIL REP ↔ MORGAN STANLEY REP: 1 scenes together
+379. LEHMAN BROTHERS REP ↔ MORGAN STANLEY REP: 1 scenes together
+380. FLASH CUT ↔ MUSIC: 1 scenes together
+381. MR. CHAU ↔ MUSIC: 1 scenes together
+382. MOMENTS LATER ↔ MUSIC: 1 scenes together
+383. LATER ↔ MUSIC: 1 scenes together
+384. FLASH CUT ↔ JARED VENNETT: 1 scenes together
+385. JARED VENNETT ↔ MR. CHAU: 1 scenes together
+386. JARED VENNETT ↔ MOMENTS LATER: 1 scenes together
+387. FLASH CUT ↔ MARK: 1 scenes together
+388. MARK ↔ MOMENTS LATER: 1 scenes together
+389. FLASH CUT ↔ MR. CHAU: 1 scenes together
+390. FLASH CUT ↔ MOMENTS LATER: 1 scenes together
+391. FLASH CUT ↔ JARED: 1 scenes together
+392. FLASH CUT ↔ VINNY: 1 scenes together
+393. FLASH CUT ↔ LATER: 1 scenes together
+394. MOMENTS LATER ↔ MR. CHAU: 1 scenes together
+395. MR. CHAU ↔ VINNY: 1 scenes together
+396. LATER ↔ MR. CHAU: 1 scenes together
+397. JARED ↔ MOMENTS LATER: 1 scenes together
+398. MOMENTS LATER ↔ VINNY: 1 scenes together
+399. LATER ↔ MOMENTS LATER: 1 scenes together
+400. JARED ↔ LATER: 1 scenes together
+401. CROWD ↔ SELENA GOMEZ: 1 scenes together
+402. CROWD ↔ DR. THALER: 1 scenes together
+403. CROWD ↔ WOMAN IN GLASSES: 1 scenes together
+404. BUSINESSMAN ↔ CROWD: 1 scenes together
+405. CROWD ↔ WOMAN.: 1 scenes together
+406. CROWD ↔ GUY IN GAME JERSEY: 1 scenes together
+407. CROWD ↔ OLD WOMAN: 1 scenes together
+408. CROWD ↔ LONG CHAIN OF BETTERS: 1 scenes together
+409. DR. THALER ↔ SELENA GOMEZ: 1 scenes together
+410. SELENA GOMEZ ↔ WOMAN IN GLASSES: 1 scenes together
+411. BUSINESSMAN ↔ SELENA GOMEZ: 1 scenes together
+412. SELENA GOMEZ ↔ WOMAN.: 1 scenes together
+413. GUY IN GAME JERSEY ↔ SELENA GOMEZ: 1 scenes together
+414. OLD WOMAN ↔ SELENA GOMEZ: 1 scenes together
+415. LONG CHAIN OF BETTERS ↔ SELENA GOMEZ: 1 scenes together
+416. DR. THALER ↔ WOMAN IN GLASSES: 1 scenes together
+417. BUSINESSMAN ↔ DR. THALER: 1 scenes together
+418. DR. THALER ↔ WOMAN.: 1 scenes together
+419. DR. THALER ↔ GUY IN GAME JERSEY: 1 scenes together
+420. DR. THALER ↔ OLD WOMAN: 1 scenes together
+421. DR. THALER ↔ LONG CHAIN OF BETTERS: 1 scenes together
+422. BUSINESSMAN ↔ WOMAN IN GLASSES: 1 scenes together
+423. WOMAN IN GLASSES ↔ WOMAN.: 1 scenes together
+424. GUY IN GAME JERSEY ↔ WOMAN IN GLASSES: 1 scenes together
+425. OLD WOMAN ↔ WOMAN IN GLASSES: 1 scenes together
+426. LONG CHAIN OF BETTERS ↔ WOMAN IN GLASSES: 1 scenes together
+427. BUSINESSMAN ↔ WOMAN.: 1 scenes together
+428. BUSINESSMAN ↔ GUY IN GAME JERSEY: 1 scenes together
+429. BUSINESSMAN ↔ OLD WOMAN: 1 scenes together
+430. BUSINESSMAN ↔ LONG CHAIN OF BETTERS: 1 scenes together
+431. GUY IN GAME JERSEY ↔ WOMAN.: 1 scenes together
+432. OLD WOMAN ↔ WOMAN.: 1 scenes together
+433. LONG CHAIN OF BETTERS ↔ WOMAN.: 1 scenes together
+434. GUY IN GAME JERSEY ↔ OLD WOMAN: 1 scenes together
+435. GUY IN GAME JERSEY ↔ LONG CHAIN OF BETTERS: 1 scenes together
+436. LONG CHAIN OF BETTERS ↔ OLD WOMAN: 1 scenes together
+437. DISSOLVE TO ↔ MARK: 1 scenes together
+438. DISSOLVE TO ↔ MR. CHAU: 1 scenes together
+439. DISSOLVE TO ↔ JARED: 1 scenes together
+440. MARK ↔ SALES CLERK: 1 scenes together
+441. CYNTHIA ↔ SALES CLERK: 1 scenes together
+442. MIKE ↔ MIKE'S WIFE: 1 scenes together
+443. JUMP CUTS ↔ MIKE: 1 scenes together
+444. MED SCHOOL FRIEND ↔ MIKE: 1 scenes together
+445. MED SCHOOL FRIEND ↔ MUSIC: 1 scenes together
+446. MIKE ↔ SUING.: 1 scenes together
+447. MIKE ↔ OVER BLACK WE SEE THE QUOTE: 1 scenes together
+448. CUT TO ↔ SUING.: 1 scenes together
+449. OVER BLACK WE SEE THE QUOTE ↔ SUING.: 1 scenes together
+450. CUT TO ↔ OVER BLACK WE SEE THE QUOTE: 1 scenes together
+451. BERNANKE ↔ ON A WALL TV: 1 scenes together
+452. ON A WALL TV ↔ VINNY: 1 scenes together
+453. DANNY MOSES ↔ ON A WALL TV: 1 scenes together
+454. MARK ↔ ON A WALL TV: 1 scenes together
+455. ON A WALL TV ↔ PORTER: 1 scenes together
+456. DANNY ↔ ON A WALL TV: 1 scenes together
+457. BERNANKE ↔ VINNY: 1 scenes together
+458. BERNANKE ↔ DANNY MOSES: 1 scenes together
+459. BERNANKE ↔ MARK: 1 scenes together
+460. BERNANKE ↔ PORTER: 1 scenes together
+461. BERNANKE ↔ DANNY: 1 scenes together
+462. CASEY ↔ CHARLIE: 1 scenes together
+463. CASEY ↔ JAMIE: 1 scenes together
+464. LAWYER ↔ WOMAN: 1 scenes together
+465. MICHAEL BURRY ↔ WOMAN: 1 scenes together
+466. MIKE ↔ WOMAN: 1 scenes together
+467. LUCY THALIA ↔ WOMAN: 1 scenes together
+468. A DIFFERENT VOICE ↔ WOMAN: 1 scenes together
+469. DEEB ↔ WOMAN: 1 scenes together
+470. CUT TO ↔ WOMAN: 1 scenes together
+471. LAWYER ↔ MICHAEL BURRY: 1 scenes together
+472. LAWYER ↔ MIKE: 1 scenes together
+473. LAWYER ↔ LUCY THALIA: 1 scenes together
+474. A DIFFERENT VOICE ↔ LAWYER: 1 scenes together
+475. DEEB ↔ LAWYER: 1 scenes together
+476. CUT TO ↔ LAWYER: 1 scenes together
+477. MICHAEL BURRY ↔ MIKE: 1 scenes together
+478. LUCY THALIA ↔ MICHAEL BURRY: 1 scenes together
+479. A DIFFERENT VOICE ↔ MICHAEL BURRY: 1 scenes together
+480. DEEB ↔ MICHAEL BURRY: 1 scenes together
+481. LUCY THALIA ↔ MIKE: 1 scenes together
+482. A DIFFERENT VOICE ↔ MIKE: 1 scenes together
+483. DEEB ↔ MIKE: 1 scenes together
+484. A DIFFERENT VOICE ↔ LUCY THALIA: 1 scenes together
+485. DEEB ↔ LUCY THALIA: 1 scenes together
+486. CUT TO ↔ LUCY THALIA: 1 scenes together
+487. A DIFFERENT VOICE ↔ DEEB: 1 scenes together
+488. A DIFFERENT VOICE ↔ CUT TO: 1 scenes together
+489. CUT TO ↔ DEEB: 1 scenes together
+490. JARED VENNETT ↔ RECEPTIONIST: 1 scenes together
+491. RECEPTIONIST ↔ VINNY: 1 scenes together
+492. MARK ↔ RECEPTIONIST: 1 scenes together
+493. PORTER ↔ WAITRESS: 1 scenes together
+494. VINNY ↔ WAITRESS: 1 scenes together
+495. DANNY ↔ WAITRESS: 1 scenes together
+496. MARK ↔ WAITRESS: 1 scenes together
+497. CHARLIE ↔ INSTRUCTOR: 1 scenes together
+498. INSTRUCTOR ↔ JAMIE: 1 scenes together
+499. CHARLIE ↔ DISSOLVE TO: 1 scenes together
+500. DISSOLVE TO ↔ JAMIE: 1 scenes together
+501. BEN ↔ DISSOLVE TO: 1 scenes together
+502. BRUCE MILLER ↔ JARED VENNETT: 1 scenes together
+503. JARED VENNETT ↔ THE HOST: 1 scenes together
+504. BRUCE MILLER ↔ THE HOST: 1 scenes together
+505. BRUCE MILLER ↔ MARK: 1 scenes together
+506. BRUCE MILLER ↔ PORTER: 1 scenes together
+507. BRUCE MILLER ↔ DANNY: 1 scenes together
+508. BRUCE MILLER ↔ YOUNG BANKER: 1 scenes together
+509. MARK ↔ THE HOST: 1 scenes together
+510. PORTER ↔ THE HOST: 1 scenes together
+511. DANNY ↔ THE HOST: 1 scenes together
+512. THE HOST ↔ YOUNG BANKER: 1 scenes together
+513. MARK ↔ YOUNG BANKER: 1 scenes together
+514. PORTER ↔ YOUNG BANKER: 1 scenes together
+515. DANNY ↔ YOUNG BANKER: 1 scenes together
+516. CUT TO ↔ PR PERSON: 1 scenes together
+517. FADE TO BLACK ↔ VINNY: 1 scenes together
+518. MICHAEL BURRY ↔ VINNY: 1 scenes together
+519. FADE TO BLACK ↔ MARK: 1 scenes together
+520. MARK ↔ MICHAEL BURRY: 1 scenes together
+521. FADE TO BLACK ↔ MICHAEL BURRY: 1 scenes together
+522. MIKE ↔ VOICE MAIL MESSAGE: 1 scenes together
+523. MONTAGE OF REFORM IMAGERY ↔ MUSIC: 1 scenes together
+524. MUSIC ↔ WALKED IN HANDCUFFS.: 1 scenes together
+525. MUSIC ↔ SMASH TO: 1 scenes together
+526. MUSIC ↔ PICTURE OF THE ONE BANKER WHO WENT TO JAIL.: 1 scenes together
+527. MONTAGE OF REFORM IMAGERY ↔ VINNY: 1 scenes together
+528. VINNY ↔ WALKED IN HANDCUFFS.: 1 scenes together
+529. SMASH TO ↔ VINNY: 1 scenes together
+530. PICTURE OF THE ONE BANKER WHO WENT TO JAIL. ↔ VINNY: 1 scenes together
+531. MARK ↔ MONTAGE OF REFORM IMAGERY: 1 scenes together
+532. MARK ↔ WALKED IN HANDCUFFS.: 1 scenes together
+533. MARK ↔ SMASH TO: 1 scenes together
+534. MARK ↔ PICTURE OF THE ONE BANKER WHO WENT TO JAIL.: 1 scenes together
+535. JARED ↔ MONTAGE OF REFORM IMAGERY: 1 scenes together
+536. JARED ↔ WALKED IN HANDCUFFS.: 1 scenes together
+537. JARED ↔ SMASH TO: 1 scenes together
+538. JARED ↔ PICTURE OF THE ONE BANKER WHO WENT TO JAIL.: 1 scenes together
+539. MONTAGE OF REFORM IMAGERY ↔ WALKED IN HANDCUFFS.: 1 scenes together
+540. MONTAGE OF REFORM IMAGERY ↔ SMASH TO: 1 scenes together
+541. MONTAGE OF REFORM IMAGERY ↔ PICTURE OF THE ONE BANKER WHO WENT TO JAIL.: 1 scenes together
+542. SMASH TO ↔ WALKED IN HANDCUFFS.: 1 scenes together
+543. PICTURE OF THE ONE BANKER WHO WENT TO JAIL. ↔ WALKED IN HANDCUFFS.: 1 scenes together
+544. PICTURE OF THE ONE BANKER WHO WENT TO JAIL. ↔ SMASH TO: 1 scenes together
+545. END. ↔ VINNY: 1 scenes together
+546. END. ↔ MARK: 1 scenes together
+547. END. ↔ MUSIC: 1 scenes together

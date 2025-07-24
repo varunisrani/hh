@@ -147,7 +147,7 @@ export interface ScriptAnalysisOutput {
       elementValidation: "PASS" | "FAIL";
       continuityConsistency: "PASS" | "FAIL";
       industryStandardCompliance: "PASS" | "FAIL";
-      confidenceScore: string;
+      confidenceScore: number;
     };
   };
 }

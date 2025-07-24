@@ -1,5 +1,5 @@
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { MainLayout } from '@/components/layout/MainLayout';
 import { Button } from '@/components/ui/button';
 import { CategoryBadge } from '@/components/ui/CategoryBadge';
@@ -15,12 +15,13 @@ import { analyzePostProductionEstimatorWithAI, PostProductionEstimatorOutput } f
 import { analyzeTaxIncentiveAnalyzerWithAI, TaxIncentiveAnalyzerOutput } from '@/services/taxIncentiveAnalyzerService';
 import { analyzeBudgetAggregatorWithAI, BudgetAggregatorOutput } from '@/services/budgetAggregatorService';
 import { analyzeCashFlowProjectorWithAI, CashFlowProjectorOutput } from '@/services/cashFlowProjectorService';
+import { generateBasicBudgetWithAI, BasicBudgetOutput } from '@/services/basicBudgetGeneratorService';
 import { useSelectedProject } from '@/hooks/useSelectedProject';
 
 export const BudgetingPage = () => {
   console.log('💰 BUDGETING PAGE: Component rendering/re-rendering at', new Date().toISOString());
   
-  const [activeTab, setActiveTab] = useState('budgetTable');
+  const [activeTab, setActiveTab] = useState('basicBudget');
   const [budgetData, setBudgetData] = useState(mockBudgetData);
   const [showFringes, setShowFringes] = useState(false);
   const [fringeSearch, setFringeSearch] = useState('');
@@ -93,8 +94,74 @@ export const BudgetingPage = () => {
   const [cashFlowProjectorResult, setCashFlowProjectorResult] = useState<CashFlowProjectorOutput | null>(null);
   const [cashFlowProjectorError, setCashFlowProjectorError] = useState('');
   const [cashFlowProjectorRawResponse, setCashFlowProjectorRawResponse] = useState<string>('');
+
+  // Basic Budget Generator state
+  const [isGeneratingBasicBudget, setIsGeneratingBasicBudget] = useState(false);
+  const [basicBudgetResult, setBasicBudgetResult] = useState<BasicBudgetOutput | null>(null);
+  const [basicBudgetError, setBasicBudgetError] = useState('');
   
   const { selectedProject } = useSelectedProject();
+
+  // Load basic budget results from localStorage on component mount and project change
+  useEffect(() => {
+    console.log('');
+    console.log('💾 ===== BASIC BUDGET: LOADING FROM LOCALSTORAGE =====');
+    console.log('📅 TIMESTAMP:', new Date().toISOString());
+    console.log('🔍 CHECKING PROJECT:', selectedProject?.id || 'No project');
+    console.log('💾 ====================================================');
+    console.log('');
+    
+    if (selectedProject?.id) {
+      try {
+        const storageKey = `basic_budget_${selectedProject.id}`;
+        console.log('🔑 PAGE: Using storage key:', storageKey);
+        
+        const storedBudgetData = localStorage.getItem(storageKey);
+        console.log('📦 PAGE: Stored data exists:', !!storedBudgetData);
+        console.log('📏 PAGE: Stored data length:', storedBudgetData?.length || 0, 'characters');
+        
+        if (storedBudgetData) {
+          const parsedBudget = JSON.parse(storedBudgetData);
+          console.log('✅ PAGE: Successfully parsed stored budget data');
+          console.log('📊 PAGE: Budget total from storage:', parsedBudget?.basicBudgetOutput?.budgetSummary?.totalBudget || 'N/A');
+          
+          setBasicBudgetResult(parsedBudget);
+          console.log('✅ PAGE: Basic budget result loaded from localStorage');
+        } else {
+          console.log('📝 PAGE: No stored budget data found - clearing current result');
+          setBasicBudgetResult(null);
+        }
+        
+        // Always clear error when project changes
+        setBasicBudgetError('');
+        console.log('🧹 PAGE: Cleared any existing budget errors');
+        
+      } catch (error) {
+        console.error('❌ PAGE: Error loading basic budget from localStorage:', error);
+        console.error('🔍 PAGE: Error type:', error?.name || 'Unknown');
+        console.error('🔍 PAGE: Error message:', error?.message || 'No message');
+        
+        // Clear corrupted data and reset state
+        const storageKey = `basic_budget_${selectedProject.id}`;
+        localStorage.removeItem(storageKey);
+        setBasicBudgetResult(null);
+        setBasicBudgetError('');
+        console.log('🧹 PAGE: Cleared corrupted budget data from localStorage');
+      }
+    } else {
+      console.log('📝 PAGE: No project selected - clearing budget result');
+      setBasicBudgetResult(null);
+      setBasicBudgetError('');
+    }
+    
+    console.log('');
+    console.log('💾 ===== BASIC BUDGET: LOCALSTORAGE LOAD COMPLETE =====');
+    console.log('📅 TIMESTAMP:', new Date().toISOString());
+    console.log('📊 FINAL STATE: Has result:', !!basicBudgetResult);
+    console.log('📊 FINAL STATE: Has error:', !!basicBudgetError);
+    console.log('💾 =====================================================');
+    console.log('');
+  }, [selectedProject?.id]);
   
   console.log('📊 BUDGET PAGE STATE:');
   console.log('  - Active tab:', activeTab);
@@ -919,6 +986,198 @@ export const BudgetingPage = () => {
       console.log('');
     }
   };
+
+  // Basic Budget Generator Handler
+  const handleBasicBudgetGeneration = async () => {
+    console.log('');
+    console.log('💰 ===== BUDGETING PAGE: BASIC BUDGET GENERATION INITIATED =====');
+    console.log('📅 TIMESTAMP:', new Date().toISOString());
+    console.log('🖥️ COMPONENT: BudgetingPage - Basic Budget Generator');
+    console.log('💰 ===============================================================');
+    console.log('');
+    
+    if (!selectedProject) {
+      console.error('❌ PAGE: No project selected');
+      setBasicBudgetError('No project selected');
+      return;
+    }
+
+    console.log('🔍 PAGE: Validating project data...');
+    console.log('📊 PAGE: Selected project ID:', selectedProject.id);
+    console.log('📊 PAGE: Selected project name:', selectedProject.name);
+    console.log('📊 PAGE: Has PDF analysis results:', !!selectedProject.pdfAnalysisResults);
+
+    if (!selectedProject.pdfAnalysisResults) {
+      console.error('❌ PAGE: No script analysis results available');
+      setBasicBudgetError('Script analysis results required. Please analyze your script first.');
+      return;
+    }
+
+    console.log('✅ PAGE: Project validation passed');
+
+    console.log('');
+    console.log('🚀 PAGE: Starting basic budget generation process...');
+    console.log('🔄 PAGE: Setting basic budget generation state...');
+    
+    setIsGeneratingBasicBudget(true);
+    setBasicBudgetError('');
+    setBasicBudgetResult(null);
+    
+    console.log('📊 PAGE: Basic budget state updated - isGenerating: true, error cleared, result cleared');
+
+    try {
+      // Get scheduling data from localStorage if available
+      let schedulingData = null;
+      try {
+        const storedSchedule = localStorage.getItem(`production_schedule_${selectedProject.id}`);
+        if (storedSchedule) {
+          schedulingData = JSON.parse(storedSchedule);
+          console.log('📅 PAGE: Found stored scheduling data for project');
+        }
+      } catch (error) {
+        console.log('⚠️ PAGE: No scheduling data found, using basic estimates');
+      }
+
+      // If no scheduling data, create basic scheduling info from script data
+      if (!schedulingData) {
+        const scriptData = selectedProject.pdfAnalysisResults.data;
+        schedulingData = {
+          scheduleOverview: {
+            projectId: selectedProject.id,
+            totalShootDays: Math.max(10, Math.ceil(scriptData.totalScenes * 0.5)), // Estimate based on scenes
+            estimatedBudgetRange: { low: 100000, high: 500000 },
+            recommendedCrewSize: 25
+          },
+          dailySchedule: [],
+          castSchedule: [],
+          locationSchedule: []
+        };
+        console.log('📅 PAGE: Created basic scheduling estimates from script data');
+      }
+
+      const projectId = selectedProject.id;
+      console.log('📋 PAGE: Using project ID for basic budget:', projectId);
+      console.log('📋 PAGE: Project name:', selectedProject.name);
+      
+      console.log('');
+      console.log('🔄 PAGE: Calling generateBasicBudgetWithAI()...');
+      console.log('📤 PAGE: Sending script and scheduling data for analysis');
+      
+      const result = await generateBasicBudgetWithAI(
+        selectedProject.pdfAnalysisResults,
+        schedulingData,
+        projectId,
+        (status) => {
+          console.log('📢 PAGE: Basic budget progress callback received:', status);
+        }
+      );
+
+      console.log('');
+      console.log('📥 PAGE: Basic budget generation result received');
+      console.log('📊 PAGE: Basic budget result status:', result.status);
+      console.log('📊 PAGE: Basic budget result has data:', !!result.result);
+      console.log('📊 PAGE: Basic budget result has error:', !!result.error);
+
+      if (result.status === 'completed' && result.result) {
+        console.log('✅ PAGE: Basic budget generation completed successfully');
+        
+        try {
+          const budgetOutput = result.result.basicBudgetOutput;
+          console.log('📊 PAGE: Generated budget total:', budgetOutput?.budgetSummary?.totalBudget || 'N/A');
+          console.log('📊 PAGE: Budget categories count:', Object.keys(budgetOutput?.budgetCategories || {}).length);
+        } catch (logError) {
+          console.log('⚠️ PAGE: Could not log basic budget result summary:', logError.message);
+        }
+        
+        setBasicBudgetResult(result.result);
+        console.log('✅ PAGE: Basic budget generation result set to state successfully');
+
+        // Save to localStorage
+        try {
+          const storageKey = `basic_budget_${selectedProject.id}`;
+          const budgetDataToStore = JSON.stringify(result.result);
+          localStorage.setItem(storageKey, budgetDataToStore);
+          
+          console.log('💾 PAGE: Basic budget result saved to localStorage');
+          console.log('🔑 PAGE: Storage key used:', storageKey);
+          console.log('📏 PAGE: Data size saved:', budgetDataToStore.length, 'characters');
+        } catch (storageError) {
+          console.error('❌ PAGE: Failed to save basic budget to localStorage:', storageError);
+          console.error('🔍 PAGE: Storage error type:', storageError?.name || 'Unknown');
+          console.error('🔍 PAGE: Storage error message:', storageError?.message || 'No message');
+          // Continue without failing the entire operation
+        }
+      } else {
+        console.error('❌ PAGE: Basic budget generation failed');
+        console.error('🔍 PAGE: Basic budget error message:', result.error || 'Generation failed');
+        setBasicBudgetError(result.error || 'Basic budget generation failed');
+        console.log('🔄 PAGE: Basic budget error set to state');
+      }
+    } catch (error) {
+      console.log('');
+      console.log('💥 ========== PAGE BASIC BUDGET ERROR OCCURRED ==========');
+      console.error('❌ PAGE: Unexpected error in handleBasicBudgetGeneration:', error);
+      console.error('🔍 PAGE: Error type:', error?.name || 'Unknown');
+      console.error('🔍 PAGE: Error message:', error?.message || 'No message');
+      
+      if (error?.stack) {
+        console.error('📚 PAGE: Error stack trace:');
+        console.error(error.stack);
+      }
+      
+      console.log('🔄 PAGE: Setting generic basic budget error message...');
+      setBasicBudgetError('Failed to generate basic budget');
+      console.log('💥 ======================================================');
+    } finally {
+      console.log('');
+      console.log('🏁 PAGE: Basic budget generation process completed, cleaning up...');
+      console.log('🔄 PAGE: Setting isGeneratingBasicBudget to false...');
+      setIsGeneratingBasicBudget(false);
+      console.log('✅ PAGE: Basic budget generation state cleanup completed');
+      console.log('');
+      console.log('💰 ===== BUDGETING PAGE: BASIC BUDGET GENERATION FINISHED =====');
+      console.log('📅 TIMESTAMP:', new Date().toISOString());
+      console.log('💰 ===============================================================');
+      console.log('');
+    }
+  };
+
+  // Clear basic budget data function
+  const clearBasicBudgetData = () => {
+    console.log('');
+    console.log('🧹 ===== BASIC BUDGET: CLEARING DATA =====');
+    console.log('📅 TIMESTAMP:', new Date().toISOString());
+    console.log('🔍 PROJECT:', selectedProject?.id || 'No project');
+    console.log('🧹 ========================================');
+    console.log('');
+    
+    if (selectedProject?.id) {
+      try {
+        const storageKey = `basic_budget_${selectedProject.id}`;
+        console.log('🔑 PAGE: Clearing storage key:', storageKey);
+        
+        // Remove from localStorage
+        localStorage.removeItem(storageKey);
+        console.log('💾 PAGE: Removed budget data from localStorage');
+        
+        // Clear state
+        setBasicBudgetResult(null);
+        setBasicBudgetError('');
+        console.log('🧹 PAGE: Cleared budget state');
+        
+        console.log('✅ PAGE: Basic budget data cleared successfully');
+      } catch (error) {
+        console.error('❌ PAGE: Error clearing basic budget data:', error);
+        // Still clear state even if localStorage fails
+        setBasicBudgetResult(null);
+        setBasicBudgetError('');
+      }
+    }
+    
+    console.log('');
+    console.log('🧹 ===== BASIC BUDGET: CLEAR COMPLETE =====');
+    console.log('');
+  };
   
   const fringesData = [
     { id: 1, title: 'DGA', type: 'Perc', amount: 22.00 },
@@ -957,6 +1216,16 @@ export const BudgetingPage = () => {
     <div className="p-4 bg-gray-950 border-r border-gray-800 h-full overflow-y-auto">
       <div className="mb-6">
         <div className="flex items-center space-x-2 mb-4">
+          <button
+            onClick={() => handleTabChange('basicBudget')}
+            className={`px-4 py-2 rounded text-sm font-medium transition-colors ${
+              activeTab === 'basicBudget' 
+                ? 'bg-green-600 text-white' 
+                : 'text-gray-400 hover:text-white'
+            }`}
+          >
+            Basic Budget ✨
+          </button>
           <button
             onClick={() => handleTabChange('budgetTable')}
             className={`px-4 py-2 rounded text-sm font-medium transition-colors ${
@@ -1085,6 +1354,253 @@ export const BudgetingPage = () => {
               </Button>
             </div>
           </div>
+
+          {/* Basic Budget Generator Section */}
+          {activeTab === 'basicBudget' && (
+            <div className="mb-8 bg-gradient-to-r from-green-900 to-emerald-900 rounded-lg p-6 border border-green-700">
+              <h2 className="text-xl font-semibold text-white mb-4 flex items-center">
+                <Wand2 className="mr-2 h-5 w-5 text-green-400" />
+                Basic Budget Generator
+              </h2>
+              <div className="space-y-6">
+                {/* Description */}
+                <div className="bg-green-800/20 rounded-lg p-4 border border-green-600/30">
+                  <p className="text-green-100 text-sm leading-relaxed">
+                    Generate essential budget estimates automatically using your script analysis and scheduling data. 
+                    This creates industry-standard budget categories with realistic cost estimates based on your project's requirements.
+                  </p>
+                  
+                  {/* Status Indicator */}
+                  {basicBudgetResult && (
+                    <div className="mt-3 flex items-center text-green-300 text-sm">
+                      <div className="w-2 h-2 bg-green-400 rounded-full mr-2"></div>
+                      Budget data loaded from previous session
+                    </div>
+                  )}
+                </div>
+
+                {/* Generate/Clear Buttons */}
+                <div className="flex items-center justify-center space-x-4">
+                  <Button 
+                    onClick={handleBasicBudgetGeneration}
+                    disabled={isGeneratingBasicBudget || !selectedProject?.pdfAnalysisResults}
+                    className="bg-green-600 hover:bg-green-700 text-white px-8 py-3 text-lg font-medium"
+                  >
+                    {isGeneratingBasicBudget ? (
+                      <>
+                        <Loader2 className="mr-2 h-5 w-5 animate-spin" />
+                        Generating Budget...
+                      </>
+                    ) : (
+                      <>
+                        <Wand2 className="mr-2 h-5 w-5" />
+                        {basicBudgetResult ? 'Regenerate Budget' : 'Generate Basic Budget'}
+                      </>
+                    )}
+                  </Button>
+                  
+                  {basicBudgetResult && !isGeneratingBasicBudget && (
+                    <Button 
+                      onClick={clearBasicBudgetData}
+                      variant="outline"
+                      className="border-red-500 text-red-400 hover:bg-red-900/20 hover:text-red-300 px-6 py-3"
+                    >
+                      Clear Budget
+                    </Button>
+                  )}
+                </div>
+
+                {/* Error Display */}
+                {basicBudgetError && (
+                  <div className="bg-red-900/50 border border-red-600/30 rounded-lg p-4">
+                    <div className="text-red-300 text-sm">{basicBudgetError}</div>
+                  </div>
+                )}
+
+                {/* Requirements Notice */}
+                {!selectedProject?.pdfAnalysisResults && (
+                  <div className="bg-yellow-900/50 border border-yellow-600/30 rounded-lg p-4">
+                    <div className="text-yellow-300 text-sm">
+                      Script analysis required. Please analyze your script first on the Script page.
+                    </div>
+                  </div>
+                )}
+              </div>
+            </div>
+          )}
+
+          {/* Basic Budget Results */}
+          {activeTab === 'basicBudget' && basicBudgetResult && (
+            <div className="mb-8 bg-gray-900 rounded-lg p-6 border border-gray-800">
+              <h3 className="text-xl font-semibold text-white mb-6 flex items-center">
+                <FileText className="mr-2 h-5 w-5 text-green-400" />
+                Budget Summary
+              </h3>
+              
+              <div className="space-y-8">
+                {/* Budget Overview */}
+                <div className="bg-gray-800 rounded-lg p-6">
+                  <h4 className="text-lg font-medium text-white mb-4">Budget Overview</h4>
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div className="text-center">
+                      <div className="text-3xl font-bold text-green-400">
+                        ${basicBudgetResult.basicBudgetOutput.budgetSummary.totalBudget.toLocaleString()}
+                      </div>
+                      <div className="text-sm text-gray-400 mt-1">Total Budget</div>
+                    </div>
+                    <div className="text-center">
+                      <div className="text-2xl font-bold text-blue-400">
+                        {basicBudgetResult.basicBudgetOutput.budgetSummary.shootDays}
+                      </div>
+                      <div className="text-sm text-gray-400 mt-1">Shoot Days</div>
+                    </div>
+                    <div className="text-center">
+                      <div className="text-lg font-bold text-purple-400">
+                        ${basicBudgetResult.basicBudgetOutput.budgetSummary.budgetRange.low.toLocaleString()}
+                      </div>
+                      <div className="text-sm text-gray-400 mt-1">Low Estimate</div>
+                    </div>
+                    <div className="text-center">
+                      <div className="text-lg font-bold text-orange-400">
+                        ${basicBudgetResult.basicBudgetOutput.budgetSummary.budgetRange.high.toLocaleString()}
+                      </div>
+                      <div className="text-sm text-gray-400 mt-1">High Estimate</div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Budget Categories */}
+                <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                  {/* Above the Line */}
+                  <div className="bg-gray-800 rounded-lg p-6">
+                    <h5 className="text-md font-medium text-white mb-4 text-center">Above the Line</h5>
+                    <div className="space-y-3">
+                      <div className="flex justify-between text-sm">
+                        <span className="text-gray-400">Director:</span>
+                        <span className="text-white">${basicBudgetResult.basicBudgetOutput.budgetCategories.aboveTheLine.director.toLocaleString()}</span>
+                      </div>
+                      <div className="flex justify-between text-sm">
+                        <span className="text-gray-400">Producer:</span>
+                        <span className="text-white">${basicBudgetResult.basicBudgetOutput.budgetCategories.aboveTheLine.producer.toLocaleString()}</span>
+                      </div>
+                      <div className="flex justify-between text-sm">
+                        <span className="text-gray-400">Key Cast:</span>
+                        <span className="text-white">${basicBudgetResult.basicBudgetOutput.budgetCategories.aboveTheLine.keyCast.toLocaleString()}</span>
+                      </div>
+                      <div className="border-t border-gray-600 pt-2">
+                        <div className="flex justify-between text-sm font-medium">
+                          <span className="text-white">Subtotal:</span>
+                          <span className="text-green-400">${basicBudgetResult.basicBudgetOutput.budgetCategories.aboveTheLine.subtotal.toLocaleString()}</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Below the Line */}
+                  <div className="bg-gray-800 rounded-lg p-6">
+                    <h5 className="text-md font-medium text-white mb-4 text-center">Below the Line</h5>
+                    <div className="space-y-3">
+                      <div className="flex justify-between text-sm">
+                        <span className="text-gray-400">Crew:</span>
+                        <span className="text-white">${basicBudgetResult.basicBudgetOutput.budgetCategories.belowTheLine.crew.toLocaleString()}</span>
+                      </div>
+                      <div className="flex justify-between text-sm">
+                        <span className="text-gray-400">Equipment:</span>
+                        <span className="text-white">${basicBudgetResult.basicBudgetOutput.budgetCategories.belowTheLine.equipment.toLocaleString()}</span>
+                      </div>
+                      <div className="flex justify-between text-sm">
+                        <span className="text-gray-400">Locations:</span>
+                        <span className="text-white">${basicBudgetResult.basicBudgetOutput.budgetCategories.belowTheLine.locations.toLocaleString()}</span>
+                      </div>
+                      <div className="flex justify-between text-sm">
+                        <span className="text-gray-400">Cast:</span>
+                        <span className="text-white">${basicBudgetResult.basicBudgetOutput.budgetCategories.belowTheLine.cast.toLocaleString()}</span>
+                      </div>
+                      <div className="flex justify-between text-sm">
+                        <span className="text-gray-400">Post-Production:</span>
+                        <span className="text-white">${basicBudgetResult.basicBudgetOutput.budgetCategories.belowTheLine.postProduction.toLocaleString()}</span>
+                      </div>
+                      <div className="border-t border-gray-600 pt-2">
+                        <div className="flex justify-between text-sm font-medium">
+                          <span className="text-white">Subtotal:</span>
+                          <span className="text-blue-400">${basicBudgetResult.basicBudgetOutput.budgetCategories.belowTheLine.subtotal.toLocaleString()}</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Other Costs */}
+                  <div className="bg-gray-800 rounded-lg p-6">
+                    <h5 className="text-md font-medium text-white mb-4 text-center">Other Costs</h5>
+                    <div className="space-y-3">
+                      <div className="flex justify-between text-sm">
+                        <span className="text-gray-400">Insurance:</span>
+                        <span className="text-white">${basicBudgetResult.basicBudgetOutput.budgetCategories.otherCosts.insurance.toLocaleString()}</span>
+                      </div>
+                      <div className="flex justify-between text-sm">
+                        <span className="text-gray-400">Contingency:</span>
+                        <span className="text-white">${basicBudgetResult.basicBudgetOutput.budgetCategories.otherCosts.contingency.toLocaleString()}</span>
+                      </div>
+                      <div className="border-t border-gray-600 pt-2">
+                        <div className="flex justify-between text-sm font-medium">
+                          <span className="text-white">Subtotal:</span>
+                          <span className="text-orange-400">${basicBudgetResult.basicBudgetOutput.budgetCategories.otherCosts.subtotal.toLocaleString()}</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Budget Breakdown */}
+                {basicBudgetResult.basicBudgetOutput.budgetBreakdown && basicBudgetResult.basicBudgetOutput.budgetBreakdown.length > 0 && (
+                  <div className="bg-gray-800 rounded-lg p-6">
+                    <h5 className="text-md font-medium text-white mb-4">Detailed Breakdown</h5>
+                    <div className="space-y-3">
+                      {basicBudgetResult.basicBudgetOutput.budgetBreakdown.map((item, index) => (
+                        <div key={index} className="flex justify-between items-center py-2 border-b border-gray-700 last:border-b-0">
+                          <div>
+                            <div className="text-white text-sm font-medium">{item.category}</div>
+                            <div className="text-gray-400 text-xs">{item.description}</div>
+                          </div>
+                          <div className="text-right">
+                            <div className="text-white text-sm">${item.amount.toLocaleString()}</div>
+                            <div className="text-gray-400 text-xs">{item.percentage.toFixed(1)}%</div>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+                {/* Recommendations */}
+                {basicBudgetResult.basicBudgetOutput.recommendations && basicBudgetResult.basicBudgetOutput.recommendations.length > 0 && (
+                  <div className="bg-gray-800 rounded-lg p-6">
+                    <h5 className="text-md font-medium text-white mb-4">Recommendations</h5>
+                    <div className="space-y-3">
+                      {basicBudgetResult.basicBudgetOutput.recommendations.map((rec, index) => (
+                        <div key={index} className="flex items-start space-x-3 p-3 bg-gray-700 rounded-lg">
+                          <div className={`w-2 h-2 rounded-full mt-2 ${
+                            rec.impact === 'high' ? 'bg-red-400' : 
+                            rec.impact === 'medium' ? 'bg-yellow-400' : 'bg-green-400'
+                          }`}></div>
+                          <div>
+                            <div className="text-white text-sm font-medium">{rec.category}</div>
+                            <div className="text-gray-300 text-sm mt-1">{rec.suggestion}</div>
+                            <div className={`text-xs mt-1 ${
+                              rec.impact === 'high' ? 'text-red-400' : 
+                              rec.impact === 'medium' ? 'text-yellow-400' : 'text-green-400'
+                            }`}>
+                              {rec.impact.toUpperCase()} IMPACT
+                            </div>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </div>
+            </div>
+          )}
 
           {/* JSON Input Section - Budget 1 - Budget Coordinator */}
           {activeTab === 'budget1' && (

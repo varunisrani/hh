@@ -1,5 +1,4 @@
 
-import { SceneBreakdownOutput, AIAnalysisResult, DetailedSceneBreakdown } from '@/services/geminiService';
 
 export interface Scene {
   id: number;
@@ -18,16 +17,12 @@ export interface Scene {
     set?: string[];
   };
   notes: string;
-  // AI-enhanced fields
-  aiData?: DetailedSceneBreakdown;
 }
 
 export interface Project {
   name: string;
   created: string;
   scenes: number;
-  // AI analysis integration
-  aiAnalysis?: AIAnalysisResult;
 }
 
 // Enhanced Project Data for localStorage
@@ -37,7 +32,8 @@ export interface ProjectData {
   description: string;
   scriptContent: string;
   created: string;
-  aiAnalysis?: AIAnalysisResult;
+  pdfFileName?: string; // Store PDF filename for projects with PDF scripts
+  pdfAnalysisResults?: any; // Store PDF analysis results from CJS API
 }
 
 export interface CastMember {

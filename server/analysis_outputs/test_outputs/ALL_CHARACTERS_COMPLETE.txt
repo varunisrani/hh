@@ -1,0 +1,33 @@
+TEST - ALL CHARACTERS COMPLETE
+Complete list of all 22 characters
+================================================================================
+
+CHARACTER RANKING BY DIALOGUE COUNT:
+----------------------------------------
+ 1. NOTE: 1 dialogues
+ 2. FOREMAN: 1 dialogues
+
+ALL CHARACTERS IDENTIFIED:
+----------------------------------------
+ 1. ADD (0 dialogues)
+ 2. BACKGROUND (0 dialogues)
+ 3. BEHIND (0 dialogues)
+ 4. BEHIND FOREMAN (0 dialogues)
+ 5. CHAIR (0 dialogues)
+ 6. CLERK (0 dialogues)
+ 7. CLOSE UP THE FACE OF THE COURT CLERK (0 dialogues)
+ 8. DISSOLVE TO (0 dialogues)
+ 9. FADE IN (0 dialogues)
+10. FADE OUT (0 dialogues)
+11. FOREMAN (1 dialogues)
+12. FOREMAN'S PLACE (0 dialogues)
+13. GUARD (0 dialogues)
+14. JUDGE (0 dialogues)
+15. MEDIUM SHOT (0 dialogues)
+16. NOTE (1 dialogues)
+17. THE COURT CLERK (0 dialogues)
+18. THE COURT STENOGRAPHER (0 dialogues)
+19. THE GUARD (0 dialogues)
+20. THE JUDGE (0 dialogues)
+21. THEM (0 dialogues)
+22. WINDOW (0 dialogues)

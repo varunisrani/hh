@@ -1,0 +1,269 @@
+300 - ALL DIALOGUES COMPLETE
+Complete extraction of all 53 dialogue entries
+================================================================================
+
+DIALOGUE 1:
+----------------------------------------
+Character: WE SEE
+Dialogue: The boy from between a narrow cut in the rock, just
+----------------------------------------
+DIALOGUE 2:
+----------------------------------------
+Character: WE SEE
+Dialogue: The mounted Persian column appear in the stillness of
+----------------------------------------
+DIALOGUE 3:
+----------------------------------------
+Character: WE HEAR
+Dialogue: Laughter from the other Spartans standing nearby.
+----------------------------------------
+DIALOGUE 4:
+----------------------------------------
+Character: WE SEE
+Dialogue: The jeweled crowns of conquered nations. The
+----------------------------------------
+DIALOGUE 5:
+----------------------------------------
+Character: WE HEAR
+Dialogue: The FLUTTER of HUMMINGBIRDS against the pale stone
+----------------------------------------
+DIALOGUE 6:
+----------------------------------------
+Character: WE SEE
+Dialogue: A Spartan, Leonidas' CAPTAIN (45), broad-shouldered
+----------------------------------------
+DIALOGUE 7:
+----------------------------------------
+Character: WE HEAR
+Dialogue: The sounds of CHILDREN'S LAUGHTER.
+----------------------------------------
+DIALOGUE 8:
+----------------------------------------
+Character: WE SEE
+Dialogue: The sword lowering from the Persian's neck. Theron
+----------------------------------------
+DIALOGUE 9:
+----------------------------------------
+Character: WE HEAR
+Dialogue: the sound of twin FLUTES and goat hide sandals
+----------------------------------------
+DIALOGUE 10:
+----------------------------------------
+Character: WE SEE
+Dialogue: the greatest gathering of men and animals the world
+----------------------------------------
+DIALOGUE 11:
+----------------------------------------
+Character: WE SEE
+Dialogue: a form, half-man/half-unknown, who has followed
+----------------------------------------
+DIALOGUE 12:
+----------------------------------------
+Character: WE HEAR
+Dialogue: the sound of TROOPS marching in the distance.
+----------------------------------------
+DIALOGUE 13:
+----------------------------------------
+Character: WE SEE
+Dialogue: Jammed between the boulders and rocks are the heads,
+----------------------------------------
+DIALOGUE 14:
+----------------------------------------
+Character: WE HEAR
+Dialogue: The sounds of HOOVES and HORSES, like distant
+----------------------------------------
+DIALOGUE 15:
+----------------------------------------
+Character: WE SEE
+Dialogue: From the Wall of the Dead appears the slow arc of a
+----------------------------------------
+DIALOGUE 16:
+----------------------------------------
+Character: WE HEAR
+Dialogue: First faint, then rising with the ranks, a low
+----------------------------------------
+DIALOGUE 17:
+----------------------------------------
+Character: WE HEAR
+Dialogue: The CRIES of men, strange tongues from foreign
+----------------------------------------
+DIALOGUE 18:
+----------------------------------------
+Character: WE HEAR
+Dialogue: Gasps of men without earth beneath them, falling
+----------------------------------------
+DIALOGUE 19:
+----------------------------------------
+Character: WE HEAR
+Dialogue: Distant Arabian HORNS sound off. As a thousand
+----------------------------------------
+DIALOGUE 20:
+----------------------------------------
+Character: WE SEE
+Dialogue: Gorgo and her son moving through the crowded
+----------------------------------------
+DIALOGUE 21:
+----------------------------------------
+Character: WE HEAR
+Dialogue: DRUMS
+----------------------------------------
+DIALOGUE 22:
+----------------------------------------
+Character: WE HEAR
+Dialogue: The DRUMSFLOURISH, then GO SILENT.
+----------------------------------------
+DIALOGUE 23:
+----------------------------------------
+Character: WE SEE
+Dialogue: Pouring over the mound of dead comes a new swell of
+----------------------------------------
+DIALOGUE 24:
+----------------------------------------
+Character: WE SEE
+Dialogue: Astinos as he catches· an attacking Immortal with his
+----------------------------------------
+DIALOGUE 25:
+----------------------------------------
+Character: WE SEE
+Dialogue: From the small thicket of trees at the center of the
+----------------------------------------
+DIALOGUE 26:
+----------------------------------------
+Character: WE SEE
+Dialogue: Farmer and potter, blacksmith and merchant.
+----------------------------------------
+DIALOGUE 27:
+----------------------------------------
+Character: WE SEE
+Dialogue: Leonidas pushing forward, muscles flexing, made
+----------------------------------------
+DIALOGUE 28:
+----------------------------------------
+Character: WE SEE
+Dialogue: His arms fall!
+----------------------------------------
+DIALOGUE 29:
+----------------------------------------
+Character: WE HEAR
+Dialogue: The TRUMPETING of not brass horn but angry and wild
+----------------------------------------
+DIALOGUE 30:
+----------------------------------------
+Character: WE SEE
+Dialogue: Around the bend. A cavalry of elephants mass.
+----------------------------------------
+DIALOGUE 31:
+----------------------------------------
+Character: WE HEAR
+Dialogue: The FAINT CRIES, erotic WAILS, with the DRUMMING. A
+----------------------------------------
+DIALOGUE 32:
+----------------------------------------
+Character: SEE
+Dialogue: Leonidas' Captain appear, like a specter of death, his
+----------------------------------------
+DIALOGUE 33:
+----------------------------------------
+Character: WE SEE
+Dialogue: Dilios turn, within the river of men leaving the Hot
+----------------------------------------
+DIALOGUE 34:
+----------------------------------------
+Character: WE HEAR
+Dialogue: The collective battle cry.
+----------------------------------------
+DIALOGUE 35:
+----------------------------------------
+Character: WE HEAR
+Dialogue: The chatter and conversation of the assembled.
+----------------------------------------
+DIALOGUE 36:
+----------------------------------------
+Character: WE SEE
+Dialogue: Gorgo entering from the carved penetralia. She walks
+----------------------------------------
+DIALOGUE 37:
+----------------------------------------
+Character: WE SEE
+Dialogue: Men lean together, some whisper into each other's
+----------------------------------------
+DIALOGUE 38:
+----------------------------------------
+Character: WE SEE
+Dialogue: Persian gold pieces fall and dance onto the floor,
+----------------------------------------
+DIALOGUE 39:
+----------------------------------------
+Character: WE SEE
+Dialogue: The Spartan Phalanx solidify. Leonidas' eyes
+----------------------------------------
+DIALOGUE 40:
+----------------------------------------
+Character: WE SEE
+Dialogue: The King's eyes. Calm, cold and focused on his
+----------------------------------------
+DIALOGUE 41:
+----------------------------------------
+Character: WE HEAR
+Dialogue: A black and gold turbaned herald ... TRUMPET!
+----------------------------------------
+DIALOGUE 42:
+----------------------------------------
+Character: WE HEAR
+Dialogue: The HORN. Nesting birds take flight. Leonidas' lips
+----------------------------------------
+DIALOGUE 43:
+----------------------------------------
+Character: WE SEE
+Dialogue: Dilios, his battered form, a testament to his valor.
+----------------------------------------
+DIALOGUE 44:
+----------------------------------------
+Character: WE SEE
+Dialogue: A boy hurrying past Dilios without a look. The King's
+----------------------------------------
+DIALOGUE 45:
+----------------------------------------
+Character: WE MOVE
+Dialogue: WITH him, rotating slowly.
+----------------------------------------
+DIALOGUE 46:
+----------------------------------------
+Character: WE MOVE
+Dialogue: SLOWLYACROSS a still life of death. Spartan brothers
+----------------------------------------
+DIALOGUE 47:
+----------------------------------------
+Character: WE SEE
+Dialogue: Spartan after Spartan, eyes locked in death stares,
+----------------------------------------
+DIALOGUE 48:
+----------------------------------------
+Character: WE MOVE
+Dialogue: SLOWLY UPWARD, LOOKING DOWN ON Leonidas, his body
+----------------------------------------
+DIALOGUE 49:
+----------------------------------------
+Character: WE SEE
+Dialogue: The wounds have heeled. He wears a leather eye patch.
+----------------------------------------
+DIALOGUE 50:
+----------------------------------------
+Character: WE FOLLOW
+Dialogue: Dilios as he continues, the sea of Spartans making
+----------------------------------------
+DIALOGUE 51:
+----------------------------------------
+Character: WE HEAR
+Dialogue: A collective cry answering Dilios.
+----------------------------------------
+DIALOGUE 52:
+----------------------------------------
+Character: WE RISE
+Dialogue: UP FROM Dilios to reveal a sea of men stretching out
+----------------------------------------
+DIALOGUE 53:
+----------------------------------------
+Character: WE SEE
+Dialogue: The Spartan wall of death coming in full run. Crimson
+----------------------------------------

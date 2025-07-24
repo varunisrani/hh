@@ -1,0 +1,1194 @@
+1408 - ALL CHARACTER INTERACTIONS
+Complete character interaction analysis
+Total character pairs found: 1187
+================================================================================
+
+CHARACTER PAIRS (Sorted by co-occurrence):
+--------------------------------------------------
+  1. CUT TO ↔ MIKE: 16 scenes together
+  2. MIKE ↔ WIDE: 14 scenes together
+  3. LILY ↔ MIKE: 12 scenes together
+  4. MIKE ↔ OLIN: 7 scenes together
+  5. LILY ↔ WIDE: 5 scenes together
+  6. MIKE ↔ VOICE OF THE ROOM: 5 scenes together
+  7. CUT TO ↔ LILY: 5 scenes together
+  8. OLIN ↔ WIDE: 4 scenes together
+  9. MIKE ↔ YOUNG MIKE: 4 scenes together
+ 10. ABOVE ↔ MIKE: 4 scenes together
+ 11. LILY ↔ YOUNG MIKE: 4 scenes together
+ 12. ABOVE ↔ LILY: 4 scenes together
+ 13. LILY ↔ VOICE OF THE ROOM: 4 scenes together
+ 14. MIKE ↔ OPERATOR: 3 scenes together
+ 15. CUT TO ↔ SAM: 3 scenes together
+ 16. CUT TO ↔ OLIN: 3 scenes together
+ 17. MIKE ↔ OUTSIDE: 3 scenes together
+ 18. HIS POV ↔ MIKE: 3 scenes together
+ 19. MIKE ↔ THE THERMOSTAT: 3 scenes together
+ 20. AT THE WINDOW ↔ MIKE: 3 scenes together
+ 21. THE THERMOSTAT ↔ WIDE: 3 scenes together
+ 22. GRACIE ↔ MIKE: 3 scenes together
+ 23. GRACIE ↔ LILY: 3 scenes together
+ 24. ABOVE ↔ WIDE: 3 scenes together
+ 25. FATHER ↔ MIKE: 3 scenes together
+ 26. DISSOLVE TO ↔ LATER: 2 scenes together
+ 27. CUT TO ↔ LATER: 2 scenes together
+ 28. MIKE ↔ ON MIKE: 2 scenes together
+ 29. INTERNET LADY VOICE ↔ MIKE: 2 scenes together
+ 30. CUT TO ↔ OPERATOR: 2 scenes together
+ 31. MIKE ↔ SMOOTH RECORDING: 2 scenes together
+ 32. HOTEL VOICE ↔ MIKE: 2 scenes together
+ 33. HOTEL VOICE ↔ SMOOTH RECORDING: 2 scenes together
+ 34. SAM ↔ SECRETARY: 2 scenes together
+ 35. MIKE ↔ SAM: 2 scenes together
+ 36. INTERCUT ↔ MIKE: 2 scenes together
+ 37. MIKE ↔ YOUNG MOTHER: 2 scenes together
+ 38. BACK ON MIKE ↔ MIKE: 2 scenes together
+ 39. MIKE ↔ THE CARPENTERS: 2 scenes together
+ 40. BACK ON MIKE ↔ WIDE: 2 scenes together
+ 41. MIKE ↔ THE DOOR: 2 scenes together
+ 42. HIS POV ↔ WIDE: 2 scenes together
+ 43. HIS POV ↔ THE THERMOSTAT: 2 scenes together
+ 44. AT THE WINDOW ↔ HIS POV: 2 scenes together
+ 45. AT THE WINDOW ↔ WIDE: 2 scenes together
+ 46. OUTSIDE ↔ WIDE: 2 scenes together
+ 47. OUTSIDE ↔ THE THERMOSTAT: 2 scenes together
+ 48. GRACIE ↔ YOUNG MIKE: 2 scenes together
+ 49. GRACIE ↔ WIDE: 2 scenes together
+ 50. ABOVE ↔ GRACIE: 2 scenes together
+ 51. WIDE ↔ YOUNG MIKE: 2 scenes together
+ 52. MIKE ↔ THE WALL'S CRACK: 2 scenes together
+ 53. THE WALL'S CRACK ↔ WIDE: 2 scenes together
+ 54. MIKE ↔ MIKE'S RECORDED VOICE: 2 scenes together
+ 55. FLASHBACK VISION ↔ MIKE: 2 scenes together
+ 56. FLASHBACK VISION ↔ LILY: 2 scenes together
+ 57. FLASHBACK VISION ↔ YOUNG MIKE: 2 scenes together
+ 58. MIKE ↔ THE PAINTING OF THE HUNT: 2 scenes together
+ 59. VOICE OF THE ROOM ↔ WIDE: 2 scenes together
+ 60. ABOVE ↔ VOICE OF THE ROOM: 2 scenes together
+ 61. THE PAINTING OF THE HUNT ↔ WIDE: 2 scenes together
+ 62. LILY ↔ THE PAINTING OF THE HUNT: 2 scenes together
+ 63. ABOVE ↔ THE PAINTING OF THE HUNT: 2 scenes together
+ 64. MIKE ↔ THE CLOCK: 2 scenes together
+ 65. LILY ↔ THE CLOCK: 2 scenes together
+ 66. ABOVE ↔ THE CLOCK: 2 scenes together
+ 67. MAILBOX GUY ↔ MIKE: 2 scenes together
+ 68. MIKE ↔ THE ROOM: 2 scenes together
+ 69. THE ROOM ↔ WIDE: 2 scenes together
+ 70. MIKE ↔ ON THE TV: 2 scenes together
+ 71. ON THE TV ↔ VOICE OF THE ROOM: 2 scenes together
+ 72. LILY ↔ ON THE TV: 2 scenes together
+ 73. MIKE ↔ MR. INNKEEPER: 1 scenes together
+ 74. MIKE ↔ MRS. INNKEEPER: 1 scenes together
+ 75. MR. INNKEEPER ↔ MRS. INNKEEPER: 1 scenes together
+ 76. CUT TO ↔ MR. INNKEEPER: 1 scenes together
+ 77. CUT TO ↔ MRS. INNKEEPER: 1 scenes together
+ 78. CUT TO ↔ DISSOLVE TO: 1 scenes together
+ 79. CASHIER ↔ MIKE: 1 scenes together
+ 80. ASSISTANT MANAGER ↔ MIKE: 1 scenes together
+ 81. ASSISTANT MANAGER ↔ CASHIER: 1 scenes together
+ 82. CASHIER ↔ CUT TO: 1 scenes together
+ 83. ASSISTANT MANAGER ↔ CUT TO: 1 scenes together
+ 84. EMPHATIC MAN ↔ MIKE: 1 scenes together
+ 85. LADY ↔ MIKE: 1 scenes together
+ 86. LATER ↔ MIKE: 1 scenes together
+ 87. MIKE ↔ NERVOUS WOMAN: 1 scenes together
+ 88. EMPHATIC MAN ↔ LADY: 1 scenes together
+ 89. CUT TO ↔ EMPHATIC MAN: 1 scenes together
+ 90. EMPHATIC MAN ↔ LATER: 1 scenes together
+ 91. EMPHATIC MAN ↔ NERVOUS WOMAN: 1 scenes together
+ 92. CUT TO ↔ LADY: 1 scenes together
+ 93. LADY ↔ LATER: 1 scenes together
+ 94. LADY ↔ NERVOUS WOMAN: 1 scenes together
+ 95. CUT TO ↔ NERVOUS WOMAN: 1 scenes together
+ 96. LATER ↔ NERVOUS WOMAN: 1 scenes together
+ 97. ABOVE ↔ UNDERNEATH: 1 scenes together
+ 98. ABOVE ↔ CUT TO: 1 scenes together
+ 99. CUT TO ↔ UNDERNEATH: 1 scenes together
+100. HIS LAPTOP COMPUTER. ↔ ON MIKE: 1 scenes together
+101. ON MIKE ↔ WIDE: 1 scenes together
+102. HIS LAPTOP COMPUTER. ↔ MIKE: 1 scenes together
+103. HIS LAPTOP COMPUTER. ↔ WIDE: 1 scenes together
+104. INTERNET LADY VOICE ↔ TYPING.: 1 scenes together
+105. INTERNET LADY VOICE ↔ THE COMPUTER: 1 scenes together
+106. CUT TO ↔ INTERNET LADY VOICE: 1 scenes together
+107. MIKE ↔ TYPING.: 1 scenes together
+108. MIKE ↔ THE COMPUTER: 1 scenes together
+109. THE COMPUTER ↔ TYPING.: 1 scenes together
+110. CUT TO ↔ TYPING.: 1 scenes together
+111. CUT TO ↔ THE COMPUTER: 1 scenes together
+112. OPERATOR ↔ RECORDED ANNOUNCEMENT.: 1 scenes together
+113. OPERATOR ↔ SMOOTH RECORDING: 1 scenes together
+114. HOTEL VOICE ↔ OPERATOR: 1 scenes together
+115. MIKE ↔ RECORDED ANNOUNCEMENT.: 1 scenes together
+116. RECORDED ANNOUNCEMENT. ↔ SMOOTH RECORDING: 1 scenes together
+117. HOTEL VOICE ↔ RECORDED ANNOUNCEMENT.: 1 scenes together
+118. CUT TO ↔ RECORDED ANNOUNCEMENT.: 1 scenes together
+119. CUT TO ↔ SMOOTH RECORDING: 1 scenes together
+120. CUT TO ↔ HOTEL VOICE: 1 scenes together
+121. LAWYER ↔ SAM: 1 scenes together
+122. LAWYER ↔ SECRETARY: 1 scenes together
+123. CLAY ↔ SAM: 1 scenes together
+124. INTERCUT ↔ SAM: 1 scenes together
+125. CLAY ↔ MIKE: 1 scenes together
+126. CLAY ↔ INTERCUT: 1 scenes together
+127. CLAY ↔ CUT TO: 1 scenes together
+128. CUT TO ↔ INTERCUT: 1 scenes together
+129. CABBIE ↔ MIKE: 1 scenes together
+130. CABBIE ↔ OUT THE WINDOW: 1 scenes together
+131. CABBIE ↔ CHILDREN RUN AROUND.: 1 scenes together
+132. CABBIE ↔ CUT TO: 1 scenes together
+133. MIKE ↔ OUT THE WINDOW: 1 scenes together
+134. CHILDREN RUN AROUND. ↔ MIKE: 1 scenes together
+135. CHILDREN RUN AROUND. ↔ OUT THE WINDOW: 1 scenes together
+136. CUT TO ↔ OUT THE WINDOW: 1 scenes together
+137. CHILDREN RUN AROUND. ↔ CUT TO: 1 scenes together
+138. DESK CLERK ↔ MIKE: 1 scenes together
+139. DESK CLERK ↔ OLIN: 1 scenes together
+140. AT THE END ↔ OLIN: 1 scenes together
+141. IN THE HALL ↔ OLIN: 1 scenes together
+142. AT THE NEXT ROOM ↔ OLIN: 1 scenes together
+143. BACK ON MIKE AT THE DOOR ↔ OLIN: 1 scenes together
+144. OLIN ↔ YOUNG MOTHER: 1 scenes together
+145. AT THE END ↔ MIKE: 1 scenes together
+146. AT THE END ↔ IN THE HALL: 1 scenes together
+147. AT THE END ↔ WIDE: 1 scenes together
+148. AT THE END ↔ AT THE NEXT ROOM: 1 scenes together
+149. AT THE END ↔ BACK ON MIKE AT THE DOOR: 1 scenes together
+150. AT THE END ↔ YOUNG MOTHER: 1 scenes together
+151. IN THE HALL ↔ MIKE: 1 scenes together
+152. AT THE NEXT ROOM ↔ MIKE: 1 scenes together
+153. BACK ON MIKE AT THE DOOR ↔ MIKE: 1 scenes together
+154. IN THE HALL ↔ WIDE: 1 scenes together
+155. AT THE NEXT ROOM ↔ IN THE HALL: 1 scenes together
+156. BACK ON MIKE AT THE DOOR ↔ IN THE HALL: 1 scenes together
+157. IN THE HALL ↔ YOUNG MOTHER: 1 scenes together
+158. AT THE NEXT ROOM ↔ WIDE: 1 scenes together
+159. BACK ON MIKE AT THE DOOR ↔ WIDE: 1 scenes together
+160. WIDE ↔ YOUNG MOTHER: 1 scenes together
+161. AT THE NEXT ROOM ↔ BACK ON MIKE AT THE DOOR: 1 scenes together
+162. AT THE NEXT ROOM ↔ YOUNG MOTHER: 1 scenes together
+163. BACK ON MIKE AT THE DOOR ↔ YOUNG MOTHER: 1 scenes together
+164. MIKE ↔ THE BED: 1 scenes together
+165. BACK ON MIKE ↔ THE CARPENTERS: 1 scenes together
+166. BACK ON MIKE ↔ THE BED: 1 scenes together
+167. THE BED ↔ THE CARPENTERS: 1 scenes together
+168. THE CARPENTERS ↔ WIDE: 1 scenes together
+169. THE BED ↔ WIDE: 1 scenes together
+170. ACROSS THE ROOM ↔ MIKE: 1 scenes together
+171. MIKE ↔ THE THREE PAINTINGS: 1 scenes together
+172. GRUFF VOICE ↔ MIKE: 1 scenes together
+173. DISTORTED POV ↔ MIKE: 1 scenes together
+174. ENGINEER ↔ MIKE: 1 scenes together
+175. ACROSS THE ROOM ↔ OPERATOR: 1 scenes together
+176. OPERATOR ↔ THE THREE PAINTINGS: 1 scenes together
+177. OPERATOR ↔ WIDE: 1 scenes together
+178. GRUFF VOICE ↔ OPERATOR: 1 scenes together
+179. DISTORTED POV ↔ OPERATOR: 1 scenes together
+180. BACK ON MIKE ↔ OPERATOR: 1 scenes together
+181. OPERATOR ↔ THE DOOR: 1 scenes together
+182. ENGINEER ↔ OPERATOR: 1 scenes together
+183. ACROSS THE ROOM ↔ THE THREE PAINTINGS: 1 scenes together
+184. ACROSS THE ROOM ↔ WIDE: 1 scenes together
+185. ACROSS THE ROOM ↔ GRUFF VOICE: 1 scenes together
+186. ACROSS THE ROOM ↔ DISTORTED POV: 1 scenes together
+187. ACROSS THE ROOM ↔ BACK ON MIKE: 1 scenes together
+188. ACROSS THE ROOM ↔ THE DOOR: 1 scenes together
+189. ACROSS THE ROOM ↔ ENGINEER: 1 scenes together
+190. THE THREE PAINTINGS ↔ WIDE: 1 scenes together
+191. GRUFF VOICE ↔ THE THREE PAINTINGS: 1 scenes together
+192. DISTORTED POV ↔ THE THREE PAINTINGS: 1 scenes together
+193. BACK ON MIKE ↔ THE THREE PAINTINGS: 1 scenes together
+194. THE DOOR ↔ THE THREE PAINTINGS: 1 scenes together
+195. ENGINEER ↔ THE THREE PAINTINGS: 1 scenes together
+196. GRUFF VOICE ↔ WIDE: 1 scenes together
+197. DISTORTED POV ↔ WIDE: 1 scenes together
+198. THE DOOR ↔ WIDE: 1 scenes together
+199. ENGINEER ↔ WIDE: 1 scenes together
+200. DISTORTED POV ↔ GRUFF VOICE: 1 scenes together
+201. BACK ON MIKE ↔ GRUFF VOICE: 1 scenes together
+202. GRUFF VOICE ↔ THE DOOR: 1 scenes together
+203. ENGINEER ↔ GRUFF VOICE: 1 scenes together
+204. BACK ON MIKE ↔ DISTORTED POV: 1 scenes together
+205. DISTORTED POV ↔ THE DOOR: 1 scenes together
+206. DISTORTED POV ↔ ENGINEER: 1 scenes together
+207. BACK ON MIKE ↔ THE DOOR: 1 scenes together
+208. BACK ON MIKE ↔ ENGINEER: 1 scenes together
+209. ENGINEER ↔ THE DOOR: 1 scenes together
+210. AT THE RADIO ↔ MIKE: 1 scenes together
+211. MIKE ↔ OLIN'S VOICE: 1 scenes together
+212. AT THE RADIO ↔ OLIN'S VOICE: 1 scenes together
+213. AT THE RADIO ↔ OUTSIDE: 1 scenes together
+214. OLIN'S VOICE ↔ OUTSIDE: 1 scenes together
+215. HOTEL VOICE ↔ WIDE: 1 scenes together
+216. SMOOTH RECORDING ↔ WIDE: 1 scenes together
+217. ECHO ↔ MIKE: 1 scenes together
+218. ACROSS THE STREET ↔ MIKE: 1 scenes together
+219. MIKE ↔ THE MAN: 1 scenes together
+220. ACROSS THE WAY ↔ MIKE: 1 scenes together
+221. MIKE ↔ THE LAMP: 1 scenes together
+222. HIS POV ↔ OUTSIDE: 1 scenes together
+223. ECHO ↔ HIS POV: 1 scenes together
+224. ACROSS THE STREET ↔ HIS POV: 1 scenes together
+225. HIS POV ↔ THE MAN: 1 scenes together
+226. ACROSS THE WAY ↔ HIS POV: 1 scenes together
+227. HIS POV ↔ THE LAMP: 1 scenes together
+228. ECHO ↔ WIDE: 1 scenes together
+229. ACROSS THE STREET ↔ WIDE: 1 scenes together
+230. THE MAN ↔ WIDE: 1 scenes together
+231. ACROSS THE WAY ↔ WIDE: 1 scenes together
+232. THE LAMP ↔ WIDE: 1 scenes together
+233. AT THE WINDOW ↔ THE THERMOSTAT: 1 scenes together
+234. ECHO ↔ THE THERMOSTAT: 1 scenes together
+235. ACROSS THE STREET ↔ THE THERMOSTAT: 1 scenes together
+236. THE MAN ↔ THE THERMOSTAT: 1 scenes together
+237. ACROSS THE WAY ↔ THE THERMOSTAT: 1 scenes together
+238. THE LAMP ↔ THE THERMOSTAT: 1 scenes together
+239. AT THE WINDOW ↔ OUTSIDE: 1 scenes together
+240. AT THE WINDOW ↔ ECHO: 1 scenes together
+241. ACROSS THE STREET ↔ AT THE WINDOW: 1 scenes together
+242. AT THE WINDOW ↔ THE MAN: 1 scenes together
+243. ACROSS THE WAY ↔ AT THE WINDOW: 1 scenes together
+244. AT THE WINDOW ↔ THE LAMP: 1 scenes together
+245. ECHO ↔ OUTSIDE: 1 scenes together
+246. ACROSS THE STREET ↔ OUTSIDE: 1 scenes together
+247. OUTSIDE ↔ THE MAN: 1 scenes together
+248. ACROSS THE WAY ↔ OUTSIDE: 1 scenes together
+249. OUTSIDE ↔ THE LAMP: 1 scenes together
+250. ACROSS THE STREET ↔ ECHO: 1 scenes together
+251. ECHO ↔ THE MAN: 1 scenes together
+252. ACROSS THE WAY ↔ ECHO: 1 scenes together
+253. ECHO ↔ THE LAMP: 1 scenes together
+254. ACROSS THE STREET ↔ THE MAN: 1 scenes together
+255. ACROSS THE STREET ↔ ACROSS THE WAY: 1 scenes together
+256. ACROSS THE STREET ↔ THE LAMP: 1 scenes together
+257. ACROSS THE WAY ↔ THE MAN: 1 scenes together
+258. THE LAMP ↔ THE MAN: 1 scenes together
+259. ACROSS THE WAY ↔ THE LAMP: 1 scenes together
+260. MIKE ↔ ON THE NIGHTSTAND: 1 scenes together
+261. GIRL'S VOICE ↔ MIKE: 1 scenes together
+262. IN THE HOME VIDEO ↔ MIKE: 1 scenes together
+263. GIRL'S VOICE ↔ ON THE NIGHTSTAND: 1 scenes together
+264. GRACIE ↔ ON THE NIGHTSTAND: 1 scenes together
+265. IN THE HOME VIDEO ↔ ON THE NIGHTSTAND: 1 scenes together
+266. ON THE NIGHTSTAND ↔ YOUNG MIKE: 1 scenes together
+267. LILY ↔ ON THE NIGHTSTAND: 1 scenes together
+268. AT THE WINDOW ↔ ON THE NIGHTSTAND: 1 scenes together
+269. ON THE NIGHTSTAND ↔ WIDE: 1 scenes together
+270. ABOVE ↔ ON THE NIGHTSTAND: 1 scenes together
+271. GIRL'S VOICE ↔ GRACIE: 1 scenes together
+272. GIRL'S VOICE ↔ IN THE HOME VIDEO: 1 scenes together
+273. GIRL'S VOICE ↔ YOUNG MIKE: 1 scenes together
+274. GIRL'S VOICE ↔ LILY: 1 scenes together
+275. AT THE WINDOW ↔ GIRL'S VOICE: 1 scenes together
+276. GIRL'S VOICE ↔ WIDE: 1 scenes together
+277. ABOVE ↔ GIRL'S VOICE: 1 scenes together
+278. GRACIE ↔ IN THE HOME VIDEO: 1 scenes together
+279. AT THE WINDOW ↔ GRACIE: 1 scenes together
+280. IN THE HOME VIDEO ↔ YOUNG MIKE: 1 scenes together
+281. IN THE HOME VIDEO ↔ LILY: 1 scenes together
+282. AT THE WINDOW ↔ IN THE HOME VIDEO: 1 scenes together
+283. IN THE HOME VIDEO ↔ WIDE: 1 scenes together
+284. ABOVE ↔ IN THE HOME VIDEO: 1 scenes together
+285. AT THE WINDOW ↔ YOUNG MIKE: 1 scenes together
+286. ABOVE ↔ YOUNG MIKE: 1 scenes together
+287. AT THE WINDOW ↔ LILY: 1 scenes together
+288. ABOVE ↔ AT THE WINDOW: 1 scenes together
+289. NURSING HOME BATHROOM. ↔ OLD MAN: 1 scenes together
+290. MIKE ↔ NURSING HOME BATHROOM.: 1 scenes together
+291. FATHER ↔ NURSING HOME BATHROOM.: 1 scenes together
+292. NURSING HOME BATHROOM. ↔ WIDE OVERHEAD: 1 scenes together
+293. NURSING HOME BATHROOM. ↔ THE WALL'S CRACK: 1 scenes together
+294. NURSING HOME BATHROOM. ↔ THE THERMOSTAT: 1 scenes together
+295. NURSING HOME BATHROOM. ↔ OUTSIDE: 1 scenes together
+296. NURSING HOME BATHROOM. ↔ WIDE: 1 scenes together
+297. MIKE ↔ OLD MAN: 1 scenes together
+298. FATHER ↔ OLD MAN: 1 scenes together
+299. OLD MAN ↔ WIDE OVERHEAD: 1 scenes together
+300. OLD MAN ↔ THE WALL'S CRACK: 1 scenes together
+301. OLD MAN ↔ THE THERMOSTAT: 1 scenes together
+302. OLD MAN ↔ OUTSIDE: 1 scenes together
+303. OLD MAN ↔ WIDE: 1 scenes together
+304. MIKE ↔ WIDE OVERHEAD: 1 scenes together
+305. FATHER ↔ WIDE OVERHEAD: 1 scenes together
+306. FATHER ↔ THE WALL'S CRACK: 1 scenes together
+307. FATHER ↔ THE THERMOSTAT: 1 scenes together
+308. FATHER ↔ OUTSIDE: 1 scenes together
+309. FATHER ↔ WIDE: 1 scenes together
+310. THE WALL'S CRACK ↔ WIDE OVERHEAD: 1 scenes together
+311. THE THERMOSTAT ↔ WIDE OVERHEAD: 1 scenes together
+312. OUTSIDE ↔ WIDE OVERHEAD: 1 scenes together
+313. WIDE ↔ WIDE OVERHEAD: 1 scenes together
+314. THE THERMOSTAT ↔ THE WALL'S CRACK: 1 scenes together
+315. OUTSIDE ↔ THE WALL'S CRACK: 1 scenes together
+316. FAST ZOOM ↔ HIS POV: 1 scenes together
+317. HIS POV ↔ PORTLY LADY: 1 scenes together
+318. FAST ZOOM ↔ MIKE: 1 scenes together
+319. MIKE ↔ PORTLY LADY: 1 scenes together
+320. AT THE WINDOW ↔ FAST ZOOM: 1 scenes together
+321. AT THE WINDOW ↔ PORTLY LADY: 1 scenes together
+322. FAST ZOOM ↔ PORTLY LADY: 1 scenes together
+323. MIKE ↔ THE WINDOW: 1 scenes together
+324. MIKE ↔ MIKE FV.O.): 1 scenes together
+325. FLASHBACK VISION ↔ MIKE FV.O.): 1 scenes together
+326. FLASHBACK VISION ↔ VOICE OF THE ROOM: 1 scenes together
+327. LILY ↔ MIKE FV.O.): 1 scenes together
+328. MIKE FV.O.) ↔ YOUNG MIKE: 1 scenes together
+329. VOICE OF THE ROOM ↔ YOUNG MIKE: 1 scenes together
+330. MIKE FV.O.) ↔ VOICE OF THE ROOM: 1 scenes together
+331. HIS POV ↔ THE SKINNY LADY: 1 scenes together
+332. HIS POV ↔ JESUS...: 1 scenes together
+333. HIS POV ↔ VOICE OF THE ROOM: 1 scenes together
+334. AT THE VENT ↔ HIS POV: 1 scenes together
+335. COMPUTER ↔ HIS POV: 1 scenes together
+336. HIS POV ↔ INTERNET LADY VOICE: 1 scenes together
+337. HIS POV ↔ LILY: 1 scenes together
+338. ABOVE ↔ HIS POV: 1 scenes together
+339. HIS POV ↔ LAMPS.: 1 scenes together
+340. FLASHES OF LIGHT ↔ HIS POV: 1 scenes together
+341. FLASHI THE PAINTING OF THE SAILORS ↔ HIS POV: 1 scenes together
+342. HIS POV ↔ THE PAINTING OF THE HUNT: 1 scenes together
+343. HIS POV ↔ INSIDE THE VENT: 1 scenes together
+344. MIKE ↔ THE SKINNY LADY: 1 scenes together
+345. JESUS... ↔ MIKE: 1 scenes together
+346. AT THE VENT ↔ MIKE: 1 scenes together
+347. COMPUTER ↔ MIKE: 1 scenes together
+348. LAMPS. ↔ MIKE: 1 scenes together
+349. FLASHES OF LIGHT ↔ MIKE: 1 scenes together
+350. FLASHI THE PAINTING OF THE SAILORS ↔ MIKE: 1 scenes together
+351. INSIDE THE VENT ↔ MIKE: 1 scenes together
+352. JESUS... ↔ THE SKINNY LADY: 1 scenes together
+353. THE SKINNY LADY ↔ VOICE OF THE ROOM: 1 scenes together
+354. THE SKINNY LADY ↔ THE THERMOSTAT: 1 scenes together
+355. AT THE VENT ↔ THE SKINNY LADY: 1 scenes together
+356. COMPUTER ↔ THE SKINNY LADY: 1 scenes together
+357. THE SKINNY LADY ↔ WIDE: 1 scenes together
+358. INTERNET LADY VOICE ↔ THE SKINNY LADY: 1 scenes together
+359. LILY ↔ THE SKINNY LADY: 1 scenes together
+360. ABOVE ↔ THE SKINNY LADY: 1 scenes together
+361. LAMPS. ↔ THE SKINNY LADY: 1 scenes together
+362. FLASHES OF LIGHT ↔ THE SKINNY LADY: 1 scenes together
+363. FLASHI THE PAINTING OF THE SAILORS ↔ THE SKINNY LADY: 1 scenes together
+364. THE PAINTING OF THE HUNT ↔ THE SKINNY LADY: 1 scenes together
+365. INSIDE THE VENT ↔ THE SKINNY LADY: 1 scenes together
+366. JESUS... ↔ VOICE OF THE ROOM: 1 scenes together
+367. JESUS... ↔ THE THERMOSTAT: 1 scenes together
+368. AT THE VENT ↔ JESUS...: 1 scenes together
+369. COMPUTER ↔ JESUS...: 1 scenes together
+370. JESUS... ↔ WIDE: 1 scenes together
+371. INTERNET LADY VOICE ↔ JESUS...: 1 scenes together
+372. JESUS... ↔ LILY: 1 scenes together
+373. ABOVE ↔ JESUS...: 1 scenes together
+374. JESUS... ↔ LAMPS.: 1 scenes together
+375. FLASHES OF LIGHT ↔ JESUS...: 1 scenes together
+376. FLASHI THE PAINTING OF THE SAILORS ↔ JESUS...: 1 scenes together
+377. JESUS... ↔ THE PAINTING OF THE HUNT: 1 scenes together
+378. INSIDE THE VENT ↔ JESUS...: 1 scenes together
+379. THE THERMOSTAT ↔ VOICE OF THE ROOM: 1 scenes together
+380. AT THE VENT ↔ VOICE OF THE ROOM: 1 scenes together
+381. COMPUTER ↔ VOICE OF THE ROOM: 1 scenes together
+382. INTERNET LADY VOICE ↔ VOICE OF THE ROOM: 1 scenes together
+383. LAMPS. ↔ VOICE OF THE ROOM: 1 scenes together
+384. FLASHES OF LIGHT ↔ VOICE OF THE ROOM: 1 scenes together
+385. FLASHI THE PAINTING OF THE SAILORS ↔ VOICE OF THE ROOM: 1 scenes together
+386. THE PAINTING OF THE HUNT ↔ VOICE OF THE ROOM: 1 scenes together
+387. INSIDE THE VENT ↔ VOICE OF THE ROOM: 1 scenes together
+388. AT THE VENT ↔ THE THERMOSTAT: 1 scenes together
+389. COMPUTER ↔ THE THERMOSTAT: 1 scenes together
+390. INTERNET LADY VOICE ↔ THE THERMOSTAT: 1 scenes together
+391. LILY ↔ THE THERMOSTAT: 1 scenes together
+392. ABOVE ↔ THE THERMOSTAT: 1 scenes together
+393. LAMPS. ↔ THE THERMOSTAT: 1 scenes together
+394. FLASHES OF LIGHT ↔ THE THERMOSTAT: 1 scenes together
+395. FLASHI THE PAINTING OF THE SAILORS ↔ THE THERMOSTAT: 1 scenes together
+396. THE PAINTING OF THE HUNT ↔ THE THERMOSTAT: 1 scenes together
+397. INSIDE THE VENT ↔ THE THERMOSTAT: 1 scenes together
+398. AT THE VENT ↔ COMPUTER: 1 scenes together
+399. AT THE VENT ↔ WIDE: 1 scenes together
+400. AT THE VENT ↔ INTERNET LADY VOICE: 1 scenes together
+401. AT THE VENT ↔ LILY: 1 scenes together
+402. ABOVE ↔ AT THE VENT: 1 scenes together
+403. AT THE VENT ↔ LAMPS.: 1 scenes together
+404. AT THE VENT ↔ FLASHES OF LIGHT: 1 scenes together
+405. AT THE VENT ↔ FLASHI THE PAINTING OF THE SAILORS: 1 scenes together
+406. AT THE VENT ↔ THE PAINTING OF THE HUNT: 1 scenes together
+407. AT THE VENT ↔ INSIDE THE VENT: 1 scenes together
+408. COMPUTER ↔ WIDE: 1 scenes together
+409. COMPUTER ↔ INTERNET LADY VOICE: 1 scenes together
+410. COMPUTER ↔ LILY: 1 scenes together
+411. ABOVE ↔ COMPUTER: 1 scenes together
+412. COMPUTER ↔ LAMPS.: 1 scenes together
+413. COMPUTER ↔ FLASHES OF LIGHT: 1 scenes together
+414. COMPUTER ↔ FLASHI THE PAINTING OF THE SAILORS: 1 scenes together
+415. COMPUTER ↔ THE PAINTING OF THE HUNT: 1 scenes together
+416. COMPUTER ↔ INSIDE THE VENT: 1 scenes together
+417. INTERNET LADY VOICE ↔ WIDE: 1 scenes together
+418. LAMPS. ↔ WIDE: 1 scenes together
+419. FLASHES OF LIGHT ↔ WIDE: 1 scenes together
+420. FLASHI THE PAINTING OF THE SAILORS ↔ WIDE: 1 scenes together
+421. INSIDE THE VENT ↔ WIDE: 1 scenes together
+422. INTERNET LADY VOICE ↔ LILY: 1 scenes together
+423. ABOVE ↔ INTERNET LADY VOICE: 1 scenes together
+424. INTERNET LADY VOICE ↔ LAMPS.: 1 scenes together
+425. FLASHES OF LIGHT ↔ INTERNET LADY VOICE: 1 scenes together
+426. FLASHI THE PAINTING OF THE SAILORS ↔ INTERNET LADY VOICE: 1 scenes together
+427. INTERNET LADY VOICE ↔ THE PAINTING OF THE HUNT: 1 scenes together
+428. INSIDE THE VENT ↔ INTERNET LADY VOICE: 1 scenes together
+429. LAMPS. ↔ LILY: 1 scenes together
+430. FLASHES OF LIGHT ↔ LILY: 1 scenes together
+431. FLASHI THE PAINTING OF THE SAILORS ↔ LILY: 1 scenes together
+432. INSIDE THE VENT ↔ LILY: 1 scenes together
+433. ABOVE ↔ LAMPS.: 1 scenes together
+434. ABOVE ↔ FLASHES OF LIGHT: 1 scenes together
+435. ABOVE ↔ FLASHI THE PAINTING OF THE SAILORS: 1 scenes together
+436. ABOVE ↔ INSIDE THE VENT: 1 scenes together
+437. FLASHES OF LIGHT ↔ LAMPS.: 1 scenes together
+438. FLASHI THE PAINTING OF THE SAILORS ↔ LAMPS.: 1 scenes together
+439. LAMPS. ↔ THE PAINTING OF THE HUNT: 1 scenes together
+440. INSIDE THE VENT ↔ LAMPS.: 1 scenes together
+441. FLASHES OF LIGHT ↔ FLASHI THE PAINTING OF THE SAILORS: 1 scenes together
+442. FLASHES OF LIGHT ↔ THE PAINTING OF THE HUNT: 1 scenes together
+443. FLASHES OF LIGHT ↔ INSIDE THE VENT: 1 scenes together
+444. FLASHI THE PAINTING OF THE SAILORS ↔ THE PAINTING OF THE HUNT: 1 scenes together
+445. FLASHI THE PAINTING OF THE SAILORS ↔ INSIDE THE VENT: 1 scenes together
+446. INSIDE THE VENT ↔ THE PAINTING OF THE HUNT: 1 scenes together
+447. A JUNCTION AHEAD ↔ MIKE: 1 scenes together
+448. A JUNCTION AHEAD ↔ YOUNG MOTHER: 1 scenes together
+449. A JUNCTION AHEAD ↔ PAST.: 1 scenes together
+450. A JUNCTION AHEAD ↔ LILY: 1 scenes together
+451. A JUNCTION AHEAD ↔ YOUNG LILY: 1 scenes together
+452. A JUNCTION AHEAD ↔ GASPS.: 1 scenes together
+453. A JUNCTION AHEAD ↔ BELOW: 1 scenes together
+454. A JUNCTION AHEAD ↔ FATHER: 1 scenes together
+455. A JUNCTION AHEAD ↔ YOUNG MIKE: 1 scenes together
+456. A JUNCTION AHEAD ↔ MIKE IN THE VENT: 1 scenes together
+457. A JUNCTION AHEAD ↔ VERTICAL SHAFT: 1 scenes together
+458. A JUNCTION AHEAD ↔ CLOSEUP: 1 scenes together
+459. A JUNCTION AHEAD ↔ ON THE MEN: 1 scenes together
+460. A JUNCTION AHEAD ↔ DOWN THE LEFT VENT: 1 scenes together
+461. A JUNCTION AHEAD ↔ MAIN VENT: 1 scenes together
+462. A JUNCTION AHEAD ↔ THE OTHER VENT: 1 scenes together
+463. A JUNCTION AHEAD ↔ MIKE'S FEET: 1 scenes together
+464. MIKE ↔ PAST.: 1 scenes together
+465. MIKE ↔ YOUNG LILY: 1 scenes together
+466. GASPS. ↔ MIKE: 1 scenes together
+467. BELOW ↔ MIKE: 1 scenes together
+468. MIKE ↔ MIKE IN THE VENT: 1 scenes together
+469. MIKE ↔ VERTICAL SHAFT: 1 scenes together
+470. CLOSEUP ↔ MIKE: 1 scenes together
+471. MIKE ↔ ON THE MEN: 1 scenes together
+472. DOWN THE LEFT VENT ↔ MIKE: 1 scenes together
+473. MAIN VENT ↔ MIKE: 1 scenes together
+474. MIKE ↔ THE OTHER VENT: 1 scenes together
+475. MIKE ↔ MIKE'S FEET: 1 scenes together
+476. PAST. ↔ YOUNG MOTHER: 1 scenes together
+477. LILY ↔ YOUNG MOTHER: 1 scenes together
+478. YOUNG LILY ↔ YOUNG MOTHER: 1 scenes together
+479. GASPS. ↔ YOUNG MOTHER: 1 scenes together
+480. BELOW ↔ YOUNG MOTHER: 1 scenes together
+481. FATHER ↔ YOUNG MOTHER: 1 scenes together
+482. YOUNG MIKE ↔ YOUNG MOTHER: 1 scenes together
+483. MIKE IN THE VENT ↔ YOUNG MOTHER: 1 scenes together
+484. VERTICAL SHAFT ↔ YOUNG MOTHER: 1 scenes together
+485. CLOSEUP ↔ YOUNG MOTHER: 1 scenes together
+486. ON THE MEN ↔ YOUNG MOTHER: 1 scenes together
+487. DOWN THE LEFT VENT ↔ YOUNG MOTHER: 1 scenes together
+488. MAIN VENT ↔ YOUNG MOTHER: 1 scenes together
+489. THE OTHER VENT ↔ YOUNG MOTHER: 1 scenes together
+490. MIKE'S FEET ↔ YOUNG MOTHER: 1 scenes together
+491. LILY ↔ PAST.: 1 scenes together
+492. PAST. ↔ YOUNG LILY: 1 scenes together
+493. GASPS. ↔ PAST.: 1 scenes together
+494. BELOW ↔ PAST.: 1 scenes together
+495. FATHER ↔ PAST.: 1 scenes together
+496. PAST. ↔ YOUNG MIKE: 1 scenes together
+497. MIKE IN THE VENT ↔ PAST.: 1 scenes together
+498. PAST. ↔ VERTICAL SHAFT: 1 scenes together
+499. CLOSEUP ↔ PAST.: 1 scenes together
+500. ON THE MEN ↔ PAST.: 1 scenes together
+501. DOWN THE LEFT VENT ↔ PAST.: 1 scenes together
+502. MAIN VENT ↔ PAST.: 1 scenes together
+503. PAST. ↔ THE OTHER VENT: 1 scenes together
+504. MIKE'S FEET ↔ PAST.: 1 scenes together
+505. LILY ↔ YOUNG LILY: 1 scenes together
+506. GASPS. ↔ LILY: 1 scenes together
+507. BELOW ↔ LILY: 1 scenes together
+508. FATHER ↔ LILY: 1 scenes together
+509. LILY ↔ MIKE IN THE VENT: 1 scenes together
+510. LILY ↔ VERTICAL SHAFT: 1 scenes together
+511. CLOSEUP ↔ LILY: 1 scenes together
+512. LILY ↔ ON THE MEN: 1 scenes together
+513. DOWN THE LEFT VENT ↔ LILY: 1 scenes together
+514. LILY ↔ MAIN VENT: 1 scenes together
+515. LILY ↔ THE OTHER VENT: 1 scenes together
+516. LILY ↔ MIKE'S FEET: 1 scenes together
+517. GASPS. ↔ YOUNG LILY: 1 scenes together
+518. BELOW ↔ YOUNG LILY: 1 scenes together
+519. FATHER ↔ YOUNG LILY: 1 scenes together
+520. YOUNG LILY ↔ YOUNG MIKE: 1 scenes together
+521. MIKE IN THE VENT ↔ YOUNG LILY: 1 scenes together
+522. VERTICAL SHAFT ↔ YOUNG LILY: 1 scenes together
+523. CLOSEUP ↔ YOUNG LILY: 1 scenes together
+524. ON THE MEN ↔ YOUNG LILY: 1 scenes together
+525. DOWN THE LEFT VENT ↔ YOUNG LILY: 1 scenes together
+526. MAIN VENT ↔ YOUNG LILY: 1 scenes together
+527. THE OTHER VENT ↔ YOUNG LILY: 1 scenes together
+528. MIKE'S FEET ↔ YOUNG LILY: 1 scenes together
+529. BELOW ↔ GASPS.: 1 scenes together
+530. FATHER ↔ GASPS.: 1 scenes together
+531. GASPS. ↔ YOUNG MIKE: 1 scenes together
+532. GASPS. ↔ MIKE IN THE VENT: 1 scenes together
+533. GASPS. ↔ VERTICAL SHAFT: 1 scenes together
+534. CLOSEUP ↔ GASPS.: 1 scenes together
+535. GASPS. ↔ ON THE MEN: 1 scenes together
+536. DOWN THE LEFT VENT ↔ GASPS.: 1 scenes together
+537. GASPS. ↔ MAIN VENT: 1 scenes together
+538. GASPS. ↔ THE OTHER VENT: 1 scenes together
+539. GASPS. ↔ MIKE'S FEET: 1 scenes together
+540. BELOW ↔ FATHER: 1 scenes together
+541. BELOW ↔ YOUNG MIKE: 1 scenes together
+542. BELOW ↔ MIKE IN THE VENT: 1 scenes together
+543. BELOW ↔ VERTICAL SHAFT: 1 scenes together
+544. BELOW ↔ CLOSEUP: 1 scenes together
+545. BELOW ↔ ON THE MEN: 1 scenes together
+546. BELOW ↔ DOWN THE LEFT VENT: 1 scenes together
+547. BELOW ↔ MAIN VENT: 1 scenes together
+548. BELOW ↔ THE OTHER VENT: 1 scenes together
+549. BELOW ↔ MIKE'S FEET: 1 scenes together
+550. FATHER ↔ YOUNG MIKE: 1 scenes together
+551. FATHER ↔ MIKE IN THE VENT: 1 scenes together
+552. FATHER ↔ VERTICAL SHAFT: 1 scenes together
+553. CLOSEUP ↔ FATHER: 1 scenes together
+554. FATHER ↔ ON THE MEN: 1 scenes together
+555. DOWN THE LEFT VENT ↔ FATHER: 1 scenes together
+556. FATHER ↔ MAIN VENT: 1 scenes together
+557. FATHER ↔ THE OTHER VENT: 1 scenes together
+558. FATHER ↔ MIKE'S FEET: 1 scenes together
+559. MIKE IN THE VENT ↔ YOUNG MIKE: 1 scenes together
+560. VERTICAL SHAFT ↔ YOUNG MIKE: 1 scenes together
+561. CLOSEUP ↔ YOUNG MIKE: 1 scenes together
+562. ON THE MEN ↔ YOUNG MIKE: 1 scenes together
+563. DOWN THE LEFT VENT ↔ YOUNG MIKE: 1 scenes together
+564. MAIN VENT ↔ YOUNG MIKE: 1 scenes together
+565. THE OTHER VENT ↔ YOUNG MIKE: 1 scenes together
+566. MIKE'S FEET ↔ YOUNG MIKE: 1 scenes together
+567. MIKE IN THE VENT ↔ VERTICAL SHAFT: 1 scenes together
+568. CLOSEUP ↔ MIKE IN THE VENT: 1 scenes together
+569. MIKE IN THE VENT ↔ ON THE MEN: 1 scenes together
+570. DOWN THE LEFT VENT ↔ MIKE IN THE VENT: 1 scenes together
+571. MAIN VENT ↔ MIKE IN THE VENT: 1 scenes together
+572. MIKE IN THE VENT ↔ THE OTHER VENT: 1 scenes together
+573. MIKE IN THE VENT ↔ MIKE'S FEET: 1 scenes together
+574. CLOSEUP ↔ VERTICAL SHAFT: 1 scenes together
+575. ON THE MEN ↔ VERTICAL SHAFT: 1 scenes together
+576. DOWN THE LEFT VENT ↔ VERTICAL SHAFT: 1 scenes together
+577. MAIN VENT ↔ VERTICAL SHAFT: 1 scenes together
+578. THE OTHER VENT ↔ VERTICAL SHAFT: 1 scenes together
+579. MIKE'S FEET ↔ VERTICAL SHAFT: 1 scenes together
+580. CLOSEUP ↔ ON THE MEN: 1 scenes together
+581. CLOSEUP ↔ DOWN THE LEFT VENT: 1 scenes together
+582. CLOSEUP ↔ MAIN VENT: 1 scenes together
+583. CLOSEUP ↔ THE OTHER VENT: 1 scenes together
+584. CLOSEUP ↔ MIKE'S FEET: 1 scenes together
+585. DOWN THE LEFT VENT ↔ ON THE MEN: 1 scenes together
+586. MAIN VENT ↔ ON THE MEN: 1 scenes together
+587. ON THE MEN ↔ THE OTHER VENT: 1 scenes together
+588. MIKE'S FEET ↔ ON THE MEN: 1 scenes together
+589. DOWN THE LEFT VENT ↔ MAIN VENT: 1 scenes together
+590. DOWN THE LEFT VENT ↔ THE OTHER VENT: 1 scenes together
+591. DOWN THE LEFT VENT ↔ MIKE'S FEET: 1 scenes together
+592. MAIN VENT ↔ THE OTHER VENT: 1 scenes together
+593. MAIN VENT ↔ MIKE'S FEET: 1 scenes together
+594. MIKE'S FEET ↔ THE OTHER VENT: 1 scenes together
+595. I... I... ↔ MIKE: 1 scenes together
+596. ANOTHER VISION ↔ MIKE: 1 scenes together
+597. ANOTHER FLASHBACK ↔ MIKE: 1 scenes together
+598. GRACIE ↔ OLIN: 1 scenes together
+599. FLASHBACK VISION ↔ OLIN: 1 scenes together
+600. LILY ↔ OLIN: 1 scenes together
+601. OLIN ↔ YOUNG MIKE: 1 scenes together
+602. I... I... ↔ OLIN: 1 scenes together
+603. ANOTHER VISION ↔ OLIN: 1 scenes together
+604. ANOTHER FLASHBACK ↔ OLIN: 1 scenes together
+605. FLASHBACK VISION ↔ WIDE: 1 scenes together
+606. I... I... ↔ WIDE: 1 scenes together
+607. CUT TO ↔ WIDE: 1 scenes together
+608. ANOTHER VISION ↔ WIDE: 1 scenes together
+609. ANOTHER FLASHBACK ↔ WIDE: 1 scenes together
+610. FLASHBACK VISION ↔ GRACIE: 1 scenes together
+611. GRACIE ↔ I... I...: 1 scenes together
+612. CUT TO ↔ GRACIE: 1 scenes together
+613. ANOTHER VISION ↔ GRACIE: 1 scenes together
+614. ANOTHER FLASHBACK ↔ GRACIE: 1 scenes together
+615. FLASHBACK VISION ↔ I... I...: 1 scenes together
+616. CUT TO ↔ FLASHBACK VISION: 1 scenes together
+617. ANOTHER VISION ↔ FLASHBACK VISION: 1 scenes together
+618. ANOTHER FLASHBACK ↔ FLASHBACK VISION: 1 scenes together
+619. I... I... ↔ LILY: 1 scenes together
+620. ANOTHER VISION ↔ LILY: 1 scenes together
+621. ANOTHER FLASHBACK ↔ LILY: 1 scenes together
+622. I... I... ↔ YOUNG MIKE: 1 scenes together
+623. CUT TO ↔ YOUNG MIKE: 1 scenes together
+624. ANOTHER VISION ↔ YOUNG MIKE: 1 scenes together
+625. ANOTHER FLASHBACK ↔ YOUNG MIKE: 1 scenes together
+626. CUT TO ↔ I... I...: 1 scenes together
+627. ANOTHER VISION ↔ I... I...: 1 scenes together
+628. ANOTHER FLASHBACK ↔ I... I...: 1 scenes together
+629. ANOTHER VISION ↔ CUT TO: 1 scenes together
+630. ANOTHER FLASHBACK ↔ CUT TO: 1 scenes together
+631. ANOTHER FLASHBACK ↔ ANOTHER VISION: 1 scenes together
+632. CLICK. ↔ MIKE: 1 scenes together
+633. MIKE ↔ THE FAX MACHINE: 1 scenes together
+634. CLICK. ↔ MIKE'S RECORDED VOICE: 1 scenes together
+635. CLICK. ↔ VOICE OF THE ROOM: 1 scenes together
+636. CLICK. ↔ THE FAX MACHINE: 1 scenes together
+637. MIKE'S RECORDED VOICE ↔ VOICE OF THE ROOM: 1 scenes together
+638. MIKE'S RECORDED VOICE ↔ THE FAX MACHINE: 1 scenes together
+639. THE FAX MACHINE ↔ VOICE OF THE ROOM: 1 scenes together
+640. THE CLOCK ↔ THE WALL'S CRACK: 1 scenes together
+641. LILY ↔ THE WALL'S CRACK: 1 scenes together
+642. THE WALL'S CRACK ↔ YOUNG EXECUTIVE IN A DERBY. A CUTE WOMAN.: 1 scenes together
+643. ON THE COMPUTER ↔ THE WALL'S CRACK: 1 scenes together
+644. THE WALL'S CRACK ↔ THUD.: 1 scenes together
+645. ABOVE ↔ THE WALL'S CRACK: 1 scenes together
+646. THE SUITE ↔ THE WALL'S CRACK: 1 scenes together
+647. THE PAINTING OF THE GHOST SHIP ↔ THE WALL'S CRACK: 1 scenes together
+648. THE PAINTING OF THE HUNT ↔ THE WALL'S CRACK: 1 scenes together
+649. THE PAINTING OF MOTHER AND CHILD ↔ THE WALL'S CRACK: 1 scenes together
+650. ON THE PAINTINGS ↔ THE WALL'S CRACK: 1 scenes together
+651. LIKE THE FORCE OF A HUNDRED FIRE HOSES. ↔ THE WALL'S CRACK: 1 scenes together
+652. THE CLOCK ↔ YOUNG EXECUTIVE IN A DERBY. A CUTE WOMAN.: 1 scenes together
+653. ON THE COMPUTER ↔ THE CLOCK: 1 scenes together
+654. THE CLOCK ↔ WIDE: 1 scenes together
+655. THE CLOCK ↔ THUD.: 1 scenes together
+656. THE CLOCK ↔ THE SUITE: 1 scenes together
+657. THE CLOCK ↔ THE PAINTING OF THE GHOST SHIP: 1 scenes together
+658. THE CLOCK ↔ THE PAINTING OF THE HUNT: 1 scenes together
+659. THE CLOCK ↔ THE PAINTING OF MOTHER AND CHILD: 1 scenes together
+660. ON THE PAINTINGS ↔ THE CLOCK: 1 scenes together
+661. LIKE THE FORCE OF A HUNDRED FIRE HOSES. ↔ THE CLOCK: 1 scenes together
+662. MIKE ↔ YOUNG EXECUTIVE IN A DERBY. A CUTE WOMAN.: 1 scenes together
+663. MIKE ↔ ON THE COMPUTER: 1 scenes together
+664. MIKE ↔ THUD.: 1 scenes together
+665. MIKE ↔ THE SUITE: 1 scenes together
+666. MIKE ↔ THE PAINTING OF THE GHOST SHIP: 1 scenes together
+667. MIKE ↔ THE PAINTING OF MOTHER AND CHILD: 1 scenes together
+668. MIKE ↔ ON THE PAINTINGS: 1 scenes together
+669. LIKE THE FORCE OF A HUNDRED FIRE HOSES. ↔ MIKE: 1 scenes together
+670. LILY ↔ YOUNG EXECUTIVE IN A DERBY. A CUTE WOMAN.: 1 scenes together
+671. LILY ↔ ON THE COMPUTER: 1 scenes together
+672. LILY ↔ THUD.: 1 scenes together
+673. LILY ↔ THE SUITE: 1 scenes together
+674. LILY ↔ THE PAINTING OF THE GHOST SHIP: 1 scenes together
+675. LILY ↔ THE PAINTING OF MOTHER AND CHILD: 1 scenes together
+676. LILY ↔ ON THE PAINTINGS: 1 scenes together
+677. LIKE THE FORCE OF A HUNDRED FIRE HOSES. ↔ LILY: 1 scenes together
+678. ON THE COMPUTER ↔ YOUNG EXECUTIVE IN A DERBY. A CUTE WOMAN.: 1 scenes together
+679. WIDE ↔ YOUNG EXECUTIVE IN A DERBY. A CUTE WOMAN.: 1 scenes together
+680. THUD. ↔ YOUNG EXECUTIVE IN A DERBY. A CUTE WOMAN.: 1 scenes together
+681. ABOVE ↔ YOUNG EXECUTIVE IN A DERBY. A CUTE WOMAN.: 1 scenes together
+682. THE SUITE ↔ YOUNG EXECUTIVE IN A DERBY. A CUTE WOMAN.: 1 scenes together
+683. THE PAINTING OF THE GHOST SHIP ↔ YOUNG EXECUTIVE IN A DERBY. A CUTE WOMAN.: 1 scenes together
+684. THE PAINTING OF THE HUNT ↔ YOUNG EXECUTIVE IN A DERBY. A CUTE WOMAN.: 1 scenes together
+685. THE PAINTING OF MOTHER AND CHILD ↔ YOUNG EXECUTIVE IN A DERBY. A CUTE WOMAN.: 1 scenes together
+686. ON THE PAINTINGS ↔ YOUNG EXECUTIVE IN A DERBY. A CUTE WOMAN.: 1 scenes together
+687. LIKE THE FORCE OF A HUNDRED FIRE HOSES. ↔ YOUNG EXECUTIVE IN A DERBY. A CUTE WOMAN.: 1 scenes together
+688. ON THE COMPUTER ↔ WIDE: 1 scenes together
+689. ON THE COMPUTER ↔ THUD.: 1 scenes together
+690. ABOVE ↔ ON THE COMPUTER: 1 scenes together
+691. ON THE COMPUTER ↔ THE SUITE: 1 scenes together
+692. ON THE COMPUTER ↔ THE PAINTING OF THE GHOST SHIP: 1 scenes together
+693. ON THE COMPUTER ↔ THE PAINTING OF THE HUNT: 1 scenes together
+694. ON THE COMPUTER ↔ THE PAINTING OF MOTHER AND CHILD: 1 scenes together
+695. ON THE COMPUTER ↔ ON THE PAINTINGS: 1 scenes together
+696. LIKE THE FORCE OF A HUNDRED FIRE HOSES. ↔ ON THE COMPUTER: 1 scenes together
+697. THUD. ↔ WIDE: 1 scenes together
+698. THE SUITE ↔ WIDE: 1 scenes together
+699. THE PAINTING OF THE GHOST SHIP ↔ WIDE: 1 scenes together
+700. THE PAINTING OF MOTHER AND CHILD ↔ WIDE: 1 scenes together
+701. ON THE PAINTINGS ↔ WIDE: 1 scenes together
+702. LIKE THE FORCE OF A HUNDRED FIRE HOSES. ↔ WIDE: 1 scenes together
+703. ABOVE ↔ THUD.: 1 scenes together
+704. THE SUITE ↔ THUD.: 1 scenes together
+705. THE PAINTING OF THE GHOST SHIP ↔ THUD.: 1 scenes together
+706. THE PAINTING OF THE HUNT ↔ THUD.: 1 scenes together
+707. THE PAINTING OF MOTHER AND CHILD ↔ THUD.: 1 scenes together
+708. ON THE PAINTINGS ↔ THUD.: 1 scenes together
+709. LIKE THE FORCE OF A HUNDRED FIRE HOSES. ↔ THUD.: 1 scenes together
+710. ABOVE ↔ THE SUITE: 1 scenes together
+711. ABOVE ↔ THE PAINTING OF THE GHOST SHIP: 1 scenes together
+712. ABOVE ↔ THE PAINTING OF MOTHER AND CHILD: 1 scenes together
+713. ABOVE ↔ ON THE PAINTINGS: 1 scenes together
+714. ABOVE ↔ LIKE THE FORCE OF A HUNDRED FIRE HOSES.: 1 scenes together
+715. THE PAINTING OF THE GHOST SHIP ↔ THE SUITE: 1 scenes together
+716. THE PAINTING OF THE HUNT ↔ THE SUITE: 1 scenes together
+717. THE PAINTING OF MOTHER AND CHILD ↔ THE SUITE: 1 scenes together
+718. ON THE PAINTINGS ↔ THE SUITE: 1 scenes together
+719. LIKE THE FORCE OF A HUNDRED FIRE HOSES. ↔ THE SUITE: 1 scenes together
+720. THE PAINTING OF THE GHOST SHIP ↔ THE PAINTING OF THE HUNT: 1 scenes together
+721. THE PAINTING OF MOTHER AND CHILD ↔ THE PAINTING OF THE GHOST SHIP: 1 scenes together
+722. ON THE PAINTINGS ↔ THE PAINTING OF THE GHOST SHIP: 1 scenes together
+723. LIKE THE FORCE OF A HUNDRED FIRE HOSES. ↔ THE PAINTING OF THE GHOST SHIP: 1 scenes together
+724. THE PAINTING OF MOTHER AND CHILD ↔ THE PAINTING OF THE HUNT: 1 scenes together
+725. ON THE PAINTINGS ↔ THE PAINTING OF THE HUNT: 1 scenes together
+726. LIKE THE FORCE OF A HUNDRED FIRE HOSES. ↔ THE PAINTING OF THE HUNT: 1 scenes together
+727. ON THE PAINTINGS ↔ THE PAINTING OF MOTHER AND CHILD: 1 scenes together
+728. LIKE THE FORCE OF A HUNDRED FIRE HOSES. ↔ THE PAINTING OF MOTHER AND CHILD: 1 scenes together
+729. LIKE THE FORCE OF A HUNDRED FIRE HOSES. ↔ ON THE PAINTINGS: 1 scenes together
+730. IN THE SKY ↔ MIKE'S: 1 scenes together
+731. IN THE SKY ↔ TIGHT THE BANNER: 1 scenes together
+732. IN THE SKY ↔ MIKE: 1 scenes together
+733. IN THE SKY ↔ LIFEGUARD: 1 scenes together
+734. DISSOLVE TO ↔ IN THE SKY: 1 scenes together
+735. MIKE'S ↔ TIGHT THE BANNER: 1 scenes together
+736. MIKE ↔ MIKE'S: 1 scenes together
+737. LIFEGUARD ↔ MIKE'S: 1 scenes together
+738. DISSOLVE TO ↔ MIKE'S: 1 scenes together
+739. MIKE ↔ TIGHT THE BANNER: 1 scenes together
+740. LIFEGUARD ↔ TIGHT THE BANNER: 1 scenes together
+741. DISSOLVE TO ↔ TIGHT THE BANNER: 1 scenes together
+742. LIFEGUARD ↔ MIKE: 1 scenes together
+743. DISSOLVE TO ↔ MIKE: 1 scenes together
+744. DISSOLVE TO ↔ LIFEGUARD: 1 scenes together
+745. IN THE BATHROOM ↔ MIKE: 1 scenes together
+746. BACK AT THE BED ↔ MIKE: 1 scenes together
+747. IN THE BATHROOM ↔ LILY: 1 scenes together
+748. BACK AT THE BED ↔ LILY: 1 scenes together
+749. BACK AT THE BED ↔ IN THE BATHROOM: 1 scenes together
+750. CUT TO ↔ IN THE BATHROOM: 1 scenes together
+751. BACK AT THE BED ↔ CUT TO: 1 scenes together
+752. AT THE NEXT TABLE ↔ MIKE: 1 scenes together
+753. AT THE NEXT TABLE ↔ LILY: 1 scenes together
+754. CUT TO ↔ FATHER: 1 scenes together
+755. A WORKMAN ↔ MIKE: 1 scenes together
+756. MIKE ↔ UNDERNEATH.: 1 scenes together
+757. MIKE ↔ ON MIKE'S FACE: 1 scenes together
+758. A WORKMAN ↔ OLIN: 1 scenes together
+759. OLIN ↔ UNDERNEATH.: 1 scenes together
+760. OLIN ↔ ON MIKE'S FACE: 1 scenes together
+761. OLIN ↔ THE ROOM: 1 scenes together
+762. A WORKMAN ↔ UNDERNEATH.: 1 scenes together
+763. A WORKMAN ↔ WIDE: 1 scenes together
+764. A WORKMAN ↔ ON MIKE'S FACE: 1 scenes together
+765. A WORKMAN ↔ THE ROOM: 1 scenes together
+766. UNDERNEATH. ↔ WIDE: 1 scenes together
+767. ON MIKE'S FACE ↔ UNDERNEATH.: 1 scenes together
+768. THE ROOM ↔ UNDERNEATH.: 1 scenes together
+769. ON MIKE'S FACE ↔ WIDE: 1 scenes together
+770. ON MIKE'S FACE ↔ THE ROOM: 1 scenes together
+771. HURRICANE BLEW THROUGH. ↔ MIKE: 1 scenes together
+772. HURRICANE BLEW THROUGH. ↔ VOICE OF THE ROOM: 1 scenes together
+773. A DOOR ↔ HURRICANE BLEW THROUGH.: 1 scenes together
+774. HURRICANE BLEW THROUGH. ↔ SOMETHING TO BELIEVE IN. FOR A LIFE: 1 scenes together
+775. HURRICANE BLEW THROUGH. ↔ THE DOOR HANDLE: 1 scenes together
+776. HURRICANE BLEW THROUGH. ↔ THE DOOR: 1 scenes together
+777. HURRICANE BLEW THROUGH. ↔ KAREN CARPENTER'S VOICE: 1 scenes together
+778. HURRICANE BLEW THROUGH. ↔ IN FRONT OF HIM: 1 scenes together
+779. GRACIE ↔ HURRICANE BLEW THROUGH.: 1 scenes together
+780. ABOVE ↔ HURRICANE BLEW THROUGH.: 1 scenes together
+781. HURRICANE BLEW THROUGH. ↔ THE CLOCK: 1 scenes together
+782. HURRICANE BLEW THROUGH. ↔ WIDE VIEW OF THE ROOM: 1 scenes together
+783. BECAUSE ALL THINGS COME DOW TO ↔ HURRICANE BLEW THROUGH.: 1 scenes together
+784. CHOICE. ↔ HURRICANE BLEW THROUGH.: 1 scenes together
+785. HURRICANE BLEW THROUGH. ↔ YOU GET TO RELIVE THE SAME HOUR.: 1 scenes together
+786. AGAIN AND AGAIN AND AGAIN. ↔ HURRICANE BLEW THROUGH.: 1 scenes together
+787. A ROPE NOOSE ↔ HURRICANE BLEW THROUGH.: 1 scenes together
+788. HURRICANE BLEW THROUGH. ↔ IKE: 1 scenes together
+789. HURRICANE BLEW THROUGH. ↔ ON THE TV SCREEN: 1 scenes together
+790. HURRICANE BLEW THROUGH. ↔ MIKE'S FACE: 1 scenes together
+791. HURRICANE BLEW THROUGH. ↔ TRADE.: 1 scenes together
+792. HURRICANE BLEW THROUGH. ↔ ON THE TV: 1 scenes together
+793. HURRICANE BLEW THROUGH. ↔ LILY: 1 scenes together
+794. HURRICANE BLEW THROUGH. ↔ THE REAL MIKE: 1 scenes together
+795. HURRICANE BLEW THROUGH. ↔ ON LILY: 1 scenes together
+796. HURRICANE BLEW THROUGH. ↔ ON MIKE: 1 scenes together
+797. HURRICANE BLEW THROUGH. ↔ MAN.: 1 scenes together
+798. HURRICANE BLEW THROUGH. ↔ INTERCUT: 1 scenes together
+799. A DOOR ↔ MIKE: 1 scenes together
+800. MIKE ↔ SOMETHING TO BELIEVE IN. FOR A LIFE: 1 scenes together
+801. MIKE ↔ THE DOOR HANDLE: 1 scenes together
+802. KAREN CARPENTER'S VOICE ↔ MIKE: 1 scenes together
+803. IN FRONT OF HIM ↔ MIKE: 1 scenes together
+804. MIKE ↔ WIDE VIEW OF THE ROOM: 1 scenes together
+805. BECAUSE ALL THINGS COME DOW TO ↔ MIKE: 1 scenes together
+806. CHOICE. ↔ MIKE: 1 scenes together
+807. MIKE ↔ YOU GET TO RELIVE THE SAME HOUR.: 1 scenes together
+808. AGAIN AND AGAIN AND AGAIN. ↔ MIKE: 1 scenes together
+809. A ROPE NOOSE ↔ MIKE: 1 scenes together
+810. IKE ↔ MIKE: 1 scenes together
+811. MIKE ↔ ON THE TV SCREEN: 1 scenes together
+812. MIKE ↔ MIKE'S FACE: 1 scenes together
+813. MIKE ↔ TRADE.: 1 scenes together
+814. MIKE ↔ THE REAL MIKE: 1 scenes together
+815. MIKE ↔ ON LILY: 1 scenes together
+816. MAN. ↔ MIKE: 1 scenes together
+817. A DOOR ↔ VOICE OF THE ROOM: 1 scenes together
+818. SOMETHING TO BELIEVE IN. FOR A LIFE ↔ VOICE OF THE ROOM: 1 scenes together
+819. THE DOOR HANDLE ↔ VOICE OF THE ROOM: 1 scenes together
+820. THE DOOR ↔ VOICE OF THE ROOM: 1 scenes together
+821. KAREN CARPENTER'S VOICE ↔ VOICE OF THE ROOM: 1 scenes together
+822. IN FRONT OF HIM ↔ VOICE OF THE ROOM: 1 scenes together
+823. GRACIE ↔ VOICE OF THE ROOM: 1 scenes together
+824. THE CLOCK ↔ VOICE OF THE ROOM: 1 scenes together
+825. VOICE OF THE ROOM ↔ WIDE VIEW OF THE ROOM: 1 scenes together
+826. BECAUSE ALL THINGS COME DOW TO ↔ VOICE OF THE ROOM: 1 scenes together
+827. CHOICE. ↔ VOICE OF THE ROOM: 1 scenes together
+828. VOICE OF THE ROOM ↔ YOU GET TO RELIVE THE SAME HOUR.: 1 scenes together
+829. AGAIN AND AGAIN AND AGAIN. ↔ VOICE OF THE ROOM: 1 scenes together
+830. A ROPE NOOSE ↔ VOICE OF THE ROOM: 1 scenes together
+831. IKE ↔ VOICE OF THE ROOM: 1 scenes together
+832. ON THE TV SCREEN ↔ VOICE OF THE ROOM: 1 scenes together
+833. MIKE'S FACE ↔ VOICE OF THE ROOM: 1 scenes together
+834. TRADE. ↔ VOICE OF THE ROOM: 1 scenes together
+835. THE REAL MIKE ↔ VOICE OF THE ROOM: 1 scenes together
+836. ON LILY ↔ VOICE OF THE ROOM: 1 scenes together
+837. ON MIKE ↔ VOICE OF THE ROOM: 1 scenes together
+838. MAN. ↔ VOICE OF THE ROOM: 1 scenes together
+839. INTERCUT ↔ VOICE OF THE ROOM: 1 scenes together
+840. A DOOR ↔ SOMETHING TO BELIEVE IN. FOR A LIFE: 1 scenes together
+841. A DOOR ↔ THE DOOR HANDLE: 1 scenes together
+842. A DOOR ↔ THE DOOR: 1 scenes together
+843. A DOOR ↔ KAREN CARPENTER'S VOICE: 1 scenes together
+844. A DOOR ↔ IN FRONT OF HIM: 1 scenes together
+845. A DOOR ↔ GRACIE: 1 scenes together
+846. A DOOR ↔ ABOVE: 1 scenes together
+847. A DOOR ↔ THE CLOCK: 1 scenes together
+848. A DOOR ↔ WIDE VIEW OF THE ROOM: 1 scenes together
+849. A DOOR ↔ BECAUSE ALL THINGS COME DOW TO: 1 scenes together
+850. A DOOR ↔ CHOICE.: 1 scenes together
+851. A DOOR ↔ YOU GET TO RELIVE THE SAME HOUR.: 1 scenes together
+852. A DOOR ↔ AGAIN AND AGAIN AND AGAIN.: 1 scenes together
+853. A DOOR ↔ A ROPE NOOSE: 1 scenes together
+854. A DOOR ↔ IKE: 1 scenes together
+855. A DOOR ↔ ON THE TV SCREEN: 1 scenes together
+856. A DOOR ↔ MIKE'S FACE: 1 scenes together
+857. A DOOR ↔ TRADE.: 1 scenes together
+858. A DOOR ↔ ON THE TV: 1 scenes together
+859. A DOOR ↔ LILY: 1 scenes together
+860. A DOOR ↔ THE REAL MIKE: 1 scenes together
+861. A DOOR ↔ ON LILY: 1 scenes together
+862. A DOOR ↔ ON MIKE: 1 scenes together
+863. A DOOR ↔ MAN.: 1 scenes together
+864. A DOOR ↔ INTERCUT: 1 scenes together
+865. SOMETHING TO BELIEVE IN. FOR A LIFE ↔ THE DOOR HANDLE: 1 scenes together
+866. SOMETHING TO BELIEVE IN. FOR A LIFE ↔ THE DOOR: 1 scenes together
+867. KAREN CARPENTER'S VOICE ↔ SOMETHING TO BELIEVE IN. FOR A LIFE: 1 scenes together
+868. IN FRONT OF HIM ↔ SOMETHING TO BELIEVE IN. FOR A LIFE: 1 scenes together
+869. GRACIE ↔ SOMETHING TO BELIEVE IN. FOR A LIFE: 1 scenes together
+870. ABOVE ↔ SOMETHING TO BELIEVE IN. FOR A LIFE: 1 scenes together
+871. SOMETHING TO BELIEVE IN. FOR A LIFE ↔ THE CLOCK: 1 scenes together
+872. SOMETHING TO BELIEVE IN. FOR A LIFE ↔ WIDE VIEW OF THE ROOM: 1 scenes together
+873. BECAUSE ALL THINGS COME DOW TO ↔ SOMETHING TO BELIEVE IN. FOR A LIFE: 1 scenes together
+874. CHOICE. ↔ SOMETHING TO BELIEVE IN. FOR A LIFE: 1 scenes together
+875. SOMETHING TO BELIEVE IN. FOR A LIFE ↔ YOU GET TO RELIVE THE SAME HOUR.: 1 scenes together
+876. AGAIN AND AGAIN AND AGAIN. ↔ SOMETHING TO BELIEVE IN. FOR A LIFE: 1 scenes together
+877. A ROPE NOOSE ↔ SOMETHING TO BELIEVE IN. FOR A LIFE: 1 scenes together
+878. IKE ↔ SOMETHING TO BELIEVE IN. FOR A LIFE: 1 scenes together
+879. ON THE TV SCREEN ↔ SOMETHING TO BELIEVE IN. FOR A LIFE: 1 scenes together
+880. MIKE'S FACE ↔ SOMETHING TO BELIEVE IN. FOR A LIFE: 1 scenes together
+881. SOMETHING TO BELIEVE IN. FOR A LIFE ↔ TRADE.: 1 scenes together
+882. ON THE TV ↔ SOMETHING TO BELIEVE IN. FOR A LIFE: 1 scenes together
+883. LILY ↔ SOMETHING TO BELIEVE IN. FOR A LIFE: 1 scenes together
+884. SOMETHING TO BELIEVE IN. FOR A LIFE ↔ THE REAL MIKE: 1 scenes together
+885. ON LILY ↔ SOMETHING TO BELIEVE IN. FOR A LIFE: 1 scenes together
+886. ON MIKE ↔ SOMETHING TO BELIEVE IN. FOR A LIFE: 1 scenes together
+887. MAN. ↔ SOMETHING TO BELIEVE IN. FOR A LIFE: 1 scenes together
+888. INTERCUT ↔ SOMETHING TO BELIEVE IN. FOR A LIFE: 1 scenes together
+889. THE DOOR ↔ THE DOOR HANDLE: 1 scenes together
+890. KAREN CARPENTER'S VOICE ↔ THE DOOR HANDLE: 1 scenes together
+891. IN FRONT OF HIM ↔ THE DOOR HANDLE: 1 scenes together
+892. GRACIE ↔ THE DOOR HANDLE: 1 scenes together
+893. ABOVE ↔ THE DOOR HANDLE: 1 scenes together
+894. THE CLOCK ↔ THE DOOR HANDLE: 1 scenes together
+895. THE DOOR HANDLE ↔ WIDE VIEW OF THE ROOM: 1 scenes together
+896. BECAUSE ALL THINGS COME DOW TO ↔ THE DOOR HANDLE: 1 scenes together
+897. CHOICE. ↔ THE DOOR HANDLE: 1 scenes together
+898. THE DOOR HANDLE ↔ YOU GET TO RELIVE THE SAME HOUR.: 1 scenes together
+899. AGAIN AND AGAIN AND AGAIN. ↔ THE DOOR HANDLE: 1 scenes together
+900. A ROPE NOOSE ↔ THE DOOR HANDLE: 1 scenes together
+901. IKE ↔ THE DOOR HANDLE: 1 scenes together
+902. ON THE TV SCREEN ↔ THE DOOR HANDLE: 1 scenes together
+903. MIKE'S FACE ↔ THE DOOR HANDLE: 1 scenes together
+904. THE DOOR HANDLE ↔ TRADE.: 1 scenes together
+905. ON THE TV ↔ THE DOOR HANDLE: 1 scenes together
+906. LILY ↔ THE DOOR HANDLE: 1 scenes together
+907. THE DOOR HANDLE ↔ THE REAL MIKE: 1 scenes together
+908. ON LILY ↔ THE DOOR HANDLE: 1 scenes together
+909. ON MIKE ↔ THE DOOR HANDLE: 1 scenes together
+910. MAN. ↔ THE DOOR HANDLE: 1 scenes together
+911. INTERCUT ↔ THE DOOR HANDLE: 1 scenes together
+912. KAREN CARPENTER'S VOICE ↔ THE DOOR: 1 scenes together
+913. IN FRONT OF HIM ↔ THE DOOR: 1 scenes together
+914. GRACIE ↔ THE DOOR: 1 scenes together
+915. ABOVE ↔ THE DOOR: 1 scenes together
+916. THE CLOCK ↔ THE DOOR: 1 scenes together
+917. THE DOOR ↔ WIDE VIEW OF THE ROOM: 1 scenes together
+918. BECAUSE ALL THINGS COME DOW TO ↔ THE DOOR: 1 scenes together
+919. CHOICE. ↔ THE DOOR: 1 scenes together
+920. THE DOOR ↔ YOU GET TO RELIVE THE SAME HOUR.: 1 scenes together
+921. AGAIN AND AGAIN AND AGAIN. ↔ THE DOOR: 1 scenes together
+922. A ROPE NOOSE ↔ THE DOOR: 1 scenes together
+923. IKE ↔ THE DOOR: 1 scenes together
+924. ON THE TV SCREEN ↔ THE DOOR: 1 scenes together
+925. MIKE'S FACE ↔ THE DOOR: 1 scenes together
+926. THE DOOR ↔ TRADE.: 1 scenes together
+927. ON THE TV ↔ THE DOOR: 1 scenes together
+928. LILY ↔ THE DOOR: 1 scenes together
+929. THE DOOR ↔ THE REAL MIKE: 1 scenes together
+930. ON LILY ↔ THE DOOR: 1 scenes together
+931. ON MIKE ↔ THE DOOR: 1 scenes together
+932. MAN. ↔ THE DOOR: 1 scenes together
+933. INTERCUT ↔ THE DOOR: 1 scenes together
+934. IN FRONT OF HIM ↔ KAREN CARPENTER'S VOICE: 1 scenes together
+935. GRACIE ↔ KAREN CARPENTER'S VOICE: 1 scenes together
+936. ABOVE ↔ KAREN CARPENTER'S VOICE: 1 scenes together
+937. KAREN CARPENTER'S VOICE ↔ THE CLOCK: 1 scenes together
+938. KAREN CARPENTER'S VOICE ↔ WIDE VIEW OF THE ROOM: 1 scenes together
+939. BECAUSE ALL THINGS COME DOW TO ↔ KAREN CARPENTER'S VOICE: 1 scenes together
+940. CHOICE. ↔ KAREN CARPENTER'S VOICE: 1 scenes together
+941. KAREN CARPENTER'S VOICE ↔ YOU GET TO RELIVE THE SAME HOUR.: 1 scenes together
+942. AGAIN AND AGAIN AND AGAIN. ↔ KAREN CARPENTER'S VOICE: 1 scenes together
+943. A ROPE NOOSE ↔ KAREN CARPENTER'S VOICE: 1 scenes together
+944. IKE ↔ KAREN CARPENTER'S VOICE: 1 scenes together
+945. KAREN CARPENTER'S VOICE ↔ ON THE TV SCREEN: 1 scenes together
+946. KAREN CARPENTER'S VOICE ↔ MIKE'S FACE: 1 scenes together
+947. KAREN CARPENTER'S VOICE ↔ TRADE.: 1 scenes together
+948. KAREN CARPENTER'S VOICE ↔ ON THE TV: 1 scenes together
+949. KAREN CARPENTER'S VOICE ↔ LILY: 1 scenes together
+950. KAREN CARPENTER'S VOICE ↔ THE REAL MIKE: 1 scenes together
+951. KAREN CARPENTER'S VOICE ↔ ON LILY: 1 scenes together
+952. KAREN CARPENTER'S VOICE ↔ ON MIKE: 1 scenes together
+953. KAREN CARPENTER'S VOICE ↔ MAN.: 1 scenes together
+954. INTERCUT ↔ KAREN CARPENTER'S VOICE: 1 scenes together
+955. GRACIE ↔ IN FRONT OF HIM: 1 scenes together
+956. ABOVE ↔ IN FRONT OF HIM: 1 scenes together
+957. IN FRONT OF HIM ↔ THE CLOCK: 1 scenes together
+958. IN FRONT OF HIM ↔ WIDE VIEW OF THE ROOM: 1 scenes together
+959. BECAUSE ALL THINGS COME DOW TO ↔ IN FRONT OF HIM: 1 scenes together
+960. CHOICE. ↔ IN FRONT OF HIM: 1 scenes together
+961. IN FRONT OF HIM ↔ YOU GET TO RELIVE THE SAME HOUR.: 1 scenes together
+962. AGAIN AND AGAIN AND AGAIN. ↔ IN FRONT OF HIM: 1 scenes together
+963. A ROPE NOOSE ↔ IN FRONT OF HIM: 1 scenes together
+964. IKE ↔ IN FRONT OF HIM: 1 scenes together
+965. IN FRONT OF HIM ↔ ON THE TV SCREEN: 1 scenes together
+966. IN FRONT OF HIM ↔ MIKE'S FACE: 1 scenes together
+967. IN FRONT OF HIM ↔ TRADE.: 1 scenes together
+968. IN FRONT OF HIM ↔ ON THE TV: 1 scenes together
+969. IN FRONT OF HIM ↔ LILY: 1 scenes together
+970. IN FRONT OF HIM ↔ THE REAL MIKE: 1 scenes together
+971. IN FRONT OF HIM ↔ ON LILY: 1 scenes together
+972. IN FRONT OF HIM ↔ ON MIKE: 1 scenes together
+973. IN FRONT OF HIM ↔ MAN.: 1 scenes together
+974. IN FRONT OF HIM ↔ INTERCUT: 1 scenes together
+975. GRACIE ↔ THE CLOCK: 1 scenes together
+976. GRACIE ↔ WIDE VIEW OF THE ROOM: 1 scenes together
+977. BECAUSE ALL THINGS COME DOW TO ↔ GRACIE: 1 scenes together
+978. CHOICE. ↔ GRACIE: 1 scenes together
+979. GRACIE ↔ YOU GET TO RELIVE THE SAME HOUR.: 1 scenes together
+980. AGAIN AND AGAIN AND AGAIN. ↔ GRACIE: 1 scenes together
+981. A ROPE NOOSE ↔ GRACIE: 1 scenes together
+982. GRACIE ↔ IKE: 1 scenes together
+983. GRACIE ↔ ON THE TV SCREEN: 1 scenes together
+984. GRACIE ↔ MIKE'S FACE: 1 scenes together
+985. GRACIE ↔ TRADE.: 1 scenes together
+986. GRACIE ↔ ON THE TV: 1 scenes together
+987. GRACIE ↔ THE REAL MIKE: 1 scenes together
+988. GRACIE ↔ ON LILY: 1 scenes together
+989. GRACIE ↔ ON MIKE: 1 scenes together
+990. GRACIE ↔ MAN.: 1 scenes together
+991. GRACIE ↔ INTERCUT: 1 scenes together
+992. ABOVE ↔ WIDE VIEW OF THE ROOM: 1 scenes together
+993. ABOVE ↔ BECAUSE ALL THINGS COME DOW TO: 1 scenes together
+994. ABOVE ↔ CHOICE.: 1 scenes together
+995. ABOVE ↔ YOU GET TO RELIVE THE SAME HOUR.: 1 scenes together
+996. ABOVE ↔ AGAIN AND AGAIN AND AGAIN.: 1 scenes together
+997. A ROPE NOOSE ↔ ABOVE: 1 scenes together
+998. ABOVE ↔ IKE: 1 scenes together
+999. ABOVE ↔ ON THE TV SCREEN: 1 scenes together
+1000. ABOVE ↔ MIKE'S FACE: 1 scenes together
+1001. ABOVE ↔ TRADE.: 1 scenes together
+1002. ABOVE ↔ ON THE TV: 1 scenes together
+1003. ABOVE ↔ THE REAL MIKE: 1 scenes together
+1004. ABOVE ↔ ON LILY: 1 scenes together
+1005. ABOVE ↔ ON MIKE: 1 scenes together
+1006. ABOVE ↔ MAN.: 1 scenes together
+1007. ABOVE ↔ INTERCUT: 1 scenes together
+1008. THE CLOCK ↔ WIDE VIEW OF THE ROOM: 1 scenes together
+1009. BECAUSE ALL THINGS COME DOW TO ↔ THE CLOCK: 1 scenes together
+1010. CHOICE. ↔ THE CLOCK: 1 scenes together
+1011. THE CLOCK ↔ YOU GET TO RELIVE THE SAME HOUR.: 1 scenes together
+1012. AGAIN AND AGAIN AND AGAIN. ↔ THE CLOCK: 1 scenes together
+1013. A ROPE NOOSE ↔ THE CLOCK: 1 scenes together
+1014. IKE ↔ THE CLOCK: 1 scenes together
+1015. ON THE TV SCREEN ↔ THE CLOCK: 1 scenes together
+1016. MIKE'S FACE ↔ THE CLOCK: 1 scenes together
+1017. THE CLOCK ↔ TRADE.: 1 scenes together
+1018. ON THE TV ↔ THE CLOCK: 1 scenes together
+1019. THE CLOCK ↔ THE REAL MIKE: 1 scenes together
+1020. ON LILY ↔ THE CLOCK: 1 scenes together
+1021. ON MIKE ↔ THE CLOCK: 1 scenes together
+1022. MAN. ↔ THE CLOCK: 1 scenes together
+1023. INTERCUT ↔ THE CLOCK: 1 scenes together
+1024. BECAUSE ALL THINGS COME DOW TO ↔ WIDE VIEW OF THE ROOM: 1 scenes together
+1025. CHOICE. ↔ WIDE VIEW OF THE ROOM: 1 scenes together
+1026. WIDE VIEW OF THE ROOM ↔ YOU GET TO RELIVE THE SAME HOUR.: 1 scenes together
+1027. AGAIN AND AGAIN AND AGAIN. ↔ WIDE VIEW OF THE ROOM: 1 scenes together
+1028. A ROPE NOOSE ↔ WIDE VIEW OF THE ROOM: 1 scenes together
+1029. IKE ↔ WIDE VIEW OF THE ROOM: 1 scenes together
+1030. ON THE TV SCREEN ↔ WIDE VIEW OF THE ROOM: 1 scenes together
+1031. MIKE'S FACE ↔ WIDE VIEW OF THE ROOM: 1 scenes together
+1032. TRADE. ↔ WIDE VIEW OF THE ROOM: 1 scenes together
+1033. ON THE TV ↔ WIDE VIEW OF THE ROOM: 1 scenes together
+1034. LILY ↔ WIDE VIEW OF THE ROOM: 1 scenes together
+1035. THE REAL MIKE ↔ WIDE VIEW OF THE ROOM: 1 scenes together
+1036. ON LILY ↔ WIDE VIEW OF THE ROOM: 1 scenes together
+1037. ON MIKE ↔ WIDE VIEW OF THE ROOM: 1 scenes together
+1038. MAN. ↔ WIDE VIEW OF THE ROOM: 1 scenes together
+1039. INTERCUT ↔ WIDE VIEW OF THE ROOM: 1 scenes together
+1040. BECAUSE ALL THINGS COME DOW TO ↔ CHOICE.: 1 scenes together
+1041. BECAUSE ALL THINGS COME DOW TO ↔ YOU GET TO RELIVE THE SAME HOUR.: 1 scenes together
+1042. AGAIN AND AGAIN AND AGAIN. ↔ BECAUSE ALL THINGS COME DOW TO: 1 scenes together
+1043. A ROPE NOOSE ↔ BECAUSE ALL THINGS COME DOW TO: 1 scenes together
+1044. BECAUSE ALL THINGS COME DOW TO ↔ IKE: 1 scenes together
+1045. BECAUSE ALL THINGS COME DOW TO ↔ ON THE TV SCREEN: 1 scenes together
+1046. BECAUSE ALL THINGS COME DOW TO ↔ MIKE'S FACE: 1 scenes together
+1047. BECAUSE ALL THINGS COME DOW TO ↔ TRADE.: 1 scenes together
+1048. BECAUSE ALL THINGS COME DOW TO ↔ ON THE TV: 1 scenes together
+1049. BECAUSE ALL THINGS COME DOW TO ↔ LILY: 1 scenes together
+1050. BECAUSE ALL THINGS COME DOW TO ↔ THE REAL MIKE: 1 scenes together
+1051. BECAUSE ALL THINGS COME DOW TO ↔ ON LILY: 1 scenes together
+1052. BECAUSE ALL THINGS COME DOW TO ↔ ON MIKE: 1 scenes together
+1053. BECAUSE ALL THINGS COME DOW TO ↔ MAN.: 1 scenes together
+1054. BECAUSE ALL THINGS COME DOW TO ↔ INTERCUT: 1 scenes together
+1055. CHOICE. ↔ YOU GET TO RELIVE THE SAME HOUR.: 1 scenes together
+1056. AGAIN AND AGAIN AND AGAIN. ↔ CHOICE.: 1 scenes together
+1057. A ROPE NOOSE ↔ CHOICE.: 1 scenes together
+1058. CHOICE. ↔ IKE: 1 scenes together
+1059. CHOICE. ↔ ON THE TV SCREEN: 1 scenes together
+1060. CHOICE. ↔ MIKE'S FACE: 1 scenes together
+1061. CHOICE. ↔ TRADE.: 1 scenes together
+1062. CHOICE. ↔ ON THE TV: 1 scenes together
+1063. CHOICE. ↔ LILY: 1 scenes together
+1064. CHOICE. ↔ THE REAL MIKE: 1 scenes together
+1065. CHOICE. ↔ ON LILY: 1 scenes together
+1066. CHOICE. ↔ ON MIKE: 1 scenes together
+1067. CHOICE. ↔ MAN.: 1 scenes together
+1068. CHOICE. ↔ INTERCUT: 1 scenes together
+1069. AGAIN AND AGAIN AND AGAIN. ↔ YOU GET TO RELIVE THE SAME HOUR.: 1 scenes together
+1070. A ROPE NOOSE ↔ YOU GET TO RELIVE THE SAME HOUR.: 1 scenes together
+1071. IKE ↔ YOU GET TO RELIVE THE SAME HOUR.: 1 scenes together
+1072. ON THE TV SCREEN ↔ YOU GET TO RELIVE THE SAME HOUR.: 1 scenes together
+1073. MIKE'S FACE ↔ YOU GET TO RELIVE THE SAME HOUR.: 1 scenes together
+1074. TRADE. ↔ YOU GET TO RELIVE THE SAME HOUR.: 1 scenes together
+1075. ON THE TV ↔ YOU GET TO RELIVE THE SAME HOUR.: 1 scenes together
+1076. LILY ↔ YOU GET TO RELIVE THE SAME HOUR.: 1 scenes together
+1077. THE REAL MIKE ↔ YOU GET TO RELIVE THE SAME HOUR.: 1 scenes together
+1078. ON LILY ↔ YOU GET TO RELIVE THE SAME HOUR.: 1 scenes together
+1079. ON MIKE ↔ YOU GET TO RELIVE THE SAME HOUR.: 1 scenes together
+1080. MAN. ↔ YOU GET TO RELIVE THE SAME HOUR.: 1 scenes together
+1081. INTERCUT ↔ YOU GET TO RELIVE THE SAME HOUR.: 1 scenes together
+1082. A ROPE NOOSE ↔ AGAIN AND AGAIN AND AGAIN.: 1 scenes together
+1083. AGAIN AND AGAIN AND AGAIN. ↔ IKE: 1 scenes together
+1084. AGAIN AND AGAIN AND AGAIN. ↔ ON THE TV SCREEN: 1 scenes together
+1085. AGAIN AND AGAIN AND AGAIN. ↔ MIKE'S FACE: 1 scenes together
+1086. AGAIN AND AGAIN AND AGAIN. ↔ TRADE.: 1 scenes together
+1087. AGAIN AND AGAIN AND AGAIN. ↔ ON THE TV: 1 scenes together
+1088. AGAIN AND AGAIN AND AGAIN. ↔ LILY: 1 scenes together
+1089. AGAIN AND AGAIN AND AGAIN. ↔ THE REAL MIKE: 1 scenes together
+1090. AGAIN AND AGAIN AND AGAIN. ↔ ON LILY: 1 scenes together
+1091. AGAIN AND AGAIN AND AGAIN. ↔ ON MIKE: 1 scenes together
+1092. AGAIN AND AGAIN AND AGAIN. ↔ MAN.: 1 scenes together
+1093. AGAIN AND AGAIN AND AGAIN. ↔ INTERCUT: 1 scenes together
+1094. A ROPE NOOSE ↔ IKE: 1 scenes together
+1095. A ROPE NOOSE ↔ ON THE TV SCREEN: 1 scenes together
+1096. A ROPE NOOSE ↔ MIKE'S FACE: 1 scenes together
+1097. A ROPE NOOSE ↔ TRADE.: 1 scenes together
+1098. A ROPE NOOSE ↔ ON THE TV: 1 scenes together
+1099. A ROPE NOOSE ↔ LILY: 1 scenes together
+1100. A ROPE NOOSE ↔ THE REAL MIKE: 1 scenes together
+1101. A ROPE NOOSE ↔ ON LILY: 1 scenes together
+1102. A ROPE NOOSE ↔ ON MIKE: 1 scenes together
+1103. A ROPE NOOSE ↔ MAN.: 1 scenes together
+1104. A ROPE NOOSE ↔ INTERCUT: 1 scenes together
+1105. IKE ↔ ON THE TV SCREEN: 1 scenes together
+1106. IKE ↔ MIKE'S FACE: 1 scenes together
+1107. IKE ↔ TRADE.: 1 scenes together
+1108. IKE ↔ ON THE TV: 1 scenes together
+1109. IKE ↔ LILY: 1 scenes together
+1110. IKE ↔ THE REAL MIKE: 1 scenes together
+1111. IKE ↔ ON LILY: 1 scenes together
+1112. IKE ↔ ON MIKE: 1 scenes together
+1113. IKE ↔ MAN.: 1 scenes together
+1114. IKE ↔ INTERCUT: 1 scenes together
+1115. MIKE'S FACE ↔ ON THE TV SCREEN: 1 scenes together
+1116. ON THE TV SCREEN ↔ TRADE.: 1 scenes together
+1117. ON THE TV ↔ ON THE TV SCREEN: 1 scenes together
+1118. LILY ↔ ON THE TV SCREEN: 1 scenes together
+1119. ON THE TV SCREEN ↔ THE REAL MIKE: 1 scenes together
+1120. ON LILY ↔ ON THE TV SCREEN: 1 scenes together
+1121. ON MIKE ↔ ON THE TV SCREEN: 1 scenes together
+1122. MAN. ↔ ON THE TV SCREEN: 1 scenes together
+1123. INTERCUT ↔ ON THE TV SCREEN: 1 scenes together
+1124. MIKE'S FACE ↔ TRADE.: 1 scenes together
+1125. MIKE'S FACE ↔ ON THE TV: 1 scenes together
+1126. LILY ↔ MIKE'S FACE: 1 scenes together
+1127. MIKE'S FACE ↔ THE REAL MIKE: 1 scenes together
+1128. MIKE'S FACE ↔ ON LILY: 1 scenes together
+1129. MIKE'S FACE ↔ ON MIKE: 1 scenes together
+1130. MAN. ↔ MIKE'S FACE: 1 scenes together
+1131. INTERCUT ↔ MIKE'S FACE: 1 scenes together
+1132. ON THE TV ↔ TRADE.: 1 scenes together
+1133. LILY ↔ TRADE.: 1 scenes together
+1134. THE REAL MIKE ↔ TRADE.: 1 scenes together
+1135. ON LILY ↔ TRADE.: 1 scenes together
+1136. ON MIKE ↔ TRADE.: 1 scenes together
+1137. MAN. ↔ TRADE.: 1 scenes together
+1138. INTERCUT ↔ TRADE.: 1 scenes together
+1139. ON THE TV ↔ THE REAL MIKE: 1 scenes together
+1140. ON LILY ↔ ON THE TV: 1 scenes together
+1141. ON MIKE ↔ ON THE TV: 1 scenes together
+1142. MAN. ↔ ON THE TV: 1 scenes together
+1143. INTERCUT ↔ ON THE TV: 1 scenes together
+1144. LILY ↔ THE REAL MIKE: 1 scenes together
+1145. LILY ↔ ON LILY: 1 scenes together
+1146. LILY ↔ ON MIKE: 1 scenes together
+1147. LILY ↔ MAN.: 1 scenes together
+1148. INTERCUT ↔ LILY: 1 scenes together
+1149. ON LILY ↔ THE REAL MIKE: 1 scenes together
+1150. ON MIKE ↔ THE REAL MIKE: 1 scenes together
+1151. MAN. ↔ THE REAL MIKE: 1 scenes together
+1152. INTERCUT ↔ THE REAL MIKE: 1 scenes together
+1153. ON LILY ↔ ON MIKE: 1 scenes together
+1154. MAN. ↔ ON LILY: 1 scenes together
+1155. INTERCUT ↔ ON LILY: 1 scenes together
+1156. MAN. ↔ ON MIKE: 1 scenes together
+1157. INTERCUT ↔ ON MIKE: 1 scenes together
+1158. INTERCUT ↔ MAN.: 1 scenes together
+1159. CUT BACK TO ↔ MIKE: 1 scenes together
+1160. MIKE ↔ THE TV: 1 scenes together
+1161. CRAZY ANGLE ↔ MIKE: 1 scenes together
+1162. COGNAC BOTTLE ↔ MIKE: 1 scenes together
+1163. CRAZY ANGLE ↔ THE TV: 1 scenes together
+1164. THE TV ↔ VOICE OF THE ROOM: 1 scenes together
+1165. ON THE TV ↔ THE TV: 1 scenes together
+1166. LILY ↔ THE TV: 1 scenes together
+1167. THE ROOM ↔ THE TV: 1 scenes together
+1168. COGNAC BOTTLE ↔ THE TV: 1 scenes together
+1169. THE TV ↔ WIDE: 1 scenes together
+1170. CRAZY ANGLE ↔ VOICE OF THE ROOM: 1 scenes together
+1171. CRAZY ANGLE ↔ ON THE TV: 1 scenes together
+1172. CRAZY ANGLE ↔ LILY: 1 scenes together
+1173. CRAZY ANGLE ↔ THE ROOM: 1 scenes together
+1174. COGNAC BOTTLE ↔ CRAZY ANGLE: 1 scenes together
+1175. CRAZY ANGLE ↔ WIDE: 1 scenes together
+1176. THE ROOM ↔ VOICE OF THE ROOM: 1 scenes together
+1177. COGNAC BOTTLE ↔ VOICE OF THE ROOM: 1 scenes together
+1178. ON THE TV ↔ THE ROOM: 1 scenes together
+1179. COGNAC BOTTLE ↔ ON THE TV: 1 scenes together
+1180. ON THE TV ↔ WIDE: 1 scenes together
+1181. LILY ↔ THE ROOM: 1 scenes together
+1182. COGNAC BOTTLE ↔ LILY: 1 scenes together
+1183. COGNAC BOTTLE ↔ THE ROOM: 1 scenes together
+1184. COGNAC BOTTLE ↔ WIDE: 1 scenes together
+1185. DISSOLVE TO ↔ LILY: 1 scenes together
+1186. LILY ↔ SAM: 1 scenes together
+1187. FADE OUT. ↔ THE END: 1 scenes together

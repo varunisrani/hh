@@ -1,0 +1,201 @@
+1917 - ALL CHARACTER INTERACTIONS
+Complete character interaction analysis
+Total character pairs found: 194
+================================================================================
+
+CHARACTER PAIRS (Sorted by co-occurrence):
+--------------------------------------------------
+  1. BLAKE ↔ SCHOFIELD: 20 scenes together
+  2. PRIVATE COOKE ↔ SEPOY JONDALAR: 4 scenes together
+  3. BLAKE ↔ SERGEANT SANDERS: 3 scenes together
+  4. SCHOFIELD ↔ SERGEANT SANDERS: 3 scenes together
+  5. CAPTAIN SMITH ↔ SCHOFIELD: 3 scenes together
+  6. PRIVATE COOKE ↔ PRIVATE ROSSI: 3 scenes together
+  7. PRIVATE BUTLER ↔ PRIVATE COOKE: 3 scenes together
+  8. PRIVATE BUTLER ↔ PRIVATE ROSSI: 3 scenes together
+  9. PRIVATE ROSSI ↔ SEPOY JONDALAR: 3 scenes together
+ 10. PRIVATE BUTLER ↔ SEPOY JONDALAR: 3 scenes together
+ 11. PRIVATE COOKE ↔ SCHOFIELD: 3 scenes together
+ 12. SCHOFIELD ↔ SEPOY JONDALAR: 3 scenes together
+ 13. SCHOFIELD ↔ SERGEANT: 2 scenes together
+ 14. PRIVATE COOKE ↔ PRIVATE MALKY: 2 scenes together
+ 15. PRIVATE MALKY ↔ PRIVATE ROSSI: 2 scenes together
+ 16. PRIVATE BUTLER ↔ PRIVATE MALKY: 2 scenes together
+ 17. PRIVATE MALKY ↔ SEPOY JONDALAR: 2 scenes together
+ 18. PRIVATE BUTLER ↔ SCHOFIELD: 2 scenes together
+ 19. PRIVATE ROSSI ↔ SCHOFIELD: 2 scenes together
+ 20. DRIVER ↔ SCHOFIELD: 2 scenes together
+ 21. DRIVER ↔ PRIVATE COOKE: 2 scenes together
+ 22. DRIVER ↔ PRIVATE BUTLER: 2 scenes together
+ 23. DRIVER ↔ PRIVATE ROSSI: 2 scenes together
+ 24. DRIVER ↔ SEPOY JONDALAR: 2 scenes together
+ 25. ORDERLY DIXON ↔ SCHOFIELD: 2 scenes together
+ 26. ORDERLY BYRNE ↔ SCHOFIELD: 2 scenes together
+ 27. CAPTAIN RYLANDS ↔ SCHOFIELD: 2 scenes together
+ 28. ORDERLY. ↔ SERGEANT SANDERS: 1 scenes together
+ 29. GENERAL ERINMORE ↔ ORDERLY.: 1 scenes together
+ 30. BLAKE ↔ ORDERLY.: 1 scenes together
+ 31. ERINMORE ↔ ORDERLY.: 1 scenes together
+ 32. ORDERLY. ↔ SCHOFIELD: 1 scenes together
+ 33. LIEUTENANT GORDON ↔ ORDERLY.: 1 scenes together
+ 34. GENERAL ERINMORE ↔ SERGEANT SANDERS: 1 scenes together
+ 35. ERINMORE ↔ SERGEANT SANDERS: 1 scenes together
+ 36. LIEUTENANT GORDON ↔ SERGEANT SANDERS: 1 scenes together
+ 37. BLAKE ↔ GENERAL ERINMORE: 1 scenes together
+ 38. ERINMORE ↔ GENERAL ERINMORE: 1 scenes together
+ 39. GENERAL ERINMORE ↔ SCHOFIELD: 1 scenes together
+ 40. GENERAL ERINMORE ↔ LIEUTENANT GORDON: 1 scenes together
+ 41. BLAKE ↔ ERINMORE: 1 scenes together
+ 42. BLAKE ↔ LIEUTENANT GORDON: 1 scenes together
+ 43. ERINMORE ↔ SCHOFIELD: 1 scenes together
+ 44. ERINMORE ↔ LIEUTENANT GORDON: 1 scenes together
+ 45. LIEUTENANT GORDON ↔ SCHOFIELD: 1 scenes together
+ 46. BLAKE ↔ SERGEANT: 1 scenes together
+ 47. BLAKE ↔ SERGEANT MILLER: 1 scenes together
+ 48. SCHOFIELD ↔ SERGEANT MILLER: 1 scenes together
+ 49. BLAKE ↔ PRIVATE STOKES: 1 scenes together
+ 50. BLAKE ↔ NCO HARVEY: 1 scenes together
+ 51. BLAKE ↔ PRIVATE BUCHANAN: 1 scenes together
+ 52. BLAKE ↔ LIEUTENANT LESLIE: 1 scenes together
+ 53. BLAKE ↔ PRIVATE KILGOUR: 1 scenes together
+ 54. PRIVATE STOKES ↔ SCHOFIELD: 1 scenes together
+ 55. NCO HARVEY ↔ PRIVATE STOKES: 1 scenes together
+ 56. PRIVATE BUCHANAN ↔ PRIVATE STOKES: 1 scenes together
+ 57. LIEUTENANT LESLIE ↔ PRIVATE STOKES: 1 scenes together
+ 58. PRIVATE KILGOUR ↔ PRIVATE STOKES: 1 scenes together
+ 59. NCO HARVEY ↔ SCHOFIELD: 1 scenes together
+ 60. PRIVATE BUCHANAN ↔ SCHOFIELD: 1 scenes together
+ 61. LIEUTENANT LESLIE ↔ SCHOFIELD: 1 scenes together
+ 62. PRIVATE KILGOUR ↔ SCHOFIELD: 1 scenes together
+ 63. NCO HARVEY ↔ PRIVATE BUCHANAN: 1 scenes together
+ 64. LIEUTENANT LESLIE ↔ NCO HARVEY: 1 scenes together
+ 65. NCO HARVEY ↔ PRIVATE KILGOUR: 1 scenes together
+ 66. LIEUTENANT LESLIE ↔ PRIVATE BUCHANAN: 1 scenes together
+ 67. PRIVATE BUCHANAN ↔ PRIVATE KILGOUR: 1 scenes together
+ 68. LIEUTENANT LESLIE ↔ PRIVATE KILGOUR: 1 scenes together
+ 69. BLAKE ↔ GERMAN.: 1 scenes together
+ 70. BLAKE ↔ TWO PLANES.: 1 scenes together
+ 71. GERMAN. ↔ SCHOFIELD: 1 scenes together
+ 72. SCHOFIELD ↔ TWO PLANES.: 1 scenes together
+ 73. GERMAN. ↔ TWO PLANES.: 1 scenes together
+ 74. PILOT ↔ SCHOFIELD: 1 scenes together
+ 75. BLAKE ↔ PILOT: 1 scenes together
+ 76. PILOT ↔ PRIVATE PARRY: 1 scenes together
+ 77. PILOT ↔ PRIVATE ATKINS: 1 scenes together
+ 78. CAPTAIN SMITH ↔ PILOT: 1 scenes together
+ 79. PRIVATE PARRY ↔ SCHOFIELD: 1 scenes together
+ 80. PRIVATE ATKINS ↔ SCHOFIELD: 1 scenes together
+ 81. BLAKE ↔ PRIVATE PARRY: 1 scenes together
+ 82. BLAKE ↔ PRIVATE ATKINS: 1 scenes together
+ 83. BLAKE ↔ CAPTAIN SMITH: 1 scenes together
+ 84. PRIVATE ATKINS ↔ PRIVATE PARRY: 1 scenes together
+ 85. CAPTAIN SMITH ↔ PRIVATE PARRY: 1 scenes together
+ 86. CAPTAIN SMITH ↔ PRIVATE ATKINS: 1 scenes together
+ 87. CAPTAIN SMITH ↔ COLONEL COLLINS: 1 scenes together
+ 88. COLONEL COLLINS ↔ SCHOFIELD: 1 scenes together
+ 89. COLONEL COLLINS ↔ SERGEANT HARROP: 1 scenes together
+ 90. CAPTAIN SMITH ↔ SERGEANT HARROP: 1 scenes together
+ 91. SCHOFIELD ↔ SERGEANT HARROP: 1 scenes together
+ 92. PRIVATE MALKY ↔ SCHOFIELD: 1 scenes together
+ 93. DRIVER ↔ PRIVATE MALKY: 1 scenes together
+ 94. CAPTAIN SMITH ↔ PRIVATE COOKE: 1 scenes together
+ 95. CAPTAIN SMITH ↔ SEPOY JONDALAR: 1 scenes together
+ 96. LAURI ↔ SCHOFIELD: 1 scenes together
+ 97. LAURI ↔ TWO... THREE...: 1 scenes together
+ 98. SCHOFIELD ↔ TWO... THREE...: 1 scenes together
+ 99. MULLER ↔ PRIVATE MULLER: 1 scenes together
+100. VOICE ↔ YOUNG SOLDIER: 1 scenes together
+101. CAPTAIN ↔ VOICE: 1 scenes together
+102. PRIVATE SEYMOUR ↔ VOICE: 1 scenes together
+103. PRIVATE GREY ↔ VOICE: 1 scenes together
+104. PRIVATE BULLEN ↔ VOICE: 1 scenes together
+105. SCHOFIELD ↔ VOICE: 1 scenes together
+106. PRIVATE WILLOCK ↔ VOICE: 1 scenes together
+107. CAPTAIN ↔ YOUNG SOLDIER: 1 scenes together
+108. PRIVATE SEYMOUR ↔ YOUNG SOLDIER: 1 scenes together
+109. PRIVATE GREY ↔ YOUNG SOLDIER: 1 scenes together
+110. PRIVATE BULLEN ↔ YOUNG SOLDIER: 1 scenes together
+111. SCHOFIELD ↔ YOUNG SOLDIER: 1 scenes together
+112. PRIVATE WILLOCK ↔ YOUNG SOLDIER: 1 scenes together
+113. CAPTAIN ↔ PRIVATE SEYMOUR: 1 scenes together
+114. CAPTAIN ↔ PRIVATE GREY: 1 scenes together
+115. CAPTAIN ↔ PRIVATE BULLEN: 1 scenes together
+116. CAPTAIN ↔ SCHOFIELD: 1 scenes together
+117. CAPTAIN ↔ PRIVATE WILLOCK: 1 scenes together
+118. PRIVATE GREY ↔ PRIVATE SEYMOUR: 1 scenes together
+119. PRIVATE BULLEN ↔ PRIVATE SEYMOUR: 1 scenes together
+120. PRIVATE SEYMOUR ↔ SCHOFIELD: 1 scenes together
+121. PRIVATE SEYMOUR ↔ PRIVATE WILLOCK: 1 scenes together
+122. PRIVATE BULLEN ↔ PRIVATE GREY: 1 scenes together
+123. PRIVATE GREY ↔ SCHOFIELD: 1 scenes together
+124. PRIVATE GREY ↔ PRIVATE WILLOCK: 1 scenes together
+125. PRIVATE BULLEN ↔ SCHOFIELD: 1 scenes together
+126. PRIVATE BULLEN ↔ PRIVATE WILLOCK: 1 scenes together
+127. PRIVATE WILLOCK ↔ SCHOFIELD: 1 scenes together
+128. LANCE CORPORAL DUFF ↔ SCHOFIELD: 1 scenes together
+129. LIEUTENANT HUTTON ↔ SCHOFIELD: 1 scenes together
+130. SERGEANT GARDNER ↔ SERGEANT WRIGHT: 1 scenes together
+131. SCHOFIELD ↔ SERGEANT WRIGHT: 1 scenes together
+132. GERMAN ARTILLERY. ↔ SERGEANT WRIGHT: 1 scenes together
+133. CAPTAIN IVINS ↔ SERGEANT WRIGHT: 1 scenes together
+134. SERGEANT GUTHRIE ↔ SERGEANT WRIGHT: 1 scenes together
+135. LIEUTENANT RICHARDS ↔ SERGEANT WRIGHT: 1 scenes together
+136. SCHOFIELD ↔ SERGEANT GARDNER: 1 scenes together
+137. GERMAN ARTILLERY. ↔ SERGEANT GARDNER: 1 scenes together
+138. CAPTAIN IVINS ↔ SERGEANT GARDNER: 1 scenes together
+139. SERGEANT GARDNER ↔ SERGEANT GUTHRIE: 1 scenes together
+140. LIEUTENANT RICHARDS ↔ SERGEANT GARDNER: 1 scenes together
+141. GERMAN ARTILLERY. ↔ SCHOFIELD: 1 scenes together
+142. CAPTAIN IVINS ↔ SCHOFIELD: 1 scenes together
+143. SCHOFIELD ↔ SERGEANT GUTHRIE: 1 scenes together
+144. LIEUTENANT RICHARDS ↔ SCHOFIELD: 1 scenes together
+145. CAPTAIN IVINS ↔ GERMAN ARTILLERY.: 1 scenes together
+146. GERMAN ARTILLERY. ↔ SERGEANT GUTHRIE: 1 scenes together
+147. GERMAN ARTILLERY. ↔ LIEUTENANT RICHARDS: 1 scenes together
+148. CAPTAIN IVINS ↔ SERGEANT GUTHRIE: 1 scenes together
+149. CAPTAIN IVINS ↔ LIEUTENANT RICHARDS: 1 scenes together
+150. LIEUTENANT RICHARDS ↔ SERGEANT GUTHRIE: 1 scenes together
+151. CAPTAIN SANDBACH ↔ SCHOFIELD: 1 scenes together
+152. CAPTAIN SANDBACH ↔ ORDERLY DIXON: 1 scenes together
+153. CAPTAIN SANDBACH ↔ ORDERLY BYRNE: 1 scenes together
+154. ORDERLY BYRNE ↔ ORDERLY DIXON: 1 scenes together
+155. CAPTAIN RYLANDS ↔ ORDERLY DIXON: 1 scenes together
+156. CAPTAIN RYLANDS ↔ ORDERLY BYRNE: 1 scenes together
+157. COLONEL MACKENZIE ↔ SCHOFIELD: 1 scenes together
+158. COLONEL MACKENZIE ↔ MAJOR HEPBURN: 1 scenes together
+159. COLONEL MACKENZIE ↔ OFFICERS: 1 scenes together
+160. COLONEL MACKENZIE ↔ CORPORAL CAIRNS: 1 scenes together
+161. MAJOR HEPBURN ↔ SCHOFIELD: 1 scenes together
+162. OFFICERS ↔ SCHOFIELD: 1 scenes together
+163. CORPORAL CAIRNS ↔ SCHOFIELD: 1 scenes together
+164. MAJOR HEPBURN ↔ OFFICERS: 1 scenes together
+165. CORPORAL CAIRNS ↔ MAJOR HEPBURN: 1 scenes together
+166. CORPORAL CAIRNS ↔ OFFICERS: 1 scenes together
+167. MEDICAL OFFICER ↔ SCHOFIELD: 1 scenes together
+168. MEDICAL OFFCIER ↔ SCHOFIELD: 1 scenes together
+169. LIEUTENANT ↔ SCHOFIELD: 1 scenes together
+170. LIEUTENANT BLAKE ↔ SCHOFIELD: 1 scenes together
+171. SCHOFIELD ↔ THE END.: 1 scenes together
+172. FOR LANCE CORPORAL ALFRED H. MENDES ↔ SCHOFIELD: 1 scenes together
+173. SCHOFIELD ↔ WHO TOLD US THE STORIES: 1 scenes together
+174. MEDICAL OFFCIER ↔ MEDICAL OFFICER: 1 scenes together
+175. LIEUTENANT ↔ MEDICAL OFFICER: 1 scenes together
+176. LIEUTENANT BLAKE ↔ MEDICAL OFFICER: 1 scenes together
+177. MEDICAL OFFICER ↔ THE END.: 1 scenes together
+178. FOR LANCE CORPORAL ALFRED H. MENDES ↔ MEDICAL OFFICER: 1 scenes together
+179. MEDICAL OFFICER ↔ WHO TOLD US THE STORIES: 1 scenes together
+180. LIEUTENANT ↔ MEDICAL OFFCIER: 1 scenes together
+181. LIEUTENANT BLAKE ↔ MEDICAL OFFCIER: 1 scenes together
+182. MEDICAL OFFCIER ↔ THE END.: 1 scenes together
+183. FOR LANCE CORPORAL ALFRED H. MENDES ↔ MEDICAL OFFCIER: 1 scenes together
+184. MEDICAL OFFCIER ↔ WHO TOLD US THE STORIES: 1 scenes together
+185. LIEUTENANT ↔ LIEUTENANT BLAKE: 1 scenes together
+186. LIEUTENANT ↔ THE END.: 1 scenes together
+187. FOR LANCE CORPORAL ALFRED H. MENDES ↔ LIEUTENANT: 1 scenes together
+188. LIEUTENANT ↔ WHO TOLD US THE STORIES: 1 scenes together
+189. LIEUTENANT BLAKE ↔ THE END.: 1 scenes together
+190. FOR LANCE CORPORAL ALFRED H. MENDES ↔ LIEUTENANT BLAKE: 1 scenes together
+191. LIEUTENANT BLAKE ↔ WHO TOLD US THE STORIES: 1 scenes together
+192. FOR LANCE CORPORAL ALFRED H. MENDES ↔ THE END.: 1 scenes together
+193. THE END. ↔ WHO TOLD US THE STORIES: 1 scenes together
+194. FOR LANCE CORPORAL ALFRED H. MENDES ↔ WHO TOLD US THE STORIES: 1 scenes together

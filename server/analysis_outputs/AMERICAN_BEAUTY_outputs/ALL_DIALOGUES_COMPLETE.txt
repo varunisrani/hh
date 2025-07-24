@@ -1,0 +1,9 @@
+AMERICAN_BEAUTY - ALL DIALOGUES COMPLETE
+Complete extraction of all 1 dialogue entries
+================================================================================
+
+DIALOGUE 1:
+----------------------------------------
+Character: BACK IN REAL TIME
+Dialogue: She grabs the root beer and smiles at him.
+----------------------------------------

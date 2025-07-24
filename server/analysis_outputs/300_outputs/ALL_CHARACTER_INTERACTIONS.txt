@@ -1,0 +1,241 @@
+300 - ALL CHARACTER INTERACTIONS
+Complete character interaction analysis
+Total character pairs found: 234
+================================================================================
+
+CHARACTER PAIRS (Sorted by co-occurrence):
+--------------------------------------------------
+  1. DILIOS ↔ LEONIDAS: 16 scenes together
+  2. CAPTAIN ↔ LEONIDAS: 15 scenes together
+  3. WE HEAR ↔ WE SEE: 11 scenes together
+  4. DILIOS ↔ WE SEE: 10 scenes together
+  5. LEONIDAS ↔ STELIOS: 9 scenes together
+  6. CAPTAIN ↔ STELIOS: 9 scenes together
+  7. CAPTAIN ↔ DILIOS: 9 scenes together
+  8. LEONIDAS ↔ WE HEAR: 8 scenes together
+  9. DILIOS ↔ SPARTANS: 7 scenes together
+ 10. LEONIDAS ↔ WE SEE: 7 scenes together
+ 11. DILIOS ↔ WE HEAR: 7 scenes together
+ 12. GORGO ↔ THERON: 5 scenes together
+ 13. DILIOS ↔ STELIOS: 5 scenes together
+ 14. DAXOS ↔ LEONIDAS: 5 scenes together
+ 15. LEONIDAS ↔ SPARTANS: 5 scenes together
+ 16. ASTINOS ↔ LEONIDAS: 5 scenes together
+ 17. ASTINOS ↔ CAPTAIN: 5 scenes together
+ 18. ASTINOS ↔ STELIOS: 5 scenes together
+ 19. TIME SLOWS ↔ WE SEE: 5 scenes together
+ 20. GORGO ↔ LEONIDAS: 4 scenes together
+ 21. GORGO ↔ WE SEE: 4 scenes together
+ 22. SPARTANS ↔ WE HEAR: 4 scenes together
+ 23. STELIOS ↔ WE SEE: 4 scenes together
+ 24. TIME SLOWS ↔ WE HEAR: 4 scenes together
+ 25. DILIOS ↔ TIME SLOWS: 4 scenes together
+ 26. DILIOS ↔ TIME SLOWS.: 3 scenes together
+ 27. TIME SLOWS. ↔ WE SEE: 3 scenes together
+ 28. GORGO ↔ WE HEAR: 3 scenes together
+ 29. THERON ↔ WE SEE: 3 scenes together
+ 30. DAXOS ↔ DILIOS: 3 scenes together
+ 31. GORGO ↔ LOYALIST: 3 scenes together
+ 32. CAPTAIN ↔ WE SEE: 3 scenes together
+ 33. SPARTANS ↔ WE SEE: 3 scenes together
+ 34. CAPTAIN ↔ WE HEAR: 3 scenes together
+ 35. STELIOS ↔ WE HEAR: 3 scenes together
+ 36. CAPTAIN ↔ SPARTANS: 3 scenes together
+ 37. ASTINOS ↔ DILIOS: 3 scenes together
+ 38. LEONIDAS ↔ TIME SLOWS: 3 scenes together
+ 39. MESSENGER ↔ WE SEE: 2 scenes together
+ 40. MESSENGER ↔ WE HEAR: 2 scenes together
+ 41. LEONIDAS ↔ THERON: 2 scenes together
+ 42. THERON ↔ WE HEAR: 2 scenes together
+ 43. DILIOS ↔ THERON: 2 scenes together
+ 44. DAXOS ↔ WE HEAR: 2 scenes together
+ 45. DAXOS ↔ SPARTANS: 2 scenes together
+ 46. CAPTAIN ↔ DAXOS: 2 scenes together
+ 47. DAXOS ↔ SPARTAN: 2 scenes together
+ 48. DAXOS ↔ WE SEE: 2 scenes together
+ 49. EPHIALTES ↔ WE SEE: 2 scenes together
+ 50. EPHIALTES ↔ WE HEAR: 2 scenes together
+ 51. DILIOS ↔ EPHIALTES: 2 scenes together
+ 52. ASTINOS ↔ WE SEE: 2 scenes together
+ 53. ASTINOS ↔ WE HEAR: 2 scenes together
+ 54. SPARTANS ↔ STELIOS: 2 scenes together
+ 55. ASTINOS ↔ SPARTANS: 2 scenes together
+ 56. LOYALIST ↔ WE SEE: 2 scenes together
+ 57. LOYALIST ↔ THERON: 2 scenes together
+ 58. LEONIDAS ↔ XERXES: 2 scenes together
+ 59. DILIOS ↔ XERXES: 2 scenes together
+ 60. TIME SLOWS. ↔ WE HEAR: 2 scenes together
+ 61. LEONIDAS ↔ TIME SLOWS.: 2 scenes together
+ 62. TIME SLOWS ↔ TIME SLOWS.: 2 scenes together
+ 63. CAPTAIN ↔ TIME SLOWS: 2 scenes together
+ 64. STELIOS ↔ TIME SLOWS: 2 scenes together
+ 65. WE HEAR ↔ XERXES: 2 scenes together
+ 66. DILIOS ↔ PERSIAN GENERAL: 2 scenes together
+ 67. DILIOS ↔ WE MOVE: 2 scenes together
+ 68. PLEISTARCHOS ↔ WE HEAR: 1 scenes together
+ 69. LEONIDAS ↔ PLEISTARCHOS: 1 scenes together
+ 70. PLEISTARCHOS ↔ WE SEE: 1 scenes together
+ 71. GORGO ↔ PLEISTARCHOS: 1 scenes together
+ 72. GORGO ↔ MESSENGER: 1 scenes together
+ 73. GORGO ↔ TIME UNWRAPS: 1 scenes together
+ 74. MESSENGER ↔ THERON: 1 scenes together
+ 75. THERON ↔ TIME UNWRAPS: 1 scenes together
+ 76. LEONIDAS ↔ MESSENGER: 1 scenes together
+ 77. LEONIDAS ↔ TIME UNWRAPS: 1 scenes together
+ 78. MESSENGER ↔ TIME UNWRAPS: 1 scenes together
+ 79. TIME UNWRAPS ↔ WE HEAR: 1 scenes together
+ 80. TIME UNWRAPS ↔ WE SEE: 1 scenes together
+ 81. DILIOS ↔ PERSIAN: 1 scenes together
+ 82. PERSIAN ↔ THERON: 1 scenes together
+ 83. ELDER COUNCILMAN ↔ LEONIDAS: 1 scenes together
+ 84. COUNCILMAN ↔ LEONIDAS: 1 scenes together
+ 85. CAPTAIN ↔ ELDER COUNCILMAN: 1 scenes together
+ 86. CAPTAIN ↔ COUNCILMAN: 1 scenes together
+ 87. CAPTAIN ↔ THERON: 1 scenes together
+ 88. CAPTAIN ↔ GORGO: 1 scenes together
+ 89. ELDER COUNCILMAN ↔ STELIOS: 1 scenes together
+ 90. COUNCILMAN ↔ STELIOS: 1 scenes together
+ 91. STELIOS ↔ THERON: 1 scenes together
+ 92. GORGO ↔ STELIOS: 1 scenes together
+ 93. COUNCILMAN ↔ ELDER COUNCILMAN: 1 scenes together
+ 94. ELDER COUNCILMAN ↔ THERON: 1 scenes together
+ 95. ELDER COUNCILMAN ↔ GORGO: 1 scenes together
+ 96. DILIOS ↔ ELDER COUNCILMAN: 1 scenes together
+ 97. COUNCILMAN ↔ THERON: 1 scenes together
+ 98. COUNCILMAN ↔ GORGO: 1 scenes together
+ 99. COUNCILMAN ↔ DILIOS: 1 scenes together
+100. DILIOS ↔ GORGO: 1 scenes together
+101. ARCADIANS ↔ WE HEAR: 1 scenes together
+102. ARCADIANS ↔ DILIOS: 1 scenes together
+103. ARCADIANS ↔ LEONIDAS: 1 scenes together
+104. ARCADIANS ↔ DAXOS: 1 scenes together
+105. ARCADIANS ↔ SPARTANS: 1 scenes together
+106. CHILD ↔ STELIOS: 1 scenes together
+107. SPARTAN ↔ STELIOS: 1 scenes together
+108. DAXOS ↔ STELIOS: 1 scenes together
+109. CHILD ↔ LEONIDAS: 1 scenes together
+110. LEONIDAS ↔ SPARTAN: 1 scenes together
+111. CAPTAIN ↔ CHILD: 1 scenes together
+112. CAPTAIN ↔ SPARTAN: 1 scenes together
+113. CHILD ↔ SPARTAN: 1 scenes together
+114. CHILD ↔ DAXOS: 1 scenes together
+115. SPARTAN ↔ WE SEE: 1 scenes together
+116. GENERAL ↔ WE SEE: 1 scenes together
+117. GENERAL ↔ STELIOS: 1 scenes together
+118. CAPTAIN ↔ EPHIALTES: 1 scenes together
+119. EPHIALTES ↔ LEONIDAS: 1 scenes together
+120. LEONIDAS ↔ PERSIAN HORSEMAN: 1 scenes together
+121. PERSIAN HORSEMAN ↔ WE SEE: 1 scenes together
+122. PERSIAN HORSEMAN ↔ WE HEAR: 1 scenes together
+123. CAPTAIN ↔ PERSIAN HORSEMAN: 1 scenes together
+124. DILIOS ↔ PERSIAN HORSEMAN: 1 scenes together
+125. PERSIAN HORSEMAN ↔ SPARTANS: 1 scenes together
+126. PERSIAN HORSEMAN ↔ STELIOS: 1 scenes together
+127. ASTINOS ↔ PERSIAN HORSEMAN: 1 scenes together
+128. IMMORTALCOMMANDER ↔ WE HEAR: 1 scenes together
+129. STILL UNDER THE DRUMS. ↔ WE HEAR: 1 scenes together
+130. DILIOS ↔ IMMORTALCOMMANDER: 1 scenes together
+131. DILIOS ↔ STILL UNDER THE DRUMS.: 1 scenes together
+132. IMMORTALCOMMANDER ↔ LEONIDAS: 1 scenes together
+133. LEONIDAS ↔ STILL UNDER THE DRUMS.: 1 scenes together
+134. IMMORTALCOMMANDER ↔ WE SEE: 1 scenes together
+135. STILL UNDER THE DRUMS. ↔ WE SEE: 1 scenes together
+136. IMMORTALCOMMANDER ↔ TIME SLOWS: 1 scenes together
+137. DAXOS ↔ TIME SLOWS: 1 scenes together
+138. STILL UNDER THE DRUMS. ↔ TIME SLOWS: 1 scenes together
+139. DAXOS ↔ IMMORTALCOMMANDER: 1 scenes together
+140. IMMORTALCOMMANDER ↔ TIME SLOWS.: 1 scenes together
+141. IMMORTALCOMMANDER ↔ STILL UNDER THE DRUMS.: 1 scenes together
+142. DAXOS ↔ TIME SLOWS.: 1 scenes together
+143. DAXOS ↔ STILL UNDER THE DRUMS.: 1 scenes together
+144. STILL UNDER THE DRUMS. ↔ TIME SLOWS.: 1 scenes together
+145. BEASTS. ↔ WE HEAR: 1 scenes together
+146. BEASTS. ↔ DILIOS: 1 scenes together
+147. BEASTS. ↔ WE SEE: 1 scenes together
+148. BEASTS. ↔ CAPTAIN: 1 scenes together
+149. BEASTS. ↔ LEONIDAS: 1 scenes together
+150. ASTINOS ↔ BEASTS.: 1 scenes together
+151. BEASTS. ↔ STELIOS: 1 scenes together
+152. BEASTS. ↔ TIME SLOWS: 1 scenes together
+153. ASTINOS ↔ TIME SLOWS: 1 scenes together
+154. EPHIALTES ↔ XERXES: 1 scenes together
+155. DAX.OS ↔ LEONIDAS: 1 scenes together
+156. LEONIDAS ↔ SEE: 1 scenes together
+157. DAX.OS ↔ DILIOS: 1 scenes together
+158. DILIOS ↔ SEE: 1 scenes together
+159. DAX.OS ↔ DAXOS: 1 scenes together
+160. DAXOS ↔ SEE: 1 scenes together
+161. DAX.OS ↔ SPARTANS: 1 scenes together
+162. DAX.OS ↔ SEE: 1 scenes together
+163. CAPTAIN ↔ DAX.OS: 1 scenes together
+164. SEE ↔ SPARTANS: 1 scenes together
+165. CAPTAIN ↔ SEE: 1 scenes together
+166. LOYALIST ↔ WE HEAR: 1 scenes together
+167. PARTISAN ↔ WE HEAR: 1 scenes together
+168. STATESMAN ↔ WE HEAR: 1 scenes together
+169. PARTISAN ↔ WE SEE: 1 scenes together
+170. STATESMAN ↔ WE SEE: 1 scenes together
+171. LOYALIST ↔ PARTISAN: 1 scenes together
+172. LOYALIST ↔ STATESMAN: 1 scenes together
+173. LOYALIST ↔ TIME SLOWS: 1 scenes together
+174. GORGO ↔ PARTISAN: 1 scenes together
+175. GORGO ↔ STATESMAN: 1 scenes together
+176. GORGO ↔ TIME SLOWS: 1 scenes together
+177. PARTISAN ↔ THERON: 1 scenes together
+178. PARTISAN ↔ STATESMAN: 1 scenes together
+179. PARTISAN ↔ TIME SLOWS: 1 scenes together
+180. STATESMAN ↔ THERON: 1 scenes together
+181. THERON ↔ TIME SLOWS: 1 scenes together
+182. STATESMAN ↔ TIME SLOWS: 1 scenes together
+183. PERSIAN GENERAL ↔ WE SEE: 1 scenes together
+184. EPHIALTES ↔ PERSIAN GENERAL: 1 scenes together
+185. LEONIDAS ↔ PERSIAN GENERAL: 1 scenes together
+186. DRUM STROKE. ↔ LEONIDAS: 1 scenes together
+187. BLACKNESS. ↔ LEONIDAS: 1 scenes together
+188. TIME SLOWS ↔ XERXES: 1 scenes together
+189. WE SEE ↔ XERXES: 1 scenes together
+190. TIME SLOWS. ↔ XERXES: 1 scenes together
+191. CAPTAIN ↔ XERXES: 1 scenes together
+192. STELIOS ↔ XERXES: 1 scenes together
+193. DRUM STROKE. ↔ XERXES: 1 scenes together
+194. BLACKNESS. ↔ XERXES: 1 scenes together
+195. DRUM STROKE. ↔ TIME SLOWS: 1 scenes together
+196. BLACKNESS. ↔ TIME SLOWS: 1 scenes together
+197. DILIOS ↔ DRUM STROKE.: 1 scenes together
+198. BLACKNESS. ↔ DILIOS: 1 scenes together
+199. DRUM STROKE. ↔ WE SEE: 1 scenes together
+200. BLACKNESS. ↔ WE SEE: 1 scenes together
+201. CAPTAIN ↔ TIME SLOWS.: 1 scenes together
+202. STELIOS ↔ TIME SLOWS.: 1 scenes together
+203. DRUM STROKE. ↔ TIME SLOWS.: 1 scenes together
+204. BLACKNESS. ↔ TIME SLOWS.: 1 scenes together
+205. CAPTAIN ↔ DRUM STROKE.: 1 scenes together
+206. BLACKNESS. ↔ CAPTAIN: 1 scenes together
+207. DRUM STROKE. ↔ WE HEAR: 1 scenes together
+208. BLACKNESS. ↔ WE HEAR: 1 scenes together
+209. DRUM STROKE. ↔ STELIOS: 1 scenes together
+210. BLACKNESS. ↔ STELIOS: 1 scenes together
+211. BLACKNESS. ↔ DRUM STROKE.: 1 scenes together
+212. WE MOVE ↔ WE SEE: 1 scenes together
+213. WE FOLLOW ↔ WE SEE: 1 scenes together
+214. WE RISE ↔ WE SEE: 1 scenes together
+215. FADE TO BLACK. ↔ WE SEE: 1 scenes together
+216. THE END ↔ WE SEE: 1 scenes together
+217. DILIOS ↔ WE FOLLOW: 1 scenes together
+218. DILIOS ↔ WE RISE: 1 scenes together
+219. DILIOS ↔ FADE TO BLACK.: 1 scenes together
+220. DILIOS ↔ THE END: 1 scenes together
+221. WE FOLLOW ↔ WE HEAR: 1 scenes together
+222. SPARTANS ↔ WE FOLLOW: 1 scenes together
+223. WE FOLLOW ↔ WE RISE: 1 scenes together
+224. FADE TO BLACK. ↔ WE FOLLOW: 1 scenes together
+225. THE END ↔ WE FOLLOW: 1 scenes together
+226. WE HEAR ↔ WE RISE: 1 scenes together
+227. FADE TO BLACK. ↔ WE HEAR: 1 scenes together
+228. THE END ↔ WE HEAR: 1 scenes together
+229. SPARTANS ↔ WE RISE: 1 scenes together
+230. FADE TO BLACK. ↔ SPARTANS: 1 scenes together
+231. SPARTANS ↔ THE END: 1 scenes together
+232. FADE TO BLACK. ↔ WE RISE: 1 scenes together
+233. THE END ↔ WE RISE: 1 scenes together
+234. FADE TO BLACK. ↔ THE END: 1 scenes together

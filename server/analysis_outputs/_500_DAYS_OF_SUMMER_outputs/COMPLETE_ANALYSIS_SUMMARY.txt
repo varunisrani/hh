@@ -1,0 +1,24 @@
+_500_DAYS_OF_SUMMER - COMPLETE ANALYSIS SUMMARY
+Full extraction and analysis of _500_DAYS_OF_SUMMER screenplay
+================================================================================
+
+EXTRACTION RESULTS:
+--------------------
+Total Scenes: 142
+Total Dialogues: 10
+Total Characters: 56
+
+TOP 10 CHARACTERS BY DIALOGUE COUNT:
+----------------------------------------
+ 1. FADE UP: 3 dialogues
+ 2. CU: 3 dialogues
+ 3. INSERT: 3 dialogues
+ 4. FX: 1 dialogues
+
+FILES GENERATED:
+----------------
+1. ALL_SCENES_COMPLETE.txt - All 142 scenes
+2. ALL_DIALOGUES_COMPLETE.txt - All dialogue entries
+3. ALL_CHARACTERS_COMPLETE.txt - All character details
+4. ALL_CHARACTER_INTERACTIONS.txt - Character relationships
+5. COMPLETE_ANALYSIS_SUMMARY.txt - This summary

@@ -1,0 +1,30 @@
+THE_BIG_SHORT - COMPLETE ANALYSIS SUMMARY
+Full extraction and analysis of The_Big_Short screenplay
+================================================================================
+
+EXTRACTION RESULTS:
+--------------------
+Total Scenes: 151
+Total Dialogues: 43
+Total Characters: 149
+
+TOP 10 CHARACTERS BY DIALOGUE COUNT:
+----------------------------------------
+ 1. MUSIC: 18 dialogues
+ 2. GRAPHIC: 5 dialogues
+ 3. FREEZE: 2 dialogues
+ 4. LATER: 2 dialogues
+ 5. OPEN ON: 1 dialogues
+ 6. TIME LAPSE: 1 dialogues
+ 7. TITLE: 1 dialogues
+ 8. QUICK CUTS: 1 dialogues
+ 9. FAST CUTS: 1 dialogues
+10. MOMENTS LATE: 1 dialogues
+
+FILES GENERATED:
+----------------
+1. ALL_SCENES_COMPLETE.txt - All 151 scenes
+2. ALL_DIALOGUES_COMPLETE.txt - All dialogue entries
+3. ALL_CHARACTERS_COMPLETE.txt - All character details
+4. ALL_CHARACTER_INTERACTIONS.txt - Character relationships
+5. COMPLETE_ANALYSIS_SUMMARY.txt - This summary

@@ -1,0 +1,9 @@
+BEAUTY_AND_THE_BEAST - ALL DIALOGUES COMPLETE
+Complete extraction of all 1 dialogue entries
+================================================================================
+
+DIALOGUE 1:
+----------------------------------------
+Character: A MUSKET AND THE SPOILS OF HIS HUNT
+Dialogue: RABBIT, FOX, AND FOWL.
+----------------------------------------

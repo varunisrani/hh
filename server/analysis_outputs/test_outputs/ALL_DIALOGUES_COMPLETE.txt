@@ -1,0 +1,14 @@
+TEST - ALL DIALOGUES COMPLETE
+Complete extraction of all 2 dialogue entries
+================================================================================
+
+DIALOGUE 1:
+----------------------------------------
+Character: NOTE
+Dialogue: The notes on characters are extremely brief, since it
+----------------------------------------
+DIALOGUE 2:
+----------------------------------------
+Character: FOREMAN
+Dialogue: 35 years old. Assistant high school football coach.
+----------------------------------------

@@ -1,0 +1,236 @@
+_500_DAYS_OF_SUMMER - ALL CHARACTER INTERACTIONS
+Complete character interaction analysis
+Total character pairs found: 229
+================================================================================
+
+CHARACTER PAIRS (Sorted by co-occurrence):
+--------------------------------------------------
+  1. SUMMER ↔ TOM: 39 scenes together
+  2. MCKENZIE ↔ TOM: 19 scenes together
+  3. CUT TO ↔ TOM: 16 scenes together
+  4. PAUL ↔ TOM: 14 scenes together
+  5. MCKENZIE ↔ PAUL: 10 scenes together
+  6. RACHEL ↔ TOM: 9 scenes together
+  7. CUT TO ↔ MCKENZIE: 7 scenes together
+  8. CUT TO ↔ SUMMER: 7 scenes together
+  9. CUT TO ↔ NARRATOR: 6 scenes together
+ 10. CUT TO ↔ PAUL: 6 scenes together
+ 11. MCKENZIE ↔ SUMMER: 6 scenes together
+ 12. LATER. ↔ TOM: 6 scenes together
+ 13. LATER. ↔ SUMMER: 6 scenes together
+ 14. PAUL ↔ RACHEL: 5 scenes together
+ 15. CUT TO ↔ RACHEL: 5 scenes together
+ 16. MCKENZIE ↔ RACHEL: 4 scenes together
+ 17. NARRATOR ↔ TOM: 4 scenes together
+ 18. ALISON ↔ TOM: 4 scenes together
+ 19. MCKENZIE ↔ VANCE: 3 scenes together
+ 20. CUT TO ↔ LATER.: 3 scenes together
+ 21. FADE UP ↔ TOM: 3 scenes together
+ 22. FADE UP ↔ SUMMER: 3 scenes together
+ 23. TOM ↔ VANCE.: 3 scenes together
+ 24. TOM ↔ VANCE: 3 scenes together
+ 25. BLACK. ↔ CUT TO: 2 scenes together
+ 26. GIRL ↔ TOM: 2 scenes together
+ 27. SUMMER ↔ VANCE: 2 scenes together
+ 28. SARAH ↔ TOM: 2 scenes together
+ 29. CUT TO ↔ SARAH: 2 scenes together
+ 30. LATER. ↔ MCKENZIE: 2 scenes together
+ 31. PAUL ↔ SUMMER: 2 scenes together
+ 32. RACHEL ↔ SUMMER: 2 scenes together
+ 33. CUT TO ↔ VANCE: 2 scenes together
+ 34. VANCE ↔ VANCE.: 2 scenes together
+ 35. BLACK. ↔ NARRATOR: 1 scenes together
+ 36. GIRL ↔ PAUL: 1 scenes together
+ 37. GIRL ↔ RACHEL: 1 scenes together
+ 38. GIRL ↔ MCKENZIE: 1 scenes together
+ 39. STOCK FOOTAGE. ↔ TOM: 1 scenes together
+ 40. END ON ↔ TOM: 1 scenes together
+ 41. RACHEL ↔ SARAH: 1 scenes together
+ 42. RACHEL ↔ STOCK FOOTAGE.: 1 scenes together
+ 43. NARRATOR ↔ RACHEL: 1 scenes together
+ 44. END ON ↔ RACHEL: 1 scenes together
+ 45. SARAH ↔ STOCK FOOTAGE.: 1 scenes together
+ 46. NARRATOR ↔ SARAH: 1 scenes together
+ 47. END ON ↔ SARAH: 1 scenes together
+ 48. CUT TO ↔ STOCK FOOTAGE.: 1 scenes together
+ 49. CUT TO ↔ END ON: 1 scenes together
+ 50. NARRATOR ↔ STOCK FOOTAGE.: 1 scenes together
+ 51. END ON ↔ STOCK FOOTAGE.: 1 scenes together
+ 52. END ON ↔ NARRATOR: 1 scenes together
+ 53. ANOTHER BOY. ↔ NARRATOR: 1 scenes together
+ 54. DUDES. ↔ TOM: 1 scenes together
+ 55. REBECCA ↔ TOM: 1 scenes together
+ 56. DUDES. ↔ NARRATOR: 1 scenes together
+ 57. NARRATOR ↔ REBECCA: 1 scenes together
+ 58. DUDES. ↔ REBECCA: 1 scenes together
+ 59. AMANDA ↔ NARRATOR: 1 scenes together
+ 60. AMANDA ↔ TOM: 1 scenes together
+ 61. ALL BUILDING TO A HUGE CRESCENDO. ↔ TOM: 1 scenes together
+ 62. BACK TO ↔ TOM: 1 scenes together
+ 63. ALL BUILDING TO A HUGE CRESCENDO. ↔ SUMMER: 1 scenes together
+ 64. BACK TO ↔ SUMMER: 1 scenes together
+ 65. ALL BUILDING TO A HUGE CRESCENDO. ↔ MCKENZIE: 1 scenes together
+ 66. BACK TO ↔ MCKENZIE: 1 scenes together
+ 67. ALL BUILDING TO A HUGE CRESCENDO. ↔ LATER.: 1 scenes together
+ 68. BACK TO ↔ LATER.: 1 scenes together
+ 69. ALL BUILDING TO A HUGE CRESCENDO. ↔ CUT TO: 1 scenes together
+ 70. BACK TO ↔ CUT TO: 1 scenes together
+ 71. ALL BUILDING TO A HUGE CRESCENDO. ↔ BACK TO: 1 scenes together
+ 72. TEN MINUTES LATER. ↔ TOM: 1 scenes together
+ 73. SUMMER ↔ TEN MINUTES LATER.: 1 scenes together
+ 74. MCKENZIE ↔ TEN MINUTES LATER.: 1 scenes together
+ 75. LATER. ↔ TEN MINUTES LATER.: 1 scenes together
+ 76. FADE UP ↔ MCKENZIE: 1 scenes together
+ 77. SUMMER ↔ VANCE.: 1 scenes together
+ 78. BUS DRIVER ↔ TOM: 1 scenes together
+ 79. BUS DRIVER ↔ SUMMER: 1 scenes together
+ 80. BUS DRIVER ↔ CUT TO: 1 scenes together
+ 81. BUS DRIVER ↔ LATER.: 1 scenes together
+ 82. CU ↔ TOM: 1 scenes together
+ 83. CU ↔ SUMMER: 1 scenes together
+ 84. BOTH ↔ SUMMER: 1 scenes together
+ 85. BOTH ↔ TOM: 1 scenes together
+ 86. CUT TO ↔ TV.: 1 scenes together
+ 87. B.M. ↔ SUMMER: 1 scenes together
+ 88. B.M. ↔ TOM: 1 scenes together
+ 89. SECONDS LATER. ↔ TOM: 1 scenes together
+ 90. FREEZE ON TOM. ↔ TOM: 1 scenes together
+ 91. TOM ↔ UNFREEZE.: 1 scenes together
+ 92. FREEZE ON TOM. ↔ UNFREEZE.: 1 scenes together
+ 93. DOUCHE ↔ TOM: 1 scenes together
+ 94. DOUCHE ↔ SUMMER: 1 scenes together
+ 95. CUT TO ↔ DOUCHE: 1 scenes together
+ 96. SPLITSCREEN ↔ TOM: 1 scenes together
+ 97. SPLITSCREEN ↔ SUMMER: 1 scenes together
+ 98. LATER. ↔ SPLITSCREEN: 1 scenes together
+ 99. INSERT ↔ TOM: 1 scenes together
+100. INSERT ↔ SUMMER: 1 scenes together
+101. CUT TO ↔ INSERT: 1 scenes together
+102. CAMERA. ↔ TOM: 1 scenes together
+103. CAMERA. ↔ SUMMER: 1 scenes together
+104. CU MCKENZIE. ↔ SUMMER: 1 scenes together
+105. CU RACHEL. ↔ SUMMER: 1 scenes together
+106. CU VANCE. ↔ SUMMER: 1 scenes together
+107. CU SUMMER ↔ SUMMER: 1 scenes together
+108. CU MCKENZIE ↔ SUMMER: 1 scenes together
+109. CU PAUL ↔ SUMMER: 1 scenes together
+110. CU TOM. ↔ SUMMER: 1 scenes together
+111. CU MCKENZIE. ↔ TOM: 1 scenes together
+112. CU RACHEL. ↔ TOM: 1 scenes together
+113. CU VANCE. ↔ TOM: 1 scenes together
+114. CU SUMMER ↔ TOM: 1 scenes together
+115. CU MCKENZIE ↔ TOM: 1 scenes together
+116. CU PAUL ↔ TOM: 1 scenes together
+117. CU TOM. ↔ TOM: 1 scenes together
+118. CU MCKENZIE. ↔ CUT TO: 1 scenes together
+119. CU RACHEL. ↔ CUT TO: 1 scenes together
+120. CU VANCE. ↔ CUT TO: 1 scenes together
+121. CU SUMMER ↔ CUT TO: 1 scenes together
+122. CU MCKENZIE ↔ CUT TO: 1 scenes together
+123. CU PAUL ↔ CUT TO: 1 scenes together
+124. CU TOM. ↔ CUT TO: 1 scenes together
+125. CU MCKENZIE. ↔ PAUL: 1 scenes together
+126. CU RACHEL. ↔ PAUL: 1 scenes together
+127. CU VANCE. ↔ PAUL: 1 scenes together
+128. PAUL ↔ VANCE: 1 scenes together
+129. CU SUMMER ↔ PAUL: 1 scenes together
+130. CU MCKENZIE ↔ PAUL: 1 scenes together
+131. CU PAUL ↔ PAUL: 1 scenes together
+132. CU TOM. ↔ PAUL: 1 scenes together
+133. CU MCKENZIE. ↔ MCKENZIE: 1 scenes together
+134. CU MCKENZIE. ↔ CU RACHEL.: 1 scenes together
+135. CU MCKENZIE. ↔ RACHEL: 1 scenes together
+136. CU MCKENZIE. ↔ CU VANCE.: 1 scenes together
+137. CU MCKENZIE. ↔ VANCE: 1 scenes together
+138. CU MCKENZIE. ↔ CU SUMMER: 1 scenes together
+139. CU MCKENZIE ↔ CU MCKENZIE.: 1 scenes together
+140. CU MCKENZIE. ↔ CU PAUL: 1 scenes together
+141. CU MCKENZIE. ↔ CU TOM.: 1 scenes together
+142. CU RACHEL. ↔ MCKENZIE: 1 scenes together
+143. CU VANCE. ↔ MCKENZIE: 1 scenes together
+144. CU SUMMER ↔ MCKENZIE: 1 scenes together
+145. CU MCKENZIE ↔ MCKENZIE: 1 scenes together
+146. CU PAUL ↔ MCKENZIE: 1 scenes together
+147. CU TOM. ↔ MCKENZIE: 1 scenes together
+148. CU RACHEL. ↔ RACHEL: 1 scenes together
+149. CU RACHEL. ↔ CU VANCE.: 1 scenes together
+150. CU RACHEL. ↔ VANCE: 1 scenes together
+151. CU RACHEL. ↔ CU SUMMER: 1 scenes together
+152. CU MCKENZIE ↔ CU RACHEL.: 1 scenes together
+153. CU PAUL ↔ CU RACHEL.: 1 scenes together
+154. CU RACHEL. ↔ CU TOM.: 1 scenes together
+155. CU VANCE. ↔ RACHEL: 1 scenes together
+156. RACHEL ↔ VANCE: 1 scenes together
+157. CU SUMMER ↔ RACHEL: 1 scenes together
+158. CU MCKENZIE ↔ RACHEL: 1 scenes together
+159. CU PAUL ↔ RACHEL: 1 scenes together
+160. CU TOM. ↔ RACHEL: 1 scenes together
+161. CU VANCE. ↔ VANCE: 1 scenes together
+162. CU SUMMER ↔ CU VANCE.: 1 scenes together
+163. CU MCKENZIE ↔ CU VANCE.: 1 scenes together
+164. CU PAUL ↔ CU VANCE.: 1 scenes together
+165. CU TOM. ↔ CU VANCE.: 1 scenes together
+166. CU SUMMER ↔ VANCE: 1 scenes together
+167. CU MCKENZIE ↔ VANCE: 1 scenes together
+168. CU PAUL ↔ VANCE: 1 scenes together
+169. CU TOM. ↔ VANCE: 1 scenes together
+170. CU MCKENZIE ↔ CU SUMMER: 1 scenes together
+171. CU PAUL ↔ CU SUMMER: 1 scenes together
+172. CU SUMMER ↔ CU TOM.: 1 scenes together
+173. CU MCKENZIE ↔ CU PAUL: 1 scenes together
+174. CU MCKENZIE ↔ CU TOM.: 1 scenes together
+175. CU PAUL ↔ CU TOM.: 1 scenes together
+176. ALL ↔ TOM: 1 scenes together
+177. MARTIN ↔ TOM: 1 scenes together
+178. SARAH ↔ SUMMER: 1 scenes together
+179. MARTIN ↔ SUMMER: 1 scenes together
+180. MARTIN ↔ SARAH: 1 scenes together
+181. CUT TO ↔ MARTIN: 1 scenes together
+182. FADE UP ↔ LATER.: 1 scenes together
+183. MCKENZIE ↔ VANCE.: 1 scenes together
+184. CUT TO ↔ VANCE.: 1 scenes together
+185. FX ↔ TOM: 1 scenes together
+186. BLACK. ↔ TOM: 1 scenes together
+187. FX ↔ MCKENZIE: 1 scenes together
+188. BLACK. ↔ MCKENZIE: 1 scenes together
+189. FX ↔ PAUL: 1 scenes together
+190. BLACK. ↔ PAUL: 1 scenes together
+191. CUT TO ↔ FX: 1 scenes together
+192. BLACK. ↔ FX: 1 scenes together
+193. AUNT ANITA ↔ CUT TO: 1 scenes together
+194. AUNT BETSY ↔ CUT TO: 1 scenes together
+195. CUT TO ↔ MORNING: 1 scenes together
+196. LATER. ↔ RACHEL: 1 scenes together
+197. AUNT ANITA ↔ LATER.: 1 scenes together
+198. AUNT BETSY ↔ LATER.: 1 scenes together
+199. LATER. ↔ MORNING: 1 scenes together
+200. AUNT ANITA ↔ RACHEL: 1 scenes together
+201. AUNT BETSY ↔ RACHEL: 1 scenes together
+202. MORNING ↔ RACHEL: 1 scenes together
+203. AUNT ANITA ↔ TOM: 1 scenes together
+204. AUNT ANITA ↔ AUNT BETSY: 1 scenes together
+205. AUNT ANITA ↔ SUMMER: 1 scenes together
+206. AUNT ANITA ↔ MORNING: 1 scenes together
+207. AUNT BETSY ↔ TOM: 1 scenes together
+208. MORNING ↔ TOM: 1 scenes together
+209. AUNT BETSY ↔ SUMMER: 1 scenes together
+210. AUNT BETSY ↔ MORNING: 1 scenes together
+211. MORNING ↔ SUMMER: 1 scenes together
+212. FADE OUT ↔ SUMMER: 1 scenes together
+213. FADE IN ↔ SUMMER: 1 scenes together
+214. FADE OUT ↔ TOM: 1 scenes together
+215. FADE IN ↔ TOM: 1 scenes together
+216. FADE IN ↔ FADE OUT: 1 scenes together
+217. GIRL ↔ MAN: 1 scenes together
+218. GIRL ↔ NARRATOR: 1 scenes together
+219. GIRL ↔ SMASH CUT TO: 1 scenes together
+220. GIRL ↔ THE END.: 1 scenes together
+221. MAN ↔ TOM: 1 scenes together
+222. SMASH CUT TO ↔ TOM: 1 scenes together
+223. THE END. ↔ TOM: 1 scenes together
+224. MAN ↔ NARRATOR: 1 scenes together
+225. MAN ↔ SMASH CUT TO: 1 scenes together
+226. MAN ↔ THE END.: 1 scenes together
+227. NARRATOR ↔ SMASH CUT TO: 1 scenes together
+228. NARRATOR ↔ THE END.: 1 scenes together
+229. SMASH CUT TO ↔ THE END.: 1 scenes together

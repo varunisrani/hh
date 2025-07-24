@@ -1,0 +1,270 @@
+BEAUTY_AND_THE_BEAST - ALL CHARACTER INTERACTIONS
+Complete character interaction analysis
+Total character pairs found: 263
+================================================================================
+
+CHARACTER PAIRS (Sorted by co-occurrence):
+--------------------------------------------------
+  1. BELLE ↔ THE BEAST: 14 scenes together
+  2. COGSWORTH ↔ MRS. POTTS: 13 scenes together
+  3. GASTON ↔ LEFOU: 10 scenes together
+  4. COGSWORTH ↔ PLUMETTE: 9 scenes together
+  5. BELLE ↔ COGSWORTH: 7 scenes together
+  6. CHIP ↔ MRS. POTTS: 7 scenes together
+  7. CHIP ↔ COGSWORTH: 7 scenes together
+  8. BELLE ↔ MAURICE: 6 scenes together
+  9. COGSWORTH ↔ THE BEAST: 6 scenes together
+ 10. MRS. POTTS ↔ THE BEAST: 6 scenes together
+ 11. MRS. POTTS ↔ PLUMETTE: 6 scenes together
+ 12. BELLE ↔ MRS. POTTS: 6 scenes together
+ 13. BELLE ↔ GASTON: 5 scenes together
+ 14. BELLE ↔ GARDEROBE: 5 scenes together
+ 15. COGSWORTH ↔ GARDEROBE: 5 scenes together
+ 16. GASTON ↔ MAURICE: 4 scenes together
+ 17. GASTON ↔ JEAN: 4 scenes together
+ 18. LEFOU ↔ MAURICE: 4 scenes together
+ 19. JEAN ↔ LEFOU: 4 scenes together
+ 20. PLUMETTE ↔ THE BEAST: 4 scenes together
+ 21. GARDEROBE ↔ MRS. POTTS: 4 scenes together
+ 22. CHIP ↔ GARDEROBE: 4 scenes together
+ 23. ALL ↔ MRS. POTTS: 4 scenes together
+ 24. BELLE ↔ VILLAGERS: 3 scenes together
+ 25. JEAN ↔ VILLAGERS: 3 scenes together
+ 26. CLOTHILDE ↔ VILLAGERS: 3 scenes together
+ 27. BELLE ↔ CLOTHILDE: 3 scenes together
+ 28. CLOTHILDE ↔ JEAN: 3 scenes together
+ 29. ALL ↔ BELLE: 3 scenes together
+ 30. BELLE ↔ PLUMETTE: 3 scenes together
+ 31. CLOTHILDE ↔ LEFOU: 3 scenes together
+ 32. JEAN ↔ MAURICE: 3 scenes together
+ 33. CHIP ↔ PLUMETTE: 3 scenes together
+ 34. CADENZA ↔ COGSWORTH: 3 scenes together
+ 35. CADENZA ↔ MRS. POTTS: 3 scenes together
+ 36. BELLE ↔ JEAN: 2 scenes together
+ 37. BELLE ↔ NASTY HEADMASTER: 2 scenes together
+ 38. CLOTHILDE ↔ NASTY HEADMASTER: 2 scenes together
+ 39. BELLE ↔ VILLAGE LASSES: 2 scenes together
+ 40. ALL ↔ GASTON: 2 scenes together
+ 41. ALL ↔ LEFOU: 2 scenes together
+ 42. BELLE ↔ LEFOU: 2 scenes together
+ 43. BELLE ↔ WASHER GIRL: 2 scenes together
+ 44. MAURICE ↔ THE BEAST: 2 scenes together
+ 45. GARDEROBE ↔ PLUMETTE: 2 scenes together
+ 46. GASTON ↔ VILLAGERS: 2 scenes together
+ 47. GASTON ↔ TAVERN KEEPER: 2 scenes together
+ 48. CLOTHILDE ↔ GASTON: 2 scenes together
+ 49. LEFOU ↔ VILLAGERS: 2 scenes together
+ 50. LEFOU ↔ TAVERN KEEPER: 2 scenes together
+ 51. MAURICE ↔ VILLAGERS: 2 scenes together
+ 52. MAURICE ↔ TAVERN KEEPER: 2 scenes together
+ 53. CLOTHILDE ↔ MAURICE: 2 scenes together
+ 54. JEAN ↔ TAVERN KEEPER: 2 scenes together
+ 55. BELLE ↔ CUT TO: 2 scenes together
+ 56. ALL ↔ PLUMETTE: 2 scenes together
+ 57. ALL ↔ COGSWORTH: 2 scenes together
+ 58. CUT TO ↔ MRS. POTTS: 2 scenes together
+ 59. GASTON ↔ MOB: 2 scenes together
+ 60. LEFOU ↔ MOB: 2 scenes together
+ 61. LEFOU ↔ MRS. POTTS: 2 scenes together
+ 62. JEAN ↔ MRS. POTTS: 2 scenes together
+ 63. CADENZA ↔ CHIP: 2 scenes together
+ 64. CHIP ↔ CLOTHILDE: 2 scenes together
+ 65. CADENZA ↔ GARDEROBE: 2 scenes together
+ 66. CLOTHILDE ↔ COGSWORTH: 2 scenes together
+ 67. MAID ↔ NARRATOR: 1 scenes together
+ 68. MAJORDOMO ↔ NARRATOR: 1 scenes together
+ 69. FOOTMAN ↔ NARRATOR: 1 scenes together
+ 70. MAID ↔ MAJORDOMO: 1 scenes together
+ 71. FOOTMAN ↔ MAID: 1 scenes together
+ 72. FOOTMAN ↔ MAJORDOMO: 1 scenes together
+ 73. DIVA ↔ NARRATOR: 1 scenes together
+ 74. DIVA ↔ SHADOW OF A HIDEOUS BEAST.: 1 scenes together
+ 75. NARRATOR ↔ SHADOW OF A HIDEOUS BEAST.: 1 scenes together
+ 76. VAGRANT ↔ VILLAGERS: 1 scenes together
+ 77. SCHOOL BOYS ↔ VILLAGERS: 1 scenes together
+ 78. NASTY HEADMASTER ↔ VILLAGERS: 1 scenes together
+ 79. VILLAGERS ↔ WASHER WOMEN: 1 scenes together
+ 80. LITTLE GIRLS ↔ VILLAGERS: 1 scenes together
+ 81. FARMER ↔ VILLAGERS: 1 scenes together
+ 82. BELLE ↔ VAGRANT: 1 scenes together
+ 83. JEAN ↔ VAGRANT: 1 scenes together
+ 84. SCHOOL BOYS ↔ VAGRANT: 1 scenes together
+ 85. NASTY HEADMASTER ↔ VAGRANT: 1 scenes together
+ 86. VAGRANT ↔ WASHER WOMEN: 1 scenes together
+ 87. LITTLE GIRLS ↔ VAGRANT: 1 scenes together
+ 88. FARMER ↔ VAGRANT: 1 scenes together
+ 89. CLOTHILDE ↔ VAGRANT: 1 scenes together
+ 90. BELLE ↔ SCHOOL BOYS: 1 scenes together
+ 91. BELLE ↔ WASHER WOMEN: 1 scenes together
+ 92. BELLE ↔ LITTLE GIRLS: 1 scenes together
+ 93. BELLE ↔ FARMER: 1 scenes together
+ 94. JEAN ↔ SCHOOL BOYS: 1 scenes together
+ 95. JEAN ↔ NASTY HEADMASTER: 1 scenes together
+ 96. JEAN ↔ WASHER WOMEN: 1 scenes together
+ 97. JEAN ↔ LITTLE GIRLS: 1 scenes together
+ 98. FARMER ↔ JEAN: 1 scenes together
+ 99. NASTY HEADMASTER ↔ SCHOOL BOYS: 1 scenes together
+100. SCHOOL BOYS ↔ WASHER WOMEN: 1 scenes together
+101. LITTLE GIRLS ↔ SCHOOL BOYS: 1 scenes together
+102. FARMER ↔ SCHOOL BOYS: 1 scenes together
+103. CLOTHILDE ↔ SCHOOL BOYS: 1 scenes together
+104. NASTY HEADMASTER ↔ WASHER WOMEN: 1 scenes together
+105. LITTLE GIRLS ↔ NASTY HEADMASTER: 1 scenes together
+106. FARMER ↔ NASTY HEADMASTER: 1 scenes together
+107. LITTLE GIRLS ↔ WASHER WOMEN: 1 scenes together
+108. FARMER ↔ WASHER WOMEN: 1 scenes together
+109. CLOTHILDE ↔ WASHER WOMEN: 1 scenes together
+110. FARMER ↔ LITTLE GIRLS: 1 scenes together
+111. CLOTHILDE ↔ LITTLE GIRLS: 1 scenes together
+112. CLOTHILDE ↔ FARMER: 1 scenes together
+113. BELLE ↔ PERE ROBERT: 1 scenes together
+114. APOTHECARY ↔ CHEESE SELLERS: 1 scenes together
+115. APOTHECARY ↔ BELLE: 1 scenes together
+116. APOTHECARY ↔ WHEN SHE SEES HER: 1 scenes together
+117. APOTHECARY ↔ VILLAGE LASSES: 1 scenes together
+118. APOTHECARY ↔ BELLE SLIPS THROUGH THE CROWD.: 1 scenes together
+119. APOTHECARY ↔ VILLAGERS: 1 scenes together
+120. BELLE ↔ CHEESE SELLERS: 1 scenes together
+121. CHEESE SELLERS ↔ WHEN SHE SEES HER: 1 scenes together
+122. CHEESE SELLERS ↔ VILLAGE LASSES: 1 scenes together
+123. BELLE SLIPS THROUGH THE CROWD. ↔ CHEESE SELLERS: 1 scenes together
+124. CHEESE SELLERS ↔ VILLAGERS: 1 scenes together
+125. BELLE ↔ WHEN SHE SEES HER: 1 scenes together
+126. BELLE ↔ BELLE SLIPS THROUGH THE CROWD.: 1 scenes together
+127. VILLAGE LASSES ↔ WHEN SHE SEES HER: 1 scenes together
+128. BELLE SLIPS THROUGH THE CROWD. ↔ WHEN SHE SEES HER: 1 scenes together
+129. VILLAGERS ↔ WHEN SHE SEES HER: 1 scenes together
+130. BELLE SLIPS THROUGH THE CROWD. ↔ VILLAGE LASSES: 1 scenes together
+131. VILLAGE LASSES ↔ VILLAGERS: 1 scenes together
+132. BELLE SLIPS THROUGH THE CROWD. ↔ VILLAGERS: 1 scenes together
+133. A MUSKET AND THE SPOILS OF HIS HUNT ↔ AND DEVOTED BEST FRIEND LEFOU.: 1 scenes together
+134. A MUSKET AND THE SPOILS OF HIS HUNT ↔ GASTON: 1 scenes together
+135. A MUSKET AND THE SPOILS OF HIS HUNT ↔ LEFOU: 1 scenes together
+136. AND DEVOTED BEST FRIEND LEFOU. ↔ GASTON: 1 scenes together
+137. AND DEVOTED BEST FRIEND LEFOU. ↔ LEFOU: 1 scenes together
+138. GASTON ↔ VILLAGE LASSES: 1 scenes together
+139. GASTON ↔ VILLAGE MEN: 1 scenes together
+140. LEFOU ↔ VILLAGE LASSES: 1 scenes together
+141. ALL ↔ VILLAGE LASSES: 1 scenes together
+142. VILLAGE LASSES ↔ VILLAGE MEN: 1 scenes together
+143. LEFOU ↔ VILLAGE MEN: 1 scenes together
+144. ALL ↔ VILLAGE MEN: 1 scenes together
+145. BELLE ↔ VILLAGE MEN: 1 scenes together
+146. NASTY HEADMASTER ↔ WASHER GIRL: 1 scenes together
+147. CLOTHILDE ↔ WASHER GIRL: 1 scenes together
+148. ALPHA WOLF. ↔ MAURICE: 1 scenes together
+149. COGSWORTH ↔ MAURICE: 1 scenes together
+150. CHIP ↔ MAURICE: 1 scenes together
+151. BELLE ↔ HE STOLE A ROSE.: 1 scenes together
+152. BELLE ↔ CLANG.: 1 scenes together
+153. HE STOLE A ROSE. ↔ MAURICE: 1 scenes together
+154. CLANG. ↔ MAURICE: 1 scenes together
+155. HE STOLE A ROSE. ↔ THE BEAST: 1 scenes together
+156. CLANG. ↔ THE BEAST: 1 scenes together
+157. CLANG. ↔ HE STOLE A ROSE.: 1 scenes together
+158. ALL ↔ VILLAGERS: 1 scenes together
+159. TAVERN KEEPER ↔ VILLAGERS: 1 scenes together
+160. ALL ↔ MAURICE: 1 scenes together
+161. ALL ↔ TAVERN KEEPER: 1 scenes together
+162. ALL ↔ JEAN: 1 scenes together
+163. ALL ↔ CLOTHILDE: 1 scenes together
+164. CLOTHILDE ↔ TAVERN KEEPER: 1 scenes together
+165. BELLE ↔ KNOCK. KNOCK.: 1 scenes together
+166. GARDEROBE ↔ THE BEAST: 1 scenes together
+167. BELLE ↔ CHIP: 1 scenes together
+168. CADENZA ↔ CHANDELIER CANDLESTICKS: 1 scenes together
+169. CHANDELIER CANDLESTICKS ↔ COGSWORTH: 1 scenes together
+170. CHANDELIER CANDLESTICKS ↔ MRS. POTTS: 1 scenes together
+171. ENCHANTED ROSE. ↔ SHE GLIMPSES EYES PEERING AT HER OFF TO THE SIDE.: 1 scenes together
+172. SHE GLIMPSES EYES PEERING AT HER OFF TO THE SIDE. ↔ THE BEAST: 1 scenes together
+173. BELLE ↔ SHE GLIMPSES EYES PEERING AT HER OFF TO THE SIDE.: 1 scenes together
+174. DO YOU REALIZE WHAT YOU COULD HAVE ↔ SHE GLIMPSES EYES PEERING AT HER OFF TO THE SIDE.: 1 scenes together
+175. ENCHANTED ROSE. ↔ THE BEAST: 1 scenes together
+176. BELLE ↔ ENCHANTED ROSE.: 1 scenes together
+177. DO YOU REALIZE WHAT YOU COULD HAVE ↔ ENCHANTED ROSE.: 1 scenes together
+178. DO YOU REALIZE WHAT YOU COULD HAVE ↔ THE BEAST: 1 scenes together
+179. BELLE ↔ DO YOU REALIZE WHAT YOU COULD HAVE: 1 scenes together
+180. BELLE ↔ WOLVES HOWL NEARBY.: 1 scenes together
+181. CUT TO ↔ WOLVES HOWL NEARBY.: 1 scenes together
+182. AGATHE ↔ MAURICE: 1 scenes together
+183. BEAST ↔ BELLE: 1 scenes together
+184. ALL ↔ CHIP: 1 scenes together
+185. DOCTOR ↔ THE BEAST: 1 scenes together
+186. BACK TO THE PRESENT ↔ THE BEAST: 1 scenes together
+187. BELLE ↔ DOCTOR: 1 scenes together
+188. BACK TO THE PRESENT ↔ BELLE: 1 scenes together
+189. BACK TO THE PRESENT ↔ DOCTOR: 1 scenes together
+190. BEAST ↔ THE BEAST: 1 scenes together
+191. BEAST ↔ CUT TO: 1 scenes together
+192. BEAST ↔ PLUMETTE: 1 scenes together
+193. BEAST ↔ COGSWORTH: 1 scenes together
+194. BEAST ↔ MRS. POTTS: 1 scenes together
+195. CUT TO ↔ THE BEAST: 1 scenes together
+196. CUT TO ↔ PLUMETTE: 1 scenes together
+197. COGSWORTH ↔ CUT TO: 1 scenes together
+198. GASTON ↔ TOM: 1 scenes together
+199. DICK ↔ GASTON: 1 scenes together
+200. MAURICE ↔ TOM: 1 scenes together
+201. DICK ↔ MAURICE: 1 scenes together
+202. MAURICE ↔ MOB: 1 scenes together
+203. BELLE ↔ TOM: 1 scenes together
+204. BELLE ↔ DICK: 1 scenes together
+205. BELLE ↔ MOB: 1 scenes together
+206. TOM ↔ VILLAGERS: 1 scenes together
+207. DICK ↔ VILLAGERS: 1 scenes together
+208. MOB ↔ VILLAGERS: 1 scenes together
+209. JEAN ↔ TOM: 1 scenes together
+210. DICK ↔ JEAN: 1 scenes together
+211. JEAN ↔ MOB: 1 scenes together
+212. LEFOU ↔ TOM: 1 scenes together
+213. DICK ↔ LEFOU: 1 scenes together
+214. DICK ↔ TOM: 1 scenes together
+215. CLOTHILDE ↔ TOM: 1 scenes together
+216. MOB ↔ TOM: 1 scenes together
+217. CLOTHILDE ↔ DICK: 1 scenes together
+218. DICK ↔ MOB: 1 scenes together
+219. CLOTHILDE ↔ MOB: 1 scenes together
+220. CADENZA ↔ CASTLE STAFF: 1 scenes together
+221. GASTON ↔ MRS. POTTS: 1 scenes together
+222. CLOTHILDE ↔ MRS. POTTS: 1 scenes together
+223. CHIP ↔ LEFOU: 1 scenes together
+224. CADENZA ↔ LEFOU: 1 scenes together
+225. GARDEROBE ↔ LEFOU: 1 scenes together
+226. COGSWORTH ↔ LEFOU: 1 scenes together
+227. CADENZA ↔ CLOTHILDE: 1 scenes together
+228. CLOTHILDE ↔ GARDEROBE: 1 scenes together
+229. GASTON ↔ NEVER.: 1 scenes together
+230. BELLE ↔ NEVER.: 1 scenes together
+231. GASTON ↔ THE BEAST: 1 scenes together
+232. GASTON ↔ I AM NOT A BEAST.: 1 scenes together
+233. BELLE ↔ I AM NOT A BEAST.: 1 scenes together
+234. I AM NOT A BEAST. ↔ THE BEAST: 1 scenes together
+235. BELLE ↔ THE PRINCE: 1 scenes together
+236. BELLE ↔ PRINCE: 1 scenes together
+237. PRINCE ↔ THE PRINCE: 1 scenes together
+238. MAESTRO ↔ MAESTRO.: 1 scenes together
+239. DIVA ↔ MAESTRO.: 1 scenes together
+240. COGSWORTH ↔ MAESTRO.: 1 scenes together
+241. MAESTRO. ↔ MRS. POTTS: 1 scenes together
+242. JEAN ↔ MAESTRO.: 1 scenes together
+243. DIVA ↔ MAESTRO: 1 scenes together
+244. COGSWORTH ↔ MAESTRO: 1 scenes together
+245. MAESTRO ↔ MRS. POTTS: 1 scenes together
+246. JEAN ↔ MAESTRO: 1 scenes together
+247. COGSWORTH ↔ DIVA: 1 scenes together
+248. DIVA ↔ MRS. POTTS: 1 scenes together
+249. DIVA ↔ JEAN: 1 scenes together
+250. COGSWORTH ↔ JEAN: 1 scenes together
+251. CLOTHILDE ↔ PLUMETTE: 1 scenes together
+252. CLOTHILDE ↔ THE PRINCE: 1 scenes together
+253. COGSWORTH ↔ THE PRINCE: 1 scenes together
+254. PLUMETTE ↔ THE PRINCE: 1 scenes together
+255. CHIP ↔ THE PRINCE: 1 scenes together
+256. ALL ↔ GARDEROBE: 1 scenes together
+257. CUT TO ↔ GARDEROBE: 1 scenes together
+258. BLACK. ↔ GARDEROBE: 1 scenes together
+259. BLACK. ↔ MRS. POTTS: 1 scenes together
+260. BELLE ↔ BLACK.: 1 scenes together
+261. ALL ↔ CUT TO: 1 scenes together
+262. ALL ↔ BLACK.: 1 scenes together
+263. BLACK. ↔ CUT TO: 1 scenes together

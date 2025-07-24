@@ -1,0 +1,116 @@
+CHERNOBYL_EPISODE-11_23_45 - ALL CHARACTER INTERACTIONS
+Complete character interaction analysis
+Total character pairs found: 109
+================================================================================
+
+CHARACTER PAIRS (Sorted by co-occurrence):
+--------------------------------------------------
+  1. AKIMOV ↔ TOPTUNOV: 5 scenes together
+  2. AKIMOV ↔ DYATLOV: 3 scenes together
+  3. DYATLOV ↔ TOPTUNOV: 3 scenes together
+  4. PROSKURYAKOV ↔ YUVCHENKO: 3 scenes together
+  5. BRYUKHANOV ↔ DYATLOV: 3 scenes together
+  6. BRYUKHANOV ↔ FOMIN: 3 scenes together
+  7. DYATLOV ↔ FOMIN: 3 scenes together
+  8. STOLYARCHUK ↔ TOPTUNOV: 2 scenes together
+  9. AKIMOV ↔ STOLYARCHUK: 2 scenes together
+ 10. MIKHAIL ↔ OKSANA: 2 scenes together
+ 11. RECORDED VOICE ↔ TITLE: 1 scenes together
+ 12. LEGASOV ↔ RECORDED VOICE: 1 scenes together
+ 13. LEGASOV ↔ TITLE: 1 scenes together
+ 14. HIS POV ↔ SOUND: 1 scenes together
+ 15. DISSOLVE TO ↔ HIS POV: 1 scenes together
+ 16. DISSOLVE TO ↔ SOUND: 1 scenes together
+ 17. EARLIER ↔ TITLE: 1 scenes together
+ 18. AKIMOV ↔ VOICE: 1 scenes together
+ 19. DYATLOV ↔ VOICE: 1 scenes together
+ 20. BRAZHNIK ↔ VOICE: 1 scenes together
+ 21. TOPTUNOV ↔ VOICE: 1 scenes together
+ 22. PEREVOZCHENKO ↔ VOICE: 1 scenes together
+ 23. ACROSS THE ROOM ↔ VOICE: 1 scenes together
+ 24. AKIMOV ↔ BRAZHNIK: 1 scenes together
+ 25. AKIMOV ↔ PEREVOZCHENKO: 1 scenes together
+ 26. ACROSS THE ROOM ↔ AKIMOV: 1 scenes together
+ 27. BRAZHNIK ↔ DYATLOV: 1 scenes together
+ 28. DYATLOV ↔ PEREVOZCHENKO: 1 scenes together
+ 29. ACROSS THE ROOM ↔ DYATLOV: 1 scenes together
+ 30. BRAZHNIK ↔ TOPTUNOV: 1 scenes together
+ 31. BRAZHNIK ↔ PEREVOZCHENKO: 1 scenes together
+ 32. ACROSS THE ROOM ↔ BRAZHNIK: 1 scenes together
+ 33. PEREVOZCHENKO ↔ TOPTUNOV: 1 scenes together
+ 34. ACROSS THE ROOM ↔ TOPTUNOV: 1 scenes together
+ 35. ACROSS THE ROOM ↔ PEREVOZCHENKO: 1 scenes together
+ 36. CUT TO BLACK ↔ OVER BLACK: 1 scenes together
+ 37. CUT TO BLACK ↔ PRIPYAT EMERGENCY DISPATCH: 1 scenes together
+ 38. CUT TO BLACK ↔ OTHER VOICE: 1 scenes together
+ 39. CUT TO BLACK ↔ FIRE DEPARTMENT: 1 scenes together
+ 40. CUT TO BLACK ↔ PRIPYAT FIRE DISPATCH: 1 scenes together
+ 41. OVER BLACK ↔ PRIPYAT EMERGENCY DISPATCH: 1 scenes together
+ 42. OTHER VOICE ↔ OVER BLACK: 1 scenes together
+ 43. FIRE DEPARTMENT ↔ OVER BLACK: 1 scenes together
+ 44. OVER BLACK ↔ PRIPYAT FIRE DISPATCH: 1 scenes together
+ 45. OTHER VOICE ↔ PRIPYAT EMERGENCY DISPATCH: 1 scenes together
+ 46. FIRE DEPARTMENT ↔ PRIPYAT EMERGENCY DISPATCH: 1 scenes together
+ 47. PRIPYAT EMERGENCY DISPATCH ↔ PRIPYAT FIRE DISPATCH: 1 scenes together
+ 48. FIRE DEPARTMENT ↔ OTHER VOICE: 1 scenes together
+ 49. OTHER VOICE ↔ PRIPYAT FIRE DISPATCH: 1 scenes together
+ 50. FIRE DEPARTMENT ↔ PRIPYAT FIRE DISPATCH: 1 scenes together
+ 51. LYUDMILLA ↔ VASILY: 1 scenes together
+ 52. GORBACHENKO ↔ PEREVOZCHENKO: 1 scenes together
+ 53. GORBACHENKO ↔ PROSKURYAKOV: 1 scenes together
+ 54. GORBACHENKO ↔ YUVCHENKO: 1 scenes together
+ 55. GORBACHENKO ↔ VIKTOR: 1 scenes together
+ 56. DOTS... ↔ GORBACHENKO: 1 scenes together
+ 57. PEREVOZCHENKO ↔ PROSKURYAKOV: 1 scenes together
+ 58. PEREVOZCHENKO ↔ YUVCHENKO: 1 scenes together
+ 59. PEREVOZCHENKO ↔ VIKTOR: 1 scenes together
+ 60. DOTS... ↔ PEREVOZCHENKO: 1 scenes together
+ 61. PROSKURYAKOV ↔ VIKTOR: 1 scenes together
+ 62. DOTS... ↔ PROSKURYAKOV: 1 scenes together
+ 63. VIKTOR ↔ YUVCHENKO: 1 scenes together
+ 64. DOTS... ↔ YUVCHENKO: 1 scenes together
+ 65. DOTS... ↔ VIKTOR: 1 scenes together
+ 66. DYATLOV ↔ STOLYARCHUK: 1 scenes together
+ 67. MISHA ↔ SIRENS BLARE.: 1 scenes together
+ 68. SIRENS BLARE. ↔ VASILY: 1 scenes together
+ 69. MISHA ↔ VASILY: 1 scenes together
+ 70. GORBACHENKO ↔ OVALS.: 1 scenes together
+ 71. OKSANA ↔ PRAMS.: 1 scenes together
+ 72. LYUDMILLA ↔ OKSANA: 1 scenes together
+ 73. LYUDMILLA ↔ PRAMS.: 1 scenes together
+ 74. MIKHAIL ↔ PRAMS.: 1 scenes together
+ 75. LYUDMILLA ↔ MIKHAIL: 1 scenes together
+ 76. CLOSE ON ↔ DYATLOV: 1 scenes together
+ 77. AKIMOV ↔ CLOSE ON: 1 scenes together
+ 78. CLOSE ON ↔ PROSKURYAKOV: 1 scenes together
+ 79. CLOSE ON ↔ TOPTUNOV: 1 scenes together
+ 80. DYATLOV ↔ PROSKURYAKOV: 1 scenes together
+ 81. AKIMOV ↔ PROSKURYAKOV: 1 scenes together
+ 82. PROSKURYAKOV ↔ TOPTUNOV: 1 scenes together
+ 83. OLD DOCTOR ↔ OLD MAN'S VOICE: 1 scenes together
+ 84. OLD MAN'S VOICE ↔ ZINCHENKO: 1 scenes together
+ 85. OLD DOCTOR ↔ ZINCHENKO: 1 scenes together
+ 86. STOLYARCHUK ↔ YUVCHENKO: 1 scenes together
+ 87. AKIMOV ↔ REVERSE TO REVEAL: 1 scenes together
+ 88. REVERSE TO REVEAL ↔ STOLYARCHUK: 1 scenes together
+ 89. REVERSE TO REVEAL ↔ TOPTUNOV: 1 scenes together
+ 90. KIRSCHENBAUM ↔ REVERSE TO REVEAL: 1 scenes together
+ 91. AKIMOV ↔ KIRSCHENBAUM: 1 scenes together
+ 92. KIRSCHENBAUM ↔ STOLYARCHUK: 1 scenes together
+ 93. KIRSCHENBAUM ↔ TOPTUNOV: 1 scenes together
+ 94. DAY SHIFT WORKER ↔ SITNIKOV: 1 scenes together
+ 95. DAY SHIFT WORKER ↔ NIGHT SHIFT WORKER: 1 scenes together
+ 96. NIGHT SHIFT WORKER ↔ SITNIKOV: 1 scenes together
+ 97. BRYUKHANOV ↔ PETROV: 1 scenes together
+ 98. BRYUKHANOV ↔ ZHARKOV: 1 scenes together
+ 99. FOMIN ↔ PETROV: 1 scenes together
+100. DYATLOV ↔ PETROV: 1 scenes together
+101. PETROV ↔ ZHARKOV: 1 scenes together
+102. FOMIN ↔ ZHARKOV: 1 scenes together
+103. DYATLOV ↔ ZHARKOV: 1 scenes together
+104. BRYUKHANOV ↔ SITNIKOV: 1 scenes together
+105. DYATLOV ↔ SITNIKOV: 1 scenes together
+106. FOMIN ↔ SITNIKOV: 1 scenes together
+107. LEGASOV ↔ SHCHERBINA: 1 scenes together
+108. LEGASOV ↔ MATCH TO: 1 scenes together
+109. MATCH TO ↔ SHCHERBINA: 1 scenes together

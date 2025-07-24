@@ -79,7 +79,7 @@ export const ProjectListPage = () => {
           </div>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-            {projects.map((project) => (
+            {projects.filter(project => project && project.id).map((project) => (
               <Card 
                 key={project.id} 
                 className="bg-gray-800 border-gray-700 hover:bg-gray-750 transition-colors cursor-pointer relative group"
@@ -116,7 +116,7 @@ export const ProjectListPage = () => {
                   <div className="relative h-48 bg-gradient-to-br from-purple-600 to-blue-600 rounded-t-lg flex items-center justify-center">
                     <div className="text-center">
                       <div className="text-4xl font-bold text-white mb-2">
-                        {project.name.charAt(0).toUpperCase()}
+                        {project.name?.charAt(0)?.toUpperCase() || 'P'}
                       </div>
                       <Badge className="bg-green-500 text-white text-xs">
                         demo
@@ -127,14 +127,14 @@ export const ProjectListPage = () => {
                   {/* Project Details */}
                   <div className="p-4">
                     <h3 className="font-semibold text-white text-lg mb-2 truncate">
-                      {project.name}
+                      {project.name || 'Untitled Project'}
                     </h3>
                     <p className="text-gray-400 text-sm mb-4 line-clamp-3">
                       {project.description || "Explore our features using the free demo script - no credit card is required - or jump right in by uploading your own. Click Create Project to start."}
                     </p>
                     <div className="flex items-center text-gray-500 text-sm">
                       <Calendar className="h-4 w-4 mr-2" />
-                      <span>{project.created}</span>
+                      <span>{project.created || 'Unknown date'}</span>
                     </div>
                   </div>
                 </CardContent>

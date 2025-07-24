@@ -1,0 +1,392 @@
+BLACK_PANTHER - ALL CHARACTER INTERACTIONS
+Complete character interaction analysis
+Total character pairs found: 385
+================================================================================
+
+CHARACTER PAIRS (Sorted by co-occurrence):
+--------------------------------------------------
+  1. OKOYE ↔ T'CHALLA: 19 scenes together
+  2. SHURI ↔ T'CHALLA: 18 scenes together
+  3. NAKIA ↔ T'CHALLA: 17 scenes together
+  4. NAKIA ↔ OKOYE: 16 scenes together
+  5. ROSS ↔ SHURI: 11 scenes together
+  6. NAKIA ↔ SHURI: 10 scenes together
+  7. NAKIA ↔ ROSS: 10 scenes together
+  8. RAMONDA ↔ SHURI: 9 scenes together
+  9. KILLMONGER ↔ T'CHALLA: 9 scenes together
+ 10. NAKIA ↔ RAMONDA: 8 scenes together
+ 11. T'CHALLA ↔ ZURI: 8 scenes together
+ 12. ROSS ↔ T'CHALLA: 7 scenes together
+ 13. OKOYE ↔ W'KABI: 6 scenes together
+ 14. KLAUE ↔ NAKIA: 6 scenes together
+ 15. KLAUE ↔ T'CHALLA: 6 scenes together
+ 16. KLAUE ↔ OKOYE: 6 scenes together
+ 17. KILLMONGER ↔ SHURI: 6 scenes together
+ 18. KILLMONGER ↔ W'KABI: 6 scenes together
+ 19. RAMONDA ↔ T'CHALLA: 5 scenes together
+ 20. M'BAKU ↔ SHURI: 5 scenes together
+ 21. T'CHALLA ↔ W'KABI: 5 scenes together
+ 22. KILLMONGER ↔ OKOYE: 5 scenes together
+ 23. OKOYE ↔ SHURI: 4 scenes together
+ 24. SHURI ↔ ZURI: 4 scenes together
+ 25. M'BAKU ↔ RAMONDA: 4 scenes together
+ 26. OKOYE ↔ ROSS: 4 scenes together
+ 27. NAKIA ↔ ON NAKIA: 4 scenes together
+ 28. KLAUE ↔ ROSS: 4 scenes together
+ 29. GRIOT ↔ SHURI: 4 scenes together
+ 30. RAMONDA ↔ ROSS: 4 scenes together
+ 31. M'BAKU ↔ NAKIA: 4 scenes together
+ 32. KILLMONGER ↔ KLAUE: 3 scenes together
+ 33. ON SHURI ↔ ZURI: 3 scenes together
+ 34. ON SHURI ↔ SHURI: 3 scenes together
+ 35. ON SHURI ↔ T'CHALLA: 3 scenes together
+ 36. M'BAKU ↔ T'CHALLA: 3 scenes together
+ 37. ON OKOYE ↔ T'CHALLA: 3 scenes together
+ 38. NAKIA ↔ ON OKOYE: 3 scenes together
+ 39. OKOYE ↔ ON OKOYE: 3 scenes together
+ 40. ON NAKIA ↔ T'CHALLA: 3 scenes together
+ 41. OKOYE ↔ ON NAKIA: 3 scenes together
+ 42. ON NAKIA ↔ ON OKOYE: 3 scenes together
+ 43. KILLMONGER ↔ RAMONDA: 3 scenes together
+ 44. IN THE CHALLENGE POOL ↔ NAKIA: 3 scenes together
+ 45. KILLMONGER ↔ NAKIA: 3 scenes together
+ 46. IN THE CHALLENGE POOL ↔ KILLMONGER: 3 scenes together
+ 47. KILLMONGER ↔ ON NAKIA: 3 scenes together
+ 48. M'BAKU ↔ ROSS: 3 scenes together
+ 49. JAMES ↔ N'JOBU: 2 scenes together
+ 50. MILITANT LEADER ↔ NIGHT: 2 scenes together
+ 51. ON PANTHER ↔ T'CHALLA: 2 scenes together
+ 52. OKOYE ↔ ON PANTHER: 2 scenes together
+ 53. AYO ↔ NAKIA: 2 scenes together
+ 54. OKOYE ↔ RAMONDA: 2 scenes together
+ 55. AYO ↔ RAMONDA: 2 scenes together
+ 56. AYO ↔ OKOYE: 2 scenes together
+ 57. AYO ↔ SHURI: 2 scenes together
+ 58. AYO ↔ T'CHALLA: 2 scenes together
+ 59. KLAUE ↔ LIMBANI: 2 scenes together
+ 60. KILLMONGER ↔ LIMBANI: 2 scenes together
+ 61. RAMONDA ↔ ZURI: 2 scenes together
+ 62. M'BAKU ↔ ZURI: 2 scenes together
+ 63. MERCHANT TRIBE ELDER ↔ T'CHALLA: 2 scenes together
+ 64. BORDER TRIBE ELDER ↔ RIVER TRIBE ELDER: 2 scenes together
+ 65. BORDER TRIBE ELDER ↔ MINING TRIBE ELDER: 2 scenes together
+ 66. BORDER TRIBE ELDER ↔ SHURI: 2 scenes together
+ 67. BORDER TRIBE ELDER ↔ RAMONDA: 2 scenes together
+ 68. BORDER TRIBE ELDER ↔ T'CHALLA: 2 scenes together
+ 69. MINING TRIBE ELDER ↔ RIVER TRIBE ELDER: 2 scenes together
+ 70. RIVER TRIBE ELDER ↔ SHURI: 2 scenes together
+ 71. RAMONDA ↔ RIVER TRIBE ELDER: 2 scenes together
+ 72. RIVER TRIBE ELDER ↔ T'CHALLA: 2 scenes together
+ 73. MINING TRIBE ELDER ↔ SHURI: 2 scenes together
+ 74. MINING TRIBE ELDER ↔ RAMONDA: 2 scenes together
+ 75. MINING TRIBE ELDER ↔ T'CHALLA: 2 scenes together
+ 76. M'BAKU ↔ ON SHURI: 2 scenes together
+ 77. ON SHURI AND RAMONDA ↔ SHURI: 2 scenes together
+ 78. T'CHAKA ↔ T'CHALLA: 2 scenes together
+ 79. SHURI ↔ W'KABI: 2 scenes together
+ 80. OKOYE ↔ ZURI: 2 scenes together
+ 81. NAKIA ↔ ZURI: 2 scenes together
+ 82. IN THE CHALLENGE POOL ↔ ZURI: 2 scenes together
+ 83. KILLMONGER ↔ ZURI: 2 scenes together
+ 84. IN THE CHALLENGE POOL ↔ OKOYE: 2 scenes together
+ 85. IN THE CHALLENGE POOL ↔ T'CHALLA: 2 scenes together
+ 86. IN THE CHALLENGE POOL ↔ SHURI: 2 scenes together
+ 87. IN THE CHALLENGE POOL ↔ ON NAKIA: 2 scenes together
+ 88. ON NAKIA ↔ RAMONDA: 2 scenes together
+ 89. IN THE CHALLENGE POOL ↔ RAMONDA: 2 scenes together
+ 90. DOWNHILL ↔ KILLMONGER: 2 scenes together
+ 91. DOWNHILL ↔ T'CHALLA: 2 scenes together
+ 92. GRIOT ↔ ROSS: 2 scenes together
+ 93. FATHER ↔ SON: 1 scenes together
+ 94. N'JOBU ↔ TV.: 1 scenes together
+ 95. JAMES ↔ TV.: 1 scenes together
+ 96. OUT. ↔ TV.: 1 scenes together
+ 97. N'JOBU ↔ OUT.: 1 scenes together
+ 98. JAMES ↔ OUT.: 1 scenes together
+ 99. N'JOBU ↔ YOUNG T'CHAKA: 1 scenes together
+100. N'JOBU ↔ ULYSSES KLAUE.: 1 scenes together
+101. ULYSSES KLAUE. ↔ YOUNG T'CHAKA: 1 scenes together
+102. JAMES ↔ YOUNG T'CHAKA: 1 scenes together
+103. JAMES ↔ ULYSSES KLAUE.: 1 scenes together
+104. BBC ANCHOR ↔ DAY: 1 scenes together
+105. DAY ↔ OKOYE: 1 scenes together
+106. BBC ANCHOR ↔ OKOYE: 1 scenes together
+107. MILITANT LEADER ↔ ON MILITANT LEADER: 1 scenes together
+108. FROM THE ROAD ↔ ON MILITANT LEADER: 1 scenes together
+109. FROM THE ROAD ↔ MILITANT LEADER: 1 scenes together
+110. NAKIA ↔ ON PANTHER: 1 scenes together
+111. NIGERIAN WOMAN ↔ ON PANTHER: 1 scenes together
+112. NAKIA ↔ NIGERIAN WOMAN: 1 scenes together
+113. NIGERIAN WOMAN ↔ T'CHALLA: 1 scenes together
+114. NIGERIAN WOMAN ↔ OKOYE: 1 scenes together
+115. ERIK KILLMONGER. ↔ MUSEUM DIRECTOR: 1 scenes together
+116. ERIK KILLMONGER. ↔ KILLMONGER: 1 scenes together
+117. ERIK KILLMONGER. ↔ SECURITY GUARD: 1 scenes together
+118. KILLMONGER ↔ MUSEUM DIRECTOR: 1 scenes together
+119. MUSEUM DIRECTOR ↔ SECURITY GUARD: 1 scenes together
+120. KILLMONGER ↔ SECURITY GUARD: 1 scenes together
+121. CROWD ↔ ZURI: 1 scenes together
+122. MERCHANT TRIBE ELDER ↔ ZURI: 1 scenes together
+123. BORDER TRIBE ELDER ↔ ZURI: 1 scenes together
+124. RIVER TRIBE ELDER ↔ ZURI: 1 scenes together
+125. MINING TRIBE ELDER ↔ ZURI: 1 scenes together
+126. BACK IN THE POOL ↔ ZURI: 1 scenes together
+127. ON THE AUDIENCE ↔ ZURI: 1 scenes together
+128. ON SHURI AND RAMONDA ↔ ZURI: 1 scenes together
+129. CROWD ↔ MERCHANT TRIBE ELDER: 1 scenes together
+130. BORDER TRIBE ELDER ↔ CROWD: 1 scenes together
+131. CROWD ↔ RIVER TRIBE ELDER: 1 scenes together
+132. CROWD ↔ MINING TRIBE ELDER: 1 scenes together
+133. CROWD ↔ ON SHURI: 1 scenes together
+134. CROWD ↔ SHURI: 1 scenes together
+135. BACK IN THE POOL ↔ CROWD: 1 scenes together
+136. CROWD ↔ ON THE AUDIENCE: 1 scenes together
+137. CROWD ↔ ON SHURI AND RAMONDA: 1 scenes together
+138. CROWD ↔ RAMONDA: 1 scenes together
+139. CROWD ↔ M'BAKU: 1 scenes together
+140. CROWD ↔ T'CHALLA: 1 scenes together
+141. BORDER TRIBE ELDER ↔ MERCHANT TRIBE ELDER: 1 scenes together
+142. MERCHANT TRIBE ELDER ↔ RIVER TRIBE ELDER: 1 scenes together
+143. MERCHANT TRIBE ELDER ↔ MINING TRIBE ELDER: 1 scenes together
+144. MERCHANT TRIBE ELDER ↔ ON SHURI: 1 scenes together
+145. MERCHANT TRIBE ELDER ↔ SHURI: 1 scenes together
+146. BACK IN THE POOL ↔ MERCHANT TRIBE ELDER: 1 scenes together
+147. MERCHANT TRIBE ELDER ↔ ON THE AUDIENCE: 1 scenes together
+148. MERCHANT TRIBE ELDER ↔ ON SHURI AND RAMONDA: 1 scenes together
+149. MERCHANT TRIBE ELDER ↔ RAMONDA: 1 scenes together
+150. M'BAKU ↔ MERCHANT TRIBE ELDER: 1 scenes together
+151. BORDER TRIBE ELDER ↔ ON SHURI: 1 scenes together
+152. BACK IN THE POOL ↔ BORDER TRIBE ELDER: 1 scenes together
+153. BORDER TRIBE ELDER ↔ ON THE AUDIENCE: 1 scenes together
+154. BORDER TRIBE ELDER ↔ ON SHURI AND RAMONDA: 1 scenes together
+155. BORDER TRIBE ELDER ↔ M'BAKU: 1 scenes together
+156. ON SHURI ↔ RIVER TRIBE ELDER: 1 scenes together
+157. BACK IN THE POOL ↔ RIVER TRIBE ELDER: 1 scenes together
+158. ON THE AUDIENCE ↔ RIVER TRIBE ELDER: 1 scenes together
+159. ON SHURI AND RAMONDA ↔ RIVER TRIBE ELDER: 1 scenes together
+160. M'BAKU ↔ RIVER TRIBE ELDER: 1 scenes together
+161. MINING TRIBE ELDER ↔ ON SHURI: 1 scenes together
+162. BACK IN THE POOL ↔ MINING TRIBE ELDER: 1 scenes together
+163. MINING TRIBE ELDER ↔ ON THE AUDIENCE: 1 scenes together
+164. MINING TRIBE ELDER ↔ ON SHURI AND RAMONDA: 1 scenes together
+165. M'BAKU ↔ MINING TRIBE ELDER: 1 scenes together
+166. BACK IN THE POOL ↔ ON SHURI: 1 scenes together
+167. ON SHURI ↔ ON THE AUDIENCE: 1 scenes together
+168. ON SHURI ↔ ON SHURI AND RAMONDA: 1 scenes together
+169. ON SHURI ↔ RAMONDA: 1 scenes together
+170. BACK IN THE POOL ↔ SHURI: 1 scenes together
+171. ON THE AUDIENCE ↔ SHURI: 1 scenes together
+172. BACK IN THE POOL ↔ ON THE AUDIENCE: 1 scenes together
+173. BACK IN THE POOL ↔ ON SHURI AND RAMONDA: 1 scenes together
+174. BACK IN THE POOL ↔ RAMONDA: 1 scenes together
+175. BACK IN THE POOL ↔ M'BAKU: 1 scenes together
+176. BACK IN THE POOL ↔ T'CHALLA: 1 scenes together
+177. ON SHURI AND RAMONDA ↔ ON THE AUDIENCE: 1 scenes together
+178. ON THE AUDIENCE ↔ RAMONDA: 1 scenes together
+179. M'BAKU ↔ ON THE AUDIENCE: 1 scenes together
+180. ON THE AUDIENCE ↔ T'CHALLA: 1 scenes together
+181. ON SHURI AND RAMONDA ↔ RAMONDA: 1 scenes together
+182. M'BAKU ↔ ON SHURI AND RAMONDA: 1 scenes together
+183. ON SHURI AND RAMONDA ↔ T'CHALLA: 1 scenes together
+184. BACK IN THE CHALLENGE POOL ↔ T'CHALLA: 1 scenes together
+185. CHOKES. ↔ T'CHALLA: 1 scenes together
+186. BACK IN THE CHALLENGE POOL ↔ ON SHURI: 1 scenes together
+187. CHOKES. ↔ ON SHURI: 1 scenes together
+188. BACK IN THE CHALLENGE POOL ↔ SHURI: 1 scenes together
+189. CHOKES. ↔ SHURI: 1 scenes together
+190. BACK IN THE CHALLENGE POOL ↔ CHOKES.: 1 scenes together
+191. BACK IN THE CHALLENGE POOL ↔ M'BAKU: 1 scenes together
+192. BACK IN THE CHALLENGE POOL ↔ ZURI: 1 scenes together
+193. CHOKES. ↔ M'BAKU: 1 scenes together
+194. CHOKES. ↔ ZURI: 1 scenes together
+195. MERCHANT TRIBE ELDER ↔ OKOYE: 1 scenes together
+196. MERCHANT TRIBE ELDER ↔ W'KABI: 1 scenes together
+197. NECKLACE. ↔ SHURI: 1 scenes together
+198. NECKLACE. ↔ T'CHALLA: 1 scenes together
+199. ELDERLY WOMAN ↔ NAKIA: 1 scenes together
+200. ELDERLY WOMAN ↔ OKOYE: 1 scenes together
+201. NAKIA ↔ THIRSTY GAMBLER: 1 scenes together
+202. OKOYE ↔ THIRSTY GAMBLER: 1 scenes together
+203. T'CHALLA ↔ THIRSTY GAMBLER: 1 scenes together
+204. ROSS ↔ THIRSTY GAMBLER: 1 scenes together
+205. NAKIA ↔ ON ROSS AND T'CHALLA: 1 scenes together
+206. ON ROSS AND T'CHALLA ↔ T'CHALLA: 1 scenes together
+207. OKOYE ↔ ON ROSS AND T'CHALLA: 1 scenes together
+208. ON NAKIA ↔ ON ROSS AND T'CHALLA: 1 scenes together
+209. ON OKOYE ↔ ON ROSS AND T'CHALLA: 1 scenes together
+210. ON KLAUE ↔ ON ROSS AND T'CHALLA: 1 scenes together
+211. NAKIA ↔ ON KLAUE: 1 scenes together
+212. ON KLAUE ↔ T'CHALLA: 1 scenes together
+213. OKOYE ↔ ON KLAUE: 1 scenes together
+214. ON KLAUE ↔ ON NAKIA: 1 scenes together
+215. ON KLAUE ↔ ON OKOYE: 1 scenes together
+216. ON NAKIA ↔ ROSS: 1 scenes together
+217. ON T'CHALLA ↔ ROSS: 1 scenes together
+218. BACK IN THE PIT ↔ ROSS: 1 scenes together
+219. ON OKOYE ↔ ROSS: 1 scenes together
+220. ROSS ↔ SOUTH AFRICAN TOUGH: 1 scenes together
+221. DOWNSTAIRS ↔ ROSS: 1 scenes together
+222. KLAUE ↔ ON NAKIA: 1 scenes together
+223. KLAUE ↔ ON T'CHALLA: 1 scenes together
+224. BACK IN THE PIT ↔ KLAUE: 1 scenes together
+225. KLAUE ↔ ON OKOYE: 1 scenes together
+226. KLAUE ↔ SOUTH AFRICAN TOUGH: 1 scenes together
+227. DOWNSTAIRS ↔ KLAUE: 1 scenes together
+228. NAKIA ↔ ON T'CHALLA: 1 scenes together
+229. BACK IN THE PIT ↔ NAKIA: 1 scenes together
+230. NAKIA ↔ SOUTH AFRICAN TOUGH: 1 scenes together
+231. DOWNSTAIRS ↔ NAKIA: 1 scenes together
+232. ON NAKIA ↔ ON T'CHALLA: 1 scenes together
+233. BACK IN THE PIT ↔ ON NAKIA: 1 scenes together
+234. ON NAKIA ↔ SOUTH AFRICAN TOUGH: 1 scenes together
+235. DOWNSTAIRS ↔ ON NAKIA: 1 scenes together
+236. ON T'CHALLA ↔ T'CHALLA: 1 scenes together
+237. BACK IN THE PIT ↔ ON T'CHALLA: 1 scenes together
+238. ON OKOYE ↔ ON T'CHALLA: 1 scenes together
+239. OKOYE ↔ ON T'CHALLA: 1 scenes together
+240. ON T'CHALLA ↔ SOUTH AFRICAN TOUGH: 1 scenes together
+241. DOWNSTAIRS ↔ ON T'CHALLA: 1 scenes together
+242. BACK IN THE PIT ↔ T'CHALLA: 1 scenes together
+243. SOUTH AFRICAN TOUGH ↔ T'CHALLA: 1 scenes together
+244. DOWNSTAIRS ↔ T'CHALLA: 1 scenes together
+245. BACK IN THE PIT ↔ ON OKOYE: 1 scenes together
+246. BACK IN THE PIT ↔ OKOYE: 1 scenes together
+247. BACK IN THE PIT ↔ SOUTH AFRICAN TOUGH: 1 scenes together
+248. BACK IN THE PIT ↔ DOWNSTAIRS: 1 scenes together
+249. ON OKOYE ↔ SOUTH AFRICAN TOUGH: 1 scenes together
+250. DOWNSTAIRS ↔ ON OKOYE: 1 scenes together
+251. OKOYE ↔ SOUTH AFRICAN TOUGH: 1 scenes together
+252. DOWNSTAIRS ↔ OKOYE: 1 scenes together
+253. DOWNSTAIRS ↔ SOUTH AFRICAN TOUGH: 1 scenes together
+254. ON NAKIA AND OKOYE ↔ T'CHALLA: 1 scenes together
+255. KLAUE ↔ ON NAKIA AND OKOYE: 1 scenes together
+256. GRIOT ↔ T'CHALLA: 1 scenes together
+257. DRIVER ↔ SUV.: 1 scenes together
+258. DRIVER ↔ SHURI: 1 scenes together
+259. SHURI ↔ SUV.: 1 scenes together
+260. AND OKOYE FLYING. ↔ ON OKOYE: 1 scenes together
+261. AND OKOYE FLYING. ↔ ON NAKIA: 1 scenes together
+262. KLAUE ↔ NIGHT: 1 scenes together
+263. NIGHT ↔ SHURI: 1 scenes together
+264. CIA AGENT ↔ NAKIA: 1 scenes together
+265. AFTERNOON ↔ SHURI: 1 scenes together
+266. LIMBANI ↔ SHURI: 1 scenes together
+267. KLAUE ↔ SHURI: 1 scenes together
+268. LINDA ↔ SHURI: 1 scenes together
+269. SCRAPYARD . ↔ SHURI: 1 scenes together
+270. LIMBANI ↔ W'KABI: 1 scenes together
+271. KLAUE ↔ W'KABI: 1 scenes together
+272. LINDA ↔ W'KABI: 1 scenes together
+273. SCRAPYARD . ↔ W'KABI: 1 scenes together
+274. LIMBANI ↔ T'CHALLA: 1 scenes together
+275. LINDA ↔ T'CHALLA: 1 scenes together
+276. SCRAPYARD . ↔ T'CHALLA: 1 scenes together
+277. LIMBANI ↔ LINDA: 1 scenes together
+278. LIMBANI ↔ SCRAPYARD .: 1 scenes together
+279. KILLMONGER ↔ LINDA: 1 scenes together
+280. KILLMONGER ↔ SCRAPYARD .: 1 scenes together
+281. KLAUE ↔ LINDA: 1 scenes together
+282. KLAUE ↔ SCRAPYARD .: 1 scenes together
+283. LINDA ↔ SCRAPYARD .: 1 scenes together
+284. YOUNG T'CHAKA ↔ ZURI: 1 scenes together
+285. MINE. ↔ ROSS: 1 scenes together
+286. OKOYE'S PROJECTION ↔ ROSS: 1 scenes together
+287. MINE. ↔ SHURI: 1 scenes together
+288. OKOYE'S PROJECTION ↔ SHURI: 1 scenes together
+289. MINE. ↔ OKOYE'S PROJECTION: 1 scenes together
+290. SHURI'S PROJECTION ↔ T'CHALLA: 1 scenes together
+291. NAKIA ↔ SHURI'S PROJECTION: 1 scenes together
+292. RIVER TRIBE ELDER ↔ W'KABI: 1 scenes together
+293. KILLMONGER ↔ RIVER TRIBE ELDER: 1 scenes together
+294. MINING TRIBE ELDER ↔ W'KABI: 1 scenes together
+295. KILLMONGER ↔ MINING TRIBE ELDER: 1 scenes together
+296. RAMONDA ↔ W'KABI: 1 scenes together
+297. BORDER TRIBE ELDER ↔ W'KABI: 1 scenes together
+298. BORDER TRIBE ELDER ↔ KILLMONGER: 1 scenes together
+299. IN THE SEATING AREA ↔ ZURI: 1 scenes together
+300. IN THE SEATING AREA ↔ OKOYE: 1 scenes together
+301. IN THE SEATING AREA ↔ NAKIA: 1 scenes together
+302. IN THE CHALLENGE POOL ↔ IN THE SEATING AREA: 1 scenes together
+303. IN THE SEATING AREA ↔ T'CHALLA: 1 scenes together
+304. IN THE SEATING AREA ↔ KILLMONGER: 1 scenes together
+305. IN THE SEATING AREA ↔ ON SHURI: 1 scenes together
+306. IN THE SEATING AREA ↔ SHURI: 1 scenes together
+307. OKOYE ↔ ON SHURI: 1 scenes together
+308. NAKIA ↔ ON SHURI: 1 scenes together
+309. IN THE CHALLENGE POOL ↔ ON SHURI: 1 scenes together
+310. KILLMONGER ↔ ON SHURI: 1 scenes together
+311. IN THE STANDS ↔ ON NAKIA: 1 scenes together
+312. ON NAKIA ↔ ZURI: 1 scenes together
+313. ON NAKIA ↔ SHURI: 1 scenes together
+314. AYO ↔ ON NAKIA: 1 scenes together
+315. IN THE STANDS ↔ NAKIA: 1 scenes together
+316. IN THE CHALLENGE POOL ↔ IN THE STANDS: 1 scenes together
+317. AYO ↔ IN THE CHALLENGE POOL: 1 scenes together
+318. IN THE STANDS ↔ KILLMONGER: 1 scenes together
+319. AYO ↔ KILLMONGER: 1 scenes together
+320. IN THE STANDS ↔ T'CHALLA: 1 scenes together
+321. IN THE STANDS ↔ OKOYE: 1 scenes together
+322. IN THE STANDS ↔ RAMONDA: 1 scenes together
+323. IN THE STANDS ↔ ZURI: 1 scenes together
+324. IN THE STANDS ↔ SHURI: 1 scenes together
+325. AYO ↔ IN THE STANDS: 1 scenes together
+326. AYO ↔ ZURI: 1 scenes together
+327. ON NAKIA AND RAMONDA ↔ RAMONDA: 1 scenes together
+328. NO. ↔ ON NAKIA AND RAMONDA: 1 scenes together
+329. NAKIA ↔ ON NAKIA AND RAMONDA: 1 scenes together
+330. IN THE CHALLENGE POOL ↔ ON NAKIA AND RAMONDA: 1 scenes together
+331. KILLMONGER ↔ ON NAKIA AND RAMONDA: 1 scenes together
+332. ON NAKIA ↔ ON NAKIA AND RAMONDA: 1 scenes together
+333. NO. ↔ RAMONDA: 1 scenes together
+334. NAKIA ↔ NO.: 1 scenes together
+335. IN THE CHALLENGE POOL ↔ NO.: 1 scenes together
+336. KILLMONGER ↔ NO.: 1 scenes together
+337. NO. ↔ ON NAKIA: 1 scenes together
+338. N'JOBU ↔ YOUNG KILLMONGER: 1 scenes together
+339. KILLMONGER ↔ N'JOBU: 1 scenes together
+340. KILLMONGER ↔ YOUNG KILLMONGER: 1 scenes together
+341. KILLMONGER ↔ SHAMAN: 1 scenes together
+342. ON NAKIA ↔ SHAMAN: 1 scenes together
+343. OF THE JABARI ARMY. ↔ ROSS: 1 scenes together
+344. NAKIA ↔ OF THE JABARI ARMY.: 1 scenes together
+345. OF THE JABARI ARMY. ↔ SHURI: 1 scenes together
+346. OF THE JABARI ARMY. ↔ RAMONDA: 1 scenes together
+347. KILLMONGER ↔ ON PANTHER: 1 scenes together
+348. ON PANTHER ↔ SHURI: 1 scenes together
+349. BORDER TRIBE COMMANDER ↔ KILLMONGER: 1 scenes together
+350. BORDER TRIBE ↔ KILLMONGER: 1 scenes together
+351. BORDER TRIBE COMMANDER ↔ OKOYE: 1 scenes together
+352. BORDER TRIBE ↔ OKOYE: 1 scenes together
+353. DOWNHILL ↔ OKOYE: 1 scenes together
+354. BORDER TRIBE COMMANDER ↔ W'KABI: 1 scenes together
+355. BORDER TRIBE ↔ BORDER TRIBE COMMANDER: 1 scenes together
+356. BORDER TRIBE COMMANDER ↔ DOWNHILL: 1 scenes together
+357. BORDER TRIBE COMMANDER ↔ T'CHALLA: 1 scenes together
+358. BORDER TRIBE ↔ W'KABI: 1 scenes together
+359. DOWNHILL ↔ W'KABI: 1 scenes together
+360. BORDER TRIBE ↔ DOWNHILL: 1 scenes together
+361. BORDER TRIBE ↔ T'CHALLA: 1 scenes together
+362. DOWNHILL ↔ ON KILLMONGER AND SHURI: 1 scenes together
+363. DOWNHILL ↔ SHURI: 1 scenes together
+364. ON KILLMONGER AND SHURI ↔ T'CHALLA: 1 scenes together
+365. KILLMONGER ↔ ON KILLMONGER AND SHURI: 1 scenes together
+366. ON KILLMONGER AND SHURI ↔ SHURI: 1 scenes together
+367. M'BAKU ↔ W'KABI: 1 scenes together
+368. M'BAKU ↔ OKOYE: 1 scenes together
+369. GIOT ↔ GRIOT: 1 scenes together
+370. SHURI ↔ YOUNG BLACK KID: 1 scenes together
+371. CUT TO TITLE ↔ SHURI: 1 scenes together
+372. BLACK PANTHER ↔ SHURI: 1 scenes together
+373. T'CHALLA ↔ YOUNG BLACK KID: 1 scenes together
+374. CUT TO TITLE ↔ T'CHALLA: 1 scenes together
+375. BLACK PANTHER ↔ T'CHALLA: 1 scenes together
+376. CUT TO TITLE ↔ YOUNG BLACK KID: 1 scenes together
+377. BLACK PANTHER ↔ YOUNG BLACK KID: 1 scenes together
+378. BLACK PANTHER ↔ CUT TO TITLE: 1 scenes together
+379. FRENCH AMBASSADOR ↔ T'CHALLA: 1 scenes together
+380. SHURI ↔ WAKANDAN CHILD: 1 scenes together
+381. SHURI ↔ WAKANDAN CHILDREN: 1 scenes together
+382. BUCKY ↔ SHURI: 1 scenes together
+383. WAKANDAN CHILD ↔ WAKANDAN CHILDREN: 1 scenes together
+384. BUCKY ↔ WAKANDAN CHILD: 1 scenes together
+385. BUCKY ↔ WAKANDAN CHILDREN: 1 scenes together

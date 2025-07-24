@@ -1,0 +1,22 @@
+12_ANGRY_MEN - COMPLETE ANALYSIS SUMMARY
+Full extraction and analysis of 12_Angry_Men screenplay
+================================================================================
+
+EXTRACTION RESULTS:
+--------------------
+Total Scenes: 1
+Total Dialogues: 2
+Total Characters: 22
+
+TOP 10 CHARACTERS BY DIALOGUE COUNT:
+----------------------------------------
+ 1. NOTE: 1 dialogues
+ 2. FOREMAN: 1 dialogues
+
+FILES GENERATED:
+----------------
+1. ALL_SCENES_COMPLETE.txt - All 1 scenes
+2. ALL_DIALOGUES_COMPLETE.txt - All dialogue entries
+3. ALL_CHARACTERS_COMPLETE.txt - All character details
+4. ALL_CHARACTER_INTERACTIONS.txt - Character relationships
+5. COMPLETE_ANALYSIS_SUMMARY.txt - This summary

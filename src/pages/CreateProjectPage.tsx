@@ -6,13 +6,12 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Label } from '@/components/ui/label';
-import { Upload, ArrowLeft, FileText, Brain } from 'lucide-react';
+import { Upload, ArrowLeft, FileText } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
-import { analyzeScriptWithAI } from '@/services/geminiService';
 import { ProjectData } from '@/types';
 
-// 📄 SIMPLIFIED: Only TXT files supported - no PDF processing needed
-console.log('📝 Script upload configured for TXT files only - no PDF.js dependencies');
+// 📄 PDF ONLY: Only PDF files supported for project creation
+console.log('📝 Script upload configured for PDF files only');
 
 export const CreateProjectPage = () => {
   const navigate = useNavigate();
@@ -30,121 +29,38 @@ export const CreateProjectPage = () => {
   const handleFileUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
     if (file) {
-      // Only accept TXT files
-      if (file.type !== 'text/plain' && !file.name.toLowerCase().endsWith('.txt')) {
+      // Only accept PDF files
+      if (file.type !== 'application/pdf' && !file.name.toLowerCase().endsWith('.pdf')) {
         toast({
           title: "Invalid file type",
-          description: "Please upload a TXT file only. PDF files are not supported.",
+          description: "Please upload a PDF file only. TXT files are not supported.",
           variant: "destructive"
         });
         return;
       }
-      console.log('📄 TXT file selected:', file.name, '(', (file.size / 1024).toFixed(2), 'KB)');
+      console.log('📄 PDF file selected:', file.name, '(', (file.size / 1024).toFixed(2), 'KB)');
       setScriptFile(file);
     }
   };
 
-  // Simple TXT file reader - no PDF processing needed
-  const readTxtFile = async (file: File): Promise<string> => {
-    console.log('📄 Reading TXT file:', file.name);
+  // Store PDF file info for later processing by API
+  const storePdfFileInfo = (file: File): string => {
+    console.log('📄 Storing PDF file info:', file.name);
     console.log('📦 File size:', (file.size / 1024).toFixed(2), 'KB');
     
-    return new Promise((resolve, reject) => {
-      const reader = new FileReader();
-      
-      reader.onload = (e) => {
-        const content = e.target?.result as string;
-        console.log('✅ TXT file loaded successfully. Characters:', content.length);
-        console.log('📝 Content preview (first 200 chars):', content.substring(0, 200) + '...');
-        resolve(content);
-      };
-      
-      reader.onerror = (error) => {
-        console.error('❌ Error reading TXT file:', error);
-        reject(new Error('Failed to read TXT file'));
-      };
-      
-      reader.readAsText(file, 'utf-8');
-    });
+    // Return placeholder content indicating PDF needs to be processed
+    return `PDF_FILE_UPLOADED: ${file.name}\nSize: ${(file.size / 1024).toFixed(2)} KB\nFile will be processed when accessing Script page.`;
   };
 
   const readFileContent = async (file: File): Promise<string> => {
-    // Only TXT files are supported now
-    if (file.type !== 'text/plain' && !file.name.toLowerCase().endsWith('.txt')) {
-      throw new Error('Only TXT files are supported. Please upload a .txt file.');
+    // Only PDF files are supported now
+    if (file.type !== 'application/pdf' && !file.name.toLowerCase().endsWith('.pdf')) {
+      throw new Error('Only PDF files are supported. Please upload a .pdf file.');
     }
     
-    return await readTxtFile(file);
+    return storePdfFileInfo(file);
   };
 
-  // Background AI analysis function
-  const analyzeScriptInBackground = async (projectData: ProjectData, scriptContent: string) => {
-    try {
-      console.log('Starting background AI analysis for project:', projectData.name);
-      
-      const analysisResult = await analyzeScriptWithAI(
-        scriptContent, 
-        projectData.id,
-        (status) => {
-          console.log('AI Analysis progress:', status);
-          setAnalysisStatus(status);
-        }
-      );
-
-      // Update project with analysis results
-      const updatedProjectData = {
-        ...projectData,
-        aiAnalysis: analysisResult
-      };
-
-      // Update in localStorage
-      const existingProjects = JSON.parse(localStorage.getItem('filmustage_projects') || '[]');
-      const updatedProjects = existingProjects.map((p: ProjectData) => 
-        p.id === projectData.id ? updatedProjectData : p
-      );
-      localStorage.setItem('filmustage_projects', JSON.stringify(updatedProjects));
-
-      // Update selected project
-      localStorage.setItem('selected_project', JSON.stringify(updatedProjectData));
-
-      // Trigger a custom event to notify other components
-      window.dispatchEvent(new CustomEvent('projectAnalysisComplete', {
-        detail: { projectId: projectData.id, analysis: analysisResult }
-      }));
-
-      console.log('AI analysis completed successfully');
-
-    } catch (error) {
-      console.error('Background AI analysis failed:', error);
-      
-      // Update project with error status
-      const errorResult = {
-        status: 'error' as const,
-        error: error instanceof Error ? error.message : 'Analysis failed',
-        timestamp: new Date().toISOString()
-      };
-
-      const updatedProjectData = {
-        ...projectData,
-        aiAnalysis: errorResult
-      };
-
-      // Update in localStorage
-      const existingProjects = JSON.parse(localStorage.getItem('filmustage_projects') || '[]');
-      const updatedProjects = existingProjects.map((p: ProjectData) => 
-        p.id === projectData.id ? updatedProjectData : p
-      );
-      localStorage.setItem('filmustage_projects', JSON.stringify(updatedProjects));
-
-      // Update selected project
-      localStorage.setItem('selected_project', JSON.stringify(updatedProjectData));
-
-      // Trigger error event
-      window.dispatchEvent(new CustomEvent('projectAnalysisError', {
-        detail: { projectId: projectData.id, error: errorResult.error }
-      }));
-    }
-  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -168,41 +84,50 @@ export const CreateProjectPage = () => {
     }
 
     setIsUploading(true);
-    setAnalysisStatus('Reading TXT script file...');
 
     try {
-      console.log('📁 Processing TXT file:', scriptFile.name);
-      const scriptContent = await readFileContent(scriptFile);
-      console.log('📝 TXT content loaded:', scriptContent.length, 'characters');
+      console.log('📁 Processing PDF file:', scriptFile.name);
+      setAnalysisStatus('Uploading PDF to analysis API...');
       
-      // Validation: Make sure we have actual text content
-      if (scriptContent.length < 50) {
-        throw new Error('Script content is too short. Please ensure the TXT file contains script text.');
+      // Send PDF to CJS API for analysis
+      const formData = new FormData();
+      formData.append('pdf', scriptFile);
+      
+      console.log('📄 Uploading PDF to CJS analysis API:', scriptFile.name);
+      const response = await fetch('http://localhost:3001/api/analyze-pdf', {
+        method: 'POST',
+        body: formData,
+      });
+
+      if (!response.ok) {
+        throw new Error(`PDF analysis failed: ${response.statusText}`);
       }
+
+      const analysisResults = await response.json();
+      console.log('✅ PDF analysis results:', analysisResults);
       
-      console.log('✅ TXT content validated. First 200 characters:');
-      console.log(scriptContent.substring(0, 200) + '...');
+      if (!analysisResults.success || !analysisResults.data) {
+        throw new Error(analysisResults.error || 'Analysis failed');
+      }
+
+      setAnalysisStatus('Creating project with analysis data...');
       
       const projectData: ProjectData = {
         id: Date.now().toString(),
         name: formData.name,
         description: formData.description,
-        scriptContent, // STORED LOCALLY ONLY - never uploaded to cloud storage
+        scriptContent: `PDF Analysis Complete: ${scriptFile.name}\n\nExtracted ${analysisResults.data.totalScenes} scenes, ${analysisResults.data.totalCharacters} characters, ${analysisResults.data.totalDialogues} dialogues.`,
         created: new Date().toLocaleDateString('en-US', {
           year: 'numeric',
           month: 'long',
           day: 'numeric'
         }),
-        aiAnalysis: {
-          status: 'processing',
-          timestamp: new Date().toISOString()
-        }
+        pdfFileName: scriptFile.name,
+        pdfAnalysisResults: analysisResults // Store the analysis results
       };
 
-      // IMPORTANT: Script content is stored ONLY in browser's localStorage
-      // It is NEVER uploaded to any cloud storage or database
-      // Only AI analysis requests include script content temporarily for processing
-      console.log('💾 Storing project data LOCALLY ONLY (no cloud storage)');
+      // Store project data locally
+      console.log('💾 Storing project with analysis data locally');
       const existingProjects = JSON.parse(localStorage.getItem('filmustage_projects') || '[]');
       const updatedProjects = [...existingProjects, projectData];
       localStorage.setItem('filmustage_projects', JSON.stringify(updatedProjects));
@@ -211,18 +136,15 @@ export const CreateProjectPage = () => {
       selectProject(projectData);
 
       toast({
-        title: "Project created successfully!",
-        description: `${formData.name} has been created. Starting AI analysis...`
+        title: "Project created & analyzed successfully!",
+        description: `${formData.name} - Extracted ${analysisResults.data.totalScenes} scenes.`
       });
 
       // Set redirecting state
       setIsRedirecting(true);
-      setAnalysisStatus('Starting AI scene breakdown analysis...');
+      setAnalysisStatus('Analysis complete! Redirecting to script page...');
 
-      // Start AI analysis in the background
-      analyzeScriptInBackground(projectData, scriptContent);
-
-      // Navigate to script page immediately
+      // Navigate to script page immediately - scheduling and budget will be generated in background
       setTimeout(() => {
         navigate('/script');
       }, 1500);
@@ -232,10 +154,9 @@ export const CreateProjectPage = () => {
       
       toast({
         title: "Error creating project",
-        description: "Failed to read TXT file. Please ensure the file contains readable script text.",
+        description: "Failed to process PDF file. Please ensure the file is a valid PDF script.",
         variant: "destructive"
       });
-      setAnalysisStatus('');
     } finally {
       setIsUploading(false);
     }
@@ -305,7 +226,7 @@ export const CreateProjectPage = () => {
                     <input
                       id="script"
                       type="file"
-                      accept=".txt"
+                      accept=".pdf"
                       onChange={handleFileUpload}
                       className="hidden"
                     />
@@ -327,7 +248,7 @@ export const CreateProjectPage = () => {
                             Drag and drop or click to browse
                           </p>
                           <p className="text-gray-500 text-xs">
-                            Supported format: TXT files only
+                            Supported format: PDF files only
                           </p>
                         </div>
                       )}
@@ -335,10 +256,11 @@ export const CreateProjectPage = () => {
                   </div>
                 </div>
 
+
                 {/* Analysis Status */}
                 {analysisStatus && (
                   <div className="flex items-center space-x-2 p-3 bg-purple-50 border border-purple-200 rounded-lg">
-                    <Brain className="h-4 w-4 text-purple-600 animate-pulse" />
+                    <Upload className="h-4 w-4 text-purple-600 animate-pulse" />
                     <span className="text-purple-700 text-sm">{analysisStatus}</span>
                   </div>
                 )}
@@ -360,8 +282,8 @@ export const CreateProjectPage = () => {
                   >
                     {isRedirecting ? (
                       <>
-                        <Brain className="h-4 w-4 animate-pulse" />
-                        <span>Starting AI Analysis...</span>
+                        <Upload className="h-4 w-4 animate-pulse" />
+                        <span>Redirecting...</span>
                       </>
                     ) : isUploading ? (
                       <>
@@ -370,8 +292,8 @@ export const CreateProjectPage = () => {
                       </>
                     ) : (
                       <>
-                        <Brain className="h-4 w-4" />
-                        <span>Create Project & Analyze</span>
+                        <Upload className="h-4 w-4" />
+                        <span>Create Project</span>
                       </>
                     )}
                   </Button>

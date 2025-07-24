@@ -1,0 +1,27 @@
+CHERNOBYL_EPISODE-11_23_45 - COMPLETE ANALYSIS SUMMARY
+Full extraction and analysis of Chernobyl_Episode-11_23_45 screenplay
+================================================================================
+
+EXTRACTION RESULTS:
+--------------------
+Total Scenes: 43
+Total Dialogues: 10
+Total Characters: 54
+
+TOP 10 CHARACTERS BY DIALOGUE COUNT:
+----------------------------------------
+ 1. SOUND: 3 dialogues
+ 2. TITLE: 2 dialogues
+ 3. HIS POV: 1 dialogues
+ 4. ACROSS THE ROOM: 1 dialogues
+ 5. CLOSE ON: 1 dialogues
+ 6. SUBTITLE: 1 dialogues
+ 7. REVERSE TO REVEAL: 1 dialogues
+
+FILES GENERATED:
+----------------
+1. ALL_SCENES_COMPLETE.txt - All 43 scenes
+2. ALL_DIALOGUES_COMPLETE.txt - All dialogue entries
+3. ALL_CHARACTERS_COMPLETE.txt - All character details
+4. ALL_CHARACTER_INTERACTIONS.txt - Character relationships
+5. COMPLETE_ANALYSIS_SUMMARY.txt - This summary
