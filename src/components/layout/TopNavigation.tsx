@@ -23,7 +23,9 @@ export const TopNavigation = () => {
     { name: 'Analysis', path: '/analysis' },
     { name: 'Scheduling', path: '/scheduling' },
     { name: 'Call Sheets', path: '/callsheets' },
-    { name: 'Budgeting', path: '/budgeting' }
+    { name: 'Budgeting', path: '/budgeting' },
+    { name: 'Agent Raw JSON', path: '/agent-raw-json' },
+    { name: '🤖 All Agents Demo', path: '/all-agents-demo' }
   ];
   
   const isActiveTab = (path: string) => {

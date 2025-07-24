@@ -766,7 +766,7 @@ Remember to return ONLY the complete JSON object with all required fields popula
     }
   }
 
-  private parsePostProductionEstimatorResponse(responseText: string): PostProductionEstimatorOutput | null {
+  private parsePostProductionEstimatorResponse(responseText: string): any | null {
     console.log('');
     console.log('🔍 ===== POST-PRODUCTION ESTIMATOR RESPONSE PARSING & VALIDATION =====');
     console.log('📅 Parse timestamp:', new Date().toISOString());
@@ -806,35 +806,13 @@ Remember to return ONLY the complete JSON object with all required fields popula
       }
 
       console.log('');
-      console.log('🚀 PARSE STEP 3: JSON PARSING');
+      console.log('🚀 PARSE STEP 3: JSON PARSING (RAW - NO VALIDATION)');
       const parsed = JSON.parse(cleanedResponse);
       console.log('✅ JSON parsing successful!');
+      console.log('📊 Returning raw JSON without any structure validation or transformation');
+      console.log('🎯 Raw response keys:', Object.keys(parsed));
       
-      console.log('');
-      console.log('🚀 PARSE STEP 4: STRUCTURE VALIDATION');
-      console.log('🔍 Validating against PostProductionEstimatorOutput format...');
-      
-      // Check if response is in the expected format
-      if (parsed.postProductionModelOutput && 
-          parsed.postProductionModelOutput.processingLog &&
-          parsed.postProductionModelOutput.postProductionSummary) {
-        
-        console.log('');
-        console.log('✅ VALIDATION SUCCESS!');
-        console.log('🎉 Correct PostProductionEstimatorOutput structure found');
-        console.log('📊 Final validation stats:');
-        console.log('  - Processing log included:', !!parsed.postProductionModelOutput.processingLog);
-        console.log('  - Post-production summary included:', !!parsed.postProductionModelOutput.postProductionSummary);
-        console.log('  - Structure matches expected format: ✅ YES');
-        console.log('  - Ready for return: ✅ YES');
-        
-        return parsed as PostProductionEstimatorOutput;
-      }
-
-      console.error('❌ VALIDATION FAILED: Structure validation failed');
-      console.error('🔍 Response does not match expected format');
-      console.error('🔍 Available keys:', Object.keys(parsed));
-      return null;
+      return parsed;
 
     } catch (error) {
       console.error('❌ Error parsing post-production estimator response:', error);
@@ -856,7 +834,7 @@ export const analyzePostProductionEstimatorWithAI = async (
   jsonInput: string,
   projectId: string,
   onProgress?: (status: string) => void
-): Promise<{ status: 'completed' | 'error'; result?: PostProductionEstimatorOutput; error?: string; rawResponse?: string }> => {
+): Promise<{ status: 'completed' | 'error'; result?: any; error?: string; rawResponse?: string }> => {
   console.log('');
   console.log('🎯 ===== POST-PRODUCTION ESTIMATOR AI HELPER FUNCTION CALLED =====');
   console.log('📅 TIMESTAMP:', new Date().toISOString());

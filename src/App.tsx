@@ -7,6 +7,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ProjectLayout } from "@/components/layout/ProjectLayout";
 import { MainApp } from "@/components/layout/MainApp";
 import { CreateProjectPage } from "@/pages/CreateProjectPage";
+import AgentRawJsonPage from "@/pages/AgentRawJsonPage";
+import AllAgentsRawJsonDemo from "@/pages/AllAgentsRawJsonDemo";
 
 const queryClient = new QueryClient();
 
@@ -31,6 +33,8 @@ const App = () => (
             <Route path="/scheduling" element={<MainApp />} />
             <Route path="/callsheets" element={<MainApp />} />
             <Route path="/budgeting" element={<MainApp />} />
+            <Route path="/agent-raw-json" element={<AgentRawJsonPage />} />
+            <Route path="/all-agents-demo" element={<AllAgentsRawJsonDemo />} />
             <Route path="/create-project" element={<CreateProjectPage />} />
           </Routes>
         </ProjectLayout>

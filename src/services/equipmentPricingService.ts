@@ -587,11 +587,11 @@ Remember to return ONLY the complete JSON object with all required fields popula
     }
   }
 
-  private parseEquipmentPricingResponse(responseText: string): EquipmentPricingOutput | null {
+  private parseEquipmentPricingResponse(responseText: string): any | null {
     console.log('');
-    console.log('🔍 ===== EQUIPMENT PRICING RESPONSE PARSING & VALIDATION =====');
+    console.log('🔍 ===== EQUIPMENT PRICING RESPONSE PARSING (RAW JSON) =====');
     console.log('📅 Parse timestamp:', new Date().toISOString());
-    console.log('🔍 ===============================================================');
+    console.log('🔍 ==========================================================');
     console.log('');
     
     try {
@@ -627,35 +627,13 @@ Remember to return ONLY the complete JSON object with all required fields popula
       }
 
       console.log('');
-      console.log('🚀 PARSE STEP 3: JSON PARSING');
+      console.log('🚀 PARSE STEP 3: JSON PARSING (RAW - NO VALIDATION)');
       const parsed = JSON.parse(cleanedResponse);
       console.log('✅ JSON parsing successful!');
+      console.log('📊 Returning raw JSON without any structure validation or transformation');
+      console.log('🎯 Raw response keys:', Object.keys(parsed));
       
-      console.log('');
-      console.log('🚀 PARSE STEP 4: STRUCTURE VALIDATION');
-      console.log('🔍 Validating against EquipmentPricingOutput format...');
-      
-      // Check if response is in the expected format
-      if (parsed.equipmentModelOutput && 
-          parsed.equipmentModelOutput.processingLog &&
-          parsed.equipmentModelOutput.equipmentGrandTotal) {
-        
-        console.log('');
-        console.log('✅ VALIDATION SUCCESS!');
-        console.log('🎉 Correct EquipmentPricingOutput structure found');
-        console.log('📊 Final validation stats:');
-        console.log('  - Processing log included:', !!parsed.equipmentModelOutput.processingLog);
-        console.log('  - Equipment grand total included:', !!parsed.equipmentModelOutput.equipmentGrandTotal);
-        console.log('  - Structure matches expected format: ✅ YES');
-        console.log('  - Ready for return: ✅ YES');
-        
-        return parsed as EquipmentPricingOutput;
-      }
-
-      console.error('❌ VALIDATION FAILED: Structure validation failed');
-      console.error('🔍 Response does not match expected format');
-      console.error('🔍 Available keys:', Object.keys(parsed));
-      return null;
+      return parsed;
 
     } catch (error) {
       console.error('❌ Error parsing equipment pricing response:', error);

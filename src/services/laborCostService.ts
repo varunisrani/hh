@@ -561,34 +561,22 @@ Remember to return ONLY the complete JSON object with all required fields popula
     }
   }
 
-  private parseLaborCostResponse(responseText: string): LaborCostOutput | null {
+  private parseLaborCostResponse(responseText: string): any | null {
     console.log('');
-    console.log('🔍 ===== LABOR COST RESPONSE PARSING & VALIDATION =====');
+    console.log('🔍 ===== LABOR COST RESPONSE PARSING (RAW JSON) =====');
     console.log('📅 Parse timestamp:', new Date().toISOString());
-    console.log('🔍 ======================================================');
+    console.log('🔍 ====================================================');
     console.log('');
     
     try {
       console.log('🚀 PARSE STEP 1: INPUT ANALYSIS');
       console.log('📏 Response text length:', responseText?.length || 0, 'characters');
       console.log('📊 Response text type:', typeof responseText);
-      console.log('🔍 Is null/undefined?', responseText == null ? '❌ YES' : '✅ NO');
-      console.log('🔍 Is empty string?', responseText === '' ? '❌ YES' : '✅ NO');
       
       if (!responseText) {
         console.error('❌ PARSE FAILED: Response text is null, undefined, or empty');
         return null;
       }
-      
-      console.log('');
-      console.log('📋 RESPONSE CONTENT PREVIEW:');
-      console.log('┌─ FIRST 500 CHARACTERS ─┐');
-      console.log('│ ' + responseText.substring(0, 500).replace(/\n/g, '\n│ '));
-      console.log('└────────────────────────────┘');
-      
-      console.log('┌─ LAST 500 CHARACTERS ─┐');
-      console.log('│ ' + responseText.substring(responseText.length - 500).replace(/\n/g, '\n│ '));
-      console.log('└───────────────────────────┘');
       
       console.log('');
       console.log('🚀 PARSE STEP 2: JSON EXTRACTION & CLEANING');
@@ -598,239 +586,28 @@ Remember to return ONLY the complete JSON object with all required fields popula
       console.log('📝 Original response length:', cleanedResponse.length, 'characters');
       
       console.log('🧹 Removing markdown code blocks...');
-      const beforeMarkdown = cleanedResponse.length;
       cleanedResponse = cleanedResponse
         .replace(/```json\s*\n?/g, '')
         .replace(/```\s*\n?/g, '')
         .trim();
-      console.log('📊 After markdown removal:', cleanedResponse.length, 'characters', `(${beforeMarkdown - cleanedResponse.length} removed)`);
 
       console.log('🔍 Looking for JSON boundaries...');
-      // Extract JSON if embedded in thinking mode response
       const jsonStart = cleanedResponse.indexOf('{');
       const jsonEnd = cleanedResponse.lastIndexOf('}') + 1;
       
-      console.log('📍 JSON start position:', jsonStart);
-      console.log('📍 JSON end position:', jsonEnd);
-      console.log('📏 JSON boundary span:', jsonEnd - jsonStart, 'characters');
-
       if (jsonStart !== -1 && jsonEnd > jsonStart) {
-        const beforeExtraction = cleanedResponse.length;
         cleanedResponse = cleanedResponse.substring(jsonStart, jsonEnd);
         console.log('✅ JSON extracted successfully');
-        console.log('📊 Extracted JSON length:', cleanedResponse.length, 'characters', `(${beforeExtraction - cleanedResponse.length} discarded)`);
-        
-        console.log('📋 Extracted JSON preview:');
-        console.log('┌─ FIRST 200 CHARACTERS ─┐');
-        console.log('│ ' + cleanedResponse.substring(0, 200).replace(/\n/g, '\n│ ') + '...');
-        console.log('└────────────────────────────┘');
-      } else {
-        console.log('⚠️ No clear JSON boundaries found, using full cleaned response');
       }
 
       console.log('');
-      console.log('🚀 PARSE STEP 3: JSON PARSING');
-      console.log('📊 Final cleaned response length:', cleanedResponse.length, 'characters');
-      console.log('🔄 Attempting JSON.parse()...');
-
+      console.log('🚀 PARSE STEP 3: JSON PARSING (RAW - NO VALIDATION)');
       const parsed = JSON.parse(cleanedResponse);
       console.log('✅ JSON parsing successful!');
+      console.log('📊 Returning raw JSON without any structure validation or transformation');
+      console.log('🎯 Raw response keys:', Object.keys(parsed));
       
-      console.log('');
-      console.log('🚀 PARSE STEP 4: PARSED OBJECT ANALYSIS');
-      console.log('📊 Parsed object type:', typeof parsed);
-      console.log('🔍 Parsed object keys:', Object.keys(parsed));
-      
-      console.log('📋 PARSED JSON STRUCTURE (preview):');
-      try {
-        const jsonPreview = JSON.stringify(parsed, null, 2);
-        console.log('┌─ PARSED JSON (first 1000 chars) ─┐');
-        console.log('│ ' + jsonPreview.substring(0, 1000).replace(/\n/g, '\n│ ') + '...');
-        console.log('└──────────────────────────────────────┘');
-      } catch (previewError) {
-        console.log('⚠️ Could not create JSON preview:', previewError.message);
-        console.log('📋 Raw parsed object:', parsed);
-      }
-      
-      console.log('');
-      console.log('🚀 PARSE STEP 5: STRUCTURE VALIDATION');
-      console.log('🔍 Validating against LaborCostOutput format...');
-      
-      console.log('🔎 Checking for laborModelOutput property...');
-      const hasLaborOutput = parsed.laborModelOutput !== undefined;
-      console.log('  - laborModelOutput exists:', hasLaborOutput ? '✅ YES' : '❌ NO');
-      
-      if (!hasLaborOutput) {
-        console.error('❌ VALIDATION FAILED: Missing laborModelOutput property');
-        console.error('🔍 Available top-level keys:', Object.keys(parsed));
-        return null;
-      }
-      
-      console.log('🔎 Checking laborModelOutput structure...');
-      const laborOutput = parsed.laborModelOutput;
-      console.log('  - laborModelOutput type:', typeof laborOutput);
-      console.log('  - laborModelOutput keys:', Object.keys(laborOutput));
-      
-      console.log('🔎 Checking required properties...');
-      const hasProcessingLog = laborOutput.processingLog !== undefined;
-      const hasSummary = laborOutput.summary !== undefined;
-      
-      console.log('  - processingLog exists:', hasProcessingLog ? '✅ YES' : '❌ NO');
-      console.log('  - summary exists:', hasSummary ? '✅ YES' : '❌ NO');
-
-      // Check if response is in the old expected format
-      if (parsed.laborModelOutput && 
-          parsed.laborModelOutput.processingLog &&
-          parsed.laborModelOutput.summary) {
-        
-        console.log('');
-        console.log('✅ VALIDATION SUCCESS!');
-        console.log('🎉 Correct LaborCostOutput structure found (wrapped format)');
-        console.log('📊 Final validation stats:');
-        console.log('  - Processing log included:', !!parsed.laborModelOutput.processingLog);
-        console.log('  - Summary included:', !!parsed.laborModelOutput.summary);
-        console.log('  - Structure matches expected format: ✅ YES');
-        console.log('  - Ready for return: ✅ YES');
-        
-        return parsed as LaborCostOutput;
-      }
-
-      // Check if response is in the new actual Gemini API format - transform it
-      if (parsed.projectId && parsed.laborCostSummary && parsed.detailedBreakdown) {
-        console.log('');
-        console.log('🔄 TRANSFORMATION NEEDED: Converting Gemini API format to expected structure');
-        
-        // Transform the actual API response to match our interface
-        const transformedResponse: LaborCostOutput = {
-          laborModelOutput: {
-            processingLog: {
-              unionRateLookup: {
-                executed: true,
-                timestamp: new Date().toISOString(),
-                ratesVerified: {
-                  SAG: "Verified",
-                  DGA: "Verified", 
-                  IATSE: "Verified",
-                  BECTU: "Verified"
-                },
-                status: "completed"
-              },
-              baseWageCalculation: {
-                executed: true,
-                timestamp: new Date().toISOString(),
-                positionsCalculated: parsed.detailedBreakdown?.aboveTheLine?.breakdown?.length + parsed.detailedBreakdown?.belowTheLine?.breakdown?.length || 0,
-                status: "completed"
-              },
-              overtimeEstimation: {
-                executed: true,
-                timestamp: new Date().toISOString(),
-                status: "completed"
-              },
-              fringeBenefitProcessing: {
-                executed: true,
-                timestamp: new Date().toISOString(),
-                status: "completed"
-              },
-              locationMultiplierProcessing: {
-                executed: true,
-                timestamp: new Date().toISOString(),
-                status: "completed"
-              },
-              overallProcessingStatus: "completed"
-            },
-            cast: {
-              aboveTheLine: {
-                principals: {
-                  count: 5, // From original input
-                  baseWages: parsed.detailedBreakdown?.aboveTheLine?.breakdown?.find(b => b.category === "Principal Cast")?.baseWages || 0
-                },
-                supporting: {
-                  count: 12, // From original input
-                  baseWages: parsed.detailedBreakdown?.belowTheLine?.breakdown?.find(b => b.category === "Supporting & Background Cast")?.baseWages || 0
-                }
-              },
-              belowTheLine: {
-                dayPlayers: {
-                  count: 25, // From original input
-                  baseWages: parsed.detailedBreakdown?.belowTheLine?.breakdown?.find(b => b.category === "Supporting & Background Cast")?.baseWages * 0.6 || 0
-                },
-                extras: {
-                  manDays: 450, // From original input
-                  baseWages: parsed.detailedBreakdown?.belowTheLine?.breakdown?.find(b => b.category === "Supporting & Background Cast")?.baseWages * 0.4 || 0
-                },
-                stunts: {
-                  count: 8, // From original input
-                  baseWages: parsed.specialRequirementsAnalysis?.stuntWork?.cost || 0
-                }
-              },
-              castSubtotal: parsed.laborCostSummary?.totalAboveTheLineCost + (parsed.detailedBreakdown?.belowTheLine?.breakdown?.find(b => b.category === "Supporting & Background Cast")?.baseWages || 0),
-              castFringesTotal: parsed.fringeBenefitAnalysis?.totalFringes * 0.3 || 0, // Estimate 30% for cast
-              castTotal: parsed.laborCostSummary?.totalAboveTheLineCost + (parsed.detailedBreakdown?.belowTheLine?.breakdown?.find(b => b.category === "Supporting & Background Cast")?.total || 0)
-            },
-            crew: {
-              departments: {
-                aboveTheLine: {
-                  baseWages: parsed.detailedBreakdown?.aboveTheLine?.breakdown?.find(b => b.category === "Producers & Director")?.baseWages || 0
-                },
-                camera: {
-                  baseWages: parsed.detailedBreakdown?.belowTheLine?.breakdown?.find(b => b.category === "Camera Department")?.baseWages || 0
-                },
-                electrical: {
-                  baseWages: parsed.detailedBreakdown?.belowTheLine?.breakdown?.find(b => b.category === "Electrical Department")?.baseWages || 0
-                },
-                grip: {
-                  baseWages: parsed.detailedBreakdown?.belowTheLine?.breakdown?.find(b => b.category === "Grip Department")?.baseWages || 0
-                },
-                sound: {
-                  baseWages: parsed.detailedBreakdown?.belowTheLine?.breakdown?.find(b => b.category === "Sound Department")?.baseWages || 0
-                },
-                specialDepartments: {
-                  baseWages: parsed.detailedBreakdown?.belowTheLine?.breakdown?.find(b => b.category === "Specialized Departments")?.baseWages || 0
-                }
-              },
-              crewSubtotal: parsed.laborCostSummary?.totalBelowTheLineCost - (parsed.detailedBreakdown?.belowTheLine?.breakdown?.find(b => b.category === "Supporting & Background Cast")?.total || 0),
-              crewFringesTotal: parsed.fringeBenefitAnalysis?.totalFringes * 0.7 || 0, // Estimate 70% for crew
-              crewTotal: parsed.laborCostSummary?.totalBelowTheLineCost - (parsed.detailedBreakdown?.belowTheLine?.breakdown?.find(b => b.category === "Supporting & Background Cast")?.total || 0)
-            },
-            summary: {
-              totalBaseWages: parsed.laborCostSummary?.totalLaborCost - parsed.laborCostSummary?.totalFringes - parsed.laborCostSummary?.totalOvertimeAndPenalties,
-              totalOvertimeAndPenalties: parsed.laborCostSummary?.totalOvertimeAndPenalties || 0,
-              totalFringes: parsed.laborCostSummary?.totalFringes || 0,
-              totalSpecialRequirements: parsed.specialRequirementsAnalysis?.totalCost || 0,
-              laborGrandTotal: parsed.laborCostSummary?.totalLaborCost || 0
-            },
-            riskAssessment: {
-              identifiedFactors: [
-                ...(parsed.riskAssessment?.scheduleRiskFactors?.map(r => r.factor) || []),
-                ...(parsed.riskAssessment?.costEscalationFactors?.map(r => r.factor) || [])
-              ],
-              recommendedContingencyPercentage: parseFloat(parsed.riskAssessment?.contingencyRecommendation?.percentage?.replace('%', '') || '10'),
-              contingencyAmount: parsed.riskAssessment?.contingencyRecommendation?.amount || parsed.laborCostSummary?.contingencyAmount || 0
-            },
-            confidenceInterval: {
-              lowerBound: parsed.laborCostSummary?.totalLaborCost * 0.9 || 0,
-              upperBound: parsed.laborCostSummary?.totalLaborCost * 1.1 || 0
-            }
-          }
-        };
-
-        console.log('✅ TRANSFORMATION SUCCESS!');
-        console.log('🎉 Gemini API response successfully converted to LaborCostOutput structure');
-        console.log('📊 Transformation stats:');
-        console.log('  - Original format: Gemini API direct response');
-        console.log('  - Transformed format: LaborCostOutput interface');
-        console.log('  - Total labor cost:', transformedResponse.laborModelOutput.summary.laborGrandTotal);
-        console.log('  - Cast total:', transformedResponse.laborModelOutput.cast.castTotal);
-        console.log('  - Crew total:', transformedResponse.laborModelOutput.crew.crewTotal);
-        console.log('  - Ready for return: ✅ YES');
-        
-        return transformedResponse;
-      }
-
-      console.error('❌ VALIDATION FAILED: Structure validation failed');
-      console.error('🔍 Response does not match expected format or Gemini API format');
-      console.error('🔍 Available keys:', Object.keys(parsed));
-      return null;
+      return parsed;
 
     } catch (error) {
       console.error('❌ Error parsing labor cost response:', error);
@@ -838,21 +615,6 @@ Remember to return ONLY the complete JSON object with all required fields popula
       console.error('Error message:', error.message);
       console.error('Response length:', responseText.length);
       console.error('Response preview:', responseText.substring(0, 1000));
-      console.error('Response end:', responseText.substring(responseText.length - 1000));
-      
-      // Try to find any JSON-like structure in the response
-      const jsonMatch = responseText.match(/\{[\s\S]*\}/);
-      if (jsonMatch) {
-        console.log('Found potential JSON structure, attempting to parse:');
-        try {
-          const extracted = jsonMatch[0];
-          const parsed = JSON.parse(extracted);
-          console.log('✅ Successfully parsed extracted JSON!');
-          return parsed as LaborCostOutput;
-        } catch (e) {
-          console.error('❌ Failed to parse extracted JSON:', e);
-        }
-      }
       
       return null;
     }

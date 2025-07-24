@@ -2,9 +2,10 @@
 import { useState, useEffect } from 'react';
 import { MainLayout } from '@/components/layout/MainLayout';
 import { Button } from '@/components/ui/button';
+import { useNavigate } from 'react-router-dom';
 import { CategoryBadge } from '@/components/ui/CategoryBadge';
 import { mockBudgetData, mockProject } from '@/data/mockData';
-import { Plus, Share2, Download, Settings, Search, FileText, Loader2, Wand2 } from 'lucide-react';
+import { Plus, Share2, Download, Settings, Search, FileText, Loader2, Wand2, Brain, BarChart3, Clock, Users, MapPin, DollarSign, AlertTriangle, Code, CheckCircle, RotateCcw, ChevronDown, ChevronRight, Copy } from 'lucide-react';
 import { analyzeBudgetCoordinatorWithAI, BudgetCoordinatorOutput } from '@/services/budgetCoordinatorService';
 import { analyzeLaborCostWithAI, LaborCostOutput } from '@/services/laborCostService';
 import { analyzeEquipmentPricingWithAI, EquipmentPricingOutput } from '@/services/equipmentPricingService';
@@ -16,11 +17,13 @@ import { analyzeTaxIncentiveAnalyzerWithAI, TaxIncentiveAnalyzerOutput } from '@
 import { analyzeBudgetAggregatorWithAI, BudgetAggregatorOutput } from '@/services/budgetAggregatorService';
 import { analyzeCashFlowProjectorWithAI, CashFlowProjectorOutput } from '@/services/cashFlowProjectorService';
 import { generateBasicBudgetWithAI, BasicBudgetOutput } from '@/services/basicBudgetGeneratorService';
+import { analyzeBudgetMasterWithAI, ComprehensiveBudgetMasterOutput } from '@/services/aiBudgetMasterService';
 import { useSelectedProject } from '@/hooks/useSelectedProject';
 
 export const BudgetingPage = () => {
   console.log('💰 BUDGETING PAGE: Component rendering/re-rendering at', new Date().toISOString());
   
+  const navigate = useNavigate();
   const [activeTab, setActiveTab] = useState('basicBudget');
   const [budgetData, setBudgetData] = useState(mockBudgetData);
   const [showFringes, setShowFringes] = useState(false);
@@ -99,6 +102,24 @@ export const BudgetingPage = () => {
   const [isGeneratingBasicBudget, setIsGeneratingBasicBudget] = useState(false);
   const [basicBudgetResult, setBasicBudgetResult] = useState<BasicBudgetOutput | null>(null);
   const [basicBudgetError, setBasicBudgetError] = useState('');
+
+  // AI Budget Master Analysis state - MATCHING SCRIPT ANALYSIS PATTERN
+  const [isAnalyzingBudgetMaster, setIsAnalyzingBudgetMaster] = useState(false);
+  const [budgetMasterResult, setBudgetMasterResult] = useState<ComprehensiveBudgetMasterOutput | null>(null);
+  const [budgetMasterError, setBudgetMasterError] = useState('');
+  const [budgetMasterRawResponse, setBudgetMasterRawResponse] = useState<string>('');
+  const [budgetMasterProgress, setBudgetMasterProgress] = useState('');
+  
+  // Individual Agent Raw JSON state - MATCHING SCHEDULING PAGE PATTERN
+  const [rawAgentOutputs, setRawAgentOutputs] = useState<{
+    [tierKey: string]: {
+      [serviceName: string]: any;
+    };
+  }>({});
+  const [expandedRawSections, setExpandedRawSections] = useState<{
+    [key: string]: boolean;
+  }>({});
+  const [showRawJSON, setShowRawJSON] = useState(false);
   
   const { selectedProject } = useSelectedProject();
 
@@ -162,6 +183,80 @@ export const BudgetingPage = () => {
     console.log('💾 =====================================================');
     console.log('');
   }, [selectedProject?.id]);
+
+  // Load AI Budget Master results from localStorage - MATCHING SCRIPT ANALYSIS PATTERN
+  useEffect(() => {
+    console.log('');
+    console.log('💾 ===== AI BUDGET MASTER: LOADING FROM LOCALSTORAGE =====');
+    console.log('📅 TIMESTAMP:', new Date().toISOString());
+    console.log('🔍 CHECKING PROJECT:', selectedProject?.id || 'No project');
+    console.log('💾 =======================================================');
+    console.log('');
+    
+    if (selectedProject?.id) {
+      try {
+        const storageKey = `ai_budget_master_${selectedProject.id}`;
+        console.log('🔑 PAGE: Using storage key:', storageKey);
+        
+        const storedBudgetMasterData = localStorage.getItem(storageKey);
+        console.log('📦 PAGE: Stored master data exists:', !!storedBudgetMasterData);
+        console.log('📏 PAGE: Stored master data length:', storedBudgetMasterData?.length || 0, 'characters');
+        
+        if (storedBudgetMasterData) {
+          const parsedBudgetMaster = JSON.parse(storedBudgetMasterData);
+          console.log('✅ PAGE: Successfully parsed stored budget master data');
+          console.log('📊 PAGE: Total budget from storage:', parsedBudgetMaster?.budgetMasterAnalysis?.budgetExecutiveSummary?.totalBudget || 'N/A');
+          console.log('📊 PAGE: Tiers processed from storage:', parsedBudgetMaster?.budgetMasterAnalysis?.masterBudgetSummary?.totalTiersProcessed || 'N/A');
+          
+          setBudgetMasterResult(parsedBudgetMaster);
+          console.log('✅ PAGE: Budget master result loaded from localStorage');
+        } else {
+          console.log('📝 PAGE: No stored budget master data found - clearing current result');
+          setBudgetMasterResult(null);
+        }
+        
+        // Always clear error and progress when project changes
+        setBudgetMasterError('');
+        setBudgetMasterProgress('');
+        setBudgetMasterRawResponse('');
+        setRawAgentOutputs({});
+        setExpandedRawSections({});
+        setShowRawJSON(false);
+        console.log('🧹 PAGE: Cleared any existing budget master errors and progress');
+        
+      } catch (error) {
+        console.error('❌ PAGE: Error loading AI budget master from localStorage:', error);
+        console.error('🔍 PAGE: Error type:', error?.name || 'Unknown');
+        console.error('🔍 PAGE: Error message:', error?.message || 'No message');
+        
+        // Clear corrupted data and reset state
+        const storageKey = `ai_budget_master_${selectedProject.id}`;
+        localStorage.removeItem(storageKey);
+        setBudgetMasterResult(null);
+        setBudgetMasterError('');
+        setBudgetMasterProgress('');
+        setBudgetMasterRawResponse('');
+        console.log('🧹 PAGE: Cleared corrupted budget master data from localStorage');
+      }
+    } else {
+      console.log('📝 PAGE: No project selected - clearing budget master result');
+      setBudgetMasterResult(null);
+      setBudgetMasterError('');
+      setBudgetMasterProgress('');
+      setBudgetMasterRawResponse('');
+      setRawAgentOutputs({});
+      setExpandedRawSections({});
+      setShowRawJSON(false);
+    }
+    
+    console.log('');
+    console.log('💾 ===== AI BUDGET MASTER: LOCALSTORAGE LOAD COMPLETE =====');
+    console.log('📅 TIMESTAMP:', new Date().toISOString());
+    console.log('📊 FINAL STATE: Has master result:', !!budgetMasterResult);
+    console.log('📊 FINAL STATE: Has master error:', !!budgetMasterError);
+    console.log('💾 ==========================================================');
+    console.log('');
+  }, [selectedProject?.id]);
   
   console.log('📊 BUDGET PAGE STATE:');
   console.log('  - Active tab:', activeTab);
@@ -173,8 +268,29 @@ export const BudgetingPage = () => {
   console.log('  - Is analyzing labor cost:', isAnalyzingLaborCost);
   console.log('  - Has labor cost result:', !!laborCostResult);
   console.log('  - Has labor cost error:', !!laborCostError);
+  console.log('  - AI Budget Master: Is analyzing:', isAnalyzingBudgetMaster);
+  console.log('  - AI Budget Master: Has result:', !!budgetMasterResult);
+  console.log('  - AI Budget Master: Has error:', !!budgetMasterError);
+  console.log('  - AI Budget Master: Progress:', budgetMasterProgress || 'None');
   console.log('  - Selected project:', selectedProject?.id || 'None');
   
+  // Utility functions for Raw JSON handling - MATCHING SCHEDULING PAGE PATTERN
+  const toggleRawSection = (sectionKey: string) => {
+    setExpandedRawSections(prev => ({
+      ...prev,
+      [sectionKey]: !prev[sectionKey]
+    }));
+  };
+
+  const copyToClipboard = async (text: string) => {
+    try {
+      await navigator.clipboard.writeText(text);
+      console.log('📋 Raw JSON copied to clipboard');
+    } catch (error) {
+      console.error('❌ Failed to copy to clipboard:', error);
+    }
+  };
+
   // Tab change handler with logging
   const handleTabChange = (newTab: string) => {
     console.log('🔄 BUDGET PAGE: Tab change requested from', activeTab, 'to', newTab);
@@ -1142,6 +1258,242 @@ export const BudgetingPage = () => {
     }
   };
 
+  // AI Budget Master Analysis Handler - MATCHING SCRIPT ANALYSIS PATTERN
+  const handleAIBudgetMasterAnalysis = async () => {
+    console.log('');
+    console.log('🎬 ===== BUDGETING PAGE: AI BUDGET MASTER ANALYSIS INITIATED =====');
+    console.log('📅 TIMESTAMP:', new Date().toISOString());
+    console.log('🖥️ COMPONENT: BudgetingPage - AI Budget Master Service');
+    console.log('🎬 ===============================================================');
+    console.log('');
+    
+    if (!selectedProject) {
+      console.error('❌ PAGE: No project selected');
+      setBudgetMasterError('No project selected');
+      return;
+    }
+
+    console.log('🔍 PAGE: Validating project data for master analysis...');
+    console.log('📊 PAGE: Selected project ID:', selectedProject.id);
+    console.log('📊 PAGE: Selected project name:', selectedProject.name);
+    console.log('📊 PAGE: Has script analysis results:', !!selectedProject.aiAnalysis);
+    console.log('📊 PAGE: Has PDF analysis results:', !!selectedProject.pdfAnalysisResults);
+
+    if (!selectedProject.aiAnalysis && !selectedProject.pdfAnalysisResults) {
+      console.error('❌ PAGE: No script analysis results available');
+      setBudgetMasterError('Script analysis results required. Please analyze your script first.');
+      return;
+    }
+
+    console.log('✅ PAGE: Project validation passed for master analysis');
+
+    console.log('');
+    console.log('🚀 PAGE: Starting AI Budget Master Analysis process...');
+    console.log('🔄 PAGE: Setting master analysis state...');
+    
+    setIsAnalyzingBudgetMaster(true);
+    setBudgetMasterError('');
+    setBudgetMasterResult(null);
+    setBudgetMasterProgress('Initializing comprehensive budget analysis...');
+    setBudgetMasterRawResponse('');
+    setRawAgentOutputs({});
+    setExpandedRawSections({});
+    setShowRawJSON(false);
+    
+    console.log('📊 PAGE: Master analysis state updated - isAnalyzing: true, error cleared, result cleared');
+
+    try {
+      // Get script data from project
+      const scriptData = selectedProject.aiAnalysis || selectedProject.pdfAnalysisResults;
+      
+      // Get scheduling data from localStorage if available
+      let schedulingData = null;
+      try {
+        const storedSchedule = localStorage.getItem(`production_schedule_${selectedProject.id}`);
+        if (storedSchedule) {
+          schedulingData = JSON.parse(storedSchedule);
+          console.log('📅 PAGE: Found stored scheduling data for project');
+        } else {
+          // Create basic scheduling data from script analysis
+          schedulingData = {
+            totalShootDays: scriptData?.sceneBreakdownOutput?.sceneAnalysisSummary?.totalScenesProcessed || 10,
+            averageSceneComplexity: scriptData?.sceneBreakdownOutput?.sceneAnalysisSummary?.averageSceneComplexity || 5,
+            totalCharacters: scriptData?.sceneBreakdownOutput?.sceneAnalysisSummary?.totalCharactersIdentified || 5,
+            totalLocations: scriptData?.sceneBreakdownOutput?.sceneAnalysisSummary?.totalLocationsIdentified || 3
+          };
+          console.log('📊 PAGE: Created basic scheduling data from script analysis');
+        }
+      } catch (error) {
+        console.log('⚠️ PAGE: Creating fallback scheduling data');
+        schedulingData = {
+          totalShootDays: 10,
+          averageSceneComplexity: 5,
+          totalCharacters: 5,
+          totalLocations: 3
+        };
+      }
+
+      console.log('');
+      console.log('🔄 PAGE: Calling AI Budget Master Service...');
+      console.log('📊 PAGE: Script data size:', JSON.stringify(scriptData).length, 'characters');
+      console.log('📊 PAGE: Scheduling data size:', JSON.stringify(schedulingData).length, 'characters');
+      
+      const result = await analyzeBudgetMasterWithAI(
+        scriptData,
+        schedulingData,
+        selectedProject.id,
+        (progress) => {
+          console.log('📢 PAGE: Progress update received:', progress);
+          setBudgetMasterProgress(progress);
+        },
+        (tierKey, serviceName, rawOutput) => {
+          console.log('📢 PAGE: Raw agent update received:', tierKey, serviceName);
+          setRawAgentOutputs(prev => ({
+            ...prev,
+            [tierKey]: {
+              ...prev[tierKey],
+              [serviceName]: rawOutput
+            }
+          }));
+        }
+      );
+
+      console.log('');
+      console.log('📥 PAGE: AI Budget Master Service response received');
+      console.log('📊 PAGE: Response status:', result.status);
+      console.log('📊 PAGE: Has result:', !!result.result);
+      console.log('📊 PAGE: Has error:', !!result.error);
+      console.log('📊 PAGE: Has raw response:', !!result.rawResponse);
+
+      if (result.status === 'completed' && result.result) {
+        console.log('✅ PAGE: AI Budget Master analysis completed successfully');
+        
+        setBudgetMasterResult(result.result);
+        setBudgetMasterRawResponse(result.rawResponse || '');
+        setBudgetMasterProgress('AI Budget Master analysis completed successfully!');
+        
+        console.log('📊 PAGE: Master analysis result set to state');
+        console.log('📊 PAGE: Total budget from result:', result.result.budgetMasterAnalysis?.budgetExecutiveSummary?.totalBudget || 'N/A');
+        console.log('📊 PAGE: Tiers processed:', result.result.budgetMasterAnalysis?.masterBudgetSummary?.totalTiersProcessed || 'N/A');
+
+        // Save to localStorage - MATCHING SCRIPT ANALYSIS PATTERN
+        try {
+          const storageKey = `ai_budget_master_${selectedProject.id}`;
+          const budgetMasterDataToStore = JSON.stringify(result.result);
+          localStorage.setItem(storageKey, budgetMasterDataToStore);
+          
+          console.log('💾 PAGE: AI Budget Master result saved to localStorage');
+          console.log('🔑 PAGE: Storage key used:', storageKey);
+          console.log('📏 PAGE: Data size saved:', budgetMasterDataToStore.length, 'characters');
+        } catch (storageError) {
+          console.error('❌ PAGE: Failed to save AI Budget Master to localStorage:', storageError);
+          console.error('🔍 PAGE: Storage error type:', storageError?.name || 'Unknown');
+          console.error('🔍 PAGE: Storage error message:', storageError?.message || 'No message');
+          // Continue without failing the entire operation
+        }
+
+        // Dispatch completion event - MATCHING SCRIPT ANALYSIS PATTERN
+        window.dispatchEvent(new CustomEvent('budgetMasterAnalysisComplete', {
+          detail: { 
+            projectId: selectedProject.id, 
+            result: result.result,
+            timestamp: new Date().toISOString()
+          }
+        }));
+        console.log('📡 PAGE: budgetMasterAnalysisComplete event dispatched');
+
+      } else {
+        console.error('❌ PAGE: AI Budget Master analysis failed');
+        console.error('🔍 PAGE: Master analysis error message:', result.error || 'Analysis failed');
+        setBudgetMasterError(result.error || 'AI Budget Master analysis failed');
+        setBudgetMasterRawResponse(result.rawResponse || '');
+        setBudgetMasterProgress('');
+        console.log('🔄 PAGE: Master analysis error set to state');
+
+        // Dispatch error event - MATCHING SCRIPT ANALYSIS PATTERN
+        window.dispatchEvent(new CustomEvent('budgetMasterAnalysisError', {
+          detail: { 
+            projectId: selectedProject.id, 
+            error: result.error || 'Analysis failed',
+            timestamp: new Date().toISOString()
+          }
+        }));
+        console.log('📡 PAGE: budgetMasterAnalysisError event dispatched');
+      }
+    } catch (error) {
+      console.log('');
+      console.log('💥 ========== PAGE MASTER BUDGET ERROR OCCURRED ==========');
+      console.error('❌ PAGE: Unexpected error in handleAIBudgetMasterAnalysis:', error);
+      console.error('🔍 PAGE: Error type:', error?.name || 'Unknown');
+      console.error('🔍 PAGE: Error message:', error?.message || 'No message');
+      
+      if (error?.stack) {
+        console.error('📚 PAGE: Error stack trace:');
+        console.error(error.stack);
+      }
+      
+      console.log('🔄 PAGE: Setting generic master analysis error message...');
+      setBudgetMasterError('Failed to complete AI Budget Master analysis');
+      setBudgetMasterProgress('');
+      console.log('💥 ========================================================');
+      
+      // Dispatch error event
+      window.dispatchEvent(new CustomEvent('budgetMasterAnalysisError', {
+        detail: { 
+          projectId: selectedProject.id, 
+          error: 'Unexpected error occurred',
+          timestamp: new Date().toISOString()
+        }
+      }));
+    } finally {
+      console.log('');
+      console.log('🏁 PAGE: AI Budget Master Analysis process completed, cleaning up...');
+      console.log('🔄 PAGE: Setting isAnalyzingBudgetMaster to false...');
+      setIsAnalyzingBudgetMaster(false);
+      console.log('✅ PAGE: Master analysis state cleanup completed');
+      console.log('');
+      console.log('🎬 ===== BUDGETING PAGE: AI BUDGET MASTER ANALYSIS FINISHED =====');
+      console.log('📅 TIMESTAMP:', new Date().toISOString());
+      console.log('🎬 ===============================================================');
+      console.log('');
+    }
+  };
+
+  // Clear AI Budget Master data function
+  const clearBudgetMasterData = () => {
+    console.log('');
+    console.log('🧹 ===== AI BUDGET MASTER: CLEARING DATA =====');
+    console.log('📅 TIMESTAMP:', new Date().toISOString());
+    console.log('🔍 PROJECT:', selectedProject?.id || 'No project');
+    console.log('🧹 ==========================================');
+    console.log('');
+    
+    if (selectedProject?.id) {
+      try {
+        const storageKey = `ai_budget_master_${selectedProject.id}`;
+        localStorage.removeItem(storageKey);
+        console.log('💾 CLEARED: Removed master data from localStorage with key:', storageKey);
+      } catch (error) {
+        console.error('❌ CLEAR ERROR: Failed to remove master data from localStorage:', error);
+      }
+    }
+    
+    setBudgetMasterResult(null);
+    setBudgetMasterError('');
+    setBudgetMasterProgress('');
+    setBudgetMasterRawResponse('');
+    setRawAgentOutputs({});
+    setExpandedRawSections({});
+    setShowRawJSON(false);
+    console.log('🧹 CLEARED: All AI Budget Master state variables reset');
+    
+    console.log('');
+    console.log('🧹 ===== AI BUDGET MASTER: DATA CLEARING COMPLETE =====');
+    console.log('📅 TIMESTAMP:', new Date().toISOString());
+    console.log('🧹 =================================================');
+    console.log('');
+  };
+
   // Clear basic budget data function
   const clearBasicBudgetData = () => {
     console.log('');
@@ -1225,6 +1577,16 @@ export const BudgetingPage = () => {
             }`}
           >
             Basic Budget ✨
+          </button>
+          <button
+            onClick={() => handleTabChange('aiMasterBudget')}
+            className={`px-4 py-2 rounded text-sm font-medium transition-colors ${
+              activeTab === 'aiMasterBudget' 
+                ? 'bg-gradient-to-r from-purple-600 to-blue-600 text-white' 
+                : 'text-gray-400 hover:text-white'
+            }`}
+          >
+            🎬 AI Master Budget
           </button>
           <button
             onClick={() => handleTabChange('budgetTable')}
@@ -3259,6 +3621,388 @@ export const BudgetingPage = () => {
                 <pre className="text-xs text-gray-300 whitespace-pre-wrap font-mono overflow-x-auto">
                   {cashFlowProjectorRawResponse}
                 </pre>
+              </div>
+            </div>
+          )}
+
+          {/* AI Budget Master Analysis Section - MATCHING SCRIPT ANALYSIS PATTERN */}
+          {activeTab === 'aiMasterBudget' && (
+            <div className="mb-8 bg-gradient-to-r from-purple-900 to-blue-900 rounded-lg p-6 border border-purple-700">
+              <h2 className="text-xl font-semibold text-white mb-4 flex items-center">
+                <Wand2 className="mr-2 h-5 w-5 text-purple-400" />
+                AI Budget Master Analysis
+              </h2>
+              <div className="space-y-6">
+                {/* Description */}
+                <div className="bg-purple-800/20 rounded-lg p-4 border border-purple-600/30">
+                  <p className="text-purple-100 text-sm leading-relaxed">
+                    Execute comprehensive AI-powered budget analysis across 7 execution tiers. This master service orchestrates 
+                    all 10 budget services in parallel and sequential processing to generate complete budget intelligence, 
+                    optimization recommendations, and executive-level insights.
+                  </p>
+                  
+                  {/* Status Indicator */}
+                  {budgetMasterResult && (
+                    <div className="mt-4 flex items-center space-x-2">
+                      <CheckCircle className="h-4 w-4 text-green-400" />
+                      <span className="text-green-400 text-sm font-medium">
+                        Analysis Complete - {budgetMasterResult.budgetMasterAnalysis?.masterBudgetSummary?.totalTiersProcessed || 0} tiers processed
+                      </span>
+                      <span className="text-purple-300 text-sm">
+                        (Total Budget: ${budgetMasterResult.budgetMasterAnalysis?.budgetExecutiveSummary?.totalBudget?.toLocaleString() || 'N/A'})
+                      </span>
+                    </div>
+                  )}
+
+                  {/* Progress Indicator */}
+                  {isAnalyzingBudgetMaster && budgetMasterProgress && (
+                    <div className="mt-4 flex items-center space-x-2">
+                      <Loader2 className="h-4 w-4 text-purple-400 animate-spin" />
+                      <span className="text-purple-300 text-sm">{budgetMasterProgress}</span>
+                    </div>
+                  )}
+
+                  {/* Error Indicator */}
+                  {budgetMasterError && (
+                    <div className="mt-4 flex items-center space-x-2">
+                      <AlertTriangle className="h-4 w-4 text-red-400" />
+                      <span className="text-red-400 text-sm">{budgetMasterError}</span>
+                    </div>
+                  )}
+                </div>
+
+                {/* Action Buttons */}
+                <div className="flex flex-wrap items-center gap-3">
+                  <Button
+                    onClick={handleAIBudgetMasterAnalysis}
+                    disabled={isAnalyzingBudgetMaster || !selectedProject}
+                    className="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white border-0 shadow-lg"
+                  >
+                    {isAnalyzingBudgetMaster ? (
+                      <>
+                        <Loader2 className="w-4 h-4 mr-2 animate-spin" />
+                        {budgetMasterProgress || 'Analyzing...'}
+                      </>
+                    ) : (
+                      <>
+                        <Wand2 className="w-4 h-4 mr-2" />
+                        Generate AI Master Budget Analysis
+                      </>
+                    )}
+                  </Button>
+
+                  {budgetMasterResult && (
+                    <Button
+                      onClick={clearBudgetMasterData}
+                      variant="outline"
+                      className="border-purple-400 text-purple-300 hover:bg-purple-800/20"
+                    >
+                      <RotateCcw className="w-4 h-4 mr-2" />
+                      Clear Analysis
+                    </Button>
+                  )}
+                </div>
+
+                {/* Requirements Notice */}
+                {!selectedProject?.aiAnalysis && !selectedProject?.pdfAnalysisResults && (
+                  <div className="bg-yellow-900/50 border border-yellow-600/30 rounded-lg p-4">
+                    <div className="text-yellow-300 text-sm">
+                      Script analysis required. Please analyze your script first on the Script page.
+                    </div>
+                  </div>
+                )}
+              </div>
+            </div>
+          )}
+
+          {/* AI Budget Master Results - MATCHING SCRIPT ANALYSIS PATTERN */}
+          {activeTab === 'aiMasterBudget' && budgetMasterResult && (
+            <div className="mb-8 bg-gray-900 rounded-lg p-6 border border-gray-800">
+              <h3 className="text-xl font-semibold text-white mb-6 flex items-center">
+                <Brain className="mr-2 h-5 w-5 text-purple-400" />
+                AI Budget Master Analysis Results
+              </h3>
+              
+              <div className="space-y-8">
+                {/* Executive Summary */}
+                <div className="bg-gray-800 rounded-lg p-6">
+                  <h4 className="text-lg font-medium text-white mb-4 flex items-center">
+                    <DollarSign className="mr-2 h-4 w-4 text-green-400" />
+                    Executive Budget Summary
+                  </h4>
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div className="text-center">
+                      <div className="text-3xl font-bold text-green-400">
+                        ${budgetMasterResult.budgetMasterAnalysis.budgetExecutiveSummary.totalBudget.toLocaleString()}
+                      </div>
+                      <div className="text-sm text-gray-400 mt-1">Total Budget</div>
+                    </div>
+                    <div className="text-center">
+                      <div className="text-2xl font-bold text-blue-400">
+                        {budgetMasterResult.budgetMasterAnalysis.budgetExecutiveSummary.shootDays}
+                      </div>
+                      <div className="text-sm text-gray-400 mt-1">Shoot Days</div>
+                    </div>
+                    <div className="text-center">
+                      <div className="text-2xl font-bold text-purple-400">
+                        {budgetMasterResult.budgetMasterAnalysis.masterBudgetSummary.totalTiersProcessed}
+                      </div>
+                      <div className="text-sm text-gray-400 mt-1">Tiers Processed</div>
+                    </div>
+                    <div className="text-center">
+                      <div className="text-2xl font-bold text-orange-400">
+                        {budgetMasterResult.budgetMasterAnalysis.masterBudgetSummary.confidenceScore}%
+                      </div>
+                      <div className="text-sm text-gray-400 mt-1">Confidence Score</div>
+                    </div>
+                  </div>
+
+                  {/* Budget Range */}
+                  <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div className="bg-gray-700 rounded-lg p-4">
+                      <div className="text-sm text-gray-400 mb-1">Conservative Estimate</div>
+                      <div className="text-xl font-bold text-red-400">
+                        ${budgetMasterResult.budgetMasterAnalysis.budgetExecutiveSummary.budgetRange.conservative.toLocaleString()}
+                      </div>
+                    </div>
+                    <div className="bg-gray-700 rounded-lg p-4">
+                      <div className="text-sm text-gray-400 mb-1">Optimistic Estimate</div>
+                      <div className="text-xl font-bold text-green-400">
+                        ${budgetMasterResult.budgetMasterAnalysis.budgetExecutiveSummary.budgetRange.optimistic.toLocaleString()}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Major Categories Breakdown */}
+                <div className="bg-gray-800 rounded-lg p-6">
+                  <h4 className="text-lg font-medium text-white mb-4 flex items-center">
+                    <BarChart3 className="mr-2 h-4 w-4 text-blue-400" />
+                    Major Budget Categories
+                  </h4>
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                    <div className="bg-gray-700 rounded-lg p-4">
+                      <div className="text-sm text-gray-400 mb-1">Above-the-Line</div>
+                      <div className="text-lg font-bold text-purple-400">
+                        ${budgetMasterResult.budgetMasterAnalysis.budgetExecutiveSummary.majorCategories.aboveTheLine.toLocaleString()}
+                      </div>
+                    </div>
+                    <div className="bg-gray-700 rounded-lg p-4">
+                      <div className="text-sm text-gray-400 mb-1">Below-the-Line</div>
+                      <div className="text-lg font-bold text-blue-400">
+                        ${budgetMasterResult.budgetMasterAnalysis.budgetExecutiveSummary.majorCategories.belowTheLine.toLocaleString()}
+                      </div>
+                    </div>
+                    <div className="bg-gray-700 rounded-lg p-4">
+                      <div className="text-sm text-gray-400 mb-1">Post-Production</div>
+                      <div className="text-lg font-bold text-green-400">
+                        ${budgetMasterResult.budgetMasterAnalysis.budgetExecutiveSummary.majorCategories.postProduction.toLocaleString()}
+                      </div>
+                    </div>
+                    <div className="bg-gray-700 rounded-lg p-4">
+                      <div className="text-sm text-gray-400 mb-1">Insurance</div>
+                      <div className="text-lg font-bold text-yellow-400">
+                        ${budgetMasterResult.budgetMasterAnalysis.budgetExecutiveSummary.majorCategories.insurance.toLocaleString()}
+                      </div>
+                    </div>
+                    <div className="bg-gray-700 rounded-lg p-4">
+                      <div className="text-sm text-gray-400 mb-1">Contingency</div>
+                      <div className="text-lg font-bold text-red-400">
+                        ${budgetMasterResult.budgetMasterAnalysis.budgetExecutiveSummary.majorCategories.contingency.toLocaleString()}
+                      </div>
+                    </div>
+                    <div className="bg-gray-700 rounded-lg p-4">
+                      <div className="text-sm text-gray-400 mb-1">Crew Size</div>
+                      <div className="text-lg font-bold text-indigo-400">
+                        {budgetMasterResult.budgetMasterAnalysis.budgetExecutiveSummary.crewSize} people
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Processing Summary */}
+                <div className="bg-gray-800 rounded-lg p-6">
+                  <h4 className="text-lg font-medium text-white mb-4 flex items-center">
+                    <Clock className="mr-2 h-4 w-4 text-indigo-400" />
+                    Processing Summary
+                  </h4>
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                    <div className="text-center">
+                      <div className="text-xl font-bold text-green-400">
+                        {budgetMasterResult.budgetMasterAnalysis.masterBudgetSummary.totalServicesSuccessful}
+                      </div>
+                      <div className="text-sm text-gray-400 mt-1">Services Successful</div>
+                    </div>
+                    <div className="text-center">
+                      <div className="text-xl font-bold text-red-400">
+                        {budgetMasterResult.budgetMasterAnalysis.masterBudgetSummary.totalServicesFailed}
+                      </div>
+                      <div className="text-sm text-gray-400 mt-1">Services Failed</div>
+                    </div>
+                    <div className="text-center">
+                      <div className="text-xl font-bold text-blue-400">
+                        {Math.round(budgetMasterResult.budgetMasterAnalysis.masterBudgetSummary.totalProcessingTime / 1000)}s
+                      </div>
+                      <div className="text-sm text-gray-400 mt-1">Total Processing Time</div>
+                    </div>
+                    <div className="text-center">
+                      <div className="text-xl font-bold text-purple-400">
+                        {Math.round(budgetMasterResult.budgetMasterAnalysis.masterBudgetSummary.averageProcessingTimePerTier / 1000)}s
+                      </div>
+                      <div className="text-sm text-gray-400 mt-1">Avg Time Per Tier</div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Tier Results Summary */}
+                <div className="bg-gray-800 rounded-lg p-6">
+                  <h4 className="text-lg font-medium text-white mb-4 flex items-center">
+                    <Settings className="mr-2 h-4 w-4 text-gray-400" />
+                    Tier Execution Results
+                  </h4>
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                    {Object.entries(budgetMasterResult.budgetMasterAnalysis.tierResults).map(([tierKey, tierData]: [string, any]) => (
+                      <div key={tierKey} className="bg-gray-700 rounded-lg p-4">
+                        <div className="flex items-center justify-between mb-2">
+                          <div className="text-sm font-medium text-white">
+                            {tierKey.replace('tier', 'Tier ').replace('Results', '')}
+                          </div>
+                          <div className={`text-xs px-2 py-1 rounded ${
+                            tierData?.status === 'completed' ? 'bg-green-600 text-white' :
+                            tierData?.status === 'error' ? 'bg-red-600 text-white' :
+                            'bg-gray-600 text-gray-300'
+                          }`}>
+                            {tierData?.status || 'skipped'}
+                          </div>
+                        </div>
+                        <div className="text-xs text-gray-400">
+                          Processing Time: {Math.round((tierData?.processingTime || 0) / 1000)}s
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Individual Agent Raw JSON Display - MATCHING SCHEDULING PAGE PATTERN */}
+                <div className="bg-gray-800 rounded-lg p-6">
+                  <div className="flex items-center justify-between mb-4">
+                    <h4 className="text-lg font-medium text-white flex items-center">
+                      <Code className="mr-2 h-4 w-4 text-green-400" />
+                      Agent Raw JSON Responses
+                    </h4>
+                    <Button
+                      onClick={() => setShowRawJSON(!showRawJSON)}
+                      variant="outline"
+                      size="sm"
+                      className="text-gray-300 border-gray-600 hover:bg-gray-700"
+                    >
+                      <Code className="mr-2 h-4 w-4" />
+                      {showRawJSON ? 'Hide' : 'Show'} Raw JSON
+                    </Button>
+                  </div>
+                  {showRawJSON && (
+                    <div className="space-y-4">
+                      {Object.keys(rawAgentOutputs).length > 0 ? (
+                        Object.entries(rawAgentOutputs).map(([tierKey, tierServices]: [string, any]) => (
+                          <div key={tierKey} className="space-y-2">
+                            <h5 className="text-md font-medium text-purple-300 capitalize mb-2">
+                              {tierKey.replace('tier', 'Tier ').replace(/([0-9])/, '$1: ')}
+                              {tierKey === 'tier0' && 'Coordination'}
+                              {tierKey === 'tier1' && 'Base Analysis'}
+                              {tierKey === 'tier2' && 'Cost Calculations'}
+                              {tierKey === 'tier3' && 'Risk Assessment'}
+                              {tierKey === 'tier4' && 'Budget Aggregation'}
+                              {tierKey === 'tier5' && 'Financial Optimization'}
+                              {tierKey === 'tier6' && 'Projection & Intelligence'}
+                            </h5>
+                            {Object.entries(tierServices).map(([serviceName, rawOutput]: [string, any]) => (
+                              <div key={`${tierKey}-${serviceName}`} className="border border-gray-600 rounded-lg">
+                                <div
+                                  className="flex items-center justify-between p-3 cursor-pointer bg-gray-700 rounded-t-lg"
+                                  onClick={() => toggleRawSection(`${tierKey}-${serviceName}`)}
+                                >
+                                  <div className="flex items-center space-x-2">
+                                    {expandedRawSections[`${tierKey}-${serviceName}`] ? (
+                                      <ChevronDown className="h-4 w-4 text-gray-400" />
+                                    ) : (
+                                      <ChevronRight className="h-4 w-4 text-gray-400" />
+                                    )}
+                                    <span className="text-white font-medium capitalize">
+                                      {serviceName.replace(/([A-Z])/g, ' $1').trim()} Service
+                                    </span>
+                                  </div>
+                                  <Button
+                                    onClick={(e) => {
+                                      e.stopPropagation();
+                                      copyToClipboard(typeof rawOutput === 'string' ? rawOutput : JSON.stringify(rawOutput, null, 2));
+                                    }}
+                                    variant="ghost"
+                                    size="sm"
+                                    className="text-gray-400 hover:text-white"
+                                  >
+                                    <Copy className="h-4 w-4" />
+                                  </Button>
+                                </div>
+                                {expandedRawSections[`${tierKey}-${serviceName}`] && (
+                                  <div className="p-4 bg-gray-900 rounded-b-lg">
+                                    <pre className="text-xs text-gray-300 overflow-auto max-h-96 whitespace-pre-wrap">
+                                      {typeof rawOutput === 'string' ? rawOutput : JSON.stringify(rawOutput, null, 2)}
+                                    </pre>
+                                  </div>
+                                )}
+                              </div>
+                            ))}
+                          </div>
+                        ))
+                      ) : (
+                        <div className="text-gray-400 text-center py-8">
+                          No raw agent outputs available yet. Run the AI Master Budget Analysis to see individual service responses.
+                        </div>
+                      )}
+                      
+                      {/* Master Response */}
+                      {budgetMasterRawResponse && (
+                        <div className="border-t border-gray-600 pt-4 mt-6">
+                          <div className="border border-gray-600 rounded-lg">
+                            <div
+                              className="flex items-center justify-between p-3 cursor-pointer bg-gray-700 rounded-t-lg"
+                              onClick={() => toggleRawSection('masterResponse')}
+                            >
+                              <div className="flex items-center space-x-2">
+                                {expandedRawSections.masterResponse ? (
+                                  <ChevronDown className="h-4 w-4 text-gray-400" />
+                                ) : (
+                                  <ChevronRight className="h-4 w-4 text-gray-400" />
+                                )}
+                                <span className="text-white font-medium">
+                                  Master Budget Analysis Response
+                                </span>
+                              </div>
+                              <Button
+                                onClick={(e) => {
+                                  e.stopPropagation();
+                                  copyToClipboard(budgetMasterRawResponse);
+                                }}
+                                variant="ghost"
+                                size="sm"
+                                className="text-gray-400 hover:text-white"
+                              >
+                                <Copy className="h-4 w-4" />
+                              </Button>
+                            </div>
+                            {expandedRawSections.masterResponse && (
+                              <div className="p-4 bg-gray-900 rounded-b-lg">
+                                <pre className="text-xs text-gray-300 overflow-auto max-h-96 whitespace-pre-wrap">
+                                  {budgetMasterRawResponse}
+                                </pre>
+                              </div>
+                            )}
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                  )}
+                </div>
               </div>
             </div>
           )}

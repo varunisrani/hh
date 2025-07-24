@@ -384,7 +384,7 @@ class GeminiCashFlowProjectorService {
     });
   }
 
-  async analyzeCashFlowProjectorData(jsonInput: string, projectId: string): Promise<{ result?: CashFlowProjectorOutput; rawResponse?: string; error?: string }> {
+  async analyzeCashFlowProjectorData(jsonInput: string, projectId: string): Promise<{ result?: any; rawResponse?: string; error?: string }> {
     console.log('');
     console.log('💰 ===== CASH FLOW PROJECTOR ANALYSIS STARTING =====');
     console.log('📅 TIMESTAMP:', new Date().toISOString());
@@ -566,11 +566,11 @@ Remember to return ONLY the complete JSON object with all required fields popula
     }
   }
 
-  private parseCashFlowProjectorResponse(responseText: string): CashFlowProjectorOutput | null {
+  private parseCashFlowProjectorResponse(responseText: string): any | null {
     console.log('');
-    console.log('🔍 ===== CASH FLOW PROJECTOR RESPONSE PARSING & VALIDATION =====');
+    console.log('🔍 ===== CASH FLOW PROJECTOR RESPONSE PARSING (RAW JSON) =====');
     console.log('📅 Parse timestamp:', new Date().toISOString());
-    console.log('🔍 ================================================================');
+    console.log('🔍 =============================================================');
     console.log('');
     
     try {
@@ -606,35 +606,13 @@ Remember to return ONLY the complete JSON object with all required fields popula
       }
 
       console.log('');
-      console.log('🚀 PARSE STEP 3: JSON PARSING');
+      console.log('🚀 PARSE STEP 3: JSON PARSING (RAW - NO VALIDATION)');
       const parsed = JSON.parse(cleanedResponse);
       console.log('✅ JSON parsing successful!');
+      console.log('📊 Returning raw JSON without any structure validation or transformation');
+      console.log('🎯 Raw response keys:', Object.keys(parsed));
       
-      console.log('');
-      console.log('🚀 PARSE STEP 4: STRUCTURE VALIDATION');
-      console.log('🔍 Validating against CashFlowProjectorOutput format...');
-      
-      // Check if response is in the expected format
-      if (parsed.cashFlowModelOutput && 
-          parsed.cashFlowModelOutput.processingLog &&
-          parsed.cashFlowModelOutput.cashFlowProjection) {
-        
-        console.log('');
-        console.log('✅ VALIDATION SUCCESS!');
-        console.log('🎉 Correct CashFlowProjectorOutput structure found');
-        console.log('📊 Final validation stats:');
-        console.log('  - Processing log included:', !!parsed.cashFlowModelOutput.processingLog);
-        console.log('  - Cash flow projection included:', !!parsed.cashFlowModelOutput.cashFlowProjection);
-        console.log('  - Structure matches expected format: ✅ YES');
-        console.log('  - Ready for return: ✅ YES');
-        
-        return parsed as CashFlowProjectorOutput;
-      }
-
-      console.error('❌ VALIDATION FAILED: Structure validation failed');
-      console.error('🔍 Response does not match expected format');
-      console.error('🔍 Available keys:', Object.keys(parsed));
-      return null;
+      return parsed;
 
     } catch (error) {
       console.error('❌ Error parsing cash flow projector response:', error);
@@ -656,7 +634,7 @@ export const analyzeCashFlowProjectorWithAI = async (
   jsonInput: string,
   projectId: string,
   onProgress?: (status: string) => void
-): Promise<{ status: 'completed' | 'error'; result?: CashFlowProjectorOutput; error?: string; rawResponse?: string }> => {
+): Promise<{ status: 'completed' | 'error'; result?: any; error?: string; rawResponse?: string }> => {
   console.log('');
   console.log('🎯 ===== CASH FLOW PROJECTOR AI HELPER FUNCTION CALLED =====');
   console.log('📅 TIMESTAMP:', new Date().toISOString());

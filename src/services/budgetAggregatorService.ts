@@ -360,7 +360,7 @@ class GeminiBudgetAggregatorService {
     });
   }
 
-  async analyzeBudgetAggregatorData(jsonInput: string, projectId: string): Promise<{ result?: BudgetAggregatorOutput; rawResponse?: string; error?: string }> {
+  async analyzeBudgetAggregatorData(jsonInput: string, projectId: string): Promise<{ result?: any; rawResponse?: string; error?: string }> {
     console.log('');
     console.log('📊 ===== BUDGET AGGREGATOR ANALYSIS STARTING =====');
     console.log('📅 TIMESTAMP:', new Date().toISOString());
@@ -542,11 +542,11 @@ Remember to return ONLY the complete JSON object with all required fields popula
     }
   }
 
-  private parseBudgetAggregatorResponse(responseText: string): BudgetAggregatorOutput | null {
+  private parseBudgetAggregatorResponse(responseText: string): any | null {
     console.log('');
-    console.log('🔍 ===== BUDGET AGGREGATOR RESPONSE PARSING & VALIDATION =====');
+    console.log('🔍 ===== BUDGET AGGREGATOR RESPONSE PARSING (RAW JSON) =====');
     console.log('📅 Parse timestamp:', new Date().toISOString());
-    console.log('🔍 ==============================================================');
+    console.log('🔍 ===========================================================');
     console.log('');
     
     try {
@@ -582,35 +582,13 @@ Remember to return ONLY the complete JSON object with all required fields popula
       }
 
       console.log('');
-      console.log('🚀 PARSE STEP 3: JSON PARSING');
+      console.log('🚀 PARSE STEP 3: JSON PARSING (RAW - NO VALIDATION)');
       const parsed = JSON.parse(cleanedResponse);
       console.log('✅ JSON parsing successful!');
+      console.log('📊 Returning raw JSON without any structure validation or transformation');
+      console.log('🎯 Raw response keys:', Object.keys(parsed));
       
-      console.log('');
-      console.log('🚀 PARSE STEP 4: STRUCTURE VALIDATION');
-      console.log('🔍 Validating against BudgetAggregatorOutput format...');
-      
-      // Check if response is in the expected format
-      if (parsed.budgetModelOutput && 
-          parsed.budgetModelOutput.processingLog &&
-          parsed.budgetModelOutput.consolidatedBudget) {
-        
-        console.log('');
-        console.log('✅ VALIDATION SUCCESS!');
-        console.log('🎉 Correct BudgetAggregatorOutput structure found');
-        console.log('📊 Final validation stats:');
-        console.log('  - Processing log included:', !!parsed.budgetModelOutput.processingLog);
-        console.log('  - Consolidated budget included:', !!parsed.budgetModelOutput.consolidatedBudget);
-        console.log('  - Structure matches expected format: ✅ YES');
-        console.log('  - Ready for return: ✅ YES');
-        
-        return parsed as BudgetAggregatorOutput;
-      }
-
-      console.error('❌ VALIDATION FAILED: Structure validation failed');
-      console.error('🔍 Response does not match expected format');
-      console.error('🔍 Available keys:', Object.keys(parsed));
-      return null;
+      return parsed;
 
     } catch (error) {
       console.error('❌ Error parsing budget aggregator response:', error);
@@ -632,7 +610,7 @@ export const analyzeBudgetAggregatorWithAI = async (
   jsonInput: string,
   projectId: string,
   onProgress?: (status: string) => void
-): Promise<{ status: 'completed' | 'error'; result?: BudgetAggregatorOutput; error?: string; rawResponse?: string }> => {
+): Promise<{ status: 'completed' | 'error'; result?: any; error?: string; rawResponse?: string }> => {
   console.log('');
   console.log('🎯 ===== BUDGET AGGREGATOR AI HELPER FUNCTION CALLED =====');
   console.log('📅 TIMESTAMP:', new Date().toISOString());
