@@ -7,7 +7,8 @@ import { Input } from '@/components/ui/input';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
 import { generateProductionScheduleWithAI, ProductionScheduleOutput, ScriptAnalysisInput } from '@/services/schedulingGeneratorService';
-import { Plus, Share2, Download, Calendar, Clock, Users, DollarSign, AlertTriangle, MapPin, Wand2, Brain, CheckCircle, Loader2, Wrench, BarChart3, Zap, Edit3, Save, X, RotateCcw } from 'lucide-react';
+import DepthSchedulingAnalysisService, { DepthSchedulingResult, SchedulingScenario, TierProgress } from '@/services/depthSchedulingAnalysisService';
+import { Plus, Share2, Download, Calendar, Clock, Users, DollarSign, AlertTriangle, MapPin, Wand2, Brain, CheckCircle, Loader2, Wrench, BarChart3, Zap, Edit3, Save, X, RotateCcw, Code, Copy, ChevronDown, ChevronRight, ChevronUp, Target, TrendingUp, Shield, DollarSign as Cost } from 'lucide-react';
 import { useSelectedProject } from '@/hooks/useSelectedProject';
 import { useToast } from '@/hooks/use-toast';
 import {
@@ -92,7 +93,7 @@ export const SchedulingPage = () => {
   const { selectedProject } = useSelectedProject();
   const { toast } = useToast();
   
-  const [activeView, setActiveView] = useState<'overview' | 'schedule' | 'cast' | 'locations' | 'equipment' | 'conflicts' | 'optimization'>('overview');
+  const [activeView, setActiveView] = useState<'overview' | 'schedule' | 'cast' | 'locations' | 'equipment' | 'conflicts' | 'optimization' | 'depth-analysis'>('overview');
   const [productionSchedule, setProductionSchedule] = useState<ProductionScheduleOutput | null>(null);
   const [originalSchedule, setOriginalSchedule] = useState<ProductionScheduleOutput | null>(null);
   const [isGeneratingSchedule, setIsGeneratingSchedule] = useState(false);
@@ -104,6 +105,17 @@ export const SchedulingPage = () => {
   const [showVersionHistory, setShowVersionHistory] = useState(false);
   const [scheduleVersions, setScheduleVersions] = useState<{timestamp: string, schedule: ProductionScheduleOutput}[]>([]);
   const [hasAttemptedAutoGeneration, setHasAttemptedAutoGeneration] = useState(false);
+  
+  // AI Depth Scheduling Analysis State
+  const [isDepthAnalysisRunning, setIsDepthAnalysisRunning] = useState(false);
+  const [depthAnalysisResult, setDepthAnalysisResult] = useState<DepthSchedulingResult | null>(null);
+  const [depthAnalysisError, setDepthAnalysisError] = useState('');
+  const [depthAnalysisProgress, setDepthAnalysisProgress] = useState('');
+  const [currentTier, setCurrentTier] = useState<number>(0);
+  const [tierProgress, setTierProgress] = useState<TierProgress[]>([]);
+  const [selectedScenario, setSelectedScenario] = useState<string>('schedule-optimized');
+  const [showRawJSON, setShowRawJSON] = useState(false);
+  const [expandedRawSections, setExpandedRawSections] = useState<{[key: string]: boolean}>({});
 
   // Load existing schedule from localStorage and reset auto-generation flag on project change
   useEffect(() => {
@@ -468,6 +480,120 @@ export const SchedulingPage = () => {
     }
   };
 
+  // AI Depth Scheduling Analysis Handler
+  const handleDepthSchedulingAnalysis = async () => {
+    if (!selectedProject || !hasScriptAnalysis) {
+      toast({
+        title: "Script analysis required",
+        description: "Please ensure your project has script analysis data before running depth scheduling analysis.",
+        variant: "destructive"
+      });
+      return;
+    }
+
+    setIsDepthAnalysisRunning(true);
+    setDepthAnalysisError('');
+    setDepthAnalysisProgress('');
+    setCurrentTier(0);
+    setTierProgress([]);
+    
+    try {
+      const depthService = new DepthSchedulingAnalysisService();
+      
+      const result = await depthService.executeFullSchedulingAnalysis(
+        selectedProject,
+        (message, agent, progress, tier) => {
+          setDepthAnalysisProgress(message);
+          if (tier) setCurrentTier(tier);
+          console.log(`🎬 Depth Scheduling [${agent}]: ${message}`);
+        },
+        (tierResult) => {
+          setTierProgress(prev => {
+            const updated = [...prev];
+            const index = updated.findIndex(t => t.tierNumber === tierResult.tierNumber);
+            if (index >= 0) {
+              updated[index] = tierResult;
+            } else {
+              updated.push(tierResult);
+            }
+            return updated;
+          });
+        }
+      );
+      
+      setDepthAnalysisResult(result);
+      setSelectedScenario(result.recommendedScenario);
+      
+      // Save result to localStorage
+      localStorage.setItem(`depth_scheduling_${selectedProject.id}`, JSON.stringify(result));
+      
+      toast({
+        title: "AI Depth Scheduling Analysis Complete!",
+        description: `Generated ${result.scenarios.length} optimized scheduling scenarios with detailed trade-off analysis.`
+      });
+      
+      // Auto-switch to depth analysis view
+      setActiveView('depth-analysis');
+      
+    } catch (error) {
+      console.error('❌ Depth Scheduling Analysis Error:', error);
+      const errorMessage = error instanceof Error ? error.message : 'Unknown error occurred';
+      setDepthAnalysisError(errorMessage);
+      toast({
+        title: "Depth scheduling analysis failed",
+        description: errorMessage,
+        variant: "destructive"
+      });
+    } finally {
+      setIsDepthAnalysisRunning(false);
+      setDepthAnalysisProgress('');
+    }
+  };
+
+  // Load existing depth analysis result
+  useEffect(() => {
+    if (selectedProject?.id) {
+      const savedResult = localStorage.getItem(`depth_scheduling_${selectedProject.id}`);
+      if (savedResult) {
+        try {
+          const result = JSON.parse(savedResult);
+          setDepthAnalysisResult(result);
+          setSelectedScenario(result.recommendedScenario || 'schedule-optimized');
+        } catch (error) {
+          console.error('Error loading saved depth analysis:', error);
+        }
+      } else {
+        setDepthAnalysisResult(null);
+      }
+    }
+  }, [selectedProject?.id]);
+
+  // Helper functions for raw JSON display
+  const toggleRawSection = (section: string) => {
+    setExpandedRawSections(prev => ({
+      ...prev,
+      [section]: !prev[section]
+    }));
+  };
+
+  const copyToClipboard = (text: string) => {
+    navigator.clipboard.writeText(text);
+    toast({
+      title: "Copied to clipboard",
+      description: "Raw JSON data has been copied to your clipboard."
+    });
+  };
+
+  // Format currency for scenarios
+  const formatScenarioCurrency = (amount: number) => {
+    return new Intl.NumberFormat('en-US', {
+      style: 'currency',
+      currency: 'USD',
+      minimumFractionDigits: 0,
+      maximumFractionDigits: 0,
+    }).format(amount);
+  };
+
   // Sortable Scene Component
   const SortableScene = ({ scene, dayIndex, sceneIndex, isEditMode }: { 
     scene: any, 
@@ -583,6 +709,7 @@ export const SchedulingPage = () => {
             { id: 'equipment', label: 'Equipment', icon: Wrench },
             { id: 'conflicts', label: 'Conflicts', icon: AlertTriangle },
             { id: 'optimization', label: 'Optimization', icon: BarChart3 },
+            { id: 'depth-analysis', label: 'AI Depth Analysis', icon: Brain },
           ].map(({ id, label, icon: Icon }) => (
             <button
               key={id}
@@ -661,28 +788,48 @@ export const SchedulingPage = () => {
             </div>
             <div className="flex items-center space-x-3">
               {hasScriptAnalysis && (
-                <Button 
-                  onClick={() => handleGenerateSchedule(!!productionSchedule)}
-                  disabled={isGeneratingSchedule || isSchedulingServiceRunning()}
-                  className="bg-purple-600 hover:bg-purple-700 text-white disabled:opacity-50"
-                >
-                  {isGeneratingSchedule ? (
-                    <>
-                      <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                      Generating...
-                    </>
-                  ) : isSchedulingServiceRunning() ? (
-                    <>
-                      <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                      Service Busy
-                    </>
-                  ) : (
-                    <>
-                      <Wand2 className="mr-2 h-4 w-4" />
-                      {productionSchedule ? 'Regenerate Schedule' : 'Generate Schedule'}
-                    </>
-                  )}
-                </Button>
+                <>
+                  <Button 
+                    onClick={() => handleGenerateSchedule(!!productionSchedule)}
+                    disabled={isGeneratingSchedule || isSchedulingServiceRunning()}
+                    className="bg-purple-600 hover:bg-purple-700 text-white disabled:opacity-50"
+                  >
+                    {isGeneratingSchedule ? (
+                      <>
+                        <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                        Generating...
+                      </>
+                    ) : isSchedulingServiceRunning() ? (
+                      <>
+                        <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                        Service Busy
+                      </>
+                    ) : (
+                      <>
+                        <Wand2 className="mr-2 h-4 w-4" />
+                        {productionSchedule ? 'Regenerate Schedule' : 'Generate Schedule'}
+                      </>
+                    )}
+                  </Button>
+                  
+                  <Button 
+                    onClick={handleDepthSchedulingAnalysis}
+                    disabled={isDepthAnalysisRunning || isGeneratingSchedule}
+                    className="bg-blue-600 hover:bg-blue-700 text-white disabled:opacity-50"
+                  >
+                    {isDepthAnalysisRunning ? (
+                      <>
+                        <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                        Analyzing...
+                      </>
+                    ) : (
+                      <>
+                        <Brain className="mr-2 h-4 w-4" />
+                        AI Depth Scheduling Analysis
+                      </>
+                    )}
+                  </Button>
+                </>
               )}
               
               {productionSchedule && (
@@ -779,6 +926,53 @@ export const SchedulingPage = () => {
                 <div>
                   <div className="text-purple-300 font-medium">AI Schedule Generation in Progress</div>
                   <div className="text-purple-400 text-sm">{analysisStatus}</div>
+                </div>
+              </div>
+            </div>
+          )}
+
+          {/* Depth Analysis Progress */}
+          {depthAnalysisProgress && (
+            <div className="mb-6 p-4 bg-blue-900/20 border border-blue-500/30 rounded-lg">
+              <div className="flex items-center space-x-3">
+                <Brain className="h-5 w-5 text-blue-400 animate-pulse" />
+                <div className="flex-1">
+                  <div className="text-blue-300 font-medium">AI Depth Scheduling Analysis - Tier {currentTier}</div>
+                  <div className="text-blue-400 text-sm">{depthAnalysisProgress}</div>
+                  
+                  {/* Tier Progress Display */}
+                  {tierProgress.length > 0 && (
+                    <div className="mt-3 space-y-2">
+                      {tierProgress.map((tier) => (
+                        <div key={tier.tierNumber} className="flex items-center justify-between bg-blue-800/30 rounded px-3 py-2">
+                          <div className="flex items-center space-x-2">
+                            <div className={`w-2 h-2 rounded-full ${
+                              tier.status === 'completed' ? 'bg-green-400' :
+                              tier.status === 'running' ? 'bg-blue-400 animate-pulse' :
+                              tier.status === 'failed' ? 'bg-red-400' : 'bg-gray-400'
+                            }`}></div>
+                            <span className="text-blue-200 text-sm">Tier {tier.tierNumber}: {tier.tierName}</span>
+                          </div>
+                          <div className="text-blue-300 text-sm">
+                            {tier.agents.join(', ')}
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              </div>
+            </div>
+          )}
+
+          {/* Depth Analysis Error */}
+          {depthAnalysisError && (
+            <div className="mb-6 p-4 bg-red-900/20 border border-red-500/30 rounded-lg">
+              <div className="flex items-center space-x-3">
+                <AlertTriangle className="h-5 w-5 text-red-400" />
+                <div>
+                  <div className="text-red-300 font-medium">Depth Scheduling Analysis Failed</div>
+                  <div className="text-red-400 text-sm">{depthAnalysisError}</div>
                 </div>
               </div>
             </div>
@@ -1480,6 +1674,331 @@ export const SchedulingPage = () => {
                       </div>
                     </CardContent>
                   </Card>
+                </div>
+              )}
+
+              {activeView === 'depth-analysis' && (
+                <div className="space-y-6">
+                  {depthAnalysisResult ? (
+                    <>
+                      {/* Scenario Selection */}
+                      <Card className="bg-gray-800 border-gray-700">
+                        <CardHeader>
+                          <CardTitle className="text-white flex items-center">
+                            <Brain className="h-5 w-5 text-blue-400 mr-2" />
+                            AI Depth Scheduling Analysis - 4 Optimized Scenarios
+                          </CardTitle>
+                        </CardHeader>
+                        <CardContent>
+                          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+                            {depthAnalysisResult.scenarios.map((scenario) => (
+                              <button
+                                key={scenario.scenarioType}
+                                onClick={() => setSelectedScenario(scenario.scenarioType)}
+                                className={`p-4 rounded-lg border transition-all ${
+                                  selectedScenario === scenario.scenarioType
+                                    ? 'border-blue-500 bg-blue-900/30'
+                                    : 'border-gray-600 bg-gray-700 hover:border-gray-500'
+                                }`}
+                              >
+                                <div className="flex items-center justify-between mb-2">
+                                  <div className="flex items-center space-x-2">
+                                    {scenario.scenarioType === 'baseline' && <Calendar className="h-4 w-4 text-gray-400" />}
+                                    {scenario.scenarioType === 'schedule-optimized' && <Target className="h-4 w-4 text-green-400" />}
+                                    {scenario.scenarioType === 'cost-optimized' && <Cost className="h-4 w-4 text-yellow-400" />}
+                                    {scenario.scenarioType === 'risk-mitigated' && <Shield className="h-4 w-4 text-purple-400" />}
+                                    <span className="text-white font-medium text-sm">{scenario.scenarioName}</span>
+                                  </div>
+                                  {depthAnalysisResult.recommendedScenario === scenario.scenarioType && (
+                                    <Badge className="bg-green-600 text-white text-xs">Recommended</Badge>
+                                  )}
+                                </div>
+                                <div className="text-xs text-gray-400 space-y-1">
+                                  <div>{scenario.scheduleSummary.totalShootDays} days</div>
+                                  <div>{formatScenarioCurrency(scenario.scheduleSummary.estimatedBudget)}</div>
+                                  <div className="flex items-center space-x-2">
+                                    <span>Risk: {scenario.scheduleSummary.riskScore}/10</span>
+                                    <span>•</span>
+                                    <span>Compliance: {scenario.scheduleSummary.complianceScore}/10</span>
+                                  </div>
+                                </div>
+                              </button>
+                            ))}
+                          </div>
+
+                          {/* Selected Scenario Details */}
+                          {depthAnalysisResult.scenarios.find(s => s.scenarioType === selectedScenario) && (
+                            <div className="border border-gray-600 rounded-lg p-6">
+                              {(() => {
+                                const scenario = depthAnalysisResult.scenarios.find(s => s.scenarioType === selectedScenario)!;
+                                return (
+                                  <div>
+                                    <div className="flex items-center justify-between mb-4">
+                                      <h3 className="text-xl font-bold text-white">{scenario.scenarioName}</h3>
+                                      <div className="flex items-center space-x-4">
+                                        <div className="text-right">
+                                          <div className="text-2xl font-bold text-green-400">
+                                            {formatScenarioCurrency(scenario.scheduleSummary.estimatedBudget)}
+                                          </div>
+                                          <div className="text-sm text-gray-400">{scenario.scheduleSummary.totalShootDays} shoot days</div>
+                                        </div>
+                                      </div>
+                                    </div>
+
+                                    {/* Scenario Metrics */}
+                                    <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6">
+                                      <div className="bg-gray-700 rounded-lg p-4 text-center">
+                                        <div className="text-2xl font-bold text-blue-400">{scenario.resourceUtilization.castUtilization}%</div>
+                                        <div className="text-gray-400 text-sm">Cast Utilization</div>
+                                      </div>
+                                      <div className="bg-gray-700 rounded-lg p-4 text-center">
+                                        <div className="text-2xl font-bold text-green-400">{scenario.resourceUtilization.equipmentUptime}%</div>
+                                        <div className="text-gray-400 text-sm">Equipment Uptime</div>
+                                      </div>
+                                      <div className="text-center p-4 bg-gray-700 rounded-lg">
+                                        <div className="text-2xl font-bold text-yellow-400">{scenario.scheduleSummary.riskScore}/10</div>
+                                        <div className="text-gray-400 text-sm">Risk Score</div>
+                                      </div>
+                                      <div className="text-center p-4 bg-gray-700 rounded-lg">
+                                        <div className="text-2xl font-bold text-purple-400">{scenario.scheduleSummary.complianceScore}/10</div>
+                                        <div className="text-gray-400 text-sm">Compliance</div>
+                                      </div>
+                                    </div>
+
+                                    {/* Daily Schedule Preview */}
+                                    <div className="mb-6">
+                                      <h4 className="text-lg font-semibold text-white mb-3">Daily Schedule (First 5 Days)</h4>
+                                      <div className="space-y-2">
+                                        {scenario.dailySchedules.slice(0, 5).map((day, index) => (
+                                          <div key={index} className="flex items-center justify-between bg-gray-700 rounded p-3">
+                                            <div className="flex items-center space-x-4">
+                                              <span className="text-white font-medium">Day {day.day}</span>
+                                              <span className="text-gray-400 text-sm">{day.date}</span>
+                                              <span className="text-gray-400 text-sm">{day.location}</span>
+                                            </div>
+                                            <div className="text-right text-sm">
+                                              <div className="text-white">{day.callTime} - {day.wrapTime}</div>
+                                              <div className="text-gray-400">{day.scenes.length} scenes • {day.totalHours}h</div>
+                                            </div>
+                                          </div>
+                                        ))}
+                                      </div>
+                                    </div>
+
+                                    {/* Cost Breakdown */}
+                                    <div className="mb-6">
+                                      <h4 className="text-lg font-semibold text-white mb-3">Cost Breakdown</h4>
+                                      <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                                        <div className="bg-gray-700 rounded p-3">
+                                          <div className="text-gray-400 text-sm">Direct Costs</div>
+                                          <div className="text-white font-medium">{formatScenarioCurrency(scenario.costBreakdown.directCosts)}</div>
+                                        </div>
+                                        <div className="bg-gray-700 rounded p-3">
+                                          <div className="text-gray-400 text-sm">Overtime</div>
+                                          <div className="text-white font-medium">{formatScenarioCurrency(scenario.costBreakdown.overtimeCosts)}</div>
+                                        </div>
+                                        <div className="bg-gray-700 rounded p-3">
+                                          <div className="text-gray-400 text-sm">Contingency</div>
+                                          <div className="text-white font-medium">{formatScenarioCurrency(scenario.costBreakdown.contingency)}</div>
+                                        </div>
+                                        <div className="bg-gray-700 rounded p-3">
+                                          <div className="text-gray-400 text-sm">Cost/Day</div>
+                                          <div className="text-white font-medium">{formatScenarioCurrency(scenario.costBreakdown.costPerDay)}</div>
+                                        </div>
+                                      </div>
+                                    </div>
+
+                                    {/* Compliance Report */}
+                                    <div>
+                                      <h4 className="text-lg font-semibold text-white mb-3">Union Compliance Report</h4>
+                                      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                                        <div className="bg-gray-700 rounded p-3">
+                                          <div className="flex items-center justify-between">
+                                            <span className="text-gray-400 text-sm">BECTU Compliance</span>
+                                            <span className="text-white font-medium">{scenario.complianceReport.unionCompliance.bectu}/10</span>
+                                          </div>
+                                        </div>
+                                        <div className="bg-gray-700 rounded p-3">
+                                          <div className="flex items-center justify-between">
+                                            <span className="text-gray-400 text-sm">IATSE Compliance</span>
+                                            <span className="text-white font-medium">{scenario.complianceReport.unionCompliance.iatse}/10</span>
+                                          </div>
+                                        </div>
+                                        <div className="bg-gray-700 rounded p-3">
+                                          <div className="flex items-center justify-between">
+                                            <span className="text-gray-400 text-sm">SAG-AFTRA Compliance</span>
+                                            <span className="text-white font-medium">{scenario.complianceReport.unionCompliance.sagAftra}/10</span>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      {scenario.complianceReport.hardViolations > 0 && (
+                                        <div className="mt-3 bg-red-900/20 border border-red-500/30 rounded-lg p-3">
+                                          <div className="text-red-300 font-medium text-sm">
+                                            {scenario.complianceReport.hardViolations} Hard Violations • 
+                                            Penalty: {formatScenarioCurrency(scenario.complianceReport.penaltyEstimate)}
+                                          </div>
+                                        </div>
+                                      )}
+                                    </div>
+                                  </div>
+                                );
+                              })()}
+                            </div>
+                          )}
+                        </CardContent>
+                      </Card>
+
+                      {/* Scenario Comparison */}
+                      <Card className="bg-gray-800 border-gray-700">
+                        <CardHeader>
+                          <CardTitle className="text-white flex items-center">
+                            <TrendingUp className="h-5 w-5 text-green-400 mr-2" />
+                            Scenario Trade-off Analysis
+                          </CardTitle>
+                        </CardHeader>
+                        <CardContent>
+                          <div className="overflow-x-auto">
+                            <table className="w-full text-sm">
+                              <thead>
+                                <tr className="border-b border-gray-600">
+                                  <th className="text-left py-2 text-gray-400">Factor</th>
+                                  <th className="text-center py-2 text-gray-400">Baseline</th>
+                                  <th className="text-center py-2 text-green-400">Schedule-Optimized</th>
+                                  <th className="text-center py-2 text-yellow-400">Cost-Optimized</th>
+                                  <th className="text-center py-2 text-purple-400">Risk-Mitigated</th>
+                                </tr>
+                              </thead>
+                              <tbody className="space-y-2">
+                                <tr className="border-b border-gray-700">
+                                  <td className="py-2 text-white">Total Days</td>
+                                  {depthAnalysisResult.scenarios.map((scenario) => (
+                                    <td key={scenario.scenarioType} className="text-center py-2 text-white">
+                                      {scenario.scheduleSummary.totalShootDays}
+                                    </td>
+                                  ))}
+                                </tr>
+                                <tr className="border-b border-gray-700">
+                                  <td className="py-2 text-white">Budget</td>
+                                  {depthAnalysisResult.scenarios.map((scenario) => (
+                                    <td key={scenario.scenarioType} className="text-center py-2 text-white text-xs">
+                                      {formatScenarioCurrency(scenario.scheduleSummary.estimatedBudget)}
+                                    </td>
+                                  ))}
+                                </tr>
+                                <tr className="border-b border-gray-700">
+                                  <td className="py-2 text-white">Risk Score</td>
+                                  {depthAnalysisResult.scenarios.map((scenario) => (
+                                    <td key={scenario.scenarioType} className="text-center py-2 text-white">
+                                      {scenario.scheduleSummary.riskScore}/10
+                                    </td>
+                                  ))}
+                                </tr>
+                                <tr>
+                                  <td className="py-2 text-white">Cast Utilization</td>
+                                  {depthAnalysisResult.scenarios.map((scenario) => (
+                                    <td key={scenario.scenarioType} className="text-center py-2 text-white">
+                                      {scenario.resourceUtilization.castUtilization}%
+                                    </td>
+                                  ))}
+                                </tr>
+                              </tbody>
+                            </table>
+                          </div>
+                        </CardContent>
+                      </Card>
+
+                      {/* Raw JSON Output */}
+                      <Card className="bg-gray-800 border-gray-700">
+                        <CardHeader>
+                          <CardTitle className="text-white flex items-center justify-between">
+                            <div className="flex items-center">
+                              <Code className="h-5 w-5 text-green-400 mr-2" />
+                              Raw Agent JSON Output
+                            </div>
+                            <Button
+                              onClick={() => setShowRawJSON(!showRawJSON)}
+                              variant="outline"
+                              size="sm"
+                              className="border-gray-600 text-gray-400 hover:text-white"
+                            >
+                              {showRawJSON ? <ChevronUp className="h-4 w-4" /> : <ChevronDown className="h-4 w-4" />}
+                              {showRawJSON ? 'Hide' : 'Show'} Raw JSON
+                            </Button>
+                          </CardTitle>
+                        </CardHeader>
+                        {showRawJSON && (
+                          <CardContent>
+                            <div className="space-y-4">
+                              {Object.entries(depthAnalysisResult.rawAgentOutputs).map(([agentName, rawOutput]) => (
+                                <div key={agentName} className="border border-gray-600 rounded-lg">
+                                  <div
+                                    className="flex items-center justify-between p-3 cursor-pointer bg-gray-700 rounded-t-lg"
+                                    onClick={() => toggleRawSection(agentName)}
+                                  >
+                                    <div className="flex items-center space-x-2">
+                                      {expandedRawSections[agentName] ? (
+                                        <ChevronDown className="h-4 w-4 text-gray-400" />
+                                      ) : (
+                                        <ChevronRight className="h-4 w-4 text-gray-400" />
+                                      )}
+                                      <span className="text-white font-medium capitalize">
+                                        {agentName.replace('Raw', '').replace(/([A-Z])/g, ' $1').trim()} Agent
+                                      </span>
+                                    </div>
+                                    <Button
+                                      onClick={(e) => {
+                                        e.stopPropagation();
+                                        copyToClipboard(rawOutput);
+                                      }}
+                                      variant="ghost"
+                                      size="sm"
+                                      className="text-gray-400 hover:text-white"
+                                    >
+                                      <Copy className="h-4 w-4" />
+                                    </Button>
+                                  </div>
+                                  {expandedRawSections[agentName] && (
+                                    <div className="p-3 bg-gray-900 rounded-b-lg">
+                                      <pre className="text-xs text-gray-300 whitespace-pre-wrap overflow-x-auto max-h-96">
+                                        {rawOutput}
+                                      </pre>
+                                    </div>
+                                  )}
+                                </div>
+                              ))}
+                            </div>
+                          </CardContent>
+                        )}
+                      </Card>
+                    </>
+                  ) : (
+                    <Card className="bg-gray-800 border-gray-700">
+                      <CardContent className="p-8 text-center">
+                        <Brain className="h-16 w-16 text-gray-600 mx-auto mb-4" />
+                        <h3 className="text-xl font-semibold text-white mb-2">No Depth Analysis Available</h3>
+                        <p className="text-gray-400 mb-6">
+                          Run the AI Depth Scheduling Analysis to generate 4 optimized scheduling scenarios with detailed trade-off analysis.
+                        </p>
+                        <Button 
+                          onClick={handleDepthSchedulingAnalysis}
+                          disabled={isDepthAnalysisRunning || !hasScriptAnalysis}
+                          className="bg-blue-600 hover:bg-blue-700 text-white"
+                        >
+                          {isDepthAnalysisRunning ? (
+                            <>
+                              <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                              Analyzing...
+                            </>
+                          ) : (
+                            <>
+                              <Brain className="mr-2 h-4 w-4" />
+                              Start AI Depth Scheduling Analysis
+                            </>
+                          )}
+                        </Button>
+                      </CardContent>
+                    </Card>
+                  )}
                 </div>
               )}
             </div>
