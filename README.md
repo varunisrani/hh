@@ -1,73 +1,73 @@
-# Welcome to your Lovable project
+# Film Production Planning Prototype
 
-## Project info
+This repository is a local-first film-production planning prototype for turning screenplay PDFs into project, breakdown, schedule, call-sheet, report, and budget views.
 
-**URL**: https://lovable.dev/projects/feca55d3-721f-43d3-9018-e57d7e3808b0
+## Core features
 
-## How can I edit this code?
+- Create and manage a browser-local film project from an uploaded screenplay PDF.
+- Express endpoint for PDF upload and scripted screenplay parsing.
+- Script, scene, character, location, prop, and production-requirement analysis views.
+- Scheduling, call-sheet, report, summary, and budgeting interfaces.
+- Optional Gemini-powered depth analysis and schedule/budget generation.
+- Local persistence for projects, generated schedules, budgets, and model responses.
+- Raw JSON inspection pages for agent outputs.
 
-There are several ways of editing your application.
+## Technology stack
 
-**Use Lovable**
+- React 18 and TypeScript
+- Vite 5 with the React SWC plugin
+- Express 5, Multer, and PDF parsing/extraction packages
+- Google Gen AI SDKs
+- React Router, TanStack Query, and Recharts
+- Tailwind CSS and Radix UI components
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/feca55d3-721f-43d3-9018-e57d7e3808b0) and start prompting.
+## Prerequisites
 
-Changes made via Lovable will be committed automatically to this repo.
+- Node.js compatible with the package dependencies
+- npm
+- A Gemini API key only for AI-assisted analysis features
 
-**Use your preferred IDE**
+## Local setup
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
+```bash
+git clone https://github.com/varunisrani/hh.git
+cd hh
+npm install
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+`npm run dev` starts both the Express service and the Vite client. To run them separately:
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+```bash
+npm run dev:server
+npm run dev:client
+```
 
-**Use GitHub Codespaces**
+Build and preview the client with:
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+```bash
+npm run build
+npm run preview
+```
 
-## What technologies are used for this project?
+The manifest also provides `npm run build:dev`, `npm run lint`, and `npm run test:gemini`. The Gemini test makes an external API request and is not required for local UI development.
 
-This project is built with:
+## Configuration
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+- `VITE_GEMINI_API_KEY` — enables Gemini-backed depth analysis in browser code
 
-## How can I deploy this project?
+**Security warning:** the current repository contains committed Google-key-pattern material in a tracked `.env` and in multiple source and test files. No credential from this snapshot should be trusted. Provider-side revocation and rotation are mandatory; deleting or documenting the committed strings does not revoke them. Removing the material from reachable Git history is a separate cleanup task and cannot invalidate copies already retained in forks or caches. Never commit replacement API-key values.
 
-Simply open [Lovable](https://lovable.dev/projects/feca55d3-721f-43d3-9018-e57d7e3808b0) and click on Share -> Publish.
+## Project structure
 
-## Can I connect a custom domain to my Lovable project?
+- `src/pages/` — project, script, analysis, schedule, call-sheet, report, and budget screens
+- `src/services/` — screenplay, scheduling, budgeting, costing, and Gemini services
+- `src/components/` — application layout and reusable UI components
+- `src/hooks/` — selected-project state and UI hooks
+- `server/server.cjs` — local Express upload and analysis endpoint
+- `server/pdfscript.cjs` — screenplay PDF analyzer
+- `server/uploads/` and `server/analysis_outputs/` — tracked sample inputs and generated examples
 
-Yes, you can!
+## Status and limitations
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+This is a prototype, not a validated production budgeting or scheduling system. Most project data and generated outputs are kept in browser `localStorage`; the upload service writes files locally and listens on a fixed development port. A Gemini key configured through the current browser code would be exposed in a deployed client, so AI calls should move behind a secured server endpoint before production use. README-only changes do not remediate the existing credential incident described above. Review uploaded scripts and generated artifacts for rights and sensitive content before sharing them.
