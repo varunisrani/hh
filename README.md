@@ -23,7 +23,7 @@ This repository is a local-first film-production planning prototype for turning 
 
 ## Prerequisites
 
-- Node.js compatible with the locked dependencies
+- Node.js compatible with the package dependencies
 - npm
 - A Gemini API key only for AI-assisted analysis features
 
@@ -32,7 +32,7 @@ This repository is a local-first film-production planning prototype for turning 
 ```bash
 git clone https://github.com/varunisrani/hh.git
 cd hh
-npm ci
+npm install
 npm run dev
 ```
 
@@ -56,7 +56,7 @@ The manifest also provides `npm run build:dev`, `npm run lint`, and `npm run tes
 
 - `VITE_GEMINI_API_KEY` — enables Gemini-backed depth analysis in browser code
 
-Never commit API-key values.
+**Security warning:** the current repository contains committed Google-key-pattern material in a tracked `.env` and in multiple source and test files. No credential from this snapshot should be trusted. Provider-side revocation and rotation are mandatory; deleting or documenting the committed strings does not revoke them. Removing the material from reachable Git history is a separate cleanup task and cannot invalidate copies already retained in forks or caches. Never commit replacement API-key values.
 
 ## Project structure
 
@@ -70,4 +70,4 @@ Never commit API-key values.
 
 ## Status and limitations
 
-This is a prototype, not a validated production budgeting or scheduling system. Most project data and generated outputs are kept in browser `localStorage`; the upload service writes files locally and listens on a fixed development port. The Gemini key is consumed by browser code and would be exposed in a deployed client, so AI calls should move behind a secured server endpoint before production use. Review uploaded scripts and generated artifacts for rights and sensitive content before sharing them.
+This is a prototype, not a validated production budgeting or scheduling system. Most project data and generated outputs are kept in browser `localStorage`; the upload service writes files locally and listens on a fixed development port. A Gemini key configured through the current browser code would be exposed in a deployed client, so AI calls should move behind a secured server endpoint before production use. README-only changes do not remediate the existing credential incident described above. Review uploaded scripts and generated artifacts for rights and sensitive content before sharing them.
